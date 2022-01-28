@@ -17,7 +17,7 @@
 
   <modules>
     <module>domain</module>
-    <module>repository</module>
+    <module>resource</module>
     <module>swagger</module>
     <module>services</module>
     <module>core</module>
