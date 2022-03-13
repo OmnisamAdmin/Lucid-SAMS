@@ -9,9 +9,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@SpringBootApplication(scanBasePackages = {"za.co.sfy.lucid.sams.rest", "za.co.sfy.lucid.sams.swagger"})
-@ComponentScan(basePackages = {"za.co.sfy.lucid.sams.rest", "za.co.sfy.lucid.sams.swagger"})
-@EntityScan(basePackages = {"za.co.sfy.lucid.sams.rest", "za.co.sfy.lucid.sams.swagger"})
+@SpringBootApplication(scanBasePackages = {"za.co.sfy.lucid.sams.resource", "za.co.sfy.lucid.sams.rest", "za.co.sfy.lucid.sams.swagger"})
+@ComponentScan(basePackages = {"za.co.sfy.lucid.sams.resource", "za.co.sfy.lucid.sams.rest", "za.co.sfy.lucid.sams.swagger"})
+@EntityScan(basePackages = {"za.co.sfy.lucid.sams.resource", "za.co.sfy.lucid.sams.rest", "za.co.sfy.lucid.sams.swagger"})
 @PropertySource(value = "classpath:application.properties")
 public class Application {
 

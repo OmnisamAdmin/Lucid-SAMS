@@ -17,7 +17,7 @@
 
   <modules>
     <module>domain</module>
-    <module>repository</module>
+    <module>resource</module>
     <module>swagger</module>
     <module>services</module>
     <module>core</module>
@@ -81,11 +81,11 @@
   <distributionManagement>
     <snapshotRepository>
       <id>nexus</id>
-      <url>http://102.37.122.254:8081//repository/internal</url>
+      <url>http://102.37.122.254:8081/repository/internal</url>
     </snapshotRepository>
     <repository>
       <id>nexus-releases</id>
-      <url>http://102.37.122.254:8081//repository/internal-releases</url>
+      <url>http://102.37.122.254:8081/repository/internal-releases</url>
     </repository>
   </distributionManagement>
 </project>
