@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.sams.GeneralInfo;
+import za.co.sfy.sams.lucid.schema.GeneralInfo;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
