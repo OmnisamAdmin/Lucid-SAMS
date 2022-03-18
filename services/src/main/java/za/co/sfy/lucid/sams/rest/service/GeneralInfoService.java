@@ -8,7 +8,7 @@ import za.co.sfy.lucid.sams.resource.GeneralInfoResource;
 import za.co.sfy.lucid.sams.rest.mapper.GeneralInfoMapper;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoResponse;
-import za.co.sfy.sams.GeneralInfo;
+import za.co.sfy.sams.lucid.schema.GeneralInfo;
 
 @Service
 public class GeneralInfoService {
