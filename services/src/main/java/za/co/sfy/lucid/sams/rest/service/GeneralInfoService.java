@@ -10,6 +10,9 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoResponse;
 import za.co.sfy.sams.lucid.schema.GeneralInfo;
 
+/**
+ * @author muzim
+ */
 @Service
 public class GeneralInfoService {
 
@@ -25,10 +28,12 @@ public class GeneralInfoService {
     public GeneralInfoResponse saveGeneralInfo(GeneralInfoRequest generalInfoRequest) throws LucidSamsExecutionException {
 
         GeneralInfo generalInfo = generalInfoMapper.generalInfoRequestToGeneralInfo(generalInfoRequest);
-        generalInfoResource.save(generalInfo);
+
+        Long generatedKey = generalInfoResource.save(generalInfo, generalInfoResource);
+        generalInfo.setSchoolID(Math.toIntExact(generatedKey));
 
         GeneralInfoResponse generalInfoResponse = new GeneralInfoResponse();
-        //TODO: this request should return the data that has been persisted.
+        generalInfoResponse.setGeneralInfo(generalInfo);
         generalInfoResponse.setResponseMessage("Successfully saved 'General_Info' data.");
         generalInfoResponse.setResponseStatus(ServiceStatus.SUCCESS.value());
 

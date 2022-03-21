@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.rest.service.GeneralInfoService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoResponse;
+import za.co.sfy.lucid.sams.rest.service.LearnerInfoService;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.LearnerInfoRequest;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.LearnerInfoResponse;
 
 import javax.validation.Valid;
 
@@ -21,36 +21,36 @@ import javax.validation.Valid;
  * @author muzim
  */
 @RestController
-@RequestMapping("general-infos")
-public class GeneralInfoController {
+@RequestMapping("learner-infos")
+public class LearnerInfoController {
 
-    private static final Logger logger = LoggerFactory.getLogger(GeneralInfoController.class);
-    private GeneralInfoService generalInfoService;
+    private static final Logger logger = LoggerFactory.getLogger(LearnerInfoController.class);
+    private LearnerInfoService learnerInfoService;
 
     @Autowired
-    public GeneralInfoController(final GeneralInfoService generalInfoService) {
-        this.generalInfoService = generalInfoService;
+    public LearnerInfoController(final LearnerInfoService learnerInfoService) {
+        this.learnerInfoService = learnerInfoService;
     }
 
     @PostMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<GeneralInfoResponse> saveGeneralInfo(@Valid @RequestBody GeneralInfoRequest generalInfoRequest) {
-        GeneralInfoResponse generalInfoResponse = new GeneralInfoResponse();
+    public ResponseEntity<LearnerInfoResponse> saveLearnerInfo(@Valid @RequestBody LearnerInfoRequest learnerInfoRequest) {
+        LearnerInfoResponse learnerInfoResponse = new LearnerInfoResponse();
         try {
-            generalInfoResponse = generalInfoService.saveGeneralInfo(generalInfoRequest);
+            learnerInfoResponse = learnerInfoService.saveLearnerInfo(learnerInfoRequest);
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
-            generalInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());
-            generalInfoResponse.setResponseMessage(executionException.getMessage());
+            learnerInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());
+            learnerInfoResponse.setResponseMessage(executionException.getMessage());
 
             return ResponseEntity
                     .unprocessableEntity()
-                    .body(generalInfoResponse);
+                    .body(learnerInfoResponse);
         }
 
-        return ResponseEntity.ok(generalInfoResponse);
+        return ResponseEntity.ok(learnerInfoResponse);
     }
 
 

@@ -7,6 +7,9 @@ import za.co.sfy.sams.lucid.schema.GeneralInfo;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+/**
+ * @author muzim
+ */
 @Component
 public class GeneralInfoMapper {
 
@@ -123,4 +126,6 @@ public class GeneralInfoMapper {
 
         return generalInfo;
     }
+
+
 }
