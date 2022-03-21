@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.rest.service.GeneralInfoService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoResponse;
+import za.co.sfy.lucid.sams.rest.service.CycleInfoService;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.CycleInfoRequest;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.CycleInfoResponse;
 
 import javax.validation.Valid;
 
@@ -21,36 +21,36 @@ import javax.validation.Valid;
  * @author muzim
  */
 @RestController
-@RequestMapping("general-infos")
-public class GeneralInfoController {
+@RequestMapping("cycle-infos")
+public class CycleInfoController {
 
-    private static final Logger logger = LoggerFactory.getLogger(GeneralInfoController.class);
-    private GeneralInfoService generalInfoService;
+    private static final Logger logger = LoggerFactory.getLogger(CycleInfoController.class);
+    private CycleInfoService cycleInfoService;
 
     @Autowired
-    public GeneralInfoController(final GeneralInfoService generalInfoService) {
-        this.generalInfoService = generalInfoService;
+    public CycleInfoController(final CycleInfoService cycleInfoService) {
+        this.cycleInfoService = cycleInfoService;
     }
 
     @PostMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<GeneralInfoResponse> saveGeneralInfo(@Valid @RequestBody GeneralInfoRequest generalInfoRequest) {
-        GeneralInfoResponse generalInfoResponse = new GeneralInfoResponse();
+    public ResponseEntity<CycleInfoResponse> saveCycleInfo(@Valid @RequestBody CycleInfoRequest cycleInfoRequest) {
+        CycleInfoResponse cycleInfoResponse = new CycleInfoResponse();
         try {
-            generalInfoResponse = generalInfoService.saveGeneralInfo(generalInfoRequest);
+            cycleInfoResponse = cycleInfoService.saveCycleInfo(cycleInfoRequest);
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
-            generalInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());
-            generalInfoResponse.setResponseMessage(executionException.getMessage());
+            cycleInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());
+            cycleInfoResponse.setResponseMessage(executionException.getMessage());
 
             return ResponseEntity
                     .unprocessableEntity()
-                    .body(generalInfoResponse);
+                    .body(cycleInfoResponse);
         }
 
-        return ResponseEntity.ok(generalInfoResponse);
+        return ResponseEntity.ok(cycleInfoResponse);
     }
 
 
