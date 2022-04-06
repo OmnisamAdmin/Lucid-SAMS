@@ -257,8 +257,56 @@ public class SchoolController {
 
 ### 4. Level-3
 
-[//]: # (TODO: Document how the developer can achieve a level-3 restful API maturity.)
-_// Still to be documented._
+HATEOAS (Hypermedia as the Engine of Application State) is a constraint of the REST application architecture. HATEOAS
+keeps the REST style architecture unique from most other network application architectures.
+
+The term “hypermedia” refers to any content that contains links to other forms of media such as images, movies, and
+text.
+
+REST architectural style lets us use the hypermedia links in the API response contents. It allows the client to
+dynamically navigate to the appropriate resources by traversing the hypermedia links.
+
+Navigating hypermedia links is conceptually the same as browsing through web pages by clicking the relevant hyperlinks
+to achieve a final goal.
+
+For example, the given below JSON response may be from an API like:
+
+`HTTP GET` - http://api.domain.com/management/departments/10
+
+Response:
+
+```json
+{
+  "departmentId": 10,
+  "departmentName": "Administration",
+  "locationId": 1700,
+  "managerId": 200,
+  "links": [
+    {
+      "href": "10/employees",
+      "rel": "employees",
+      "type": "GET"
+    }
+  ]
+}
+```
+
+In the preceding example, the response returned by the server contains hypermedia links to employee resources
+`10/employees` which can be traversed by the client to read employees belonging to the department.
+
+The advantage of the above approach is that hypermedia links returned from the server drive the application’s state and
+not the other way around.
+
+JSON does not have any universally accepted format for representing links between two resources. We may choose to send
+in the response body or decide to send links in HTTP response headers.
+
+HATEOAS allows the server to make URI changes as the API evolves without breaking the clients.
+
+Each REST framework provides its way of creating the HATEOAS links using framework capabilities. For example,
+in [Spring Boot HATEOAS tutorial](https://howtodoinjava.com/spring5/hateoas/spring-hateoas-tutorial/), links are part of
+resource model classes that are transferred as the resource state to the client.
+
+### *NB! - The developer contributing to this module will NOT be expected to achieve this level (Level-3) of the maturity model. However, the developer may make use of Level-3.
 
 ## Technology Stack
 
