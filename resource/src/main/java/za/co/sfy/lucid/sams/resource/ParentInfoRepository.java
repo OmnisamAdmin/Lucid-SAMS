@@ -20,7 +20,7 @@ public class ParentInfoRepository extends AbstractLucidSAMSResource implements I
     }
 
     @Override
-    public PreparedStatement retrievePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
 
         ParentInfo parentInfo = (ParentInfo) object;
         String sql = "INSERT INTO " + TABLE_NAME + "(parentID, initials, fName, sName, title, employer, occupation," +
@@ -92,6 +92,11 @@ public class ParentInfoRepository extends AbstractLucidSAMSResource implements I
         preparedStatement.setString(52, parentInfo.getReligion());
 
         return preparedStatement;
+    }
+
+    @Override
+    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+        return null;
     }
 
     @Override

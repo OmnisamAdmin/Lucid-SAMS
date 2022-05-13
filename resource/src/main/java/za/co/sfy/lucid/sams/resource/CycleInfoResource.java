@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * @author muzim
  */
 @Component
-public class CycleInfoResource  extends AbstractLucidSAMSResource implements ILucidSAMSResource {
+public class CycleInfoResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "Cycleinfo";
 
@@ -21,8 +21,8 @@ public class CycleInfoResource  extends AbstractLucidSAMSResource implements ILu
     }
 
     @Override
-    public PreparedStatement retrievePreparedStatement(Connection connection, Object object) throws SQLException {
-       CycleInfo CycleInfo = (za.co.sfy.sams.lucid.schema.CycleInfo) object;
+    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
+        CycleInfo CycleInfo = (za.co.sfy.sams.lucid.schema.CycleInfo) object;
         String sql = "INSERT INTO " + TABLE_NAME + "(Schoolname, FETDays, Rooms, FETPeriods, LowestGrade, HighestGrade," +
                 " FETlength, LSEN, Remedial, FETTotal, GETDays, GETPeriods, GETLength, GETTotal, LSENSchool, SNESpec, " +
                 "SNESpecOther, SchoolType, MultiGrade, SID, SIDLowestYear, SIDHighestYear) " +
@@ -52,6 +52,11 @@ public class CycleInfoResource  extends AbstractLucidSAMSResource implements ILu
         preparedStatement.setInt(22, CycleInfo.getSIDLowestYear());
 
         return preparedStatement;
+    }
+
+    @Override
+    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+        return null;
     }
 
     @Override

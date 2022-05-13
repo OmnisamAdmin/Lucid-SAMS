@@ -23,7 +23,7 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
     }
 
     @Override
-    public PreparedStatement retrievePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
         GeneralInfo generalInfo = (GeneralInfo) object;
         String sql = "INSERT INTO " + TABLE_NAME + "(SchoolName, ProvincialDep, District, Region, Circuit, Address1," +
                 " Address2, Address3, AddressCode, PostAddress1, PostAddress2, PostAddress3, PostCode, TelCode1, Telephone1," +
@@ -146,6 +146,11 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
         //preparedStatement.setString(99, "");                         - EmailAlt
 
         return preparedStatement;
+    }
+
+    @Override
+    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+        return null;
     }
 
     @Override
