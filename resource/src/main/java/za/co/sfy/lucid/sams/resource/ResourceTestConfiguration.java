@@ -9,5 +9,5 @@ import org.springframework.context.annotation.ComponentScan;
 @EntityScan({"za.co.sfy.lucid.sams.domain"})
 @EnableAutoConfiguration
 @SpringBootConfiguration
-public class RecourceTestConfiguration {
+public class ResourceTestConfiguration {
 }

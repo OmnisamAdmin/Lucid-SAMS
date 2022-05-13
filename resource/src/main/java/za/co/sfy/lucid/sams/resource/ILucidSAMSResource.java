@@ -6,12 +6,14 @@ import java.sql.SQLException;
 
 /**
  * @author muzim
- *
- * Allows for different implementations of setting up a prepared statement
+ * <p>
+ * Allows for different implementations of setting up a prepared statement for saves,updates and retrievals
  */
 public interface ILucidSAMSResource {
 
-    public PreparedStatement retrievePreparedStatement(Connection connection, Object object) throws SQLException;
+    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException;
+
+    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object);
 
     public String getTABLE_NAME();
 }

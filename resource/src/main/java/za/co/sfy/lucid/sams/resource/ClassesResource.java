@@ -21,7 +21,7 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
     }
 
     @Override
-    public PreparedStatement retrievePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
         Classes classes = (Classes) object;
         String sql = "INSERT INTO " + TABLE_NAME + "(Grade,ClassName,EdCode,Room,Type) " +
                 "VALUES(?,?,?,?,?)";
@@ -32,6 +32,11 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
         preparedStatement.setString(4, classes.getRoom());
         preparedStatement.setInt(5, classes.getType());
         return preparedStatement;
+    }
+
+    @Override
+    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+        return null;
     }
 
     @Override
