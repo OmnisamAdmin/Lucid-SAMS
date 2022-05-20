@@ -37,9 +37,12 @@ public class LearnerInfoController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<LearnerInfoResponse> saveLearnerInfo(@Valid @RequestBody LearnerInfoRequest learnerInfoRequest) {
+
         LearnerInfoResponse learnerInfoResponse = new LearnerInfoResponse();
+
         try {
             learnerInfoResponse = learnerInfoService.saveLearnerInfo(learnerInfoRequest);
+
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
             learnerInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());

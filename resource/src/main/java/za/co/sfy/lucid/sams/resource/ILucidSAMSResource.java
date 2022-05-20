@@ -15,5 +15,7 @@ public interface ILucidSAMSResource {
 
     public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object);
 
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws SQLException;
+
     public String getTABLE_NAME();
 }

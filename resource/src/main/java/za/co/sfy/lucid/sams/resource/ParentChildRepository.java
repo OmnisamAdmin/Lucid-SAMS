@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.resource;
 
+import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.ParentChild;
 
@@ -7,6 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * @author muzim
+ */
+@Component
 public class ParentChildRepository extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "Parent_Child";
@@ -19,6 +24,7 @@ public class ParentChildRepository extends AbstractLucidSAMSResource implements 
     public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
 
         ParentChild parentChild = (ParentChild) object;
+
         String sql = "INSERT INTO " + TABLE_NAME + " (parentId,childId, learnerid, accPayer, status, resides, familyCode," +
                 "pastelCustomerAccountDescription, pastelCustomerCategoryCode, pastelContact, sgbReg,relation) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -42,6 +48,11 @@ public class ParentChildRepository extends AbstractLucidSAMSResource implements 
 
     @Override
     public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+        return null;
+    }
+
+    @Override
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) {
         return null;
     }
 

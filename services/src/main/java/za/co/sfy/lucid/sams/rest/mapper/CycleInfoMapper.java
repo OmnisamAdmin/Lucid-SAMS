@@ -10,10 +10,8 @@ import za.co.sfy.sams.lucid.schema.CycleInfo;
 @Component
 public class CycleInfoMapper {
 
-    public CycleInfoMapper() {
-    }
-
     public CycleInfo cycleInfoRequestToCycleInfo(CycleInfoRequest cycleInfoRequest) {
+
         CycleInfo cycleInfo = new CycleInfo();
 
         cycleInfo.setFETDays(cycleInfoRequest.getFetDays());

@@ -38,9 +38,12 @@ public class ParentChildController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<ParentChildResponse> saveParentChild(@Valid @RequestBody ParentChildRequest parentChildRequest) {
+
         ParentChildResponse parentChildResponse = new ParentChildResponse();
+
         try {
             parentChildResponse = parentChildService.saveParentChild(parentChildRequest);
+
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
             parentChildResponse.setResponseStatus(ServiceStatus.ERROR.value());

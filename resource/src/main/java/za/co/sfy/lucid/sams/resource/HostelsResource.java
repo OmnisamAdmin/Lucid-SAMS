@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.sams.lucid.schema.Classes;
+import za.co.sfy.sams.lucid.schema.Hostels;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,28 +12,26 @@ import java.sql.SQLException;
  * @author muzim
  */
 @Component
-public class ClassesResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
+public class HostelsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
-    private final String TABLE_NAME = "Classes";
+    private final String TABLE_NAME = "Hostels";
 
-    public ClassesResource(DatabaseConnectionManager databaseConnectionManager) {
+    public HostelsResource(DatabaseConnectionManager databaseConnectionManager) {
         super(databaseConnectionManager);
     }
 
     @Override
     public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
 
-        Classes classes = (Classes) object;
+        Hostels hostels = (Hostels) object;
 
-        String sql = "INSERT INTO " + TABLE_NAME + "(Grade,ClassName,EdCode,Room,Type) " +
-                "VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO " + TABLE_NAME + "(Name,ContactPerson,address,Tel) VALUES(?,?,?,?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, classes.getGrade());
-        preparedStatement.setString(2, classes.getClassName());
-        preparedStatement.setString(3, classes.getEdCode());
-        preparedStatement.setString(4, classes.getRoom());
-        preparedStatement.setInt(5, classes.getType());
+        preparedStatement.setString(1, hostels.getName());
+        preparedStatement.setString(2, hostels.getContactPerson());
+        preparedStatement.setString(3, hostels.getAddress());
+        preparedStatement.setString(4, hostels.getTel());
 
         return preparedStatement;
     }
@@ -44,7 +42,7 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) {
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws SQLException {
         return null;
     }
 
@@ -52,5 +50,4 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
     public String getTABLE_NAME() {
         return TABLE_NAME;
     }
-
 }

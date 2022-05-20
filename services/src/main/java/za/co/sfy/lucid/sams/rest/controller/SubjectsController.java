@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.controller;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.rest.service.GeneralInfoService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoResponse;
+import za.co.sfy.lucid.sams.rest.service.SubjectsService;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectsRequest;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectsResponse;
 
 import javax.validation.Valid;
 
@@ -21,40 +22,37 @@ import javax.validation.Valid;
  * @author muzim
  */
 @RestController
-@RequestMapping("general-infos")
-public class GeneralInfoController {
+@RequestMapping("subjects")
+public class SubjectsController {
 
-    private static final Logger logger = LoggerFactory.getLogger(GeneralInfoController.class);
-    private GeneralInfoService generalInfoService;
+    private static final Logger logger = LoggerFactory.getLogger(SubjectsController.class);
+    private SubjectsService subjectsService;
 
     @Autowired
-    public GeneralInfoController(final GeneralInfoService generalInfoService) {
-        this.generalInfoService = generalInfoService;
+    public SubjectsController(final SubjectsService subjectsService) {
+        this.subjectsService = subjectsService;
     }
 
     @PostMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<GeneralInfoResponse> saveGeneralInfo(@Valid @RequestBody GeneralInfoRequest generalInfoRequest) {
+    public ResponseEntity<SubjectsResponse> saveParentInfo(@Valid @RequestBody SubjectsRequest subjectsRequest) {
 
-        GeneralInfoResponse generalInfoResponse = new GeneralInfoResponse();
-
+        SubjectsResponse subjectsResponse = new SubjectsResponse();
         try {
-            generalInfoResponse = generalInfoService.saveGeneralInfo(generalInfoRequest);
+            subjectsResponse = subjectsService.updateSubjects(subjectsRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
-            generalInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());
-            generalInfoResponse.setResponseMessage(executionException.getMessage());
+            subjectsResponse.setResponseStatus(ServiceStatus.ERROR.value());
+            subjectsResponse.setResponseMessage(executionException.getMessage());
 
             return ResponseEntity
                     .unprocessableEntity()
-                    .body(generalInfoResponse);
+                    .body(subjectsResponse);
         }
 
-        return ResponseEntity.ok(generalInfoResponse);
+        return ResponseEntity.ok(subjectsResponse);
     }
-
-
 }

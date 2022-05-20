@@ -26,7 +26,9 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
 
     @Override
     public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
+
         LearnerInfo learnerInfo = (LearnerInfo) object;
+
         String sql = "INSERT INTO " + TABLE_NAME + "(LearnerID, AccessionNo, TheDate, SName, " +
                 "FName, NickName, BirthDate, IDNo, Gender, HomeLanguage, InstructionLanguage" +
                 ", PreferredLanguage, Address1, Address2, Address3, AddressCode, Guardian, " +
@@ -55,6 +57,7 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, learnerInfo.getLearnerID());
         preparedStatement.setString(2, learnerInfo.getAccessionNo());
@@ -211,6 +214,11 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
 
     @Override
     public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+        return null;
+    }
+
+    @Override
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) {
         return null;
     }
 

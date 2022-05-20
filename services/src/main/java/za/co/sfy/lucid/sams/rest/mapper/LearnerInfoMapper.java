@@ -20,7 +20,9 @@ public class LearnerInfoMapper {
     }
 
     public LearnerInfo learnerInfoRequestToLearnerInfo(LearnerInfoRequest learnerInfoRequest) throws LucidSamsExecutionException {
+
         LearnerInfo learnerInfo = new LearnerInfo();
+
         learnerInfo.setID(learnerInfoRequest.getId());
         learnerInfo.setLearnerID(learnerInfoRequest.getLearnerID());
         learnerInfo.setAccessionNo(learnerInfoRequest.getAccessionNo());
@@ -166,6 +168,7 @@ public class LearnerInfoMapper {
         learnerInfo.setICEName(learnerInfoRequest.getIceName());
         learnerInfo.setICESurname(learnerInfoRequest.getIceSurname());
         learnerInfo.setICERelation(learnerInfoRequest.getIceRelation());
+
         return learnerInfo;
     }
 

@@ -10,17 +10,17 @@ import za.co.sfy.sams.lucid.schema.Classes;
 @Component
 public class ClassesMapper {
 
-    public ClassesMapper() {
-    }
-
     public Classes classesRequestToClasses(ClassesRequest classesRequest) {
+
         Classes classes = new Classes();
+
         classes.setClassId(classesRequest.getClassId());
         classes.setClassName(classesRequest.getClassName());
         classes.setEdCode(classesRequest.getEdCode());
         classes.setGrade(classesRequest.getGrade());
         classes.setRoom(classesRequest.getRoom());
         classes.setType(classesRequest.getType());
+
         return classes;
     }
 

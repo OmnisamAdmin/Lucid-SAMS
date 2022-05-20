@@ -20,8 +20,8 @@ public class GeneralInfoMapper {
     }
 
     public GeneralInfo generalInfoRequestToGeneralInfo(GeneralInfoRequest generalInfoRequest) throws LucidSamsExecutionException {
-        GeneralInfo generalInfo = new GeneralInfo();
 
+        GeneralInfo generalInfo = new GeneralInfo();
         //TODO: Please add null checks to the not required fields so that we do not get null pointers when trying to map them.
         generalInfo.setSchoolID(Integer.parseInt(generalInfoRequest.getSchoolID()));
         generalInfo.setSchoolName(generalInfoRequest.getSchoolName());

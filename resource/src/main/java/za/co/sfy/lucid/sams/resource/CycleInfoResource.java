@@ -22,11 +22,14 @@ public class CycleInfoResource extends AbstractLucidSAMSResource implements ILuc
 
     @Override
     public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
-        CycleInfo CycleInfo = (za.co.sfy.sams.lucid.schema.CycleInfo) object;
+
+        CycleInfo CycleInfo = (CycleInfo) object;
+
         String sql = "INSERT INTO " + TABLE_NAME + "(Schoolname, FETDays, Rooms, FETPeriods, LowestGrade, HighestGrade," +
                 " FETlength, LSEN, Remedial, FETTotal, GETDays, GETPeriods, GETLength, GETTotal, LSENSchool, SNESpec, " +
                 "SNESpecOther, SchoolType, MultiGrade, SID, SIDLowestYear, SIDHighestYear) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, CycleInfo.getSchoolname());
         preparedStatement.setInt(2, CycleInfo.getFETDays());
@@ -56,6 +59,11 @@ public class CycleInfoResource extends AbstractLucidSAMSResource implements ILuc
 
     @Override
     public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+        return null;
+    }
+
+    @Override
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) {
         return null;
     }
 

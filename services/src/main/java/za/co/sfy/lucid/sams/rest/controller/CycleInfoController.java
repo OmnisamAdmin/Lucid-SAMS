@@ -37,9 +37,12 @@ public class CycleInfoController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<CycleInfoResponse> saveCycleInfo(@Valid @RequestBody CycleInfoRequest cycleInfoRequest) {
+
         CycleInfoResponse cycleInfoResponse = new CycleInfoResponse();
+
         try {
             cycleInfoResponse = cycleInfoService.saveCycleInfo(cycleInfoRequest);
+
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
             cycleInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());

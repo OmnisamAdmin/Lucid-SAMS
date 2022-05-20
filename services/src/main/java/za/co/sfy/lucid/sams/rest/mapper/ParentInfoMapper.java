@@ -1,11 +1,16 @@
 package za.co.sfy.lucid.sams.rest.mapper;
 
+import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.ParentInfoRequest;
 import za.co.sfy.sams.lucid.schema.ParentInfo;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+/**
+ * @author muzim
+ */
+@Component
 public class ParentInfoMapper {
 
     private final SharedMapper sharedMapper;

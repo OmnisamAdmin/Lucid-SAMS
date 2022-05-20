@@ -37,9 +37,12 @@ public class ClassesController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<ClassesResponse> saveClasses(@Valid @RequestBody ClassesRequest classesRequest) {
+
         ClassesResponse classesResponse = new ClassesResponse();
+
         try {
             classesResponse = classesService.saveClasses(classesRequest);
+
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
             classesResponse.setResponseStatus(ServiceStatus.ERROR.value());

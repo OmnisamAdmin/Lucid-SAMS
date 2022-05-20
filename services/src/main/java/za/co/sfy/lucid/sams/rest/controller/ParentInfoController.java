@@ -38,9 +38,12 @@ public class ParentInfoController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<ParentInfoResponse> saveParentInfo(@Valid @RequestBody ParentInfoRequest parentInfoRequest) {
+
         ParentInfoResponse parentInfoResponse = new ParentInfoResponse();
+
         try {
             parentInfoResponse = parentInfoService.saveParentInfo(parentInfoRequest);
+
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
             parentInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());

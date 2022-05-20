@@ -24,7 +24,9 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
 
     @Override
     public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
+
         GeneralInfo generalInfo = (GeneralInfo) object;
+
         String sql = "INSERT INTO " + TABLE_NAME + "(SchoolName, ProvincialDep, District, Region, Circuit, Address1," +
                 " Address2, Address3, AddressCode, PostAddress1, PostAddress2, PostAddress3, PostCode, TelCode1, Telephone1," +
                 " TelCode2, Telephone2, Telcode3, Telephone3, FaxCode, Fax, TSchool, TAdd1, TAdd2, TAdd3, TCode, ttelcode1," +
@@ -38,6 +40,7 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
                 " Telcode4, Telephone4, AdminComputers, PostAddress0, PostAddress0No, TEmisCode, UseMarksSecurity, PSNP," +
                 " TSIncludesANA, LastDBCompact, IQMS_LastExpDate, IQMS_LastImpDate, ExamBoard, ExamBoardOther) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, generalInfo.getSchoolName());
         preparedStatement.setString(2, generalInfo.getProvincialDep());
@@ -150,6 +153,11 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
 
     @Override
     public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+        return null;
+    }
+
+    @Override
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) {
         return null;
     }
 

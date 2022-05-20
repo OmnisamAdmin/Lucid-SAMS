@@ -76,6 +76,36 @@ public abstract class AbstractLucidSAMSResource {
         }
     }
 
+    /**
+     * Updates Lucid-SAMS POJOs that return a generated id e.g. {@link za.co.sfy.sams.lucid.schema.Subjects}
+     *
+     * @param object
+     * @param iLucidSamsResource
+     * @return
+     * @throws LucidSamsExecutionException
+     */
+    public Long update(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
+
+        Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
+        String tableName = iLucidSamsResource.getTABLE_NAME();
+        try {
+            PreparedStatement preparedStatement = iLucidSamsResource.retrieveUpdatePreparedStatement(databaseConnection, object);
+            int result = preparedStatement.executeUpdate();
+            if (result == 0) {
+                throw new SQLException("'" + tableName + "' update failed, no rows were affected");
+            }
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (!generatedKeys.next()) {
+                throw new SQLException("'" + tableName + "' update failed, no ID obtained.");
+            }
+            return generatedKeys.getLong(1);
+        } catch (SQLException e) {
+            throw new LucidSamsExecutionException("Unable to perform update to the '" + tableName + "' table. " + e.getMessage(), e);
+        } finally {
+            databaseConnectionManager.closeDatabaseConnection(databaseConnection);
+        }
+    }
+
     public ResultSet retrieve(Object object, ILucidSAMSResource iLucidSAMSResource) throws LucidSamsExecutionException {
 
         Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
@@ -96,6 +126,10 @@ public abstract class AbstractLucidSAMSResource {
         } finally {
             databaseConnectionManager.closeDatabaseConnection(databaseConnection);
         }
+    }
+
+    public DatabaseConnectionManager getDatabaseConnectionManager() {
+        return databaseConnectionManager;
     }
 
 }
