@@ -1,11 +1,13 @@
 package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
+import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.ExtraMuralsTypes;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -18,6 +20,17 @@ public class ExtraMuralsTypesResource extends AbstractLucidSAMSResource implemen
 
     public ExtraMuralsTypesResource(DatabaseConnectionManager databaseConnectionManager) {
         super(databaseConnectionManager);
+    }
+
+    public ResultSet retrieveExtraMuralsTypesByID(Integer exTypeID) throws LucidSamsExecutionException, SQLException {
+
+        String sql = "SELECT DISTINCT ExTypeID FROM " + TABLE_NAME + " WHERE ExTypeID = ?";
+        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, exTypeID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        return resultSet;
     }
 
     @Override

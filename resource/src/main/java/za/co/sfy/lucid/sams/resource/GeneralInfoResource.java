@@ -1,12 +1,14 @@
 package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
+import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
 import za.co.sfy.lucid.sams.resource.util.DateConverter;
 import za.co.sfy.sams.lucid.schema.GeneralInfo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -20,6 +22,17 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
 
     public GeneralInfoResource(DatabaseConnectionManager databaseConnectionManager) {
         super(databaseConnectionManager);
+    }
+
+    public ResultSet retrieveGeneralInfoBySchoolName(String schoolName) throws LucidSamsExecutionException, SQLException {
+
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE SchoolName = ? ";
+        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, schoolName);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        return resultSet;
     }
 
     @Override

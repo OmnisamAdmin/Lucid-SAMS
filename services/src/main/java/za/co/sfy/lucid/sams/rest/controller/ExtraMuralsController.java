@@ -16,6 +16,7 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsResponse;
 
 import javax.validation.Valid;
+import java.sql.SQLException;
 
 /**
  * @author muzim
@@ -43,7 +44,7 @@ public class ExtraMuralsController {
         try {
             extraMuralsService.saveExtraMurals(extraMuralsRequest);
 
-        } catch (LucidSamsExecutionException exception) {
+        } catch (LucidSamsExecutionException | SQLException exception) {
             logger.error("Failure occured: " + exception.getMessage(), exception);
             extraMuralsResponse.setResponseMessage(exception.getMessage());
             extraMuralsResponse.setResponseStatus(ServiceStatus.ERROR.value());

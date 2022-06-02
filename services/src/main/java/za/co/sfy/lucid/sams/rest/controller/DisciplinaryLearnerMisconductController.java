@@ -37,7 +37,8 @@ public class DisciplinaryLearnerMisconductController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<DisciplinaryLearnerMisconductResponse> saveDisciplinaryLearnerMisconduct(@Valid @RequestBody DisciplinaryLearnerMisconductRequest disciplinaryLearnerMisconductRequest) {
+    public ResponseEntity<DisciplinaryLearnerMisconductResponse> saveDisciplinaryLearnerMisconduct
+            (@Valid @RequestBody DisciplinaryLearnerMisconductRequest disciplinaryLearnerMisconductRequest) {
 
         DisciplinaryLearnerMisconductResponse disciplinaryLearnerMisconductResponse = new DisciplinaryLearnerMisconductResponse();
 
