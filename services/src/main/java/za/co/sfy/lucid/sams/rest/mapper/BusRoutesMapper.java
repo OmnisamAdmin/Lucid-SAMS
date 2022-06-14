@@ -10,19 +10,18 @@ import za.co.sfy.sams.lucid.schema.BusRoutes;
 @Component
 public class BusRoutesMapper {
 
-    public BusRoutes busRoutesRequestToBusRoutes(BusRoutesRequest busRoutesRequest) {
+	public BusRoutes busRoutesRequestToBusRoutes(BusRoutesRequest busRoutesRequest) {
 
-        BusRoutes busRoutes = new BusRoutes();
+		BusRoutes busRoutes = new BusRoutes();
 
-        busRoutes.setBusName(busRoutesRequest.getBusName());
-        busRoutes.setBusRouteId(busRoutesRequest.getBusRouteId());
-        busRoutes.setDepartureTime(busRoutesRequest.getDepartureTime());
-        busRoutes.setResponsible(busRoutesRequest.getResponsible());
-        busRoutes.setRoute(busRoutesRequest.getRoute());
-        busRoutes.setRouteDescription(busRoutesRequest.getRouteDescription());
+		busRoutes.setBusName(busRoutesRequest.getBusName());
+		busRoutes.setBusRouteId(busRoutesRequest.getBusRouteId());
+		busRoutes.setDepartureTime(busRoutesRequest.getDepartureTime());
+		busRoutes.setResponsible(busRoutesRequest.getResponsible());
+		busRoutes.setRoute(busRoutesRequest.getRoute());
+		busRoutes.setRouteDescription(busRoutesRequest.getRouteDescription());
 
-        return busRoutes;
-    }
-
+		return busRoutes;
+	}
 
 }

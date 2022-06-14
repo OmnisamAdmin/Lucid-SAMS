@@ -1,8 +1,10 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
 
-public class ExtraMuralsTeamsRequest {
+public class ExtraMuralsTeamsRequest implements Serializable {
 
     private static final long serialVersionUID = -6351286877318847419L;
 
