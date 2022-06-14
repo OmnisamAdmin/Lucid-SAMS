@@ -16,7 +16,6 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.ClassesRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.ClassesResponse;
 
 import javax.validation.Valid;
-import java.sql.SQLException;
 
 /**
  * @author muzim
@@ -44,7 +43,7 @@ public class ClassesController {
         try {
             classesResponse = classesService.saveClasses(classesRequest);
 
-        } catch (LucidSamsExecutionException | SQLException executionException) {
+        } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
             classesResponse.setResponseStatus(ServiceStatus.ERROR.value());
             classesResponse.setResponseMessage(executionException.getMessage());

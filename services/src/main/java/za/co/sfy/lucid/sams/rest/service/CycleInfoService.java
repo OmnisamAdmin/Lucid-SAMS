@@ -32,15 +32,19 @@ public class CycleInfoService {
         this.generalInfoResource = generalInfoResource;
     }
 
-    public CycleInfoResponse saveCycleInfo(CycleInfoRequest cycleInfoRequest) throws LucidSamsExecutionException, SQLException {
+    public CycleInfoResponse saveCycleInfo(CycleInfoRequest cycleInfoRequest) throws LucidSamsExecutionException {
 
         CycleInfo cycleInfo = cycleInfoMapper.cycleInfoRequestToCycleInfo(cycleInfoRequest);
 
         String schoolName = cycleInfo.getSchoolname();
 
         ResultSet retrievedGeneralInfo = generalInfoResource.retrieveGeneralInfoBySchoolName(schoolName);
-        if (!retrievedGeneralInfo.next()) {
-            throw new LucidSamsExecutionException("The given 'SchoolName' - " + schoolName + " does not exist in the system");
+        try {
+            if (!retrievedGeneralInfo.next()) {
+                throw new LucidSamsExecutionException("The given 'SchoolName' - " + schoolName + " does not exist in the system");
+            }
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
         cycleInfoResource.saveObjectWithoutGeneratedKey(cycleInfo, cycleInfoResource);

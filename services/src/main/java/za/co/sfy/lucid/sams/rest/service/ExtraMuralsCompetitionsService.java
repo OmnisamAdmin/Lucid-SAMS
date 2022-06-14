@@ -31,7 +31,8 @@ public class ExtraMuralsCompetitionsService {
     }
 
 
-    public ExtraMuralsCompetitionsResponse saveExtraMuralsCompetitions(ExtraMuralsCompetitionsRequest extraMuralsCompetitionsRequest) throws LucidSamsExecutionException, SQLException {
+    public ExtraMuralsCompetitionsResponse saveExtraMuralsCompetitions(ExtraMuralsCompetitionsRequest extraMuralsCompetitionsRequest)
+            throws LucidSamsExecutionException {
 
         ExtraMuralsCompetitions extraMuralsCompetitions = extraMuralsCompetitionsMapper
                 .extraMuralsCompetitionsRequestToExtraMuralsCompetitions(extraMuralsCompetitionsRequest);
@@ -39,8 +40,12 @@ public class ExtraMuralsCompetitionsService {
         Integer exID = extraMuralsCompetitions.getExID();
 
         ResultSet retrievedExtraMurals = extraMuralsResource.retrieveExtraMuralsByID(exID);
-        if (!retrievedExtraMurals.next()) {
-            throw new LucidSamsExecutionException("The given 'ExID' - " + exID + " does not exist in the system");
+        try {
+            if (!retrievedExtraMurals.next()) {
+                throw new LucidSamsExecutionException("The given 'ExID' - " + exID + " does not exist in the system");
+            }
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
         Long generatedKey = extraMuralsCompetitionsResource.save(extraMuralsCompetitions, extraMuralsCompetitionsResource);

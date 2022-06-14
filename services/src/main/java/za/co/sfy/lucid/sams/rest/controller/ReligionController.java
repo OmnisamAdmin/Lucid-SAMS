@@ -40,7 +40,7 @@ public class ReligionController {
             religionResponse = religionService.saveReligion(religionRequest);
 
         } catch (LucidSamsExecutionException exception) {
-            logger.error("Failure occurred: " + exception.getMessage());
+            logger.error("Failure occurred: " + exception.getMessage(), exception);
             religionResponse.setResponseMessage(exception.getMessage());
             religionResponse.setResponseStatus(ServiceStatus.ERROR.value());
 

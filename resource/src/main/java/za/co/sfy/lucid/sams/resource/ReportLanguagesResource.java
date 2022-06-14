@@ -1,66 +1,41 @@
 package za.co.sfy.lucid.sams.resource;
 
-import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.sams.lucid.schema.Classes;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author muzim
- */
-@Component
-public class ClassesResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
+public class ReportLanguagesResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
-    private final String TABLE_NAME = "Classes";
+    private final String TABLE_NAME = "ReportLanguages";
 
-    public ClassesResource(DatabaseConnectionManager databaseConnectionManager) {
+    public ReportLanguagesResource(DatabaseConnectionManager databaseConnectionManager) {
         super(databaseConnectionManager);
     }
 
-    public ResultSet retrieveClassesByID(Long classesID) throws LucidSamsExecutionException {
+    public ResultSet retrieveReportLanguagesByID(Long id) throws LucidSamsExecutionException {
 
-        String sql = "SELECT + FROM " + TABLE_NAME + " ClassId = ?";
+        String sql = "SELECT + FROM " + TABLE_NAME + " id = ?";
         Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, Math.toIntExact(classesID));
+            preparedStatement.setInt(1, Math.toIntExact(id));
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve Classes of id '" + classesID + "' :"
+            throw new LucidSamsExecutionException("Failed to retrieve ReportLanguage of id '" + id + "':"
                     + exception.getMessage());
         }
     }
 
-
     @Override
     public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
-
-        Classes classes = (Classes) object;
-
-        String sql = "INSERT INTO " + TABLE_NAME + "(Grade,ClassName,EdCode,Room,Type) " +
-                "VALUES(?,?,?,?,?)";
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, classes.getGrade());
-            preparedStatement.setString(2, classes.getClassName());
-            preparedStatement.setString(3, classes.getEdCode());
-            preparedStatement.setString(4, classes.getRoom());
-            preparedStatement.setInt(5, classes.getType());
-            return preparedStatement;
-
-        } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: "
-                    + exception.getMessage(), exception);
-        }
+        return null;
     }
 
     @Override
@@ -73,7 +48,7 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve retrieve prepared statement: "
+            throw new LucidSamsExecutionException("Failed to retrieve retrieve prepared statement"
                     + exception.getMessage(), exception);
         }
     }
@@ -87,5 +62,4 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
     public String getTABLE_NAME() {
         return TABLE_NAME;
     }
-
 }

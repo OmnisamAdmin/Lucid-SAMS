@@ -41,7 +41,7 @@ public class FeederSchoolsController {
             feederSchoolResponse = feederSchoolsService.saveFeederSchools(feederSchoolsRequest);
 
         } catch (LucidSamsExecutionException exception) {
-            logger.error("Failure occured: " + exception.getMessage());
+            logger.error("Failure occurred: " + exception.getMessage(),exception);
             feederSchoolResponse.setResponseMessage(exception.getMessage());
             feederSchoolResponse.setResponseStatus(ServiceStatus.ERROR.value());
 

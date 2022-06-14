@@ -30,7 +30,8 @@ public class ExtraMuralsCompEventsService {
         this.extraMuralsCompetitionsResource = extraMuralsCompetitionsResource;
     }
 
-    public ExtraMuralsCompEventsResponse saveExtraMuralsCompEvents(ExtraMuralsCompEventsRequest extraMuralsCompEventsRequest) throws LucidSamsExecutionException, SQLException {
+    public ExtraMuralsCompEventsResponse saveExtraMuralsCompEvents(ExtraMuralsCompEventsRequest extraMuralsCompEventsRequest)
+            throws LucidSamsExecutionException {
 
         ExtraMuralsCompEvents extraMuralsCompEvents = extraMuralsCompEventsMapper
                 .extraMuralsCompEventsRequestToExtraMuralsCompEvents(extraMuralsCompEventsRequest);
@@ -38,8 +39,12 @@ public class ExtraMuralsCompEventsService {
         Integer compID = extraMuralsCompEvents.getCompID();
 
         ResultSet retrievedExtraMuralsCompetitions = extraMuralsCompetitionsResource.retrieveExtraMuralsCompetitionsByID(compID);
-        if (!retrievedExtraMuralsCompetitions.next()) {
-            throw new LucidSamsExecutionException("The given 'compID' - " + compID + " does not exist in the system");
+        try {
+            if (!retrievedExtraMuralsCompetitions.next()) {
+                throw new LucidSamsExecutionException("The given 'compID' - " + compID + " does not exist in the system");
+            }
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
         Long generatedKey = extraMuralsCompEventsResource.save(extraMuralsCompEvents, extraMuralsCompEventsResource);

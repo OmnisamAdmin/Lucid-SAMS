@@ -42,12 +42,13 @@ public class ExtraMuralsTypesController {
         ExtraMuralsTypesResponse extraMuralsTypesResponse = new ExtraMuralsTypesResponse();
 
         try {
-            extraMuralsTypesService.saveExtraMuralsTypes(extraMuralsTypesRequest);
+            extraMuralsTypesResponse = extraMuralsTypesService.saveExtraMuralsTypes(extraMuralsTypesRequest);
 
         } catch (LucidSamsExecutionException exception) {
             logger.error("Failure occured: " + exception.getMessage(), exception);
             extraMuralsTypesResponse.setResponseMessage(exception.getMessage());
             extraMuralsTypesResponse.setResponseStatus(ServiceStatus.ERROR.value());
+
             return ResponseEntity
                     .unprocessableEntity()
                     .body(extraMuralsTypesResponse);

@@ -1,8 +1,9 @@
 package za.co.sfy.lucid.sams.resource;
 
+import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 /**
  * @author muzim
@@ -11,11 +12,11 @@ import java.sql.SQLException;
  */
 public interface ILucidSAMSResource {
 
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException;
+    PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException;
 
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object);
+    PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException;
 
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws SQLException;
+    PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException;
 
-    public String getTABLE_NAME();
+    String getTABLE_NAME();
 }

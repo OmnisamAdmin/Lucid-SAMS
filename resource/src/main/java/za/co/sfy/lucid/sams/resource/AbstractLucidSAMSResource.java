@@ -27,7 +27,7 @@ public abstract class AbstractLucidSAMSResource {
      *
      * @param object
      * @param iLucidSamsResource
-     * @return
+     * @return {@link Long}
      * @throws LucidSamsExecutionException
      */
     public Long save(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {

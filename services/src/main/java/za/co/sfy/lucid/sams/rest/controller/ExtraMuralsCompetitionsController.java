@@ -16,7 +16,6 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsCompetitionsRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsCompetitionsResponse;
 
 import javax.validation.Valid;
-import java.sql.SQLException;
 
 /**
  * @author muzim
@@ -46,10 +45,14 @@ public class ExtraMuralsCompetitionsController {
             extraMuralsCompetitionsResponse = extraMuralsCompetitionsService
                     .saveExtraMuralsCompetitions(extraMuralsCompetitionsRequest);
 
-        } catch (LucidSamsExecutionException | SQLException exception) {
-            logger.error("Failure occurred: " + exception.getMessage());
+        } catch (LucidSamsExecutionException exception) {
+            logger.error("Failure occurred: " + exception.getMessage(), exception);
             extraMuralsCompetitionsResponse.setResponseMessage(exception.getMessage());
             extraMuralsCompetitionsResponse.setResponseStatus(ServiceStatus.ERROR.value());
+
+            return ResponseEntity
+                    .unprocessableEntity()
+                    .body(extraMuralsCompetitionsResponse);
         }
 
         return ResponseEntity.ok(extraMuralsCompetitionsResponse);

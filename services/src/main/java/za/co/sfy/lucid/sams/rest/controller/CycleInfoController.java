@@ -16,7 +16,6 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.CycleInfoRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.CycleInfoResponse;
 
 import javax.validation.Valid;
-import java.sql.SQLException;
 
 /**
  * @author muzim
@@ -44,7 +43,7 @@ public class CycleInfoController {
         try {
             cycleInfoResponse = cycleInfoService.saveCycleInfo(cycleInfoRequest);
 
-        } catch (LucidSamsExecutionException | SQLException executionException) {
+        } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
             cycleInfoResponse.setResponseStatus(ServiceStatus.ERROR.value());
             cycleInfoResponse.setResponseMessage(executionException.getMessage());

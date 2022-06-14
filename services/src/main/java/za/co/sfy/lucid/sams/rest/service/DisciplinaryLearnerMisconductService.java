@@ -28,7 +28,7 @@ public class DisciplinaryLearnerMisconductService {
     }
 
     public DisciplinaryLearnerMisconductResponse saveDisciplinaryLearnerMisconduct
-            (DisciplinaryLearnerMisconductRequest disciplinaryLearnerMisconductRequest) throws LucidSamsExecutionException, SQLException {
+            (DisciplinaryLearnerMisconductRequest disciplinaryLearnerMisconductRequest) throws LucidSamsExecutionException {
 
         DisciplinaryLearnerMisconduct disciplinaryLearnerMisconduct = disciplinaryLearnerMisconductMapper
                 .DisciplinaryLearnerMisconductRequestToDisciplinaryLearnerMisconduct(disciplinaryLearnerMisconductRequest);
@@ -41,11 +41,16 @@ public class DisciplinaryLearnerMisconductService {
         Boolean validLevel = Boolean.FALSE;
 
         ResultSet retrievedLevels = disciplinaryLearnerMisconductResource.retrieveLevels();
-        while (retrievedLevels.next()) {
-            Integer retrievedLevel = retrievedLevels.getInt(1);
-            if (level == retrievedLevel) {
-                validLevel = Boolean.TRUE;
-                break;
+        while (true) {
+            try {
+                if (!retrievedLevels.next()) break;
+                Integer retrievedLevel = retrievedLevels.getInt(1);
+                if (level.equals(retrievedLevel)) {
+                    validLevel = Boolean.TRUE;
+                    break;
+                }
+            } catch (SQLException exception) {
+                exception.printStackTrace();
             }
         }
 
@@ -62,10 +67,15 @@ public class DisciplinaryLearnerMisconductService {
 
         ResultSet retrievedCodes = disciplinaryLearnerMisconductResource.retrieveCodes();
 
-        while (retrievedCodes.next()) {
-            String retrievedCode = retrievedLevels.getString(1);
-            if (retrievedCode.equalsIgnoreCase(code)) {
-                throw new LucidSamsExecutionException("Code '" + code + "' already exists");
+        while (true) {
+            try {
+                if (!retrievedCodes.next()) break;
+                String retrievedCode = retrievedLevels.getString(1);
+                if (retrievedCode.equalsIgnoreCase(code)) {
+                    throw new LucidSamsExecutionException("Code '" + code + "' already exists");
+                }
+            } catch (SQLException exception) {
+                exception.printStackTrace();
             }
         }
 

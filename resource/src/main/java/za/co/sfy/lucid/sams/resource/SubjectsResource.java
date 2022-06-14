@@ -1,6 +1,7 @@
 package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
+import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.Subjects;
 
@@ -21,27 +22,31 @@ public class SubjectsResource extends AbstractLucidSAMSResource implements ILuci
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
 
         String sql = "UPDATE " + TABLE_NAME + " SET Selected = ? , SubjectGrade = ? WHERE Code = ?";
 
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        Subjects subjects = (Subjects) object;
-        preparedStatement.setInt(1, subjects.getSelected());
-        preparedStatement.setInt(2, subjects.getSubjectGrade());
-        preparedStatement.setString(3, subjects.getCode());
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            Subjects subjects = (Subjects) object;
+            preparedStatement.setInt(1, subjects.getSelected());
+            preparedStatement.setInt(2, subjects.getSubjectGrade());
+            preparedStatement.setString(3, subjects.getCode());
+            return preparedStatement;
 
-        return preparedStatement;
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve update prepared statement " + exception.getMessage(), exception);
+        }
     }
 
     @Override

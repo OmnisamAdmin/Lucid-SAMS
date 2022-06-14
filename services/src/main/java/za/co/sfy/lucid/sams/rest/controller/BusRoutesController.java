@@ -44,7 +44,7 @@ public class BusRoutesController {
             busRoutesResponse = busRoutesService.saveBusRoutes(busRoutesRequest);
 
         } catch (LucidSamsExecutionException exception) {
-            logger.warn("Failure occured: " + exception.getMessage(), exception);
+            logger.warn("Failure occurred: " + exception.getMessage(), exception);
             busRoutesResponse.setResponseStatus(ServiceStatus.ERROR.value());
             busRoutesResponse.setResponseMessage(exception.getMessage());
             ResponseEntity.unprocessableEntity().body(busRoutesResponse);

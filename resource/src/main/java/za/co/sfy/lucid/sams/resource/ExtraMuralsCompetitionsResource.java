@@ -22,44 +22,55 @@ public class ExtraMuralsCompetitionsResource extends AbstractLucidSAMSResource i
         super(databaseConnectionManager);
     }
 
-    public ResultSet retrieveExtraMuralsCompetitionsByID(Integer compID) throws LucidSamsExecutionException, SQLException {
+    public ResultSet retrieveExtraMuralsCompetitionsByID(Integer compID) throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT CompID FROM " + TABLE_NAME + " WHERE CompID = ?";
         Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, compID);
-        ResultSet resultSet = preparedStatement.executeQuery();
 
-        return resultSet;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, compID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet;
+
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve ExtraMuralsCompetitions of id '" + compID + "' :"
+                    + exception.getMessage(), exception);
+        }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
 
         ExtraMuralsCompetitions extraMuralsCompetitions = (ExtraMuralsCompetitions) object;
 
         String sql = "INSERT INTO " + TABLE_NAME + "(ExID,CompName,CompAfrName,CompPicture,CompOfficialID,RecSelected,RecLocked)" +
                 " VALUES(?,?,?,?,?,?,?)";
 
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, extraMuralsCompetitions.getExID());
-        preparedStatement.setString(2, extraMuralsCompetitions.getCompName());
-        preparedStatement.setString(3, extraMuralsCompetitions.getCompAfrName());
-        preparedStatement.setBytes(4, extraMuralsCompetitions.getCompPicture());
-        preparedStatement.setInt(5, extraMuralsCompetitions.getCompOfficialID());
-        preparedStatement.setBoolean(6, extraMuralsCompetitions.isRecSelected());
-        preparedStatement.setBoolean(7, extraMuralsCompetitions.isRecLocked());
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, extraMuralsCompetitions.getExID());
+            preparedStatement.setString(2, extraMuralsCompetitions.getCompName());
+            preparedStatement.setString(3, extraMuralsCompetitions.getCompAfrName());
+            preparedStatement.setBytes(4, extraMuralsCompetitions.getCompPicture());
+            preparedStatement.setInt(5, extraMuralsCompetitions.getCompOfficialID());
+            preparedStatement.setBoolean(6, extraMuralsCompetitions.isRecSelected());
+            preparedStatement.setBoolean(7, extraMuralsCompetitions.isRecLocked());
+            return preparedStatement;
 
-        return preparedStatement;
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: "
+                    + exception.getMessage(), exception);
+        }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

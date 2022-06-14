@@ -16,7 +16,6 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsCompEventsRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsCompEventsResponse;
 
 import javax.validation.Valid;
-import java.sql.SQLException;
 
 /**
  * @author muzim
@@ -43,10 +42,10 @@ public class ExtraMuralsCompEventsController {
         ExtraMuralsCompEventsResponse extraMuralsCompEventsResponse = new ExtraMuralsCompEventsResponse();
 
         try {
-            extraMuralsCompEventsService.saveExtraMuralsCompEvents(extraMuralsCompEventsRequest);
+            extraMuralsCompEventsResponse = extraMuralsCompEventsService.saveExtraMuralsCompEvents(extraMuralsCompEventsRequest);
 
-        } catch (LucidSamsExecutionException | SQLException exception) {
-            logger.error("Failure occurred: " + exception.getMessage());
+        } catch (LucidSamsExecutionException exception) {
+            logger.error("Failure occurred: " + exception.getMessage(), exception);
             extraMuralsCompEventsResponse.setResponseMessage(exception.getMessage());
             extraMuralsCompEventsResponse.setResponseStatus(ServiceStatus.ERROR.value());
 

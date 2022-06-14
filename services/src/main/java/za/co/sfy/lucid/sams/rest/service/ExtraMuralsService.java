@@ -29,15 +29,19 @@ public class ExtraMuralsService {
         this.extraMuralsTypesResource = extraMuralsTypesResource;
     }
 
-    public ExtraMuralsResponse saveExtraMurals(ExtraMuralsRequest extraMuralsRequest) throws LucidSamsExecutionException, SQLException {
+    public ExtraMuralsResponse saveExtraMurals(ExtraMuralsRequest extraMuralsRequest) throws LucidSamsExecutionException {
 
         ExtraMurals extraMurals = extraMuralsMapper.extraMuralsRequestToExtraMurals(extraMuralsRequest);
 
         Integer exTypeID = extraMurals.getExTypeID();
 
         ResultSet retrievedExtraMuralsTypes = extraMuralsTypesResource.retrieveExtraMuralsTypesByID(exTypeID);
-        if (!retrievedExtraMuralsTypes.next()) {
-            throw new LucidSamsExecutionException("The given 'ExTypeID' - " + exTypeID + " does not exist in the system");
+        try {
+            if (!retrievedExtraMuralsTypes.next()) {
+                throw new LucidSamsExecutionException("The given 'ExTypeID' - " + exTypeID + " does not exist in the system");
+            }
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
         Long generatedKey = extraMuralsResource.save(extraMurals, extraMuralsResource);

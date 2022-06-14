@@ -40,7 +40,7 @@ public class EventsController {
             eventsResponse = eventsService.saveEvents(eventsRequest);
 
         } catch (LucidSamsExecutionException exception) {
-            logger.error("Failure occurred: " + exception.getMessage());
+            logger.error("Failure occurred: " + exception.getMessage(), exception);
             eventsResponse.setResponseMessage(exception.getMessage());
             eventsResponse.setResponseStatus(ServiceStatus.ERROR.value());
 

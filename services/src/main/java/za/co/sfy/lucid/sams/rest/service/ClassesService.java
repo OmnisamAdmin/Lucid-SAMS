@@ -32,25 +32,38 @@ public class ClassesService {
         this.cycleInfoResource = cycleInfoResource;
     }
 
-    public ClassesResponse saveClasses(ClassesRequest classesRequest) throws LucidSamsExecutionException, SQLException {
+    public ClassesResponse saveClasses(ClassesRequest classesRequest) throws LucidSamsExecutionException {
 
         Classes classes = classesMapper.classesRequestToClasses(classesRequest);
 
         Integer grade = classesRequest.getGrade();
 
         ResultSet retrievedGrades = cycleInfoResource.retrieveGrades();
-        if (!retrievedGrades.next()) {
-            throw new LucidSamsExecutionException("Retrieved grades is empty. Please verify there is 'CycleInfo' data");
+        try {
+            if (!retrievedGrades.next()) {
+                throw new LucidSamsExecutionException("Retrieved grades is empty. Please verify there is 'CycleInfo' data");
+            }
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
-        retrievedGrades.beforeFirst(); //reset index after null check
+        try {
+            retrievedGrades.beforeFirst(); //reset index after null check
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException(exception.getMessage(), exception);
+        }
 
-        while (retrievedGrades.next()) {
-            Integer lowestGrade = retrievedGrades.getInt("LowestGrade");
-            Integer highestGrade = retrievedGrades.getInt("HighestGrade");
-            if (grade < lowestGrade || grade > highestGrade) {
-                throw new LucidSamsExecutionException(grade + " is not within the existing grade" +
-                        " range (" + lowestGrade + "-" + highestGrade + ")");
+        while (true) {
+            try {
+                if (!retrievedGrades.next()) break;
+                Integer lowestGrade = retrievedGrades.getInt("LowestGrade");
+                Integer highestGrade = retrievedGrades.getInt("HighestGrade");
+                if (grade < lowestGrade || grade > highestGrade) {
+                    throw new LucidSamsExecutionException(grade + " is not within the existing grade" +
+                            " range (" + lowestGrade + "-" + highestGrade + ")");
+                }
+            } catch (SQLException exception) {
+                throw new LucidSamsExecutionException(exception.getMessage(), exception);
             }
         }
 

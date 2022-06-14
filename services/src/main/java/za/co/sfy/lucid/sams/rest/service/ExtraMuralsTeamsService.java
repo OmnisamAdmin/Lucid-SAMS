@@ -30,15 +30,19 @@ public class ExtraMuralsTeamsService {
         this.extraMuralsResource = extraMuralsResource;
     }
 
-    public ExtraMuralsTeamsResponse saveExtraMuralsTeams(ExtraMuralsTeamsRequest extraMuralsTeamsRequest) throws LucidSamsExecutionException, SQLException {
+    public ExtraMuralsTeamsResponse saveExtraMuralsTeams(ExtraMuralsTeamsRequest extraMuralsTeamsRequest) throws LucidSamsExecutionException {
 
         ExtraMuralsTeams extraMuralsTeams = extraMuralsTeamsMapper.extraMuralsTeamsRequestToExtraMuralsTeams(extraMuralsTeamsRequest);
 
         Integer exID = extraMuralsTeamsRequest.getExID();
 
         ResultSet retrievedExtraMuralsID = extraMuralsResource.retrieveExtraMuralsByID(exID);
-        if (!retrievedExtraMuralsID.next()) {
-            throw new LucidSamsExecutionException("The given 'ExID' - " + exID + " does not exist in the system");
+        try {
+            if (!retrievedExtraMuralsID.next()) {
+                throw new LucidSamsExecutionException("The given 'ExID' - " + exID + " does not exist in the system");
+            }
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
         Long generatedKey = extraMuralsTeamsResource.save(extraMuralsTeams, extraMuralsTeamsResource);

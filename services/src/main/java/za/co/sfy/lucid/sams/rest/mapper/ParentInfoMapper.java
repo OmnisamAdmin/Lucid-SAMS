@@ -39,7 +39,7 @@ public class ParentInfoMapper {
         parentInfo.setGender(parentInfoRequest.getGender());
         parentInfo.setGovBody(parentInfoRequest.getGovBody());
         parentInfo.setHomelanguage(parentInfoRequest.getHomelanguage());
-//      parentInfo.setID(parentInfoRequest.getId());
+        parentInfo.setID(parentInfoRequest.getId());
         parentInfo.setIDNumber(parentInfoRequest.getIdNumber());
         parentInfo.setInitials(parentInfoRequest.getInitials());
         parentInfo.setMaritalstatus(parentInfoRequest.getMaritalstatus());

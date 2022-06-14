@@ -7,12 +7,6 @@ import za.co.sfy.sams.lucid.schema.ExtraMuralsCompEvents;
 @Component
 public class ExtraMuralsCompEventsMapper {
 
-    private final SharedMapper sharedMapper;
-
-    public ExtraMuralsCompEventsMapper(final SharedMapper sharedMapper) {
-        this.sharedMapper = sharedMapper;
-    }
-
     public ExtraMuralsCompEvents extraMuralsCompEventsRequestToExtraMuralsCompEvents
             (ExtraMuralsCompEventsRequest extraMuralsCompEventsRequest) {
 

@@ -16,7 +16,6 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsTeamsRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsTeamsResponse;
 
 import javax.validation.Valid;
-import java.sql.SQLException;
 
 /**
  * @author muzim
@@ -45,7 +44,7 @@ public class ExtraMuralsTeamsController {
         try {
             extraMuralsTeamsResponse = extraMuralsTeamsService.saveExtraMuralsTeams(extraMuralsTeamsRequest);
 
-        } catch (LucidSamsExecutionException | SQLException exception) {
+        } catch (LucidSamsExecutionException exception) {
             logger.error("Failure occurred: " + exception.getMessage(), exception);
             extraMuralsTeamsResponse.setResponseMessage(exception.getMessage());
             extraMuralsTeamsResponse.setResponseStatus(ServiceStatus.ERROR.value());

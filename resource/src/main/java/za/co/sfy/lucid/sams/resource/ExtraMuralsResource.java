@@ -22,36 +22,46 @@ public class ExtraMuralsResource extends AbstractLucidSAMSResource implements IL
         super(databaseConnectionManager);
     }
 
-    public ResultSet retrieveExtraMuralsByID(Integer exID) throws LucidSamsExecutionException, SQLException {
+    public ResultSet retrieveExtraMuralsByID(Integer exID) throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT ExID FROM " + TABLE_NAME + " WHERE ExID = ?";
         Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, exID);
-        ResultSet resultSet = preparedStatement.executeQuery();
 
-        return resultSet;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, exID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet;
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve extraMurals by id '" + exID + "' : "
+                    + exception.getMessage(), exception);
+        }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
 
         ExtraMurals extraMurals = (ExtraMurals) object;
 
         String sql = "INSERT INTO " + TABLE_NAME + "(ExTypeID, ExName, ExAfrName, ExPicKey, ExPicture, ExOfficialID," +
                 " RecSelected, RecLocked) VALUES(?,?,?,?,?,?,?,?)";
 
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, extraMurals.getExTypeID());
-        preparedStatement.setString(2, extraMurals.getExName());
-        preparedStatement.setString(3, extraMurals.getExAfrName());
-        preparedStatement.setString(4, extraMurals.getExPicKey());
-        preparedStatement.setBytes(5, extraMurals.getExPicture());
-        preparedStatement.setInt(6, extraMurals.getExOfficialID());
-        preparedStatement.setBoolean(7, extraMurals.isRecSelected());
-        preparedStatement.setBoolean(8, extraMurals.isRecLocked());
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, extraMurals.getExTypeID());
+            preparedStatement.setString(2, extraMurals.getExName());
+            preparedStatement.setString(3, extraMurals.getExAfrName());
+            preparedStatement.setString(4, extraMurals.getExPicKey());
+            preparedStatement.setBytes(5, extraMurals.getExPicture());
+            preparedStatement.setInt(6, extraMurals.getExOfficialID());
+            preparedStatement.setBoolean(7, extraMurals.isRecSelected());
+            preparedStatement.setBoolean(8, extraMurals.isRecLocked());
+            return preparedStatement;
 
-        return preparedStatement;
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: "
+                    + exception.getMessage(), exception);
+        }
     }
 
     @Override
@@ -60,7 +70,7 @@ public class ExtraMuralsResource extends AbstractLucidSAMSResource implements IL
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws SQLException {
+    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
