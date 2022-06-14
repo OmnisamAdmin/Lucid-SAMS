@@ -81,7 +81,7 @@ public abstract class AbstractLucidSAMSResource {
      *
      * @param object
      * @param iLucidSamsResource
-     * @return
+     * @return {@link Long} id of updated object
      * @throws LucidSamsExecutionException
      */
     public Long update(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
