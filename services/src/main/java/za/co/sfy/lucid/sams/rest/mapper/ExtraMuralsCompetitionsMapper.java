@@ -7,20 +7,53 @@ import za.co.sfy.sams.lucid.schema.ExtraMuralsCompetitions;
 @Component
 public class ExtraMuralsCompetitionsMapper {
 
-    public ExtraMuralsCompetitions extraMuralsCompetitionsRequestToExtraMuralsCompetitions(ExtraMuralsCompetitionsRequest extraMuralsCompetitionsRequest) {
+	public ExtraMuralsCompetitions extraMuralsCompetitionsRequestToExtraMuralsCompetitions(
+			ExtraMuralsCompetitionsRequest extraMuralsCompetitionsRequest) {
 
-        ExtraMuralsCompetitions extraMuralsCompetitions = new ExtraMuralsCompetitions();
+		ExtraMuralsCompetitions extraMuralsCompetitions = new ExtraMuralsCompetitions();
 
-        extraMuralsCompetitions.setCompAfrName(extraMuralsCompetitionsRequest.getCompAfrName());
-        extraMuralsCompetitions.setCompID(extraMuralsCompetitionsRequest.getCompID());
-        extraMuralsCompetitions.setCompName(extraMuralsCompetitionsRequest.getCompName());
-        extraMuralsCompetitions.setCompOfficialID(extraMuralsCompetitionsRequest.getCompOfficialID());
-        extraMuralsCompetitions.setCompPicture(extraMuralsCompetitionsRequest.getCompPicture());
-        extraMuralsCompetitions.setExID(extraMuralsCompetitionsRequest.getExID());
-        extraMuralsCompetitions.setRecLocked(extraMuralsCompetitionsRequest.isRecLocked());
-        extraMuralsCompetitions.setRecSelected(extraMuralsCompetitionsRequest.isRecSelected());
+		String compAfrName = extraMuralsCompetitionsRequest.getCompAfrName();
+		if (null != compAfrName) {
+			extraMuralsCompetitions.setCompAfrName(extraMuralsCompetitionsRequest.getCompAfrName());
+		}
 
-        return extraMuralsCompetitions;
+		// TODO This is problem
+		Integer compID = extraMuralsCompetitionsRequest.getCompID();
+		if (null != compID) {
+			extraMuralsCompetitions.setCompID(Integer.valueOf(compID));
+		} else {
+			extraMuralsCompetitions.setCompID(Integer.valueOf(0));
 
-    }
+		}
+
+		String compName = extraMuralsCompetitionsRequest.getCompName();
+		if (null != compName) {
+			extraMuralsCompetitions.setCompName(extraMuralsCompetitionsRequest.getCompName());
+		}
+
+		Integer compOfficialID = extraMuralsCompetitionsRequest.getCompOfficialID();
+		if (null != compOfficialID) {
+			extraMuralsCompetitions.setCompOfficialID(Integer.valueOf(compOfficialID));
+		} else {
+			extraMuralsCompetitions.setCompOfficialID(Integer.valueOf(0));
+		}
+
+		byte[] compPicture = extraMuralsCompetitionsRequest.getCompPicture();
+		if (null != compPicture) {
+			extraMuralsCompetitions.setCompPicture(extraMuralsCompetitionsRequest.getCompPicture());
+		}
+
+		Integer exID = extraMuralsCompetitionsRequest.getExID();
+		if (null != exID) {
+			extraMuralsCompetitions.setExID(Integer.valueOf(exID));
+		} else {
+			extraMuralsCompetitions.setExID(Integer.valueOf(0));
+		}
+
+		extraMuralsCompetitions.setRecLocked(extraMuralsCompetitionsRequest.isRecLocked());
+		extraMuralsCompetitions.setRecSelected(extraMuralsCompetitionsRequest.isRecSelected());
+
+		return extraMuralsCompetitions;
+
+	}
 }

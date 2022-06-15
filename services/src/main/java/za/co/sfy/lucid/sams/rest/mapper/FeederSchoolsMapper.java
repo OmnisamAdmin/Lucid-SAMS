@@ -7,16 +7,38 @@ import za.co.sfy.sams.lucid.schema.FeederSchools;
 @Component
 public class FeederSchoolsMapper {
 
-    public FeederSchools feederSchoolsRequestToFeederSchools(FeederSchoolsRequest feederSchoolsRequest){
+	public FeederSchools feederSchoolsRequestToFeederSchools(FeederSchoolsRequest feederSchoolsRequest) {
 
-        FeederSchools feederSchools = new FeederSchools();
+		FeederSchools feederSchools = new FeederSchools();
 
-        feederSchools.setAddress(feederSchoolsRequest.getAddress());
-        feederSchools.setId(feederSchoolsRequest.getId());
-        feederSchools.setName(feederSchoolsRequest.getName());
-        feederSchools.setPrincipal(feederSchoolsRequest.getPrincipal());
-        feederSchools.setTel(feederSchoolsRequest.getTel());
+		String address = feederSchoolsRequest.getAddress();
+		if (null != address) {
+			feederSchools.setAddress(feederSchoolsRequest.getAddress());
 
-        return feederSchools;
-    }
+		}
+		// TODO This is problem
+		Integer id = feederSchoolsRequest.getId();
+		if (null != id) {
+			feederSchools.setId(Integer.valueOf(id));
+		} else {
+			feederSchools.setId(Integer.valueOf(0));
+		}
+
+		String name = feederSchoolsRequest.getName();
+		if (null != name) {
+			feederSchools.setName(feederSchoolsRequest.getName());
+		}
+
+		String principal = feederSchoolsRequest.getPrincipal();
+		if (null != principal) {
+			feederSchools.setPrincipal(feederSchoolsRequest.getPrincipal());
+		}
+
+		String tel = feederSchoolsRequest.getTel();
+		if (null != tel) {
+			feederSchools.setTel(feederSchoolsRequest.getTel());
+		}
+
+		return feederSchools;
+	}
 }

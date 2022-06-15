@@ -11,24 +11,47 @@ import za.co.sfy.sams.lucid.schema.Classes;
 @Component
 public class ClassesMapper {
 
-    public Classes classesRequestToClasses(ClassesRequest classesRequest) throws LucidSamsExecutionException {
+	public Classes classesRequestToClasses(ClassesRequest classesRequest) throws LucidSamsExecutionException {
 
-        Classes classes = new Classes();
+		Classes classes = new Classes();
 
-        classes.setClassId(classesRequest.getClassId());
-        classes.setClassName(classesRequest.getClassName());
-        classes.setEdCode(classesRequest.getEdCode());
-        classes.setGrade(classesRequest.getGrade());
-        classes.setRoom(classesRequest.getRoom());
+		// TODO This is problem
+		Integer classId = classesRequest.getClassId();
+		if (null != classId) {
+			classes.setClassId(Integer.valueOf(classId));
+		} else {
+			classes.setClassId(Integer.valueOf(0));
+		}
 
-        Integer type = classesRequest.getType();
-        if (type > 2 || type < 1) {
-            throw new LucidSamsExecutionException("The given type value '" + type + "' is invalid. " +
-                    "The field 'Type' can either be 1(State Class) or 2(SGB CLass)");
-        }
-        classes.setType(type);
+		String className = classesRequest.getClassName();
+		if (null != className) {
+			classes.setClassName(classesRequest.getClassName());
+		}
 
-        return classes;
-    }
+		String edCode = classesRequest.getEdCode();
+		if (null != edCode) {
+			classes.setEdCode(classesRequest.getEdCode());
+		}
+		Integer grade = classesRequest.getGrade();
+		if (null != grade) {
+			classes.setGrade(Integer.valueOf(grade));
+		} else {
+			classes.setGrade(Integer.valueOf(0));
+
+		}
+		String room = classesRequest.getRoom();
+		if (null != room) {
+			classes.setRoom(classesRequest.getRoom());
+		}
+
+		Integer type = classesRequest.getType();
+		if (type > 2 || type < 1) {
+			throw new LucidSamsExecutionException("The given type value '" + type + "' is invalid. "
+					+ "The field 'Type' can either be 1(State Class) or 2(SGB CLass)");
+		}
+		classes.setType(type);
+
+		return classes;
+	}
 
 }
