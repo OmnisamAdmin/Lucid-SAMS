@@ -17,12 +17,34 @@ public class StaffCalendarTermsMapper {
     public StaffCalendarTerms StaffCalendarTermsRequestToStaffCalendarTerms(StaffCalendarTermsRequest staffCalendarTermsRequest) throws LucidSamsExecutionException {
 
         StaffCalendarTerms staffCalendarTerms = new StaffCalendarTerms();
+        
+        String currentYear = staffCalendarTermsRequest.getCurrentYear();
+        if(null != currentYear) {
         staffCalendarTerms.setCurrentYear(staffCalendarTermsRequest.getCurrentYear());
+        }
+        
         staffCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar(staffCalendarTermsRequest.getEndDate()));
-        staffCalendarTerms.setId(staffCalendarTermsRequest.getId());
+        
+        int id = staffCalendarTermsRequest.getId();
+        if(null != id) {
+        staffCalendarTerms.setId(Integer.valueOf(id));
+        } else {
+        	staffCalendarTermsRequest.setId(Integer.valueOf(0));
+        }
+        
+        String quater = staffCalendarTermsRequest.getQuater();
+        if(null != quater) {
         staffCalendarTerms.setQuater(staffCalendarTermsRequest.getQuater());
+        }
+        
         staffCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar(staffCalendarTermsRequest.getStartDate()));
-        staffCalendarTerms.setTerm(staffCalendarTermsRequest.getTerm());
+        
+        Integer term = staffCalendarTermsRequest.getTerm();
+        if(null != term) {
+        staffCalendarTerms.setTerm(Integer.valueOf(term));
+        } else {
+        	staffCalendarTermsRequest.setTerm(Integer.valueOf(0));
+        }
 
         return staffCalendarTerms;
     }

@@ -14,21 +14,98 @@ public class SubjectsMapper {
 
         Subjects subjects = new Subjects();
 
+        String afrname = subjectsRequest.getAfrname();
+        if(null != afrname) {
         subjects.setAfrname(subjectsRequest.getAfrname());
+        }
+        
+        String code = subjectsRequest.getCode();
+        if(null != code) {
         subjects.setCode(subjectsRequest.getCode());
-        subjects.setCTAWeight(subjectsRequest.getCTAWeight());
-        subjects.setExcludeSchedule(subjectsRequest.getExcludeSchedule());
+        }
+        
+        Integer ctaWeight = subjectsRequest.getCTAWeight();
+        if(null != ctaWeight) {
+        subjects.setCTAWeight(Integer.valueOf(ctaWeight));
+        } else {
+        	subjectsRequest.setCTAWeight(Integer.valueOf(0));
+        }
+        
+        Integer excludeSchedule = subjectsRequest.getExcludeSchedule();
+        if(null != excludeSchedule) {
+        subjects.setExcludeSchedule(Integer.valueOf(excludeSchedule));
+        } else {
+        	subjectsRequest.setExcludeSchedule(Integer.valueOf(0));
+        }
+        
+        String group = subjectsRequest.getGroup();
+        if(null != group) {
         subjects.setGroup(subjectsRequest.getGroup());
-        subjects.setId(subjectsRequest.getId());
+        }
+        
+        int id = subjectsRequest.getId();
+        if(null != id) {
+        subjects.setId(Integer.valueOf(id));
+        } else {
+        	subjectsRequest.setId(Integer.valueOf(0));
+        }
+        
+        String key = subjectsRequest.getKey();
+        if(null != key) {
         subjects.setKey(subjectsRequest.getKey());
+        }
+        
+        String luritsCode = subjectsRequest.getLuritsCode();
+        if(null != luritsCode) {
         subjects.setLuritsCode(subjectsRequest.getLuritsCode());
+        }
+        
+        String name = subjectsRequest.getName();
+        if(null != name) {
         subjects.setName(subjectsRequest.getName());
-        subjects.setOfficialSubjectID(subjectsRequest.getOfficialSubjectID());
-        subjects.setPhase(subjectsRequest.getPhase());
-        subjects.setPrintOrder(subjectsRequest.getPrintOrder());
-        subjects.setSelected(subjectsRequest.getSelected());
-        subjects.setSubjectGrade(subjectsRequest.getSubjectGrade());
-        subjects.setSubjectStatus(subjectsRequest.getSubjectStatus());
+        }
+        
+        Integer officialSubjectID = subjectsRequest.getOfficialSubjectID();
+        if(null != officialSubjectID) {
+        subjects.setOfficialSubjectID(Integer.valueOf(officialSubjectID));
+        } else {
+        	subjectsRequest.setOfficialSubjectID(Integer.valueOf(0));
+        }
+        
+        Integer phase = subjectsRequest.getPhase();
+        if(null != phase) {
+        subjects.setPhase(Integer.valueOf(phase));
+        } else {
+        	subjectsRequest.setPhase(Integer.valueOf(0));
+        }
+        
+        Integer printOrder = subjectsRequest.getPrintOrder();
+        if(null != printOrder) {
+        subjects.setPrintOrder(Integer.valueOf(printOrder));
+        } else {
+        	subjectsRequest.setPrintOrder(Integer.valueOf(printOrder));
+        }
+        
+        Integer selected = subjectsRequest.getSelected();
+        if(null != selected) {
+        subjects.setSelected(Integer.valueOf(selected));
+        } else {
+        	subjectsRequest.setSelected(Integer.valueOf(0));
+        }
+        
+        Integer subjectGrade = subjectsRequest.getSubjectGrade();
+        if(null != subjectGrade) {
+        subjects.setSubjectGrade(Integer.valueOf(subjectGrade));
+        } else {
+        	subjectsRequest.setSubjectGrade(Integer.valueOf(0));
+        }
+        
+        Short subjectStatus = subjectsRequest.getSubjectStatus();
+        if(null != subjectStatus) {
+        subjects.setSubjectStatus(Short.valueOf(subjectGrade));
+        } else {
+        	subjectsRequest.setSubjectStatus(Short.valueOf("0"));
+        }
 
         return subjects;
     }
