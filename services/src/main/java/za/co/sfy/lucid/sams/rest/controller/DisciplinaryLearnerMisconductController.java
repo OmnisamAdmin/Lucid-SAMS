@@ -1,5 +1,7 @@
 package za.co.sfy.lucid.sams.rest.controller;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.DisciplinaryLearnerMisconductService;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.DisciplinaryLearnerMisconductRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.DisciplinaryLearnerMisconductResponse;
-
-import javax.validation.Valid;
-import java.sql.SQLException;
 
 /**
  * @author muzim

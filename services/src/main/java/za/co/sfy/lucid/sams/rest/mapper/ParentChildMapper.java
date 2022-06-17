@@ -15,6 +15,7 @@ public class ParentChildMapper {
         ParentChild parentChild = new ParentChild();
 
         parentChild.setAccPayer(parentChildRequest.isAccPayer());
+        
         parentChild.setChildId(parentChildRequest.getChildId());
         parentChild.setFamilyCode(parentChildRequest.getFamilyCode());
         parentChild.setLearnerid(parentChildRequest.getLearnerid());
