@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -13,21 +14,21 @@ public class LearnerInfoRequest implements Serializable {
     private Integer id;
     @NotNull
     private String learnerID;
-    @NotNull
+    @NotBlank
     private String accessionNo;
-    @NotNull
+    @NotBlank
     private String theDate;
-    @NotNull
+    @NotBlank
     private String sName;
-    @NotNull
+    @NotBlank
     private String fName;
-    @NotNull
+    @NotBlank
     private String nickName;
-    @NotNull
+    @NotBlank
     private String birthDate;
-    @NotNull
+    @NotBlank
     private String idNo;
-    @NotNull
+    @NotBlank
     private String gender;
     @NotNull
     private Integer homeLanguage;
@@ -38,18 +39,18 @@ public class LearnerInfoRequest implements Serializable {
     private String address1;
     private String address2;
     private String address3;
-    @NotNull
+    @NotBlank
     private String addressCode;
-    @NotNull
+    @NotBlank
     private String guardian;
     private String tel1Code;
-    @NotNull
+    @NotBlank
     private String tel1;
     private String tel2Code;
     private String tel2;
-    @NotNull
+    @NotBlank
     private String tel3Code;
-    @NotNull
+    @NotBlank
     private String tel3;
     @NotNull
     private int grade;
@@ -57,7 +58,7 @@ public class LearnerInfoRequest implements Serializable {
     private Integer clazz;
     @NotNull
     private Integer gradeYears;
-    @NotNull
+    @NotBlank
     private String previousSchool;
     private String schoolAddress1;
     private String schoolAddress2;
@@ -71,21 +72,21 @@ public class LearnerInfoRequest implements Serializable {
     private String medicalAidNo;
     private String medicalAidMember;
     private String guidance;
-    @NotNull
+    @NotBlank
     private String initials;
-    @NotNull
+    @NotBlank
     private String citizenship;
     private String provincial;
     private String schoolProvince;
-    @NotNull
+    @NotBlank
     private String previousSchoolProvince;
     @NotNull
     private boolean assignClass;
-    @NotNull
+    @NotBlank
     private String physProvince;
-    @NotNull
+    @NotBlank
     private String race;
-    @NotNull
+    @NotBlank
     private String title;
     @NotNull
     private Integer previousPlacementofSchool;
@@ -97,13 +98,13 @@ public class LearnerInfoRequest implements Serializable {
     private String reason;
     @NotNull
     private Integer lsenStatus;
-    @NotNull
+    @NotBlank
     private String status;
     @NotNull
     private Integer boarder;
-    @NotNull
+    @NotBlank
     private String countryResidence;
-    @NotNull
+    @NotBlank
     private String provinceResidence;
     @NotNull
     private Integer firstProvince;
@@ -134,7 +135,7 @@ public class LearnerInfoRequest implements Serializable {
     private String boarderNumber;
     private String boarderHostel;
     private String thirdName;
-    @NotNull
+    @NotBlank
     private String email;
     private String socialGrantNo;
     @NotNull
@@ -152,7 +153,7 @@ public class LearnerInfoRequest implements Serializable {
     @NotNull
     private Double luritsNumber;
     private String tsSentfileName;
-    @NotNull
+    @NotBlank
     private String tsDateLastUpdate;
     private String tsLastUpdatedBy;
     private String learnerName2;
@@ -227,11 +228,11 @@ public class LearnerInfoRequest implements Serializable {
     private boolean road2Health;
     @NotNull
     private boolean immunizationCard;
-    @NotNull
+    @NotBlank
     private String iceName;
-    @NotNull
+    @NotBlank
     private String iceSurname;
-    @NotNull
+    @NotBlank
     private String iceRelation;
 
     public Integer getId() {

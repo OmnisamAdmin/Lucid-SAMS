@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -10,7 +11,7 @@ public class ExtraMuralsCompetitionsRequest implements Serializable {
     private int compID;
     @NotNull
     private Integer exID;
-    @NotNull
+    @NotBlank
     private String compName;
     private String compAfrName;
     private byte[] compPicture;

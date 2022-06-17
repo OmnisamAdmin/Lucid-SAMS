@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -13,11 +14,11 @@ public class ExtraMuralsCompEventsRequest implements Serializable {
     private Integer compID;
     @NotNull
     private XMLGregorianCalendar eventDate;
-    @NotNull
+    @NotBlank
     private String eventTimeStart;
-    @NotNull
+    @NotBlank
     private String eventTimeEnd;
-    @NotNull
+    @NotBlank
     private String eventDesc;
     private String eventAfrDesc;
 

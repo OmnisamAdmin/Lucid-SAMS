@@ -22,7 +22,7 @@ import javax.validation.Valid;
  * @author muzim
  */
 @RestController
-@RequestMapping("parent-info")
+@RequestMapping("parent-infos")
 public class ParentInfoController {
 
     private static final Logger logger = LoggerFactory.getLogger(ParentInfoController.class);

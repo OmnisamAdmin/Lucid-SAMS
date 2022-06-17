@@ -21,7 +21,7 @@ import javax.validation.Valid;
  * @author muzim
  */
 @RestController
-@RequestMapping("ExtraMuralsCompetitions")
+@RequestMapping("extra-murals-competitions")
 public class ExtraMuralsCompetitionsController {
 
     private static final Logger logger = LoggerFactory.getLogger(ExtraMuralsCompetitionsController.class);

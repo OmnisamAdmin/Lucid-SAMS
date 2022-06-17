@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -8,7 +9,7 @@ public class ExtraMuralsTypesRequest implements Serializable {
     private static final long serialVersionUID = -4006021326140192834L;
 
     private int exTypeID;
-    @NotNull
+    @NotBlank
     private String exTypeName;
     private String exTypeAfrName;
     private String exTypeShortName;

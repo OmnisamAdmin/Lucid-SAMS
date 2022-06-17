@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
@@ -11,7 +12,7 @@ public class ExtraMuralsTeamsRequest implements Serializable {
     private int teamID;
     @NotNull
     private Integer exID;
-    @NotNull
+    @NotBlank
     private String teamName;
     private String teamAfrName;
     @NotNull

@@ -6,10 +6,12 @@ import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
 import za.co.sfy.lucid.sams.resource.util.DateConverter;
 import za.co.sfy.sams.lucid.schema.GeneralInfo;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
 /**
  * @author muzim
@@ -62,6 +64,7 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
             preparedStatement.setString(1, generalInfo.getSchoolName());
             preparedStatement.setString(2, generalInfo.getProvincialDep());
             preparedStatement.setString(3, generalInfo.getDistrict());
@@ -139,8 +142,15 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
             preparedStatement.setInt(75, generalInfo.getTSReasonCode());
             preparedStatement.setInt(76, generalInfo.getLuritsYear());
             preparedStatement.setString(77, generalInfo.getTSSentFileName());
-            java.sql.Date tsDateLastUpdateSqlDate = dateConverter.getSQLDate(generalInfo.getTSDateLastUpdate());
-            preparedStatement.setDate(78, tsDateLastUpdateSqlDate);
+
+            XMLGregorianCalendar tsDateLastUpdate = generalInfo.getTSDateLastUpdate();
+            if (null != tsDateLastUpdate) {
+                java.sql.Date tsDateLastUpdateSqlDate = dateConverter.getSQLDate(tsDateLastUpdate);
+                preparedStatement.setDate(78, tsDateLastUpdateSqlDate);
+            } else {
+                preparedStatement.setNull(78, Types.DATE);
+            }
+
             preparedStatement.setString(79, generalInfo.getTSLastUpdatedBy());
             preparedStatement.setString(80, generalInfo.getOwnerBuildings());
             preparedStatement.setInt(81, generalInfo.getLuritsIndicator());
@@ -153,12 +163,31 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
             preparedStatement.setBoolean(88, generalInfo.isUseMarksSecurity());
             preparedStatement.setShort(89, generalInfo.getPSNP());
             preparedStatement.setShort(90, generalInfo.getTSIncludesANA());
-            java.sql.Date lastDBCompactSQLDate = dateConverter.getSQLDate(generalInfo.getLastDBCompact());
-            preparedStatement.setDate(91, lastDBCompactSQLDate);
-            java.sql.Date sqlIQMSLastExpDate = dateConverter.getSQLDate(generalInfo.getIQMSLastExpDate());
-            preparedStatement.setDate(92, sqlIQMSLastExpDate);
-            java.sql.Date sqlIQMSLastImpDate = dateConverter.getSQLDate(generalInfo.getIQMSLastImpDate());
-            preparedStatement.setDate(93, sqlIQMSLastImpDate);
+
+            XMLGregorianCalendar lastDBCompactString = generalInfo.getLastDBCompact();
+            if (null != lastDBCompactString) {
+                java.sql.Date lastDBCompactSQLDate = dateConverter.getSQLDate(lastDBCompactString);
+                preparedStatement.setDate(91, lastDBCompactSQLDate);
+            } else {
+                preparedStatement.setNull(91, Types.DATE);
+            }
+
+            XMLGregorianCalendar iqmsLastExpDateString = generalInfo.getIQMSLastExpDate();
+            if (null != iqmsLastExpDateString) {
+                java.sql.Date sqlIQMSLastExpDate = dateConverter.getSQLDate(iqmsLastExpDateString);
+                preparedStatement.setDate(92, sqlIQMSLastExpDate);
+            } else {
+                preparedStatement.setNull(92, Types.DATE);
+            }
+
+            XMLGregorianCalendar iqmsLastImpDate = generalInfo.getIQMSLastImpDate();
+            if (null != iqmsLastImpDate) {
+                java.sql.Date sqlIQMSLastImpDate = dateConverter.getSQLDate(iqmsLastImpDate);
+                preparedStatement.setDate(93, sqlIQMSLastImpDate);
+            } else {
+                preparedStatement.setNull(93, Types.DATE);
+            }
+
             preparedStatement.setInt(94, generalInfo.getExamBoard());
             preparedStatement.setString(95, generalInfo.getExamBoardOther());
             //These fields exist in the table but don't seem to be utilised and they also don't exist in the 'general info' schema

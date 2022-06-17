@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -10,7 +11,7 @@ public class ExtraMuralsRequest implements Serializable {
     private int exID;
     @NotNull
     private Integer exTypeID;
-    @NotNull
+    @NotBlank
     private String exName;
     private String exAfrName;
     private String exPicKey;

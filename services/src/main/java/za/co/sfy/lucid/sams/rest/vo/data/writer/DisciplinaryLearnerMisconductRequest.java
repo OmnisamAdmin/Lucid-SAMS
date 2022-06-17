@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -10,15 +11,15 @@ public class DisciplinaryLearnerMisconductRequest implements Serializable {
     private Integer id;
     @NotNull
     private Integer level;
-    @NotNull
+    @NotBlank
     private String code;
-    @NotNull
+    @NotBlank
     private String description;
-    @NotNull
+    @NotBlank
     private String editStatus;
-    @NotNull
+    @NotBlank
     private String afrDesc;
-    @NotNull
+    @NotBlank
     private String type;
 
     private Integer point;

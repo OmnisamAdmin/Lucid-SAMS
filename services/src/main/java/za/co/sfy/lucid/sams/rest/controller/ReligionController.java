@@ -18,7 +18,7 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.ReligionResponse;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("religion")
+@RequestMapping("religions")
 public class ReligionController {
 
     private ReligionService religionService;

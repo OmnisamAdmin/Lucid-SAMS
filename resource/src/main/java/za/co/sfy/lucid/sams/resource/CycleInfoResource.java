@@ -70,7 +70,7 @@ public class CycleInfoResource extends AbstractLucidSAMSResource implements ILuc
             preparedStatement.setString(19, CycleInfo.getMultiGrade());
             preparedStatement.setString(20, CycleInfo.getSID());
             preparedStatement.setInt(21, CycleInfo.getSIDLowestYear());
-            preparedStatement.setInt(22, CycleInfo.getSIDLowestYear());
+            preparedStatement.setInt(22, CycleInfo.getSIDHighestYear());
             return preparedStatement;
 
         } catch (SQLException exception) {

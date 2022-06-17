@@ -18,7 +18,7 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffCalendarTermsResponse;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("Staff-Calendar-Terms")
+@RequestMapping("staff-calendar-terms")
 public class StaffCalendarTermsController {
 
     private static final Logger logger = LoggerFactory.getLogger(StaffCalendarTermsController.class);

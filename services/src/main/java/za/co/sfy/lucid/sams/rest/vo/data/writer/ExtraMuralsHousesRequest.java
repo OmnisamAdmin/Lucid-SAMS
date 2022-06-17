@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -8,10 +9,10 @@ public class ExtraMuralsHousesRequest implements Serializable {
     private static final long serialVersionUID = 3543995406192192945L;
 
     private int hseID;
-    @NotNull
+    @NotBlank
     private String hseName;
     private String hseAfrName;
-    @NotNull
+    @NotBlank
     private String hseColour;
     private String hseAfrColour;
     private byte[] hsePicture;

@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -14,11 +15,11 @@ public class ClassesRequest implements Serializable {
     private int classId;
     @NotNull
     private Integer grade;
-    @NotNull
+    @NotBlank
     private String className;
-    @NotNull
+    @NotBlank
     private String edCode;
-    @NotNull
+    @NotBlank
     private String room;
     @NotNull
     private Integer type;
