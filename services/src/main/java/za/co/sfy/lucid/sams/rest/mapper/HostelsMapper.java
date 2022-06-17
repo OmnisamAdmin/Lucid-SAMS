@@ -10,16 +10,38 @@ import za.co.sfy.sams.lucid.schema.Hostels;
 @Component
 public class HostelsMapper {
 
-    public Hostels hostelsRequestToHostels(HostelsRequest hostelsRequest) {
+	public Hostels hostelsRequestToHostels(HostelsRequest hostelsRequest) {
 
-        Hostels hostels = new Hostels();
+		Hostels hostels = new Hostels();
 
-        hostels.setAddress(hostelsRequest.getAddress());
-        hostels.setContactPerson(hostelsRequest.getContactPerson());
-        hostels.setID(hostelsRequest.getId());
-        hostels.setName(hostelsRequest.getName());
-        hostels.setTel(hostelsRequest.getTel());
+		String address = hostelsRequest.getAddress();
+		if (null != address) {
+			hostels.setAddress(hostelsRequest.getAddress());
+		}
 
-        return hostels;
-    }
+		String contactPerson = hostelsRequest.getContactPerson();
+		if (null != contactPerson) {
+			hostels.setContactPerson(hostelsRequest.getContactPerson());
+		}
+
+		// TODO This is problem
+		Integer id = hostelsRequest.getId();
+		if (null != id) {
+			hostels.setID(Integer.valueOf(id));
+		} else {
+			hostels.setID(Integer.valueOf(0));
+		}
+
+		String name = hostelsRequest.getName();
+		if (null != name) {
+			hostels.setName(hostelsRequest.getName());
+		}
+
+		String setTel = hostelsRequest.getTel();
+		if (null != setTel) {
+			hostels.setTel(hostelsRequest.getTel());
+		}
+
+		return hostels;
+	}
 }

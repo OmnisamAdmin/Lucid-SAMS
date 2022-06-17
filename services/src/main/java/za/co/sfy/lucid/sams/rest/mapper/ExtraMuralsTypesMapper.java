@@ -10,21 +10,61 @@ import za.co.sfy.sams.lucid.schema.ExtraMuralsTypes;
 @Component
 public class ExtraMuralsTypesMapper {
 
-    public ExtraMuralsTypes extraMuralsTypesRequestToExtraMuralsTypes(ExtraMuralsTypesRequest extraMuralsTypesRequest) {
+	public ExtraMuralsTypes extraMuralsTypesRequestToExtraMuralsTypes(ExtraMuralsTypesRequest extraMuralsTypesRequest) {
 
-        ExtraMuralsTypes extraMuralsTypes = new ExtraMuralsTypes();
+		ExtraMuralsTypes extraMuralsTypes = new ExtraMuralsTypes();
 
-        extraMuralsTypes.setExTypeAfrName(extraMuralsTypesRequest.getExTypeAfrName());
-        extraMuralsTypes.setExTypeID(extraMuralsTypesRequest.getExTypeID());
-        extraMuralsTypes.setExTypeName(extraMuralsTypesRequest.getExTypeName());
-        extraMuralsTypes.setExTypeOfficialID(extraMuralsTypesRequest.getExTypeOfficialID());
-        extraMuralsTypes.setExTypePicKey(extraMuralsTypesRequest.getExTypePicKey());
-        extraMuralsTypes.setExTypePicture(extraMuralsTypesRequest.getExTypePicture());
-        extraMuralsTypes.setExTypeShortAfrName(extraMuralsTypesRequest.getExTypeShortAfrName());
-        extraMuralsTypes.setExTypeShortName(extraMuralsTypesRequest.getExTypeShortName());
-        extraMuralsTypes.setRecLocked(extraMuralsTypesRequest.isRecLocked());
-        extraMuralsTypes.setRecSelected(extraMuralsTypesRequest.isRecSelected());
+		String exTypeAfrName = extraMuralsTypesRequest.getExTypeAfrName();
+		if (null != exTypeAfrName) {
+			extraMuralsTypes.setExTypeAfrName(extraMuralsTypesRequest.getExTypeAfrName());
 
-        return extraMuralsTypes;
-    }
+		}
+
+		// TODO This is problem
+		Integer exTypeID = extraMuralsTypesRequest.getExTypeID();
+		if (null != exTypeID) {
+			extraMuralsTypes.setExTypeID(Integer.valueOf(exTypeID));
+		} else {
+			extraMuralsTypes.setExTypeID(Integer.valueOf(0));
+		}
+
+		String exTypeName = extraMuralsTypesRequest.getExTypeName();
+		if (null != exTypeName) {
+			extraMuralsTypes.setExTypeName(extraMuralsTypesRequest.getExTypeName());
+
+		}
+
+		Integer exTypeOfficialID = extraMuralsTypesRequest.getExTypeOfficialID();
+		if (null != exTypeOfficialID) {
+			extraMuralsTypes.setExTypeOfficialID(Integer.valueOf(exTypeOfficialID));
+		} else {
+			extraMuralsTypes.setExTypeOfficialID(Integer.valueOf(0));
+
+		}
+
+		String exTypePicKey = extraMuralsTypesRequest.getExTypePicKey();
+		if (null != exTypePicKey) {
+			extraMuralsTypes.setExTypePicKey(extraMuralsTypesRequest.getExTypePicKey());
+		}
+
+		byte[] exTypePicture = extraMuralsTypesRequest.getExTypePicture();
+		if (null != exTypePicture) {
+			extraMuralsTypes.setExTypePicture(extraMuralsTypesRequest.getExTypePicture());
+		}
+
+		String exTypeShortAfrName = extraMuralsTypesRequest.getExTypeShortAfrName();
+		if (null != exTypeShortAfrName) {
+			extraMuralsTypes.setExTypeShortAfrName(extraMuralsTypesRequest.getExTypeShortAfrName());
+		}
+
+		String exTypeShortName = extraMuralsTypesRequest.getExTypeShortName();
+		if (null != exTypeShortName) {
+			extraMuralsTypes.setExTypeShortName(extraMuralsTypesRequest.getExTypeShortName());
+		}
+
+		extraMuralsTypes.setRecLocked(extraMuralsTypesRequest.isRecLocked());
+		extraMuralsTypes.setRecSelected(extraMuralsTypesRequest.isRecSelected());
+
+		return extraMuralsTypes;
+	}
 }
