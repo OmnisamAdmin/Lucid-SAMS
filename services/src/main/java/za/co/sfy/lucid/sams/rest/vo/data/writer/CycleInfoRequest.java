@@ -43,7 +43,7 @@ public class CycleInfoRequest implements Serializable {
     private boolean lsenSchool;
     @NotNull
     private Integer sneSpec;
-    @NotBlank
+
     private String sneSpecOther;
     @NotNull
     private Short schoolType;

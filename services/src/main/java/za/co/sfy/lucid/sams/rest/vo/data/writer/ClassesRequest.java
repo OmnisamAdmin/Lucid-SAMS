@@ -19,7 +19,6 @@ public class ClassesRequest implements Serializable {
     private String className;
     @NotBlank
     private String edCode;
-    @NotBlank
     private String room;
     @NotNull
     private Integer type;

@@ -42,7 +42,7 @@ public class SchoolTermsResource extends AbstractLucidSAMSResource implements IL
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement" + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: " + exception.getMessage(), exception);
         }
     }
 

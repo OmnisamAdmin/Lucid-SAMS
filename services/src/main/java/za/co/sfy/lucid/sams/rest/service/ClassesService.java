@@ -47,12 +47,6 @@ public class ClassesService {
             throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
-        try {
-            retrievedGrades.beforeFirst(); //reset index after null check
-        } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
-        }
-
         while (true) {
             try {
                 if (!retrievedGrades.next()) break;

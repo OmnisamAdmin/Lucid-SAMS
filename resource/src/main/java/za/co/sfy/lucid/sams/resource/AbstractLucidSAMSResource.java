@@ -77,14 +77,14 @@ public abstract class AbstractLucidSAMSResource {
     }
 
     /**
-     * Updates Lucid-SAMS POJOs that return a generated id e.g. {@link za.co.sfy.sams.lucid.schema.Subjects}
+     * Updates Lucid-SAMS POJOs that returns a generated id e.g. {@link za.co.sfy.sams.lucid.schema.Subjects}
      *
      * @param object
      * @param iLucidSamsResource
      * @return {@link Long} id of updated object
      * @throws LucidSamsExecutionException
      */
-    public Long update(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
+    public Integer update(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
 
         Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
@@ -94,11 +94,7 @@ public abstract class AbstractLucidSAMSResource {
             if (result == 0) {
                 throw new SQLException("'" + tableName + "' update failed, no rows were affected");
             }
-            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-            if (!generatedKeys.next()) {
-                throw new SQLException("'" + tableName + "' update failed, no ID obtained.");
-            }
-            return generatedKeys.getLong(1);
+            return result;
         } catch (SQLException e) {
             throw new LucidSamsExecutionException("Unable to perform update to the '" + tableName + "' table. " + e.getMessage(), e);
         } finally {
