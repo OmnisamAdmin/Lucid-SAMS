@@ -1,31 +1,36 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+
 
 public class GeneralInfoRequest implements Serializable {
 
     private static final long serialVersionUID = -5550554900493974563L;
 
-    //TODO:
-    // make sure to add an annotation like below for all the required fields.
-    //@NotBlank(message = "School name is required")
-    //private String schoolName;
-    // NB: I have changed all values to string because they were coming through as null on request entry.
-
-
     private String schoolID;
+    @NotNull
     private String schoolName;
+    @NotNull
     private String provincialDep;
+    @NotNull
     private String district;
     private String region;
     private String circuit;
+    @NotNull
     private String address1;
+    @NotNull
     private String address2;
+    @NotNull
     private String address3;
     private String addressCode;
+    @NotNull
     private String postAddress1;
     private String postAddress2;
+    @NotNull
     private String postAddress3;
+    @NotNull
+    private String postCode;
     private String telCode1;
     private String telephone1;
     private String telCode2;
@@ -45,16 +50,21 @@ public class GeneralInfoRequest implements Serializable {
     private String tFax;
     private String tPrincipal;
     private String contactPerson;
+    @NotNull
     private String emisCode;
     private String eMail;
     private String predominantLanguage;
     private String persalPayPoint;
+    @NotNull
     private String persalComponent;
     private String internetAccess;
+    @NotNull
     private String ownership;
+    @NotNull
     private String landOwnership;
     private String platoon;
     private String hostSchool;
+    @NotNull
     private String doubleShifts;
     private String examAuthority;
     private String examCentre;
@@ -65,6 +75,7 @@ public class GeneralInfoRequest implements Serializable {
     private String feeMonths;
     private String multigrade;
     private String remedial;
+    @NotNull
     private String sgbStatus;
     private boolean maintainProperty;
     private boolean extraMural;
@@ -81,7 +92,9 @@ public class GeneralInfoRequest implements Serializable {
     private String nearestTown;
     private String distanceTown;
     private String districtCode;
+    @NotNull
     private String postalAddressType;
+    @NotNull
     private String schoolLevel;
     private String tsSchoolStatus;
     private String tsTransactionCategory;
@@ -92,15 +105,20 @@ public class GeneralInfoRequest implements Serializable {
     private String tsSentFileName;
     private String tsLastUpdatedBy;
     private String tsDateLastUpdate;
+    @NotNull
     private String ownerBuildings;
     private String luritsIndicator;
     private String telcode4;
     private String telephone4;
+    @NotNull
     private String adminComputers;
+    @NotNull
     private String postAddress0;
+    @NotNull
     private String postAddress0No;
     private String tEmisCode;
     private boolean useMarksSecurity;
+    @NotNull
     private String psnp;
     private String tsIncludesANA;
     private String lastDBCompact;
@@ -215,6 +233,14 @@ public class GeneralInfoRequest implements Serializable {
 
     public void setPostAddress3(String postAddress3) {
         this.postAddress3 = postAddress3;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 
     public String getTelCode1() {

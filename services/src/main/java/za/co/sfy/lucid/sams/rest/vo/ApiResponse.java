@@ -1,8 +1,12 @@
 package za.co.sfy.lucid.sams.rest.vo;
 
-public class ApiResponse {
+import java.io.Serializable;
 
-    private String responseMessage;
+public class ApiResponse implements Serializable {
+
+    private static final long serialVersionUID = 2407892594804320603L;
+    
+	private String responseMessage;
     private String responseStatus;
 
     public String getResponseMessage() {
