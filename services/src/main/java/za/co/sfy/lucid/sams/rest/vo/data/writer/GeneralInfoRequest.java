@@ -1,6 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 
@@ -9,27 +9,27 @@ public class GeneralInfoRequest implements Serializable {
     private static final long serialVersionUID = -5550554900493974563L;
 
     private String schoolID;
-    @NotBlank
+    @NotNull
     private String schoolName;
-    @NotBlank
+    @NotNull
     private String provincialDep;
-    @NotBlank
+    @NotNull
     private String district;
     private String region;
     private String circuit;
-    @NotBlank
+    @NotNull
     private String address1;
-    @NotBlank
+    @NotNull
     private String address2;
-    @NotBlank
+    @NotNull
     private String address3;
     private String addressCode;
-    @NotBlank
+    @NotNull
     private String postAddress1;
     private String postAddress2;
-    @NotBlank
+    @NotNull
     private String postAddress3;
-    @NotBlank
+    @NotNull
     private String postCode;
     private String telCode1;
     private String telephone1;
@@ -50,21 +50,21 @@ public class GeneralInfoRequest implements Serializable {
     private String tFax;
     private String tPrincipal;
     private String contactPerson;
-    @NotBlank
+    @NotNull
     private String emisCode;
     private String eMail;
     private String predominantLanguage;
     private String persalPayPoint;
-    @NotBlank
+    @NotNull
     private String persalComponent;
     private String internetAccess;
-    @NotBlank
+    @NotNull
     private String ownership;
-    @NotBlank
+    @NotNull
     private String landOwnership;
     private String platoon;
     private String hostSchool;
-    @NotBlank
+    @NotNull
     private String doubleShifts;
     private String examAuthority;
     private String examCentre;
@@ -75,7 +75,7 @@ public class GeneralInfoRequest implements Serializable {
     private String feeMonths;
     private String multigrade;
     private String remedial;
-    @NotBlank
+    @NotNull
     private String sgbStatus;
     private boolean maintainProperty;
     private boolean extraMural;
@@ -92,11 +92,12 @@ public class GeneralInfoRequest implements Serializable {
     private String nearestTown;
     private String distanceTown;
     private String districtCode;
-    @NotBlank
+    @NotNull
     private String postalAddressType;
-    @NotBlank
+    @NotNull
     private String schoolLevel;
     private String tsSchoolStatus;
+    // TODO: these two fields might be whats breaking it
     private String tsTransactionCategory;
     private String tsStatusFlag;
     private String tsReportStatusFlag;
@@ -105,19 +106,20 @@ public class GeneralInfoRequest implements Serializable {
     private String tsSentFileName;
     private String tsLastUpdatedBy;
     private String tsDateLastUpdate;
+    @NotNull
     private String ownerBuildings;
     private String luritsIndicator;
     private String telcode4;
     private String telephone4;
-    @NotBlank
+    @NotNull
     private String adminComputers;
-    @NotBlank
+    @NotNull
     private String postAddress0;
-    @NotBlank
+    @NotNull
     private String postAddress0No;
     private String tEmisCode;
     private boolean useMarksSecurity;
-    @NotBlank
+    @NotNull
     private String psnp;
     private String tsIncludesANA;
     private String lastDBCompact;

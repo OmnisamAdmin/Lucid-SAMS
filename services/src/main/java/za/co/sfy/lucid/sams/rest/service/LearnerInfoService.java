@@ -33,7 +33,7 @@ public class LearnerInfoService {
     @Autowired
     public LearnerInfoService(final LearnerInfoResource learnerInfoResource, final LearnerInfoMapper learnerInfoMapper,
                               final CycleInfoResource cycleInfoResource, final ClassesResource classesResource,
-                              ReportLanguagesResource reportLanguagesResource, final InstructionLanguagesResource instructionLanguagesResource) {
+                              final ReportLanguagesResource reportLanguagesResource, final InstructionLanguagesResource instructionLanguagesResource) {
         this.learnerInfoResource = learnerInfoResource;
         this.learnerInfoMapper = learnerInfoMapper;
         this.cycleInfoResource = cycleInfoResource;

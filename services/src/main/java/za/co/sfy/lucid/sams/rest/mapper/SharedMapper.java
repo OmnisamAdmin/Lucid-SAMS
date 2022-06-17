@@ -30,4 +30,18 @@ public class SharedMapper {
         }
         return xmlGregorianCalendar;
     }
+
+    public XMLGregorianCalendar dateToXMLGregorianCalendar() throws LucidSamsExecutionException {
+
+        XMLGregorianCalendar xmlGregorianCalendar = null;
+        try {
+            GregorianCalendar gregorianCalendar = new GregorianCalendar();
+            gregorianCalendar.setTime(new Date());
+            xmlGregorianCalendar = DatatypeFactory.newInstance()
+                    .newXMLGregorianCalendar(gregorianCalendar);
+        } catch (DatatypeConfigurationException e) {
+            throw new LucidSamsExecutionException("Unable to convert date: ", e);
+        }
+        return xmlGregorianCalendar;
+    }
 }

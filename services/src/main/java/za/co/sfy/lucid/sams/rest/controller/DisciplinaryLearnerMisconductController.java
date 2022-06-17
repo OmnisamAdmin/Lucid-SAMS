@@ -45,7 +45,7 @@ public class DisciplinaryLearnerMisconductController {
         try {
             disciplinaryLearnerMisconductResponse = disciplinaryLearnerMisconductService.saveDisciplinaryLearnerMisconduct(disciplinaryLearnerMisconductRequest);
 
-        } catch (LucidSamsExecutionException | SQLException exception) {
+        } catch (LucidSamsExecutionException exception) {
             logger.error("Failure occurred: " + exception.getMessage(), exception);
             disciplinaryLearnerMisconductResponse.setResponseStatus(ServiceStatus.ERROR.value());
             disciplinaryLearnerMisconductResponse.setResponseMessage(exception.getMessage());

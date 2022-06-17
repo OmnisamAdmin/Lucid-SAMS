@@ -1,6 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -11,53 +11,53 @@ public class LearnerInfoRequest implements Serializable {
     private static final long serialVersionUID = -1102915228465220301L;
 
     private int id;
-    @NotBlank
+    @NotNull
     private String learnerID;
-    @NotBlank
+    @NotNull
     private String accessionNo;
-    @NotBlank
+    @NotNull
     private String theDate;
-    @NotBlank
+    @NotNull
     private String sName;
-    @NotBlank
+    @NotNull
     private String fName;
-    @NotBlank
+    @NotNull
     private String nickName;
-    @NotBlank
+    @NotNull
     private String birthDate;
-    @NotBlank
+    @NotNull
     private String idNo;
-    @NotBlank
+    @NotNull
     private String gender;
-    @NotBlank
+    @NotNull
     private Integer homeLanguage;
-    @NotBlank
+    @NotNull
     private Integer instructionLanguage;
-    @NotBlank
+    @NotNull
     private Integer preferredLanguage;
     private String address1;
     private String address2;
     private String address3;
-    @NotBlank
+    @NotNull
     private String addressCode;
-    @NotBlank
+    @NotNull
     private String guardian;
     private String tel1Code;
-    @NotBlank
+    @NotNull
     private String tel1;
     private String tel2Code;
     private String tel2;
-    @NotBlank
+    @NotNull
     private String tel3Code;
-    @NotBlank
+    @NotNull
     private String tel3;
-    @NotBlank
+    @NotNull
     private int grade;
-    @NotBlank
+    @NotNull
     private Integer clazz;
-    @NotBlank
+    @NotNull
     private Integer gradeYears;
-    @NotBlank
+    @NotNull
     private String previousSchool;
     private String schoolAddress1;
     private String schoolAddress2;
@@ -71,88 +71,88 @@ public class LearnerInfoRequest implements Serializable {
     private String medicalAidNo;
     private String medicalAidMember;
     private String guidance;
-    @NotBlank
+    @NotNull
     private String initials;
-    @NotBlank
+    @NotNull
     private String citizenship;
     private String provincial;
     private String schoolProvince;
-    @NotBlank
+    @NotNull
     private String previousSchoolProvince;
-    @NotBlank
+    @NotNull
     private boolean assignClass;
-    @NotBlank
+    @NotNull
     private String physProvince;
-    @NotBlank
+    @NotNull
     private String race;
-    @NotBlank
+    @NotNull
     private String title;
-    @NotBlank
+    @NotNull
     private Integer previousPlacementofSchool;
-    @NotBlank
+    @NotNull
     private Integer transport;
-    @NotBlank
+    @NotNull
     private Integer lsenDisabilities;
     private String dateLeft;
     private String reason;
-    @NotBlank
+    @NotNull
     private Integer lsenStatus;
-    @NotBlank
+    @NotNull
     private String status;
-    @NotBlank
+    @NotNull
     private Integer boarder;
-    @NotBlank
+    @NotNull
     private String countryResidence;
-    @NotBlank
+    @NotNull
     private String provinceResidence;
-    @NotBlank
+    @NotNull
     private Integer firstProvince;
-    @NotBlank
+    @NotNull
     private Integer deceasedParent;
-    @NotBlank
+    @NotNull
     private Integer sgRegister;
-    @NotBlank
+    @NotNull
     private Integer sgReceive;
     private String drName;
     private String drTel;
-    @NotBlank
+    @NotNull
     private Integer dexterity;
-    @NotBlank
+    @NotNull
     private Integer psnp;
-    @NotBlank
+    @NotNull
     private Integer noFamily;
     private String positionFamily;
-    @NotBlank
+    @NotNull
     private Integer reportLanguage;
     private String foreignID;
     private String learnerComment;
     private String photoName;
-    @NotBlank
+    @NotNull
     private Integer gradeEntered;
-    @NotBlank
+    @NotNull
     private Integer gradeLeft;
     private String boarderNumber;
     private String boarderHostel;
     private String thirdName;
-    @NotBlank
+    @NotNull
     private String email;
     private String socialGrantNo;
-    @NotBlank
+    @NotNull
     private Integer tsTransactionCategory;
-    @NotBlank
+    @NotNull
     private Integer tsStatusFlag;
-    @NotBlank
+    @NotNull
     private Integer tsReportStatusFlag;
-    @NotBlank
+    @NotNull
     private Integer tsReasonCode;
-    @NotBlank
+    @NotNull
     private Integer luritsIndicator;
-    @NotBlank
+    @NotNull
     private Integer luritsFlag;
-    @NotBlank
+    @NotNull
     private Double luritsNumber;
     private String tsSentfileName;
-    @NotBlank
+    @NotNull
     private String tsDateLastUpdate;
     private String tsLastUpdatedBy;
     private String learnerName2;
@@ -165,32 +165,32 @@ public class LearnerInfoRequest implements Serializable {
     private String luritsStatus;
     private String secondName;
     private String pastelCode;
-    @NotBlank
+    @NotNull
     private Integer busRouteId;
     private String subjHL;
     private String subjFAL;
     private String prevSName;
     private String positionFamilyF;
-    @NotBlank
+    @NotNull
     private Short reasonForNoIDNo;
-    @NotBlank
+    @NotNull
     private Short grantCReg;
-    @NotBlank
+    @NotNull
     private Short grantCReceive;
     private String grantCNo;
-    @NotBlank
+    @NotNull
     private Short grant4Reg;
-    @NotBlank
+    @NotNull
     private Short grant4Receive;
     private String grant4No;
-    @NotBlank
+    @NotNull
     private Short grant5Reg;
-    @NotBlank
+    @NotNull
     private Short grant5Receive;
     private String grant5No;
-    @NotBlank
+    @NotNull
     private Short grant9Reg;
-    @NotBlank
+    @NotNull
     private Short grant9Receive;
     private String grant9No;
     private String clinicName;
@@ -198,40 +198,40 @@ public class LearnerInfoRequest implements Serializable {
     private String clinicTelCode;
     private String clinicTel;
     private String subjLOI;
-    @NotBlank
+    @NotNull
     private Integer hseID;
-    @NotBlank
+    @NotNull
     private Short phaseYears;
-    @NotBlank
+    @NotNull
     private boolean progressedToGrade;
-    @NotBlank
+    @NotNull
     private Short studyPermit;
     private String studyPermitNo;
     private String studyPermitDate;
     private String idNoNotValidating;
     private String oldMentor;
-    @NotBlank
+    @NotNull
     private boolean lsenAnaInc;
     private String lsenAnaHL;
     private String lsenAnaFAL;
-    @NotBlank
+    @NotNull
     private Integer previousPlacementofSchoolYear;
-    @NotBlank
+    @NotNull
     private Short foreignIDType;
-    @NotBlank
+    @NotNull
     private boolean ageRuleOverwritten;
-    @NotBlank
+    @NotNull
     private Short reasonForNoForeignID;
     private String farmProj;
-    @NotBlank
+    @NotNull
     private boolean road2Health;
-    @NotBlank
+    @NotNull
     private boolean immunizationCard;
-    @NotBlank
+    @NotNull
     private String iceName;
-    @NotBlank
+    @NotNull
     private String iceSurname;
-    @NotBlank
+    @NotNull
     private String iceRelation;
 
     public int getId() {

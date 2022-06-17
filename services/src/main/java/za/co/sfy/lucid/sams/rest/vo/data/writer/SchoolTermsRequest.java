@@ -1,6 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class SchoolTermsRequest implements Serializable {
@@ -8,15 +8,15 @@ public class SchoolTermsRequest implements Serializable {
     private static final long serialVersionUID = 4285025394641057292L;
 
     private int id;
-    @NotBlank
+    @NotNull
     private String quater;
-    @NotBlank
+    @NotNull
     private String startDate;
-    @NotBlank
+    @NotNull
     private String endDate;
-    @NotBlank
+    @NotNull
     private String currentYear;
-    @NotBlank
+    @NotNull
     private Integer term;
 
     public int getId() {

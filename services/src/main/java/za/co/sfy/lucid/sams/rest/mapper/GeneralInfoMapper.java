@@ -28,6 +28,185 @@ public class GeneralInfoMapper {
             generalInfo.setSchoolID(Integer.parseInt(schoolID));
         }
 
+        String multigrade = generalInfoRequest.getMultigrade();
+        if (null != multigrade) {
+            generalInfo.setMultigrade(Integer.valueOf(multigrade));
+        } else {
+            generalInfo.setMultigrade(Integer.valueOf(0));
+        }
+
+        String remedial = generalInfoRequest.getRemedial();
+        if (null != remedial) {
+            generalInfo.setRemedial(Integer.valueOf(remedial));
+        } else {
+            generalInfo.setRemedial(Integer.valueOf(0));
+        }
+
+        String hostTime = generalInfoRequest.getHostTime();
+        if (null != hostTime) {
+            generalInfo.setHostTime(Integer.valueOf(hostTime));
+        } else {
+            generalInfo.setHostTime(Integer.valueOf(0));
+        }
+
+        String distanceTown = generalInfoRequest.getDistanceTown();
+        if (null != distanceTown) {
+            generalInfo.setDistanceTown(Double.valueOf(distanceTown));
+        } else {
+            generalInfo.setDistanceTown(Double.valueOf(0));
+        }
+
+        String districtCode = generalInfoRequest.getDistrictCode();
+        if (null != districtCode) {
+            generalInfo.setDistrictCode(Integer.valueOf(districtCode));
+        } else {
+            generalInfo.setDistrictCode(Integer.valueOf(0));
+        }
+
+        String correspondenceLang = generalInfoRequest.getCorrespondenceLang();
+        if (null != correspondenceLang) {
+            generalInfo.setCorrespondenceLang(Integer.valueOf(correspondenceLang));
+        } else {
+            generalInfo.setCorrespondenceLang(Integer.valueOf(0));
+        }
+
+        String schoolLevel = generalInfoRequest.getSchoolLevel();
+        // TODO: we need to do mapping from the value that they put in to the integer or we need to define an enum on the service-layer to define what type of school they are.
+        if (null != schoolLevel) {
+            generalInfo.setSchoolLevel(Integer.valueOf(schoolLevel));
+        } else {
+            generalInfo.setSchoolLevel(Integer.valueOf(0));
+        }
+
+        String tsSchoolStatus = generalInfoRequest.getTsSchoolStatus();
+        if (null != tsSchoolStatus) {
+            generalInfo.setTSSchoolStatus(Integer.valueOf(tsSchoolStatus));
+        } else {
+            generalInfo.setTSSchoolStatus(Integer.valueOf(0));
+        }
+
+        String tsTransactionCategory = generalInfoRequest.getTsTransactionCategory();
+        if (null != tsTransactionCategory) {
+            generalInfo.setTSTransactionCategory(Integer.valueOf(tsTransactionCategory));
+        } else {
+            generalInfo.setTSTransactionCategory(Integer.valueOf(0));
+        }
+
+        String tsStatusFlag = generalInfoRequest.getTsStatusFlag();
+        if (null != tsStatusFlag) {
+            generalInfo.setTSStatusFlag(Integer.valueOf(tsStatusFlag));
+        } else {
+            generalInfo.setTSStatusFlag(Integer.valueOf(0));
+        }
+
+        String tsReportStatusFlag = generalInfoRequest.getTsReportStatusFlag();
+        if (null != tsReportStatusFlag) {
+            generalInfo.setTSReportStatusFlag(Integer.valueOf(tsReportStatusFlag));
+        } else {
+            generalInfo.setTSReportStatusFlag(Integer.valueOf(0));
+        }
+
+        String tsReasonCode = generalInfoRequest.getTsReasonCode();
+        if (null != tsReasonCode) {
+            generalInfo.setTSReasonCode(Integer.valueOf(tsReasonCode));
+        } else {
+            generalInfo.setTSReasonCode(Integer.valueOf(0));
+        }
+
+        String luritsYear = generalInfoRequest.getLuritsYear();
+        if (null != luritsYear) {
+            generalInfo.setLuritsYear(Integer.valueOf(luritsYear));
+        } else {
+            generalInfo.setLuritsYear(Integer.valueOf(0));
+        }
+
+        String luritsIndicator = generalInfoRequest.getLuritsIndicator();
+        if (null != luritsIndicator) {
+            generalInfo.setLuritsIndicator(Integer.valueOf(luritsIndicator));
+        } else {
+            generalInfo.setLuritsIndicator(Integer.valueOf(0));
+        }
+
+        String adminComputers = generalInfoRequest.getAdminComputers();
+        if (null != adminComputers) {
+            generalInfo.setAdminComputers(Integer.valueOf(adminComputers));
+        } else {
+            generalInfo.setAdminComputers(Integer.valueOf(0));
+        }
+
+        String psnp = generalInfoRequest.getPsnp();
+        if (null != psnp) {
+            generalInfo.setPSNP(Short.valueOf(psnp));
+        } else {
+            generalInfo.setPSNP(Short.valueOf((short) 0));
+        }
+
+        String tsIncludesANA = generalInfoRequest.getTsIncludesANA();
+        if (null != tsIncludesANA) {
+            generalInfo.setTSIncludesANA(Short.valueOf(tsIncludesANA));
+        } else {
+            generalInfo.setTSIncludesANA(Short.valueOf((short) 0));
+        }
+
+        String examBoard = generalInfoRequest.getExamBoard();
+        if (null != examBoard) {
+            generalInfo.setExamBoard(Integer.valueOf(examBoard));
+        } else {
+            generalInfo.setExamBoard(Integer.valueOf(0));
+        }
+        Integer predominantLanguage = generalInfo.getPredominantLanguage();
+        if (null != predominantLanguage) {
+            generalInfo.setPredominantLanguage(Integer.valueOf(predominantLanguage));
+        } else {
+            generalInfo.setPredominantLanguage(Integer.valueOf(0));
+        }
+
+        Integer feeMonths = generalInfo.getFeeMonths();
+        if (null != feeMonths) {
+            generalInfo.setFeeMonths(feeMonths);
+        } else {
+            generalInfo.setFeeMonths(0);
+        }
+
+        String tsDateLastUpdate1 = generalInfoRequest.getTsDateLastUpdate();
+        XMLGregorianCalendar tsDateLastUpdate;
+        if (null != tsDateLastUpdate1) {
+            tsDateLastUpdate = sharedMapper.dateToXMLGregorianCalendar(tsDateLastUpdate1);
+        } else {
+            tsDateLastUpdate = sharedMapper.dateToXMLGregorianCalendar();
+        }
+        generalInfo.setTSDateLastUpdate(tsDateLastUpdate);
+
+
+        String lastDBCompact1 = generalInfoRequest.getLastDBCompact();
+        XMLGregorianCalendar lastDBCompact;
+        if (null != lastDBCompact1) {
+            lastDBCompact = sharedMapper.dateToXMLGregorianCalendar(lastDBCompact1);
+        } else {
+            lastDBCompact = sharedMapper.dateToXMLGregorianCalendar();
+        }
+        generalInfo.setLastDBCompact(lastDBCompact);
+
+        String iqmsLastExpDate1 = generalInfoRequest.getIqmsLastExpDate();
+        XMLGregorianCalendar iqmsLastExpDate;
+        if (null != iqmsLastExpDate1) {
+            iqmsLastExpDate = sharedMapper.dateToXMLGregorianCalendar(iqmsLastExpDate1);
+        } else {
+            iqmsLastExpDate = sharedMapper.dateToXMLGregorianCalendar();
+        }
+        generalInfo.setIQMSLastExpDate(iqmsLastExpDate);
+
+
+        String iqmsLastImpDate1 = generalInfoRequest.getIqmsLastImpDate();
+        XMLGregorianCalendar iqmsLastImpDate;
+        if (null != iqmsLastImpDate1) {
+            iqmsLastImpDate = sharedMapper.dateToXMLGregorianCalendar(iqmsLastImpDate1);
+        } else {
+            iqmsLastImpDate = sharedMapper.dateToXMLGregorianCalendar();
+        }
+        generalInfo.setIQMSLastImpDate(iqmsLastImpDate);
+
+
         String schoolName = generalInfoRequest.getSchoolName();
         if (null != schoolName) {
             generalInfo.setSchoolName(schoolName);
@@ -263,17 +442,6 @@ public class GeneralInfoMapper {
             generalInfo.setFeePeriod(feePeriod);
         }
 
-
-        String multigrade = generalInfoRequest.getMultigrade();
-        if (null != multigrade) {
-            generalInfo.setMultigrade(Integer.valueOf(multigrade));
-        }
-
-        String remedial = generalInfoRequest.getRemedial();
-        if (null != remedial) {
-            generalInfo.setRemedial(Integer.valueOf(remedial));
-        }
-
         String sgbStatus = generalInfoRequest.getSgbStatus();
         if (null != sgbStatus) {
             generalInfo.setSGBStatus(sgbStatus);
@@ -294,19 +462,9 @@ public class GeneralInfoMapper {
             generalInfo.setEmisHostSchool(emisHostSchool);
         }
 
-        String hostTime = generalInfoRequest.getHostTime();
-        if (null != hostTime) {
-            generalInfo.setHostTime(Integer.valueOf(hostTime));
-        }
-
         String examAuthName = generalInfoRequest.getExamAuthName();
         if (null != examAuthName) {
             generalInfo.setExamAuthName(examAuthName);
-        }
-
-        String correspondenceLang = generalInfoRequest.getCorrespondenceLang();
-        if (null != correspondenceLang) {
-            generalInfo.setCorrespondenceLang(Integer.valueOf(correspondenceLang));
         }
 
         String nearestTown = generalInfoRequest.getNearestTown();
@@ -314,55 +472,9 @@ public class GeneralInfoMapper {
             generalInfo.setNearestTown(nearestTown);
         }
 
-        String distanceTown = generalInfoRequest.getDistanceTown();
-        if (null != distanceTown) {
-            generalInfo.setDistanceTown(Double.valueOf(distanceTown));
-        }
-
-        String districtCode = generalInfoRequest.getDistrictCode();
-        if (null != districtCode) {
-            generalInfo.setDistrictCode(Integer.valueOf(districtCode));
-        }
-
         String postalAddressType = generalInfoRequest.getPostalAddressType();
         if (null != postalAddressType) {
             generalInfo.setPostalAddressType(postalAddressType);
-        }
-
-        String schoolLevel = generalInfoRequest.getSchoolLevel();
-        // TODO: we need to do mapping from the value that they put in to the integer or we need to define an enum on the service-layer to define what type of school they are.
-        if (null != schoolLevel) {
-            generalInfo.setSchoolLevel(Integer.valueOf(schoolLevel));
-        }
-
-        String tsSchoolStatus = generalInfoRequest.getTsSchoolStatus();
-        if (null != tsSchoolStatus) {
-            generalInfo.setTSSchoolStatus(Integer.valueOf(tsSchoolStatus));
-        }
-
-        String tsTransactionCategory = generalInfoRequest.getTsTransactionCategory();
-        if (null != tsTransactionCategory) {
-            generalInfo.setTSTransactionCategory(Integer.valueOf(tsTransactionCategory));
-        }
-
-        String tsStatusFlag = generalInfoRequest.getTsStatusFlag();
-        if (null != tsStatusFlag) {
-            generalInfo.setTSStatusFlag(Integer.valueOf(tsStatusFlag));
-        }
-
-        String tsReportStatusFlag = generalInfoRequest.getTsReportStatusFlag();
-        if (null != tsReportStatusFlag) {
-            generalInfo.setTSReportStatusFlag(Integer.valueOf(tsReportStatusFlag));
-        }
-
-        String tsReasonCode = generalInfoRequest.getTsReasonCode();
-        if (null != tsReasonCode) {
-            generalInfo.setTSReasonCode(Integer.valueOf(tsReasonCode));
-        }
-
-        String luritsYear = generalInfoRequest.getLuritsYear();
-        if (null != luritsYear) {
-            generalInfo.setLuritsYear(Integer.valueOf(luritsYear));
         }
 
         String tsSentFileName = generalInfoRequest.getTsSentFileName();
@@ -380,11 +492,6 @@ public class GeneralInfoMapper {
             generalInfo.setOwnerBuildings(ownerBuildings);
         }
 
-        String luritsIndicator = generalInfoRequest.getLuritsIndicator();
-        if (null != luritsIndicator) {
-            generalInfo.setLuritsIndicator(Integer.valueOf(luritsIndicator));
-        }
-
         String telcode4 = generalInfoRequest.getTelcode4();
         if (null != telcode4) {
             generalInfo.setTelcode4(telcode4);
@@ -393,11 +500,6 @@ public class GeneralInfoMapper {
         String telephone4 = generalInfoRequest.getTelephone4();
         if (null != telephone4) {
             generalInfo.setTelephone4(telephone4);
-        }
-
-        String adminComputers = generalInfoRequest.getAdminComputers();
-        if (null != adminComputers) {
-            generalInfo.setAdminComputers(Integer.valueOf(adminComputers));
         }
 
         String postAddress0 = generalInfoRequest.getPostAddress0();
@@ -415,54 +517,10 @@ public class GeneralInfoMapper {
             generalInfo.setTEmisCode(tEmisCode);
         }
 
-        String psnp = generalInfoRequest.getPsnp();
-        // TODO: we need to do mapping from the value that they put in to the integer or we need to define an enum on the service-layer to define what type of school they are.
-        if (null != psnp) {
-            generalInfo.setPSNP(Short.valueOf(psnp));
-        }
-
-        String tsIncludesANA = generalInfoRequest.getTsIncludesANA();
-        if (null != tsIncludesANA) {
-            generalInfo.setTSIncludesANA(Short.valueOf(tsIncludesANA));
-        }
-
-        String examBoard = generalInfoRequest.getExamBoard();
-        if (null != examBoard) {
-            generalInfo.setExamBoard(Integer.valueOf(examBoard));
-        }
-
         String examBoardOther = generalInfoRequest.getExamBoardOther();
         if (null != examBoardOther) {
             generalInfo.setExamBoardOther(examBoardOther);
         }
-
-
-        String tsDateLastUpdate1 = generalInfoRequest.getTsDateLastUpdate();
-        if (null != tsDateLastUpdate1) {
-            XMLGregorianCalendar tsDateLastUpdate = sharedMapper.dateToXMLGregorianCalendar(tsDateLastUpdate1);
-            generalInfo.setTSDateLastUpdate(tsDateLastUpdate);
-        }
-
-        String lastDBCompact1 = generalInfoRequest.getLastDBCompact();
-        if (null != lastDBCompact1) {
-            XMLGregorianCalendar lastDBCompact = sharedMapper.dateToXMLGregorianCalendar(lastDBCompact1);
-            generalInfo.setLastDBCompact(lastDBCompact);
-        }
-
-        String iqmsLastExpDate1 = generalInfoRequest.getIqmsLastExpDate();
-        if (null != iqmsLastExpDate1) {
-            XMLGregorianCalendar iqmsLastExpDate = sharedMapper.dateToXMLGregorianCalendar(iqmsLastExpDate1);
-            generalInfo.setIQMSLastExpDate(iqmsLastExpDate);
-        }
-
-        String iqmsLastImpDate1 = generalInfoRequest.getIqmsLastImpDate();
-        if (null != iqmsLastImpDate1) {
-            XMLGregorianCalendar iqmsLastImpDate = sharedMapper.dateToXMLGregorianCalendar(iqmsLastImpDate1);
-            generalInfo.setIQMSLastImpDate(iqmsLastImpDate);
-        }
-
-        generalInfo.setPredominantLanguage(null == generalInfo.getPredominantLanguage() ? 0 : Integer.valueOf(generalInfo.getPredominantLanguage()));
-        generalInfo.setFeeMonths(null == generalInfo.getFeeMonths() ? 0 : Integer.valueOf(generalInfoRequest.getFeeMonths()));
 
         generalInfo.setUseMarksSecurity(generalInfoRequest.getUseMarksSecurity());
         generalInfo.setMaintainProperty(generalInfoRequest.getMaintainProperty());
