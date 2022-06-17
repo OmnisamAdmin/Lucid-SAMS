@@ -10,18 +10,44 @@ import za.co.sfy.sams.lucid.schema.ExtraMuralsHouses;
 @Component
 public class ExtraMuralsHousesMapper {
 
-    public ExtraMuralsHouses extraMuralsHousesRequestToExtraMuralsHouses(ExtraMuralsHousesRequest extraMuralsHousesRequest) {
+	public ExtraMuralsHouses extraMuralsHousesRequestToExtraMuralsHouses(
+			ExtraMuralsHousesRequest extraMuralsHousesRequest) {
 
-        ExtraMuralsHouses extraMuralsHouses = new ExtraMuralsHouses();
+		ExtraMuralsHouses extraMuralsHouses = new ExtraMuralsHouses();
 
-        extraMuralsHouses.setHseAfrColour(extraMuralsHousesRequest.getHseAfrColour());
-        extraMuralsHouses.setHseAfrName(extraMuralsHousesRequest.getHseAfrName());
-        extraMuralsHouses.setHseColour(extraMuralsHousesRequest.getHseColour());
-        extraMuralsHouses.setHseID(extraMuralsHousesRequest.getHseID());
-        extraMuralsHouses.setHseName(extraMuralsHousesRequest.getHseName());
-        extraMuralsHouses.setHsePicture(extraMuralsHousesRequest.getHsePicture());
-        extraMuralsHouses.setRecSelected(extraMuralsHousesRequest.isRecSelected());
+		String hseAfrColour = extraMuralsHousesRequest.getHseAfrColour();
+		if (null != hseAfrColour) {
+			extraMuralsHouses.setHseAfrColour(extraMuralsHousesRequest.getHseAfrColour());
+		}
+		String hseAfrName = extraMuralsHousesRequest.getHseAfrName();
+		if (null != hseAfrName) {
+			extraMuralsHouses.setHseAfrName(extraMuralsHousesRequest.getHseAfrName());
+		}
+		String hseColour = extraMuralsHousesRequest.getHseColour();
+		if (null != hseColour) {
+			extraMuralsHouses.setHseColour(extraMuralsHousesRequest.getHseColour());
+		}
 
-        return extraMuralsHouses;
-    }
+		// TODO This is problem
+		Integer hseID = extraMuralsHousesRequest.getHseID();
+		if (null != hseID) {
+			extraMuralsHouses.setHseID(Integer.valueOf(hseID));
+		} else {
+			extraMuralsHouses.setHseID(Integer.valueOf(0));
+		}
+
+		String hseName = extraMuralsHousesRequest.getHseName();
+		if (null != hseName) {
+			extraMuralsHouses.setHseName(extraMuralsHousesRequest.getHseName());
+		}
+
+		byte[] hsePicture = extraMuralsHousesRequest.getHsePicture();
+		if (null != hsePicture) {
+			extraMuralsHouses.setHsePicture(extraMuralsHousesRequest.getHsePicture());
+		}
+
+		extraMuralsHouses.setRecSelected(extraMuralsHousesRequest.isRecSelected());
+
+		return extraMuralsHouses;
+	}
 }

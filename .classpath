@@ -137,6 +137,6 @@
 	<classpathentry kind="var" path="M2_REPO/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-test/5.3.5/spring-test-5.3.5.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/xmlunit/xmlunit-core/2.7.0/xmlunit-core-2.7.0.jar"/>
-	<classpathentry kind="lib" path="lib/lucid-sams-schema-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/lucid-sams-schema-1.0-SNAPSHOT.jar" sourcepath="lib/lucid-sams-schema-1.0-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
