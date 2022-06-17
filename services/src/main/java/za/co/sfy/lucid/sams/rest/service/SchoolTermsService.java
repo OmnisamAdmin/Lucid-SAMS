@@ -26,6 +26,11 @@ public class SchoolTermsService {
 
         SchoolTerms schoolTerms = schoolTermsMapper.schoolTermsRequestToSchoolTerms(schoolTermsRequest);
 
+        Integer term = schoolTerms.getTerm();
+        if (term > 4 || term < 1) {
+            throw new LucidSamsExecutionException("The given term is not valid, the range is 1-4");
+        }
+
         Long generatedKey = schoolTermsResource.save(schoolTerms, schoolTermsResource);
         schoolTerms.setId(Math.toIntExact(generatedKey));
 

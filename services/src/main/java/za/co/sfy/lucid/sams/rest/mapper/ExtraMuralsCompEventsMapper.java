@@ -1,54 +1,60 @@
 package za.co.sfy.lucid.sams.rest.mapper;
 
 import org.springframework.stereotype.Component;
+import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsCompEventsRequest;
 import za.co.sfy.sams.lucid.schema.ExtraMuralsCompEvents;
 
 @Component
 public class ExtraMuralsCompEventsMapper {
 
-	public ExtraMuralsCompEvents extraMuralsCompEventsRequestToExtraMuralsCompEvents(
-			ExtraMuralsCompEventsRequest extraMuralsCompEventsRequest) {
+    private final SharedMapper sharedMapper;
 
-		ExtraMuralsCompEvents extraMuralsCompEvents = new ExtraMuralsCompEvents();
+    public ExtraMuralsCompEventsMapper(SharedMapper sharedMapper) {
+        this.sharedMapper = sharedMapper;
+    }
 
-		Integer compID = extraMuralsCompEventsRequest.getCompID();
-		if (null != compID) {
-			extraMuralsCompEvents.setCompID(Integer.valueOf(compID));
-		} else {
-			extraMuralsCompEvents.setCompID(Integer.valueOf(0));
-		}
+    public ExtraMuralsCompEvents extraMuralsCompEventsRequestToExtraMuralsCompEvents(
+            ExtraMuralsCompEventsRequest extraMuralsCompEventsRequest) throws LucidSamsExecutionException {
 
-		String eventAfrDesc = extraMuralsCompEventsRequest.getEventAfrDesc();
-		if (null != eventAfrDesc) {
-			extraMuralsCompEvents.setEventAfrDesc(extraMuralsCompEventsRequest.getEventAfrDesc());
-		}
+        ExtraMuralsCompEvents extraMuralsCompEvents = new ExtraMuralsCompEvents();
 
-		extraMuralsCompEvents.setEventDate(extraMuralsCompEventsRequest.getEventDate());
+        Integer compID = extraMuralsCompEventsRequest.getCompID();
+        if (null != compID) {
+            extraMuralsCompEvents.setCompID(compID);
+        }
 
-		String eventDesc = extraMuralsCompEventsRequest.getEventDesc();
-		if (null != eventDesc) {
-			extraMuralsCompEvents.setEventDesc(extraMuralsCompEventsRequest.getEventDesc());
-		}
+        String eventAfrDesc = extraMuralsCompEventsRequest.getEventAfrDesc();
+        if (null != eventAfrDesc) {
+            extraMuralsCompEvents.setEventAfrDesc(extraMuralsCompEventsRequest.getEventAfrDesc());
+        }
 
-		Integer eventID = extraMuralsCompEventsRequest.getEventID();
-		if (null != eventID) {
-			extraMuralsCompEvents.setEventID(Integer.valueOf(eventID));
-		} else {
-			extraMuralsCompEvents.setEventID(Integer.valueOf(0));
+        String eventDate = extraMuralsCompEventsRequest.getEventDate();
+        if (null != eventDate) {
+            extraMuralsCompEvents.setEventDate(sharedMapper.dateToXMLGregorianCalendar(eventDate));
+        }
 
-		}
-		String eventTimeEnd = extraMuralsCompEventsRequest.getEventTimeEnd();
-		if (null != eventTimeEnd) {
-			extraMuralsCompEvents.setEventTimeEnd(extraMuralsCompEventsRequest.getEventTimeEnd());
-		}
+        String eventDesc = extraMuralsCompEventsRequest.getEventDesc();
+        if (null != eventDesc) {
+            extraMuralsCompEvents.setEventDesc(extraMuralsCompEventsRequest.getEventDesc());
+        }
 
-		String eventTimeStart = extraMuralsCompEventsRequest.getEventTimeStart();
-		if (null != eventTimeStart) {
-			extraMuralsCompEvents.setEventTimeStart(extraMuralsCompEventsRequest.getEventTimeStart());
-		}
+        Integer eventID = extraMuralsCompEventsRequest.getEventID();
+        if (null != eventID) {
+            extraMuralsCompEvents.setEventID(eventID);
+        }
 
-		return extraMuralsCompEvents;
-	}
+        String eventTimeEnd = extraMuralsCompEventsRequest.getEventTimeEnd();
+        if (null != eventTimeEnd) {
+            extraMuralsCompEvents.setEventTimeEnd(extraMuralsCompEventsRequest.getEventTimeEnd());
+        }
+
+        String eventTimeStart = extraMuralsCompEventsRequest.getEventTimeStart();
+        if (null != eventTimeStart) {
+            extraMuralsCompEvents.setEventTimeStart(extraMuralsCompEventsRequest.getEventTimeStart());
+        }
+
+        return extraMuralsCompEvents;
+    }
 
 }

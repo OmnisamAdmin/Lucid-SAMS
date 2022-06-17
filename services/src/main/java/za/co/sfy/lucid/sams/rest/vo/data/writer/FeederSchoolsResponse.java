@@ -3,7 +3,7 @@ package za.co.sfy.lucid.sams.rest.vo.data.writer;
 import za.co.sfy.lucid.sams.rest.vo.ApiResponse;
 import za.co.sfy.sams.lucid.schema.FeederSchools;
 
-public class FeederSchoolResponse extends ApiResponse {
+public class FeederSchoolsResponse extends ApiResponse {
 
     private static final long serialVersionUID = -7833224241471097773L;
 

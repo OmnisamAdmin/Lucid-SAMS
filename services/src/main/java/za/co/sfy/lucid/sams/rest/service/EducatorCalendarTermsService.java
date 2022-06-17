@@ -27,6 +27,11 @@ public class EducatorCalendarTermsService {
 
         EducatorCalendarTerms educatorCalendarTerms = educatorCalendarTermsMapper.educatorCalendarTermsRequestToEducatorCalendarTerms(educatorCalendarTermsRequest);
 
+        Integer term = educatorCalendarTerms.getTerm();
+        if (term > 4 || term < 1) {
+            throw new LucidSamsExecutionException("The given term is not valid, the range is 1-4");
+        }
+
         Long generatedKey = educatorCalendarTermsResource.save(educatorCalendarTerms, educatorCalendarTermsResource);
         educatorCalendarTerms.setId(Math.toIntExact(generatedKey));
 

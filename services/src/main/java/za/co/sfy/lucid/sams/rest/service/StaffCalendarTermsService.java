@@ -27,13 +27,18 @@ public class StaffCalendarTermsService {
 
         StaffCalendarTerms staffCalendarTerms = staffCalendarTermsMapper.StaffCalendarTermsRequestToStaffCalendarTerms(staffCalendarTermsRequest);
 
+        Integer term = staffCalendarTerms.getTerm();
+        if (term > 4 || term < 1) {
+            throw new LucidSamsExecutionException("The given term is not valid, the range is 1-4");
+        }
+
         Long generatedKey = staffCalendarTermsResource.save(staffCalendarTerms, staffCalendarTermsResource);
         staffCalendarTerms.setId(Math.toIntExact(generatedKey));
 
         StaffCalendarTermsResponse staffCalendarTermsResponse = new StaffCalendarTermsResponse();
         staffCalendarTermsResponse.setStaffCalendarTerms(staffCalendarTerms);
-        staffCalendarTermsResponse.setResponseMessage("Successfully retrieved 'StaffCalendarTerms' data");
-        staffCalendarTermsResponse.setResponseStatus(ServiceStatus.ERROR.value());
+        staffCalendarTermsResponse.setResponseMessage("Successfully saved 'StaffCalendarTerms' data");
+        staffCalendarTermsResponse.setResponseStatus(ServiceStatus.SUCCESS.value());
 
         return staffCalendarTermsResponse;
 

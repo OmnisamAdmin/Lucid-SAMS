@@ -1,15 +1,22 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class ParentChildRequest implements Serializable {
 
     private static final long serialVersionUID = -6570473013136130185L;
 
+    @NotNull
     private Integer parentId;
+    @NotNull
     private Integer childId;
+    @NotBlank
     private String learnerid;
-    private boolean accPayer;
+    @NotNull
+    private Boolean accPayer;
+    @NotBlank
     private String status;
     private String resides;
     private String familyCode;
@@ -43,11 +50,11 @@ public class ParentChildRequest implements Serializable {
         this.learnerid = learnerid;
     }
 
-    public boolean isAccPayer() {
+    public Boolean isAccPayer() {
         return accPayer;
     }
 
-    public void setAccPayer(boolean accPayer) {
+    public void setAccPayer(Boolean accPayer) {
         this.accPayer = accPayer;
     }
 

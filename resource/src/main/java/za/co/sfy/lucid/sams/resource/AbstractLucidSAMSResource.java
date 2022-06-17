@@ -35,7 +35,7 @@ public abstract class AbstractLucidSAMSResource {
         Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
-            PreparedStatement preparedStatement = iLucidSamsResource.retrieveSavePreparedStatement(databaseConnection, object);
+            PreparedStatement preparedStatement = iLucidSamsResource.save(databaseConnection, object);
             int result = preparedStatement.executeUpdate();
             if (result == 0) {
                 throw new SQLException("'" + tableName + "' insertion failed, no rows were affected");
@@ -46,7 +46,7 @@ public abstract class AbstractLucidSAMSResource {
             }
             return generatedKeys.getLong(1);
         } catch (SQLException e) {
-            throw new LucidSamsExecutionException("Unable to save to the '" + tableName + "' table. " + e.getMessage(), e);
+            throw new LucidSamsExecutionException("Unable to save to the '" + tableName + "' table. ", e);
         } finally {
             databaseConnectionManager.closeDatabaseConnection(databaseConnection);
         }
@@ -64,48 +64,52 @@ public abstract class AbstractLucidSAMSResource {
         Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
-            PreparedStatement preparedStatement = iLucidSamsResource.retrieveSavePreparedStatement(databaseConnection, object);
+            PreparedStatement preparedStatement = iLucidSamsResource.save(databaseConnection, object);
             int result = preparedStatement.executeUpdate();
             if (result == 0) {
                 throw new SQLException("'" + tableName + "' insertion failed, no rows were affected");
             }
         } catch (SQLException e) {
-            throw new LucidSamsExecutionException("Unable to save to the '" + tableName + "' table. " + e.getMessage(), e);
+            throw new LucidSamsExecutionException("Unable to save to the '" + tableName + "' table. ", e);
         } finally {
             databaseConnectionManager.closeDatabaseConnection(databaseConnection);
         }
     }
 
     /**
-     * Updates Lucid-SAMS POJOs that return a generated id e.g. {@link za.co.sfy.sams.lucid.schema.Subjects}
+     * Updates Lucid-SAMS POJOs that returns a generated id e.g. {@link za.co.sfy.sams.lucid.schema.Subjects}
      *
      * @param object
      * @param iLucidSamsResource
-     * @return {@link Long} id of updated object
+     * @return {@link Integer} id of updated object
      * @throws LucidSamsExecutionException
      */
-    public Long update(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
+    public Integer update(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
 
         Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
-            PreparedStatement preparedStatement = iLucidSamsResource.retrieveUpdatePreparedStatement(databaseConnection, object);
+            PreparedStatement preparedStatement = iLucidSamsResource.update(databaseConnection, object);
             int result = preparedStatement.executeUpdate();
             if (result == 0) {
                 throw new SQLException("'" + tableName + "' update failed, no rows were affected");
             }
-            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-            if (!generatedKeys.next()) {
-                throw new SQLException("'" + tableName + "' update failed, no ID obtained.");
-            }
-            return generatedKeys.getLong(1);
+            return result;
         } catch (SQLException e) {
-            throw new LucidSamsExecutionException("Unable to perform update to the '" + tableName + "' table. " + e.getMessage(), e);
+            throw new LucidSamsExecutionException("Unable to perform update to the '" + tableName + "' table. ", e);
         } finally {
             databaseConnectionManager.closeDatabaseConnection(databaseConnection);
         }
     }
 
+    /**
+     * Retrieves a Lucid-SAMS object given a search criteria
+     *
+     * @param object
+     * @param iLucidSAMSResource
+     * @return {@link ResultSet} retrieved Object(s)
+     * @throws LucidSamsExecutionException
+     */
     public ResultSet retrieve(Object object, ILucidSAMSResource iLucidSAMSResource) throws LucidSamsExecutionException {
 
         Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
@@ -113,7 +117,7 @@ public abstract class AbstractLucidSAMSResource {
         try {
 
             //TODO: Create search criteria and implementation method to build retrievalPreparedStatements
-            PreparedStatement preparedStatement = iLucidSAMSResource.retrieveRetrievePreparedStatement(databaseConnection, object);
+            PreparedStatement preparedStatement = iLucidSAMSResource.retrieve(databaseConnection, object);
 
             ResultSet result = preparedStatement.executeQuery();
             if (result == null) {
@@ -122,7 +126,7 @@ public abstract class AbstractLucidSAMSResource {
 
             return result;
         } catch (SQLException e) {
-            throw new LucidSamsExecutionException("Unable to retrieve from the '" + tableName + "' table. " + e.getMessage(), e);
+            throw new LucidSamsExecutionException("Unable to retrieve from the '" + tableName + "' table. ", e);
         } finally {
             databaseConnectionManager.closeDatabaseConnection(databaseConnection);
         }

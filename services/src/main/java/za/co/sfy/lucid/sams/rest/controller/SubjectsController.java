@@ -4,6 +4,7 @@ package za.co.sfy.lucid.sams.rest.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,9 +49,7 @@ public class SubjectsController {
             subjectsResponse.setResponseStatus(ServiceStatus.ERROR.value());
             subjectsResponse.setResponseMessage(executionException.getMessage());
 
-            return ResponseEntity
-                    .unprocessableEntity()
-                    .body(subjectsResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(subjectsResponse);
         }
 
         return ResponseEntity.ok(subjectsResponse);

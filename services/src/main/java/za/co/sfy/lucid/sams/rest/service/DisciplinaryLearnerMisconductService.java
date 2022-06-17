@@ -50,7 +50,7 @@ public class DisciplinaryLearnerMisconductService {
                     break;
                 }
             } catch (SQLException exception) {
-                exception.printStackTrace();
+                throw new LucidSamsExecutionException("Failure in retrieved levels", exception);
             }
         }
 
@@ -59,24 +59,66 @@ public class DisciplinaryLearnerMisconductService {
         }
 
         String code = disciplinaryLearnerMisconductRequest.getCode();
+
         if (null == code) {
             throw new LucidSamsExecutionException("'code' field is empty");
-        } else if (level != Integer.parseInt(String.valueOf(code.charAt(0)))) {
-            throw new LucidSamsExecutionException("invalid 'code', the first character must match with the 'level' field value");
+        } else if (!code.contains("-")) {
+            throw new LucidSamsExecutionException("Invalid 'code' arguments, " +
+                    "please follow the following format: '[level]-[subsequent_id]' e.g.'5-06'");
+        }
+
+        String[] codeArrayString = code.split("-", 2);
+
+        String codePrefix = codeArrayString[0];
+        if (codePrefix.isEmpty()) {
+            throw new LucidSamsExecutionException("Invalid 'code', the prefix(level) is empty");
+        } else if (level != Integer.parseInt(codePrefix)) {
+            throw new LucidSamsExecutionException("Invalid 'code', " +
+                    "the first character/prefix must match with the 'level' field value");
         }
 
         ResultSet retrievedCodes = disciplinaryLearnerMisconductResource.retrieveCodes();
 
+        String codeSuffix = codeArrayString[1];
+        if (codeSuffix.isEmpty()) {
+            throw new LucidSamsExecutionException("Invalid 'code', the suffix(subsequent id) is empty");
+        }
+
+        Integer newCodeID;
+        try {
+            newCodeID = Integer.parseInt(codeSuffix);
+        } catch (NumberFormatException exception) {
+            throw new LucidSamsExecutionException("Invalid code, the suffix is not a numerical value");
+        }
+
+        Integer maxID = 0;
+
         while (true) {
             try {
                 if (!retrievedCodes.next()) break;
-                String retrievedCode = retrievedLevels.getString(1);
+
+                String retrievedCode = retrievedCodes.getString(1);
                 if (retrievedCode.equalsIgnoreCase(code)) {
-                    throw new LucidSamsExecutionException("Code '" + code + "' already exists");
+                    throw new LucidSamsExecutionException("The code '" + code + "' already exists");
                 }
+
+                String[] retrievedCodeArrayString = retrievedCode.split("-", 2);
+                Integer retrievedCodePrefix = Integer.parseInt(retrievedCodeArrayString[0]);
+                Integer retrievedCodeSuffix = Integer.parseInt(retrievedCodeArrayString[1]);
+                if (retrievedCodePrefix.equals(level) && maxID < retrievedCodeSuffix) {
+                    maxID = retrievedCodeSuffix;
+                }
+
             } catch (SQLException exception) {
-                exception.printStackTrace();
+                throw new LucidSamsExecutionException("Failure in retrieved codes", exception);
             }
+        }
+
+        maxID++;
+
+        if (!maxID.equals(newCodeID)) {
+            throw new LucidSamsExecutionException("The given code suffix a.k.a subsequent id '" + codeSuffix + "' is invalid." +
+                    "The next slot is " +maxID);
         }
 
         Long generatedKey = disciplinaryLearnerMisconductResource.save(disciplinaryLearnerMisconduct, disciplinaryLearnerMisconductResource);

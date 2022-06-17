@@ -43,9 +43,8 @@ public class ParentChildService {
                 throw new LucidSamsExecutionException("Could not find parentInfo with id '" + parentID + "'");
             }
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failure in the retrieved Parent Info ", exception);
         }
-
 
         Integer childID = parentChild.getChildId();
         ResultSet retrievedLearnerInfo = learnerInfoResource.retrieveLearnerInfoByID(Long.valueOf(childID));
@@ -54,13 +53,7 @@ public class ParentChildService {
                 throw new LucidSamsExecutionException("Could not find learnerInfo with id '" + childID + "'");
             }
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
-        }
-
-        try {
-            retrievedLearnerInfo.beforeFirst(); //reset index after null check
-        } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failure in the retrieved Learner Info ", exception);
         }
 
         while (true) {
@@ -73,7 +66,7 @@ public class ParentChildService {
                             "ChildId '" + childID + "'");
                 }
             } catch (SQLException exception) {
-                throw new LucidSamsExecutionException(exception.getMessage(), exception);
+                throw new LucidSamsExecutionException("Failure in the retrieved Learner Info ", exception);
             }
         }
 

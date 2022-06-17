@@ -28,7 +28,7 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
 
     public ResultSet retrieveLearnerInfoByID(Long learnerID) throws LucidSamsExecutionException {
 
-        String sql = "SELECT + FROM " + TABLE_NAME + " ID = ?";
+        String sql = "SELECT * FROM " + TABLE_NAME + " Where ID = ?";
         Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
 
         try {
@@ -39,12 +39,12 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
 
         } catch (SQLException exception) {
             throw new LucidSamsExecutionException("Failed to retrieve LearnerInfo of id '" + learnerID + "' :"
-                    + exception.getMessage());
+                    , exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         LearnerInfo learnerInfo = (LearnerInfo) object;
 
@@ -231,18 +231,17 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: " + exception.getMessage()
-                    , exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

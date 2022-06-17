@@ -1,6 +1,7 @@
 
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -11,7 +12,7 @@ public class SubjectsRequest implements Serializable {
     private Integer id;
     private String name;
     private String key;
-    @NotNull
+    @NotBlank
     private String code;
     private String group;
     @NotNull

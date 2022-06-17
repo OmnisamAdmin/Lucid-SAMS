@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -10,7 +11,7 @@ public class CycleInfoRequest implements Serializable {
 
     private static final long serialVersionUID = 4802851169585541994L;
 
-    @NotNull
+    @NotBlank
     private String schoolname;
     @NotNull
     private Integer fetDays;
@@ -24,9 +25,9 @@ public class CycleInfoRequest implements Serializable {
     private Integer highestGrade;
     @NotNull
     private Integer feTlength;
-    @NotNull
+    @NotBlank
     private String lsen;
-    @NotNull
+    @NotBlank
     private String remedial;
     @NotNull
     private Integer fetTotal;
@@ -39,16 +40,16 @@ public class CycleInfoRequest implements Serializable {
     @NotNull
     private Integer getTotal;
     @NotNull
-    private boolean lsenSchool;
+    private Boolean lsenSchool;
     @NotNull
     private Integer sneSpec;
-    @NotNull
+
     private String sneSpecOther;
     @NotNull
     private Short schoolType;
-    @NotNull
+    @NotBlank
     private String multiGrade;
-    @NotNull
+    @NotBlank
     private String sid;
     @NotNull
     private Integer sidLowestYear;
@@ -167,11 +168,11 @@ public class CycleInfoRequest implements Serializable {
         this.getTotal = getTotal;
     }
 
-    public boolean isLsenSchool() {
+    public Boolean isLsenSchool() {
         return lsenSchool;
     }
 
-    public void setLsenSchool(boolean lsenSchool) {
+    public void setLsenSchool(Boolean lsenSchool) {
         this.lsenSchool = lsenSchool;
     }
 

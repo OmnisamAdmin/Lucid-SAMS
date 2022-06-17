@@ -20,7 +20,7 @@ public class InstructionLanguagesResource extends AbstractLucidSAMSResource impl
 
     public ResultSet retrieveInstructionLanguagesByID(Long langID) throws LucidSamsExecutionException {
 
-        String sql = "SELECT + FROM " + TABLE_NAME + " LangID = ?";
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE LangID = ?";
         Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
 
         try {
@@ -31,17 +31,17 @@ public class InstructionLanguagesResource extends AbstractLucidSAMSResource impl
 
         } catch (SQLException exception) {
             throw new LucidSamsExecutionException("Failed to retrieve InstructionLanguage of id '" + langID + "':"
-                    + exception.getMessage());
+                    , exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME;
 
@@ -49,13 +49,12 @@ public class InstructionLanguagesResource extends AbstractLucidSAMSResource impl
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             return preparedStatement;
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve retrieve prepared statement: "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve retrieve prepared statement: ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
