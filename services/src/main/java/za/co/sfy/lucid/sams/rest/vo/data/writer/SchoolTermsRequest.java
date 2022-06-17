@@ -7,7 +7,7 @@ public class SchoolTermsRequest implements Serializable {
 
     private static final long serialVersionUID = 4285025394641057292L;
 
-    private int id;
+    private Integer id;
     @NotNull
     private String quater;
     @NotNull
@@ -19,11 +19,11 @@ public class SchoolTermsRequest implements Serializable {
     @NotNull
     private Integer term;
 
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(int value) {
+    public void setId(Integer value) {
         this.id = value;
     }
 

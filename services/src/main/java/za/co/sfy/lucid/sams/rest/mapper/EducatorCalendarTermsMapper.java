@@ -24,10 +24,13 @@ public class EducatorCalendarTermsMapper {
 			educatorCalendarTerms.setCurrentYear(educatorCalendarTermsRequest.getCurrentYear());
 		}
 
-		educatorCalendarTerms
-				.setEndDate(sharedMapper.dateToXMLGregorianCalendar(educatorCalendarTermsRequest.getEndDate()));
+		String endDate = educatorCalendarTermsRequest.getEndDate();
+		if (null != endDate) {
+			educatorCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar(endDate));
+		} else {
+			educatorCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar());
+		}
 
-		// TODO This is problem
 		Integer id = educatorCalendarTermsRequest.getId();
 		if (null != id) {
 			educatorCalendarTerms.setId(Integer.valueOf(id));
@@ -40,8 +43,13 @@ public class EducatorCalendarTermsMapper {
 			educatorCalendarTerms.setQuater(educatorCalendarTermsRequest.getQuater());
 		}
 
-		educatorCalendarTerms
-				.setStartDate(sharedMapper.dateToXMLGregorianCalendar(educatorCalendarTermsRequest.getStartDate()));
+		String startDate = educatorCalendarTermsRequest.getStartDate();
+		if (null != startDate) {
+			educatorCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar(startDate));
+		} else {
+			educatorCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar());
+		}
+
 		Integer term = educatorCalendarTermsRequest.getTerm();
 		if (null != term) {
 			educatorCalendarTerms.setTerm(Integer.valueOf(term));

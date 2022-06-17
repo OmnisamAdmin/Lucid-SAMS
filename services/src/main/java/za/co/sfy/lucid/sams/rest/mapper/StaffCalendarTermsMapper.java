@@ -19,28 +19,38 @@ public class StaffCalendarTermsMapper {
         StaffCalendarTerms staffCalendarTerms = new StaffCalendarTerms();
         
         String currentYear = staffCalendarTermsRequest.getCurrentYear();
-        if(null != currentYear) {
+        if (null != currentYear) {
         staffCalendarTerms.setCurrentYear(staffCalendarTermsRequest.getCurrentYear());
         }
-        
-        staffCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar(staffCalendarTermsRequest.getEndDate()));
-        
-        int id = staffCalendarTermsRequest.getId();
-        if(null != id) {
+
+        String endDate = staffCalendarTermsRequest.getEndDate();
+        if (null != endDate) {
+            staffCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar(endDate));
+        } else {
+            staffCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar());
+        }
+
+        Integer id = staffCalendarTermsRequest.getId();
+        if (null != id) {
         staffCalendarTerms.setId(Integer.valueOf(id));
         } else {
         	staffCalendarTermsRequest.setId(Integer.valueOf(0));
         }
         
         String quater = staffCalendarTermsRequest.getQuater();
-        if(null != quater) {
+        if (null != quater) {
         staffCalendarTerms.setQuater(staffCalendarTermsRequest.getQuater());
         }
-        
-        staffCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar(staffCalendarTermsRequest.getStartDate()));
+
+        String startDate = staffCalendarTermsRequest.getStartDate();
+        if (null != startDate) {
+            staffCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar(startDate));
+        } else {
+            staffCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar());
+        }
         
         Integer term = staffCalendarTermsRequest.getTerm();
-        if(null != term) {
+        if (null != term) {
         staffCalendarTerms.setTerm(Integer.valueOf(term));
         } else {
         	staffCalendarTermsRequest.setTerm(Integer.valueOf(0));

@@ -28,7 +28,6 @@ public class ExtraMuralsHousesMapper {
 			extraMuralsHouses.setHseColour(extraMuralsHousesRequest.getHseColour());
 		}
 
-		// TODO This is problem
 		Integer hseID = extraMuralsHousesRequest.getHseID();
 		if (null != hseID) {
 			extraMuralsHouses.setHseID(Integer.valueOf(hseID));

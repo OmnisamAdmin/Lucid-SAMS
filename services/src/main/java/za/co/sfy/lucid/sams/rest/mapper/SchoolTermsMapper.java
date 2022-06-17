@@ -5,8 +5,6 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.SchoolTermsRequest;
 import za.co.sfy.sams.lucid.schema.SchoolTerms;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 /**
  * @author muzim
  */
@@ -23,16 +21,44 @@ public class SchoolTermsMapper {
 
         SchoolTerms schoolTerms = new SchoolTerms();
 
-        schoolTerms.setId(schoolTermsRequest.getId());
-        schoolTerms.setCurrentYear(schoolTermsRequest.getCurrentYear());
-        XMLGregorianCalendar endDate = sharedMapper.dateToXMLGregorianCalendar(schoolTermsRequest.getEndDate());
-        schoolTerms.setEndDate(endDate);
-        schoolTerms.setQuater(schoolTermsRequest.getQuater());
-        XMLGregorianCalendar startDate = sharedMapper.dateToXMLGregorianCalendar(schoolTermsRequest.getStartDate());
-        schoolTerms.setStartDate(startDate);
-        schoolTerms.setTerm(schoolTermsRequest.getTerm());
+        Integer id = schoolTermsRequest.getId();
+        if (null != id) {
+            schoolTerms.setId(id);
+        } else {
+            schoolTerms.setId(0);
+        }
+
+        String currentYear = schoolTermsRequest.getCurrentYear();
+        if (null != currentYear) {
+            schoolTerms.setCurrentYear(currentYear);
+        }
+
+        String endDate = schoolTermsRequest.getEndDate();
+        if (null != endDate) {
+            schoolTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar(endDate));
+        } else {
+            schoolTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar());
+        }
+
+        String quater = schoolTermsRequest.getQuater();
+        if (null != quater) {
+            schoolTerms.setQuater(quater);
+        }
+
+        String startDate = schoolTermsRequest.getStartDate();
+        if (null != startDate) {
+            schoolTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar(startDate));
+        } else {
+            schoolTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar());
+        }
+
+        Integer term = schoolTermsRequest.getTerm();
+        if (null != term) {
+            schoolTerms.setTerm(term);
+        } else {
+            schoolTerms.setTerm(0);
+        }
 
         return schoolTerms;
     }
-
 }

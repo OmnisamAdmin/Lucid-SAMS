@@ -57,7 +57,6 @@ public class ExtraMuralsTeamsMapper {
 
 		}
 
-		// TODO This is problem
 		Integer teamID = extraMuralsTeamsRequest.getTeamID();
 		if (null != teamID) {
 			extraMuralsTeams.setTeamID(Integer.valueOf(teamID));

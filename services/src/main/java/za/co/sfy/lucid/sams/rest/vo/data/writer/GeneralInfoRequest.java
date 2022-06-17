@@ -97,7 +97,6 @@ public class GeneralInfoRequest implements Serializable {
     @NotNull
     private String schoolLevel;
     private String tsSchoolStatus;
-    // TODO: these two fields might be whats breaking it
     private String tsTransactionCategory;
     private String tsStatusFlag;
     private String tsReportStatusFlag;

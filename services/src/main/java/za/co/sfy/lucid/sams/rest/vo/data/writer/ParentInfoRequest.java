@@ -6,7 +6,7 @@ public class ParentInfoRequest implements Serializable {
 
     private static final long serialVersionUID = -5755378689227934689L;
 
-    private int parentID;
+    private Integer parentID;
     private String initials;
     private String fName;
     private String sName;
@@ -59,11 +59,11 @@ public class ParentInfoRequest implements Serializable {
     private String reasonNoID;
     private String religion;
 
-    public int getParentID() {
+    public Integer getParentID() {
         return parentID;
     }
 
-    public void setParentID(int parentID) {
+    public void setParentID(Integer parentID) {
         this.parentID = parentID;
     }
 

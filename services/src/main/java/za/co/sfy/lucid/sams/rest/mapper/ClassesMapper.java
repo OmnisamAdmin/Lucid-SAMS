@@ -15,7 +15,6 @@ public class ClassesMapper {
 
 		Classes classes = new Classes();
 
-		// TODO This is problem
 		Integer classId = classesRequest.getClassId();
 		if (null != classId) {
 			classes.setClassId(Integer.valueOf(classId));

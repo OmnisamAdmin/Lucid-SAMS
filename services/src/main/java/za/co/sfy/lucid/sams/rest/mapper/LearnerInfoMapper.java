@@ -5,7 +5,6 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.LearnerInfoRequest;
 import za.co.sfy.sams.lucid.schema.LearnerInfo;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * @author muzim
@@ -22,699 +21,703 @@ public class LearnerInfoMapper {
     public LearnerInfo learnerInfoRequestToLearnerInfo(LearnerInfoRequest learnerInfoRequest) throws LucidSamsExecutionException {
 
         LearnerInfo learnerInfo = new LearnerInfo();
-        
-        int id = learnerInfoRequest.getId();
-        if(null != id) {
+
+        Integer id = learnerInfoRequest.getId();
+        if (null != id) {
         	learnerInfo.setID(Integer.valueOf(id));
         } else { 
         	learnerInfoRequest.setId(Integer.valueOf(0));
         }
         
         String learnerID = learnerInfoRequest.getLearnerID();
-        if(null != learnerID) {
+        if (null != learnerID) {
         	learnerInfo.setLearnerID(learnerInfoRequest.getLearnerID());
         }
         
         String accessionNo = learnerInfoRequest.getAccessionNo();
-        if(null != accessionNo) {
+        if (null != accessionNo) {
         	learnerInfo.setAccessionNo(learnerInfoRequest.getAccessionNo());
         }
         
         learnerInfo.setTheDate(learnerInfoRequest.getTheDate());
         
         String sName = learnerInfoRequest.getsName();
-        if(null != sName) {
+        if (null != sName) {
         learnerInfo.setSName(learnerInfoRequest.getsName());
         }
         
         String fName = learnerInfoRequest.getfName();
-        if(null != fName) {
+        if (null != fName) {
         learnerInfo.setFName(learnerInfoRequest.getfName());
         }
         
         String nickName = learnerInfoRequest.getNickName();
-        if(null != nickName) {
+        if (null != nickName) {
         learnerInfo.setNickName(learnerInfoRequest.getNickName());
         }
     
         learnerInfo.setBirthDate(learnerInfoRequest.getBirthDate());
         
         String idNo = learnerInfoRequest.getIdNo();
-        if(null != idNo) {
+        if (null != idNo) {
         learnerInfo.setIDNo(learnerInfoRequest.getIdNo());
         }
         
         String gender = learnerInfoRequest.getGender();
-        if(null != gender) {
+        if (null != gender) {
         learnerInfo.setGender(learnerInfoRequest.getGender());
         }
         
         Integer homeLanguage = learnerInfoRequest.getHomeLanguage();
-        if(null != homeLanguage) {
+        if (null != homeLanguage) {
         learnerInfo.setHomeLanguage(Integer.valueOf(homeLanguage));
         } else {
         	learnerInfoRequest.setHomeLanguage(Integer.valueOf(0));
         }
         
         Integer instructionLanguage = learnerInfoRequest.getInstructionLanguage();
-        if(null != instructionLanguage) {
+        if (null != instructionLanguage) {
         learnerInfo.setInstructionLanguage(Integer.valueOf(instructionLanguage));
         } else {
         	learnerInfoRequest.setInstructionLanguage(Integer.valueOf(0));
         }
         
         Integer preferredLanguage = learnerInfoRequest.getPreferredLanguage();
-        if(null != preferredLanguage) {
+        if (null != preferredLanguage) {
         learnerInfo.setPreferredLanguage(Integer.valueOf(preferredLanguage));
         } else {
         	learnerInfoRequest.setPreferredLanguage(Integer.valueOf(0));
         }
         
         String address1 = learnerInfoRequest.getAddress1();
-        if(null != address1) {
+        if (null != address1) {
         learnerInfo.setAddress1(learnerInfoRequest.getAddress1());
         }
         
         String address2 = learnerInfoRequest.getAddress2();
-        if(null != address2) {
+        if (null != address2) {
         learnerInfo.setAddress2(learnerInfoRequest.getAddress2());
         }
         
         String address3 = learnerInfoRequest.getAddress3();
-        if(null != address3) {
+        if (null != address3) {
         learnerInfo.setAddress3(learnerInfoRequest.getAddress3());
         }
         
         String addressCode = learnerInfoRequest.getAddressCode();
-        if(null != addressCode) {
+        if (null != addressCode) {
         learnerInfo.setAddressCode(learnerInfoRequest.getAddressCode());
         }
         
         String guardian = learnerInfoRequest.getGuardian();
-        if(null != guardian) {
+        if (null != guardian) {
         learnerInfo.setGuardian(learnerInfoRequest.getGuardian());
         }
         
         String tel1Code = learnerInfoRequest.getTel1Code();
-        if(null != tel1Code) {
+        if (null != tel1Code) {
         learnerInfo.setTel1Code(learnerInfoRequest.getTel1Code());
         }
         
         String tel1 = learnerInfoRequest.getTel1();
-        if(null != tel1) {
+        if (null != tel1) {
         learnerInfo.setTel1(learnerInfoRequest.getTel1());
         }
         
         String tel2Code = learnerInfoRequest.getTel2Code();
-        if(null != tel2Code) {
+        if (null != tel2Code) {
         learnerInfo.setTel2Code(learnerInfoRequest.getTel2Code());
         }
         
         String tel2 = learnerInfoRequest.getTel2();
-        if(null != tel2) {
+        if (null != tel2) {
         learnerInfo.setTel2(learnerInfoRequest.getTel2());
         }
         
         String tel3Code = learnerInfoRequest.getTel3Code();
-        if(null != tel3Code) {
+        if (null != tel3Code) {
         learnerInfo.setTel3Code(learnerInfoRequest.getTel3Code());
         }
         
         String tel3 = learnerInfoRequest.getTel3();
-        if(null != tel3) {
+        if (null != tel3) {
         learnerInfo.setTel3(learnerInfoRequest.getTel3());
         }
-        
-        int grade = learnerInfoRequest.getGrade();
-        if(null != grade) {
+
+        Integer grade = learnerInfoRequest.getGrade();
+        if (null != grade) {
         learnerInfo.setGrade(Integer.valueOf(grade));
         } else {
         	learnerInfoRequest.setGrade(Integer.valueOf(0));
         }
         
         Integer clazz = learnerInfoRequest.getClazz();
-        if(null != clazz) {
+        if (null != clazz) {
         learnerInfo.setClazz(Integer.valueOf(clazz));
         } else {
         	learnerInfoRequest.setClazz(Integer.valueOf(0));
         }
         
         Integer gradeYears = learnerInfoRequest.getGradeYears();
-        if(null != gradeYears) {
+        if (null != gradeYears) {
         learnerInfo.setGradeYears(Integer.valueOf(gradeYears));
         } else {
         	learnerInfoRequest.setGradeYears(Integer.valueOf(0));
         }
         
         String previousSchool = learnerInfoRequest.getPreviousSchool();
-        if(null != previousSchool) {
+        if (null != previousSchool) {
         learnerInfo.setPreviousSchool(learnerInfoRequest.getPreviousSchool());
         }
         
         String previousSchoolProvince = learnerInfoRequest.getPreviousSchoolProvince();
-        if(null != previousSchoolProvince) {
+        if (null != previousSchoolProvince) {
         learnerInfo.setPreviousSchoolProvince(learnerInfoRequest.getPreviousSchoolProvince());
         }
         
         String schoolAddress1 = learnerInfoRequest.getSchoolAddress1();
-        if(null != schoolAddress1) {
+        if (null != schoolAddress1) {
         learnerInfo.setSchoolAddress1(learnerInfoRequest.getSchoolAddress1());
         }
         
         String schoolAddress2 = learnerInfoRequest.getSchoolAddress2();
-        if(null != schoolAddress2) {
+        if (null != schoolAddress2) {
         learnerInfo.setSchoolAddress2(learnerInfoRequest.getSchoolAddress2());
         }
         
         String schoolAddress3 = learnerInfoRequest.getSchoolAddress3();
-        if(null != schoolAddress3) {
+        if (null != schoolAddress3) {
         learnerInfo.setSchoolAddress3(learnerInfoRequest.getSchoolAddress3());
         }
         
         String schoolCode = learnerInfoRequest.getSchoolCode();
-        if(null != schoolCode) {
+        if (null != schoolCode) {
         learnerInfo.setSchoolCode(learnerInfoRequest.getSchoolCode());
         }
         
         String religion = learnerInfoRequest.getReligion();
-        if(null != religion) {
+        if (null != religion) {
         learnerInfo.setReligion(learnerInfoRequest.getReligion());
         }
         
         String disciplinary = learnerInfoRequest.getDisciplinary();
-        if(null != disciplinary) {
+        if (null != disciplinary) {
         learnerInfo.setDisciplinary(learnerInfoRequest.getDisciplinary());
         }
         
         String medicalConditions =learnerInfoRequest.getMedicalConditions();
-        if(null != medicalConditions) {
+        if (null != medicalConditions) {
         learnerInfo.setMedicalConditions(learnerInfoRequest.getMedicalConditions());
         }
         
         String drInfo = learnerInfoRequest.getDrInfo();
-        if(null != drInfo) {
+        if (null != drInfo) {
         learnerInfo.setDrInfo(learnerInfoRequest.getDrInfo());
         }
         
         String medicalAidName = learnerInfoRequest.getMedicalAidName();
-        if(null != medicalAidName) {
+        if (null != medicalAidName) {
         learnerInfo.setMedicalAidName(learnerInfoRequest.getMedicalAidName());
         }
         
         String medicalAidNo = learnerInfoRequest.getMedicalAidNo();
-        if(null != medicalAidNo) {
+        if (null != medicalAidNo) {
         learnerInfo.setMedicalAidNo(learnerInfoRequest.getMedicalAidNo());
         }
         
         String medicalAidMember = learnerInfoRequest.getMedicalAidMember();
-        if(null != medicalAidMember) {
+        if (null != medicalAidMember) {
         learnerInfo.setMedicalAidMember(learnerInfoRequest.getMedicalAidMember());
         }
         
         String guidance = learnerInfoRequest.getGuidance();
-        if(null != guidance) {
+        if (null != guidance) {
         learnerInfo.setGuidance(learnerInfoRequest.getGuidance());
         }
         
         String initials = learnerInfoRequest.getInitials();
-        if(null != initials) {
+        if (null != initials) {
         learnerInfo.setInitials(learnerInfoRequest.getInitials());
         }
         
         String citizenship = learnerInfoRequest.getCitizenship();
-        if(null != citizenship) {
+        if (null != citizenship) {
         learnerInfo.setCitizenship(learnerInfoRequest.getCitizenship());
         }
         
         String provincial = learnerInfoRequest.getProvincial();
-        if(null != provincial) {
+        if (null != provincial) {
         learnerInfo.setProvincial(learnerInfoRequest.getProvincial());
         }
         
         String schoolProvince = learnerInfoRequest.getSchoolProvince();
-        if(null != schoolProvince) {
+        if (null != schoolProvince) {
         learnerInfo.setSchoolProvince(learnerInfoRequest.getSchoolProvince());
         }
         
         learnerInfo.setAssignClass(learnerInfoRequest.isAssignClass());
         
         String physProvince = learnerInfoRequest.getPhysProvince();
-        if(null != physProvince) {
+        if (null != physProvince) {
         learnerInfo.setPhysProvince(learnerInfoRequest.getPhysProvince());
         }
         
         String race = learnerInfoRequest.getRace();
-        if(null != race) {
+        if (null != race) {
         learnerInfo.setRace(learnerInfoRequest.getRace());
         }
         
         String title = learnerInfoRequest.getTitle();
-        if(null != title) {
+        if (null != title) {
         learnerInfo.setTitle(learnerInfoRequest.getTitle());
         }
         
         Integer previousPlacementofSchool = learnerInfoRequest.getPreviousPlacementofSchool();
-        if(null != previousPlacementofSchool) {
+        if (null != previousPlacementofSchool) {
         learnerInfo.setPreviousPlacementofSchool(Integer.valueOf(previousPlacementofSchool));
         } else {
         	learnerInfoRequest.setPreviousPlacementofSchool(Integer.valueOf(0));
         }
         
         Integer transport = learnerInfoRequest.getTransport();
-        if(null != transport) {
+        if (null != transport) {
         learnerInfo.setTransport(Integer.valueOf(transport));
         } else {
         	learnerInfoRequest.setTransport(Integer.valueOf(0));
         }
         
         Integer lsenDisabilities = learnerInfoRequest.getLsenDisabilities();
-        if(null != lsenDisabilities) {
+        if (null != lsenDisabilities) {
         learnerInfo.setLSENDisabilities(Integer.valueOf(lsenDisabilities));
         } else {
         	learnerInfoRequest.setLsenDisabilities(Integer.valueOf(0));
         }
         
         String dateLeft = learnerInfoRequest.getDateLeft();
-        if(null != dateLeft) {
+        if (null != dateLeft) {
         learnerInfo.setDateLeft(learnerInfoRequest.getDateLeft());
         }
         
         String reason = learnerInfoRequest.getReason();
-        if(null != reason) {
+        if (null != reason) {
         learnerInfo.setReason(learnerInfoRequest.getReason());
         }
         
         Integer lsenStatus = learnerInfoRequest.getLsenStatus();
-        if(null != lsenStatus) {
+        if (null != lsenStatus) {
         learnerInfo.setLSENStatus(Integer.valueOf(lsenStatus));
         } else {
         	learnerInfoRequest.setLsenStatus(Integer.valueOf(0));
         }
         
         String status = learnerInfoRequest.getStatus();
-        if(null != status) {
+        if (null != status) {
         learnerInfo.setStatus(learnerInfoRequest.getStatus());
         }
         
         Integer boarder = learnerInfoRequest.getBoarder();
-        if(null != boarder) {
+        if (null != boarder) {
         learnerInfo.setBoarder(Integer.valueOf(boarder));
         } else {
         	learnerInfoRequest.setBoarder(Integer.valueOf(0));
         }
         
         String countryResidence = learnerInfoRequest.getCountryResidence();
-        if(null != countryResidence) {
+        if (null != countryResidence) {
         learnerInfo.setCountryResidence(learnerInfoRequest.getCountryResidence());
         }
         
         String provinceResidence = learnerInfoRequest.getProvinceResidence();
-        if(null != provinceResidence) {
+        if (null != provinceResidence) {
         learnerInfo.setProvinceResidence(learnerInfoRequest.getProvinceResidence());
         }
         
         Integer firstProvince = learnerInfoRequest.getFirstProvince();
-        if(null != firstProvince) {
+        if (null != firstProvince) {
         learnerInfo.setFirstProvince(Integer.valueOf(firstProvince));
         } else {
         	learnerInfoRequest.setFirstProvince(Integer.valueOf(0));
         }
         
         Integer deceasedParent = learnerInfoRequest.getDeceasedParent();
-        if(null != deceasedParent) {
+        if (null != deceasedParent) {
         learnerInfo.setDeceasedParent(Integer.valueOf(deceasedParent));
         } else {
         	learnerInfoRequest.setDeceasedParent(Integer.valueOf(0));
         }
         
         Integer sgRegister = learnerInfoRequest.getSgRegister();
-        if(null != sgRegister) {
+        if (null != sgRegister) {
         learnerInfo.setSGRegister(Integer.valueOf(sgRegister));
         } else {
         	learnerInfoRequest.setSgRegister(Integer.valueOf(0));
         }
         
         Integer sgReceive = learnerInfoRequest.getSgReceive();
-        if(null != sgReceive) {
+        if (null != sgReceive) {
         learnerInfo.setSGReceive(Integer.valueOf(sgReceive));
         } else {
         	learnerInfoRequest.setSgReceive(Integer.valueOf(0));
         }
         
         String drName = learnerInfoRequest.getDrName();
-        if(null != drName) {
+        if (null != drName) {
         learnerInfo.setDrName(learnerInfoRequest.getDrName());
         }
         
         String drTel = learnerInfoRequest.getDrTel();
-        if(null != drTel) {
+        if (null != drTel) {
         learnerInfo.setDrTel(learnerInfoRequest.getDrTel());
         }
         
         Integer dexterity = learnerInfoRequest.getDexterity();
-        if(null != dexterity) {
+        if (null != dexterity) {
         learnerInfo.setDexterity(Integer.valueOf(dexterity));
         } else {
         	learnerInfoRequest.setDexterity(Integer.valueOf(0));
         }
         
         Integer psnp = learnerInfoRequest.getPsnp();
-        if(null != psnp) {
+        if (null != psnp) {
         learnerInfo.setPSNP(Integer.valueOf(psnp));
         } else { 
         	learnerInfoRequest.setPsnp(Integer.valueOf(0));
         }
         
         Integer noFamily = learnerInfoRequest.getNoFamily();
-        if(null != noFamily) {
+        if (null != noFamily) {
         learnerInfo.setNoFamily(Integer.valueOf(noFamily));
         } else {
         	learnerInfoRequest.setNoFamily(Integer.valueOf(0));
         }
         
         String positionFamily = learnerInfoRequest.getPositionFamily();
-        if(null != positionFamily) {
+        if (null != positionFamily) {
         learnerInfo.setPositionFamily(learnerInfoRequest.getPositionFamily());
         }
         
         Integer reportLanguage = learnerInfoRequest.getReportLanguage();
-        if(null != reportLanguage) {
+        if (null != reportLanguage) {
         learnerInfo.setReportLanguage(Integer.valueOf(reportLanguage));
         } else {
         	learnerInfoRequest.setReportLanguage(Integer.valueOf(0));
         }
         
         String foreignID = learnerInfoRequest.getForeignID();
-        if(null != foreignID) {
+        if (null != foreignID) {
         learnerInfo.setForeignID(learnerInfoRequest.getForeignID());
         }
         
         String learnerComment = learnerInfoRequest.getLearnerComment();
-        if(null != learnerComment) {
+        if (null != learnerComment) {
         learnerInfo.setLearnerComment(learnerInfoRequest.getLearnerComment());
         }
         
         String photoName = learnerInfoRequest.getPhotoName();
-        if(null != photoName) {
+        if (null != photoName) {
         learnerInfo.setPhotoName(learnerInfoRequest.getPhotoName());
         }
         
         Integer gradeEntered = learnerInfoRequest.getGradeEntered();
-        if(null != gradeEntered) {
+        if (null != gradeEntered) {
         learnerInfo.setGradeEntered(Integer.valueOf(gradeEntered));
         } else {
         	learnerInfoRequest.setGradeEntered(Integer.valueOf(0));
         }
         
         Integer gradeLeft = learnerInfoRequest.getGradeLeft();
-        if(null != gradeLeft) {
+        if (null != gradeLeft) {
         learnerInfo.setGradeLeft(Integer.valueOf(gradeLeft));
         } else {
         	learnerInfoRequest.setGradeLeft(Integer.valueOf(0));
         }
         
         String boarderNumber = learnerInfoRequest.getBoarderNumber();
-        if(null != boarderNumber) {
+        if (null != boarderNumber) {
         learnerInfo.setBoarderNumber(learnerInfoRequest.getBoarderNumber());
         }
         
         String boarderHostel = learnerInfoRequest.getBoarderHostel();
-        if(null != boarderHostel) {
+        if (null != boarderHostel) {
         learnerInfo.setBoarderHostel(learnerInfoRequest.getBoarderHostel());
         }
         
         String thirdName = learnerInfoRequest.getThirdName();
-        if(null != thirdName) {
+        if (null != thirdName) {
         learnerInfo.setThirdName(learnerInfoRequest.getThirdName());
         }
         
         String email = learnerInfoRequest.getEmail();
-        if(null != email) {
+        if (null != email) {
         learnerInfo.setEmail(learnerInfoRequest.getEmail());
         }
         
         String socialGrantNo = learnerInfoRequest.getSocialGrantNo();
-        if(null != socialGrantNo) {
+        if (null != socialGrantNo) {
         learnerInfo.setSocialGrantNo(learnerInfoRequest.getSocialGrantNo());
         }
         
         Integer tsTransactionCategory = learnerInfoRequest.getTsTransactionCategory();
-        if(null != tsTransactionCategory) {
+        if (null != tsTransactionCategory) {
         learnerInfo.setTSTransactionCategory(Integer.valueOf(tsTransactionCategory));
         } else {
         	learnerInfoRequest.setTsTransactionCategory(Integer.valueOf(0));
         }
         
         Integer tsStatusFlag = learnerInfoRequest.getTsStatusFlag();
-        if(null != tsStatusFlag) {
+        if (null != tsStatusFlag) {
         learnerInfo.setTSStatusFlag(Integer.valueOf(tsStatusFlag));
         } else {
         	learnerInfoRequest.setTsStatusFlag(Integer.valueOf(0));
         }
         
         Integer tsReportStatusFlag = learnerInfoRequest.getTsReportStatusFlag();
-        if(null != tsReportStatusFlag) {
+        if (null != tsReportStatusFlag) {
         learnerInfo.setTSReportStatusFlag(Integer.valueOf(tsReportStatusFlag));
         } else {
         	learnerInfoRequest.setTsReportStatusFlag(Integer.valueOf(0));
         }
         
         Integer tsReasonCode = learnerInfoRequest.getTsReasonCode();
-        if(null != tsReasonCode) {
+        if (null != tsReasonCode) {
         learnerInfo.setTSReasonCode(Integer.valueOf(tsReasonCode));
         } else {
         	learnerInfoRequest.setTsReasonCode(Integer.valueOf(0));
         }
         
         Integer luritsIndicator = learnerInfoRequest.getLuritsIndicator();
-        if(null != luritsIndicator) {
+        if (null != luritsIndicator) {
         learnerInfo.setLuritsIndicator(Integer.valueOf(luritsIndicator));
         } else {
         	learnerInfoRequest.setLuritsIndicator(Integer.valueOf(0));
         }
         
         Integer luritsFlag = learnerInfoRequest.getLuritsFlag();
-        if(null != luritsFlag) {
+        if (null != luritsFlag) {
         learnerInfo.setLuritsFlag(Integer.valueOf(luritsFlag));
         } else {
         	learnerInfoRequest.setLuritsFlag(Integer.valueOf(0));
         }
         
         Double luritsNumber = learnerInfoRequest.getLuritsNumber();
-        if(null != luritsNumber) {
+        if (null != luritsNumber) {
         learnerInfo.setLuritsNumber(Double.valueOf(luritsNumber));
         } else {
         	learnerInfoRequest.setLuritsNumber(Double.valueOf(0));
         }
         
         String tsSentfileName = learnerInfoRequest.getTsSentfileName();
-        if(null != tsSentfileName) {
+        if (null != tsSentfileName) {
         learnerInfo.setTSSentfileName(learnerInfoRequest.getTsSentfileName());
         }
-        
-        XMLGregorianCalendar tsDateLastUpdate = sharedMapper.dateToXMLGregorianCalendar(learnerInfoRequest.getTsDateLastUpdate());
-        
-        learnerInfo.setTSDateLastUpdate(tsDateLastUpdate);
-        
+
+        String tsDateLastUpdate1 = learnerInfoRequest.getTsDateLastUpdate();
+        if (null != tsDateLastUpdate1) {
+            learnerInfo.setTSDateLastUpdate(sharedMapper.dateToXMLGregorianCalendar(tsDateLastUpdate1));
+        } else {
+            learnerInfo.setTSDateLastUpdate(sharedMapper.dateToXMLGregorianCalendar());
+        }
+
+
         String tsLastUpdatedBy = learnerInfoRequest.getTsLastUpdatedBy();
-        if(null != tsLastUpdatedBy) {
+        if (null != tsLastUpdatedBy) {
         learnerInfo.setTSLastUpdatedBy(learnerInfoRequest.getTsLastUpdatedBy());
         }
         
         String learnerName2 = learnerInfoRequest.getLearnerName2();
-        if(null != learnerName2) {
+        if (null != learnerName2) {
         learnerInfo.setLearnerName2(learnerInfoRequest.getLearnerName2());
         }
         
         String learnerName3 = learnerInfoRequest.getLearnerName3();
-        if(null != learnerName3) {
+        if (null != learnerName3) {
         learnerInfo.setLearnerName3(learnerInfoRequest.getLearnerName3());
         }
         
         String nameDiacritics = learnerInfoRequest.getNameDiacritics();
-        if(null != nameDiacritics) {
+        if (null != nameDiacritics) {
         learnerInfo.setNameDiacritics(learnerInfoRequest.getNameDiacritics());
         }
         
         String otherHomeLanguage = learnerInfoRequest.getOtherHomeLanguage();
-        if(null != otherHomeLanguage) {
+        if (null != otherHomeLanguage) {
         learnerInfo.setOtherHomeLanguage(learnerInfoRequest.getOtherHomeLanguage());
         }
         
         String otherLanguage = learnerInfoRequest.getOtherLanguage();
-        if(null != otherLanguage) {
+        if (null != otherLanguage) {
         learnerInfo.setOtherLanguage(learnerInfoRequest.getOtherLanguage());
         }
         
         String otherPreferredLanguage = learnerInfoRequest.getOtherPreferredLanguage();
-        if(null != otherPreferredLanguage) {
+        if (null != otherPreferredLanguage) {
         learnerInfo.setOtherPreferredLanguage(learnerInfoRequest.getOtherPreferredLanguage());
         }
         
         String otherTeachingLanguage = learnerInfoRequest.getOtherTeachingLanguage();
-        if(null != otherTeachingLanguage) {
+        if (null != otherTeachingLanguage) {
         learnerInfo.setOtherTeachingLanguage(learnerInfoRequest.getOtherTeachingLanguage());
         }
         
         String luritsStatus = learnerInfoRequest.getLuritsStatus();
-        if(null != luritsStatus) {
+        if (null != luritsStatus) {
         learnerInfo.setLuritsStatus(learnerInfoRequest.getLuritsStatus());
         }
         
         String secondName = learnerInfoRequest.getSecondName();
-        if(null != secondName) {
+        if (null != secondName) {
         learnerInfo.setSecondName(learnerInfoRequest.getSecondName());
         }
         
         String pastelCode = learnerInfoRequest.getPastelCode();
-        if(null != pastelCode) {
+        if (null != pastelCode) {
         learnerInfo.setPastelCode(learnerInfoRequest.getPastelCode());
         }
         
         Integer busRouteId = learnerInfoRequest.getBusRouteId();
-        if(null != busRouteId) {
+        if (null != busRouteId) {
         learnerInfo.setBusRouteId(Integer.valueOf(busRouteId));
         } else { 
         	learnerInfoRequest.setBusRouteId(Integer.valueOf(0));
         }
         
         String subjHL = learnerInfoRequest.getSubjHL();
-        if(null != subjHL) {
+        if (null != subjHL) {
         learnerInfo.setSubjHL(learnerInfoRequest.getSubjHL());
         }
         
         String subjFAL = learnerInfoRequest.getSubjFAL();
-        if(null != subjFAL) {
+        if (null != subjFAL) {
         learnerInfo.setSubjFAL(learnerInfoRequest.getSubjFAL());
         }
         
         String prevSName = learnerInfoRequest.getPrevSName();
-        if(null != prevSName) {
+        if (null != prevSName) {
         learnerInfo.setPrevSName(learnerInfoRequest.getPrevSName());
         }
         
         String positionFamilyF = learnerInfoRequest.getPositionFamilyF();
-        if(null != positionFamilyF) {
+        if (null != positionFamilyF) {
         learnerInfo.setPositionFamilyF(learnerInfoRequest.getPositionFamilyF());
         }
         
         Short reasonForNoIDNo = learnerInfoRequest.getReasonForNoIDNo();
-        if(null != reasonForNoIDNo) {
+        if (null != reasonForNoIDNo) {
         learnerInfo.setReasonForNoIDNo(Short.valueOf(reasonForNoIDNo));
         } else {
         	 learnerInfoRequest.setReasonForNoIDNo(Short.valueOf("0"));
         }
         
         Short grantCReg = learnerInfoRequest.getGrantCReg();
-        if(null != grantCReg) {
+        if (null != grantCReg) {
         learnerInfo.setGrantCReg(Short.valueOf(grantCReg));
         } else {
         	learnerInfoRequest.setGrantCReg(Short.valueOf("0"));
         }
         
         Short grantCReceive = learnerInfoRequest.getGrantCReceive();
-        if(null != grantCReceive) {
+        if (null != grantCReceive) {
         learnerInfo.setGrantCReceive(Short.valueOf(grantCReceive));
         } else {
         	learnerInfoRequest.setGrantCReceive(Short.valueOf("0"));
         }
         
         String grantCNo = learnerInfoRequest.getGrantCNo();
-        if(null != grantCNo) {
+        if (null != grantCNo) {
         learnerInfo.setGrantCNo(learnerInfoRequest.getGrantCNo());
         }
         
         Short grant4Reg = learnerInfoRequest.getGrant4Reg();
-        if(null != grant4Reg) {
+        if (null != grant4Reg) {
         learnerInfo.setGrant4Reg(Short.valueOf(grant4Reg));
         } else {
         	learnerInfoRequest.setGrant4Reg(Short.valueOf("0"));
         }
         
         Short grant4Receive = learnerInfoRequest.getGrant4Receive();
-        if(null != grant4Receive) {
+        if (null != grant4Receive) {
         learnerInfo.setGrant4Receive(Short.valueOf(grant4Receive));
         } else {
         	learnerInfoRequest.setGrant4Receive(Short.valueOf("0"));
         }
         
         String grant4No = learnerInfoRequest.getGrant4No();
-        if(null != grant4No) {
+        if (null != grant4No) {
         learnerInfo.setGrant4No(learnerInfoRequest.getGrant4No());
         }
         
         Short grant5Reg = learnerInfoRequest.getGrant5Reg();
-        if(null != grant5Reg) {
+        if (null != grant5Reg) {
         learnerInfo.setGrant5Reg(Short.valueOf(grant5Reg));
         } else {
         	learnerInfoRequest.setGrant5Reg(Short.valueOf("0"));
         }
         
         Short grant5Receive = learnerInfoRequest.getGrant5Receive();
-        if(null != grant5Receive) {
+        if (null != grant5Receive) {
         learnerInfo.setGrant5Receive(Short.valueOf(grant5Receive));
         } else {
         	learnerInfoRequest.setGrant5Receive(Short.valueOf("0"));
         }
         
         String grant5No = learnerInfoRequest.getGrant5No();
-        if(null != grant5No) {
+        if (null != grant5No) {
         learnerInfo.setGrant5No(learnerInfoRequest.getGrant5No());
         }
         
         Short grant9Reg = learnerInfoRequest.getGrant9Reg();
-        if(null != grant9Reg) {
+        if (null != grant9Reg) {
         learnerInfo.setGrant9Reg(Short.valueOf(grant9Reg));
         } else {
         	learnerInfoRequest.setGrant9Reg(Short.valueOf("0"));
         }
         
         Short grant9Receive = learnerInfoRequest.getGrant9Receive();
-        if(null != grant9Receive) {
+        if (null != grant9Receive) {
         learnerInfo.setGrant9Receive(Short.valueOf(grant9Receive));
         } else {
         	learnerInfoRequest.setGrant9Receive(Short.valueOf("0"));
         }
         
         String grant9No = learnerInfoRequest.getGrant9No();
-        if(null != grant9No) {
+        if (null != grant9No) {
         learnerInfo.setGrant9No(learnerInfoRequest.getGrant9No());
         }
         
         String clinicName = learnerInfoRequest.getClinicName();
-        if(null != clinicName) {
+        if (null != clinicName) {
         learnerInfo.setClinicName(learnerInfoRequest.getClinicName());
         }
         
         String clinicAccRef = learnerInfoRequest.getClinicAccRef();
-        if(null != clinicAccRef) {
+        if (null != clinicAccRef) {
         learnerInfo.setClinicAccRef(learnerInfoRequest.getClinicAccRef());
         }
         
         String clinicTelCode = learnerInfoRequest.getClinicTelCode();
-        if(null != clinicTelCode) {
+        if (null != clinicTelCode) {
         learnerInfo.setClinicTelCode(learnerInfoRequest.getClinicTelCode());
         }
         
         String clinicTel = learnerInfoRequest.getClinicTel();
-        if(null != clinicTel) {
+        if (null != clinicTel) {
         learnerInfo.setClinicTel(learnerInfoRequest.getClinicTel());
         }
         
         String subjLOI = learnerInfoRequest.getSubjLOI();
-        if(null != subjLOI) {
+        if (null != subjLOI) {
         learnerInfo.setSubjLOI(learnerInfoRequest.getSubjLOI());
         }
         
         Integer hseID = learnerInfoRequest.getHseID();
-        if(null != hseID) {
+        if (null != hseID) {
         learnerInfo.setHseID(Integer.valueOf(hseID));
         } else {
         	learnerInfoRequest.setHseID(Integer.valueOf(0));
         }
         
         Short phaseYears = learnerInfoRequest.getPhaseYears();
-        if(null != phaseYears) {
+        if (null != phaseYears) {
         learnerInfo.setPhaseYears(Short.valueOf(phaseYears));
         } else {
         	learnerInfoRequest.setPhaseYears(Short.valueOf("0"));
@@ -723,53 +726,53 @@ public class LearnerInfoMapper {
         learnerInfo.setProgressedToGrade(learnerInfoRequest.isProgressedToGrade());
         
         Short studyPermit = learnerInfoRequest.getStudyPermit();
-        if(null != studyPermit) {
+        if (null != studyPermit) {
         learnerInfo.setStudyPermit(Short.valueOf(studyPermit));
         } else {
         	learnerInfoRequest.setStudyPermit(Short.valueOf("0"));
         }
         
         String studyPermitNo = learnerInfoRequest.getStudyPermitNo();
-        if(null != studyPermitNo) {
+        if (null != studyPermitNo) {
         learnerInfo.setStudyPermitNo(learnerInfoRequest.getStudyPermitNo());
         }
         
         String studyPermitDate = learnerInfoRequest.getStudyPermitDate();
-        if(null != studyPermitDate) {
+        if (null != studyPermitDate) {
         learnerInfo.setStudyPermitDate(learnerInfoRequest.getStudyPermitDate());
         }
         
         String idNoNotValidating = learnerInfoRequest.getIdNoNotValidating();
-        if(null != idNoNotValidating) {
+        if (null != idNoNotValidating) {
         learnerInfo.setIDNoNotValidating(learnerInfoRequest.getIdNoNotValidating());
         }
         
         String oldMentor = learnerInfoRequest.getOldMentor();
-        if(null != oldMentor) {
+        if (null != oldMentor) {
         learnerInfo.setOldMentor(learnerInfoRequest.getOldMentor());
         }
         
         learnerInfo.setLSENAnaInc(learnerInfoRequest.isLsenAnaInc());
         
         String lsenAnaHL = learnerInfoRequest.getLsenAnaHL();
-        if(null != lsenAnaHL) {
+        if (null != lsenAnaHL) {
         learnerInfo.setLSENAnaHL(learnerInfoRequest.getLsenAnaHL());
         }
         
         String lsenAnaFAL = learnerInfoRequest.getLsenAnaFAL();
-        if(null != lsenAnaFAL) {
+        if (null != lsenAnaFAL) {
         learnerInfo.setLSENAnaFAL(learnerInfoRequest.getLsenAnaFAL());
         }
         
         Integer previousPlacementofSchoolYear = learnerInfoRequest.getPreviousPlacementofSchoolYear();
-        if(null != previousPlacementofSchoolYear) {
+        if (null != previousPlacementofSchoolYear) {
         learnerInfo.setPreviousPlacementofSchoolYear(Integer.valueOf(previousPlacementofSchoolYear));
         } else {
         	learnerInfoRequest.setPreviousPlacementofSchoolYear(Integer.valueOf(0));
         }
         
         Short foreignIDType = learnerInfoRequest.getForeignIDType();
-        if(null != foreignIDType) {
+        if (null != foreignIDType) {
         learnerInfo.setForeignIDType(Short.valueOf(foreignIDType));
         } else {
         	learnerInfoRequest.setForeignIDType(Short.valueOf("0"));
@@ -778,14 +781,14 @@ public class LearnerInfoMapper {
         learnerInfo.setAgeRuleOverwritten(learnerInfoRequest.isAgeRuleOverwritten());
         
         Short reasonForNoForeignID = learnerInfoRequest.getReasonForNoForeignID();
-        if(null != reasonForNoForeignID) {
+        if (null != reasonForNoForeignID) {
         learnerInfo.setReasonForNoForeignID(Short.valueOf(reasonForNoForeignID));
         } else {
         	learnerInfoRequest.setReasonForNoForeignID(Short.valueOf("0"));
         }
         
         String farmProj = learnerInfoRequest.getFarmProj();
-        if(null != farmProj) {
+        if (null != farmProj) {
         learnerInfo.setFarmProj(learnerInfoRequest.getFarmProj());
         }
         
@@ -794,17 +797,17 @@ public class LearnerInfoMapper {
         learnerInfo.setImmunizationCard(learnerInfoRequest.isImmunizationCard());
         
         String iceName = learnerInfoRequest.getIceName();
-        if(null != iceName) {
+        if (null != iceName) {
         learnerInfo.setICEName(learnerInfoRequest.getIceName());
         }
         
         String iceSurname = learnerInfoRequest.getIceSurname();
-        if(null != iceSurname) {
+        if (null != iceSurname) {
         learnerInfo.setICESurname(learnerInfoRequest.getIceSurname());
         }
         
         String iceRelation = learnerInfoRequest.getIceRelation();
-        if(null != iceRelation) {
+        if (null != iceRelation) {
         learnerInfo.setICERelation(learnerInfoRequest.getIceRelation());
         }
 

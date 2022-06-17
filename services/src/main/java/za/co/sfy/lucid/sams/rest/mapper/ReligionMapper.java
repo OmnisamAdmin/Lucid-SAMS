@@ -12,12 +12,12 @@ public class ReligionMapper {
         Religion religion = new Religion();
 
         String description = religionRequest.getDescription();
-        if(null != description) {
+        if (null != description) {
         religion.setDescription(religionRequest.getDescription());
         }
         
-        int id = religionRequest.getId();
-        if(null != id) {
+        Integer id = religionRequest.getId();
+        if (null != id) {
         religion.setID(Integer.valueOf(id));
         } else {
         	religionRequest.setId(Integer.valueOf(0));

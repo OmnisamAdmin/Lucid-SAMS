@@ -15,34 +15,34 @@ public class BusRoutesMapper {
 		BusRoutes busRoutes = new BusRoutes();
 
 		String busName = busRoutesRequest.getBusName();
-		if(null != busName) {
+		if (null != busName) {
 		busRoutes.setBusName(busRoutesRequest.getBusName());
 		}
 		
-		int busRouteId = busRoutesRequest.getBusRouteId();
-		if(null != busRouteId) {
+		Integer busRouteId = busRoutesRequest.getBusRouteId();
+		if (null != busRouteId) {
 		busRoutes.setBusRouteId(Integer.valueOf(busRouteId));
 		} else {
 			busRoutesRequest.setBusRouteId(Integer.valueOf(0));
 		}
 		
 		String departureTime = busRoutesRequest.getDepartureTime();
-		if(null != departureTime) {
+		if (null != departureTime) {
 		busRoutes.setDepartureTime(busRoutesRequest.getDepartureTime());
 		}
 		
 		String responsible = busRoutesRequest.getResponsible();
-		if(null != responsible) {
+		if (null != responsible) {
 		busRoutes.setResponsible(busRoutesRequest.getResponsible());
 		}
 		
 		String route = busRoutesRequest.getRoute();
-		if(null != route) {
+		if (null != route) {
 		busRoutes.setRoute(busRoutesRequest.getRoute());
 		}
 		
 		String routeDescription = busRoutesRequest.getRouteDescription();
-		if(null != routeDescription) {
+		if (null != routeDescription) {
 		busRoutes.setRouteDescription(busRoutesRequest.getRouteDescription());
 		}
 

@@ -16,7 +16,7 @@ public class FeederSchoolsMapper {
 			feederSchools.setAddress(feederSchoolsRequest.getAddress());
 
 		}
-		// TODO This is problem
+
 		Integer id = feederSchoolsRequest.getId();
 		if (null != id) {
 			feederSchools.setId(Integer.valueOf(id));

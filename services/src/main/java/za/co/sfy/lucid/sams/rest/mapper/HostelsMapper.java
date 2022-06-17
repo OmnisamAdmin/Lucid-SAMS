@@ -24,7 +24,6 @@ public class HostelsMapper {
 			hostels.setContactPerson(hostelsRequest.getContactPerson());
 		}
 
-		// TODO This is problem
 		Integer id = hostelsRequest.getId();
 		if (null != id) {
 			hostels.setID(Integer.valueOf(id));

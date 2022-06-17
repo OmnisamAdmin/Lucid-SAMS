@@ -5,8 +5,6 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.ParentInfoRequest;
 import za.co.sfy.sams.lucid.schema.ParentInfo;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 /**
  * @author muzim
  */
@@ -29,14 +27,17 @@ public class ParentInfoMapper {
 			parentInfo.setAccPayer(parentInfoRequest.getAccPayer());
 		}
 
-		XMLGregorianCalendar archiveDate = sharedMapper.dateToXMLGregorianCalendar(parentInfoRequest.getArchiveDate());
-		parentInfo.setArchiveDate(archiveDate);
+		String archiveDate = parentInfoRequest.getArchiveDate();
+		if (null != archiveDate) {
+			parentInfo.setArchiveDate(sharedMapper.dateToXMLGregorianCalendar(archiveDate));
+		} else {
+			parentInfo.setArchiveDate(sharedMapper.dateToXMLGregorianCalendar());
+		}
 
 		String archiveReason = parentInfoRequest.getArchiveReason();
 		if (null != archiveReason) {
 			parentInfo.setArchiveReason(parentInfoRequest.getArchiveReason());
 		}
-		// parentInfo.setArchiveReason(parentInfoRequest.getArchiveReason());
 
 		String birthDate = parentInfoRequest.getBirthDate();
 		if (null != birthDate) {
@@ -127,7 +128,7 @@ public class ParentInfoMapper {
 			parentInfo.setOccupation(parentInfoRequest.getOccupation());
 		}
 
-		String parentID = parentInfoRequest.getParentID();
+		Integer parentID = parentInfoRequest.getParentID();
 		if (null != parentID) {
 			parentInfo.setParentID(Integer.valueOf(parentID));
 		} else {

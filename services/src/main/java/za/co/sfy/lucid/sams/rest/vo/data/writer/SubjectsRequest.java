@@ -8,7 +8,7 @@ public class SubjectsRequest implements Serializable {
 
     private static final long serialVersionUID = 6627252016141632712L;
 
-    private int id;
+    private Integer id;
     private String name;
     private String key;
     @NotNull
@@ -27,11 +27,11 @@ public class SubjectsRequest implements Serializable {
     private Integer subjectGrade;
     private Integer officialSubjectID;
 
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(int value) {
+    public void setId(Integer value) {
         this.id = value;
     }
 

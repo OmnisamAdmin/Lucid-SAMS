@@ -7,7 +7,7 @@ public class StaffCalendarTermsRequest implements Serializable {
 
     private static final long serialVersionUID = 1007553683886591996L;
 
-    private int id;
+    private Integer id;
     @NotNull
     private String quater;
     @NotNull
@@ -19,11 +19,11 @@ public class StaffCalendarTermsRequest implements Serializable {
     @NotNull
     private Integer term;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

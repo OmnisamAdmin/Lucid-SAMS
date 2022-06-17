@@ -10,7 +10,7 @@ public class LearnerInfoRequest implements Serializable {
 
     private static final long serialVersionUID = -1102915228465220301L;
 
-    private int id;
+    private Integer id;
     @NotNull
     private String learnerID;
     @NotNull
@@ -234,11 +234,11 @@ public class LearnerInfoRequest implements Serializable {
     @NotNull
     private String iceRelation;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

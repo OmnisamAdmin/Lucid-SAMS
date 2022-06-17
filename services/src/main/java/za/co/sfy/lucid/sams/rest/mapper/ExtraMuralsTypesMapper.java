@@ -20,7 +20,6 @@ public class ExtraMuralsTypesMapper {
 
 		}
 
-		// TODO This is problem
 		Integer exTypeID = extraMuralsTypesRequest.getExTypeID();
 		if (null != exTypeID) {
 			extraMuralsTypes.setExTypeID(Integer.valueOf(exTypeID));

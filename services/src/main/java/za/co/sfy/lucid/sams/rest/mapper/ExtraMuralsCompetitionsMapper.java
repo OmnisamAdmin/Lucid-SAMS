@@ -17,7 +17,6 @@ public class ExtraMuralsCompetitionsMapper {
 			extraMuralsCompetitions.setCompAfrName(extraMuralsCompetitionsRequest.getCompAfrName());
 		}
 
-		// TODO This is problem
 		Integer compID = extraMuralsCompetitionsRequest.getCompID();
 		if (null != compID) {
 			extraMuralsCompetitions.setCompID(Integer.valueOf(compID));

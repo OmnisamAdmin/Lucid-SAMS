@@ -31,7 +31,6 @@ public class ExtraMuralsCompEventsMapper {
 			extraMuralsCompEvents.setEventDesc(extraMuralsCompEventsRequest.getEventDesc());
 		}
 
-		// TODO This is problem
 		Integer eventID = extraMuralsCompEventsRequest.getEventID();
 		if (null != eventID) {
 			extraMuralsCompEvents.setEventID(Integer.valueOf(eventID));

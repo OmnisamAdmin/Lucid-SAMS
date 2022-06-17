@@ -7,7 +7,7 @@ public class BusRoutesRequest implements Serializable {
 
     private static final long serialVersionUID = 7722486277220081460L;
 
-    private int busRouteId;
+    private Integer busRouteId;
     @NotNull
     private String route;
     @NotNull
@@ -19,11 +19,11 @@ public class BusRoutesRequest implements Serializable {
     @NotNull
     private String responsible;
 
-    public int getBusRouteId() {
+    public Integer getBusRouteId() {
         return busRouteId;
     }
 
-    public void setBusRouteId(int busRouteId) {
+    public void setBusRouteId(Integer busRouteId) {
         this.busRouteId = busRouteId;
     }
 

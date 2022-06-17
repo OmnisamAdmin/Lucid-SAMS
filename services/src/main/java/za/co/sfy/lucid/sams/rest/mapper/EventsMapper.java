@@ -19,38 +19,38 @@ public class EventsMapper {
         }
         
         String compulsory2 = eventsRequest.getCompulsory();
-        if(null != compulsory2) {
+        if (null != compulsory2) {
         events.setCompulsory(eventsRequest.getCompulsory());
         }
         
         events.setDate(eventsRequest.getDate());
         
         String description = eventsRequest.getDescription();
-        if(null != description) {
+        if (null != description) {
         events.setDescription(eventsRequest.getDescription());
         }
         
         String endTime = eventsRequest.getEndTime();
-        if(null != endTime) {
+        if (null != endTime) {
         events.setEndTime(eventsRequest.getEndTime());
         }
         
         Integer exEventID = eventsRequest.getExEventID();
-        if(null != exEventID) {
+        if (null != exEventID) {
         events.setExEventID(Integer.valueOf(exEventID));
         } else {
         	eventsRequest.setExEventID(Integer.valueOf(0));
         }
         
         Integer exEventID2 = eventsRequest.getExEventID();
-        if(null != exEventID2) {
+        if (null != exEventID2) {
         events.setID(Integer.valueOf(exEventID2));
         } else {
         	eventsRequest.setExEventID(Integer.valueOf(0));
         }
         
         String startTime = eventsRequest.getStartTime();
-        if(null != startTime) {
+        if (null != startTime) {
         events.setStartTime(eventsRequest.getStartTime());
         }
 

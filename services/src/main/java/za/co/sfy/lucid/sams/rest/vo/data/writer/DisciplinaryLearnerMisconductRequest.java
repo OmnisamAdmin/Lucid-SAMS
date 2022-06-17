@@ -7,7 +7,7 @@ public class DisciplinaryLearnerMisconductRequest implements Serializable {
 
     private static final long serialVersionUID = -8027956642692036518L;
 
-    private int id;
+    private Integer id;
     @NotNull
     private Integer level;
     @NotNull
@@ -23,11 +23,11 @@ public class DisciplinaryLearnerMisconductRequest implements Serializable {
 
     private Integer point;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

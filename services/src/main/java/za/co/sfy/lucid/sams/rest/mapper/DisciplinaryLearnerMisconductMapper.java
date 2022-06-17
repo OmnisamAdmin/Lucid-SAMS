@@ -16,48 +16,48 @@ public class DisciplinaryLearnerMisconductMapper {
         DisciplinaryLearnerMisconduct disciplinaryLearnerMisconduct = new DisciplinaryLearnerMisconduct();
         
         String afrDesc = disciplinaryLearnerMisconductRequest.getAfrDesc();
-        if(null != afrDesc) {
+        if (null != afrDesc) {
         disciplinaryLearnerMisconduct.setAfrDesc(disciplinaryLearnerMisconductRequest.getAfrDesc());
         }
         
         String code = disciplinaryLearnerMisconductRequest.getCode();
-        if(null != code) {
+        if (null != code) {
         disciplinaryLearnerMisconduct.setCode(disciplinaryLearnerMisconductRequest.getCode());
         }
         
         String description = disciplinaryLearnerMisconductRequest.getDescription();
-        if(null != description) {
+        if (null != description) {
         disciplinaryLearnerMisconduct.setDescription(disciplinaryLearnerMisconductRequest.getDescription());
         }
         
         String editStatus = disciplinaryLearnerMisconductRequest.getEditStatus();
-        if(null != editStatus) {
+        if (null != editStatus) {
         disciplinaryLearnerMisconduct.setEditStatus(disciplinaryLearnerMisconductRequest.getEditStatus());
         }
-        
-        int id = disciplinaryLearnerMisconductRequest.getId();
-        if(null != id) {
+
+        Integer id = disciplinaryLearnerMisconductRequest.getId();
+        if (null != id) {
         disciplinaryLearnerMisconduct.setId(Integer.valueOf(id));
         } else {
         	disciplinaryLearnerMisconductRequest.setId(Integer.valueOf(0));
         }
         
         Integer level = disciplinaryLearnerMisconductRequest.getLevel();
-        if(null != level) {
+        if (null != level) {
         disciplinaryLearnerMisconduct.setLevel(Integer.valueOf(level));
         } else {
         	disciplinaryLearnerMisconductRequest.setLevel(Integer.valueOf(0));
         }
         
         Integer point = disciplinaryLearnerMisconductRequest.getPoint();
-        if(null != point) {
+        if (null != point) {
         disciplinaryLearnerMisconduct.setPoint(Integer.valueOf(point));
         } else {
-        	disciplinaryLearnerMisconductRequest.getPoint(Integer.valueOf(0));
+        	disciplinaryLearnerMisconductRequest.setPoint(0);
         }
         
         String type = disciplinaryLearnerMisconductRequest.getType();
-        if(null != type) {
+        if (null != type) {
         disciplinaryLearnerMisconduct.setType(disciplinaryLearnerMisconductRequest.getType());
         }
         

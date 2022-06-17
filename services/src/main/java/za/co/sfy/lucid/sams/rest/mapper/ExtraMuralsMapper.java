@@ -16,7 +16,6 @@ public class ExtraMuralsMapper {
 
 		extraMurals.setExAfrName(extraMuralsRequest.getExAfrName());
 
-		// TODO This is problem
 		Integer exID = extraMuralsRequest.getExID();
 		if (null != exID) {
 			extraMurals.setExID(Integer.valueOf(exID));

@@ -5,8 +5,6 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoRequest;
 import za.co.sfy.sams.lucid.schema.GeneralInfo;
 
-import javax.xml.datatype.XMLGregorianCalendar;
-
 /**
  * @author muzim
  */
@@ -22,7 +20,6 @@ public class GeneralInfoMapper {
     public GeneralInfo generalInfoRequestToGeneralInfo(GeneralInfoRequest generalInfoRequest) throws LucidSamsExecutionException {
 
         GeneralInfo generalInfo = new GeneralInfo();
-        //TODO: Please add null checks to the not required fields so that we do not get null pointers when trying to map them.
         String schoolID = generalInfoRequest.getSchoolID();
         if (null != schoolID) {
             generalInfo.setSchoolID(Integer.parseInt(schoolID));
@@ -168,43 +165,35 @@ public class GeneralInfoMapper {
             generalInfo.setFeeMonths(0);
         }
 
-        String tsDateLastUpdate1 = generalInfoRequest.getTsDateLastUpdate();
-        XMLGregorianCalendar tsDateLastUpdate;
-        if (null != tsDateLastUpdate1) {
-            tsDateLastUpdate = sharedMapper.dateToXMLGregorianCalendar(tsDateLastUpdate1);
+        String tsDateLastUpdate = generalInfoRequest.getTsDateLastUpdate();
+        if (null != tsDateLastUpdate) {
+            generalInfo.setTSDateLastUpdate(sharedMapper.dateToXMLGregorianCalendar(tsDateLastUpdate));
         } else {
-            tsDateLastUpdate = sharedMapper.dateToXMLGregorianCalendar();
+            generalInfo.setTSDateLastUpdate(sharedMapper.dateToXMLGregorianCalendar());
         }
-        generalInfo.setTSDateLastUpdate(tsDateLastUpdate);
 
 
-        String lastDBCompact1 = generalInfoRequest.getLastDBCompact();
-        XMLGregorianCalendar lastDBCompact;
-        if (null != lastDBCompact1) {
-            lastDBCompact = sharedMapper.dateToXMLGregorianCalendar(lastDBCompact1);
+        String lastDBCompact = generalInfoRequest.getLastDBCompact();
+        if (null != lastDBCompact) {
+            generalInfo.setLastDBCompact(sharedMapper.dateToXMLGregorianCalendar(lastDBCompact));
         } else {
-            lastDBCompact = sharedMapper.dateToXMLGregorianCalendar();
+            generalInfo.setLastDBCompact(sharedMapper.dateToXMLGregorianCalendar());
         }
-        generalInfo.setLastDBCompact(lastDBCompact);
 
-        String iqmsLastExpDate1 = generalInfoRequest.getIqmsLastExpDate();
-        XMLGregorianCalendar iqmsLastExpDate;
-        if (null != iqmsLastExpDate1) {
-            iqmsLastExpDate = sharedMapper.dateToXMLGregorianCalendar(iqmsLastExpDate1);
+        String iqmsLastExpDate = generalInfoRequest.getIqmsLastExpDate();
+        if (null != iqmsLastExpDate) {
+            generalInfo.setIQMSLastExpDate(sharedMapper.dateToXMLGregorianCalendar(iqmsLastExpDate));
         } else {
-            iqmsLastExpDate = sharedMapper.dateToXMLGregorianCalendar();
+            generalInfo.setIQMSLastExpDate(sharedMapper.dateToXMLGregorianCalendar());
         }
-        generalInfo.setIQMSLastExpDate(iqmsLastExpDate);
 
 
-        String iqmsLastImpDate1 = generalInfoRequest.getIqmsLastImpDate();
-        XMLGregorianCalendar iqmsLastImpDate;
-        if (null != iqmsLastImpDate1) {
-            iqmsLastImpDate = sharedMapper.dateToXMLGregorianCalendar(iqmsLastImpDate1);
+        String iqmsLastImpDate = generalInfoRequest.getIqmsLastImpDate();
+        if (null != iqmsLastImpDate) {
+            generalInfo.setIQMSLastImpDate(sharedMapper.dateToXMLGregorianCalendar(iqmsLastImpDate));
         } else {
-            iqmsLastImpDate = sharedMapper.dateToXMLGregorianCalendar();
+            generalInfo.setIQMSLastImpDate(sharedMapper.dateToXMLGregorianCalendar());
         }
-        generalInfo.setIQMSLastImpDate(iqmsLastImpDate);
 
 
         String schoolName = generalInfoRequest.getSchoolName();

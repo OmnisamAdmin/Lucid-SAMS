@@ -14,95 +14,95 @@ public class SubjectsMapper {
 
         Subjects subjects = new Subjects();
 
-        String afrname = subjectsRequest.getAfrname();
-        if(null != afrname) {
+        String afrName = subjectsRequest.getAfrname();
+        if (null != afrName) {
         subjects.setAfrname(subjectsRequest.getAfrname());
         }
         
         String code = subjectsRequest.getCode();
-        if(null != code) {
+        if (null != code) {
         subjects.setCode(subjectsRequest.getCode());
         }
         
         Integer ctaWeight = subjectsRequest.getCTAWeight();
-        if(null != ctaWeight) {
-        subjects.setCTAWeight(Integer.valueOf(ctaWeight));
+        if (null != ctaWeight) {
+        subjects.setCTAWeight(ctaWeight);
         } else {
-        	subjectsRequest.setCTAWeight(Integer.valueOf(0));
+        	subjectsRequest.setCTAWeight(0);
         }
         
         Integer excludeSchedule = subjectsRequest.getExcludeSchedule();
-        if(null != excludeSchedule) {
-        subjects.setExcludeSchedule(Integer.valueOf(excludeSchedule));
+        if (null != excludeSchedule) {
+        subjects.setExcludeSchedule(excludeSchedule);
         } else {
-        	subjectsRequest.setExcludeSchedule(Integer.valueOf(0));
+        	subjectsRequest.setExcludeSchedule(0);
         }
         
         String group = subjectsRequest.getGroup();
-        if(null != group) {
+        if (null != group) {
         subjects.setGroup(subjectsRequest.getGroup());
         }
         
-        int id = subjectsRequest.getId();
-        if(null != id) {
-        subjects.setId(Integer.valueOf(id));
+        Integer id = subjectsRequest.getId();
+        if (null != id) {
+        subjects.setId(id);
         } else {
-        	subjectsRequest.setId(Integer.valueOf(0));
+        	subjectsRequest.setId(0);
         }
         
         String key = subjectsRequest.getKey();
-        if(null != key) {
+        if (null != key) {
         subjects.setKey(subjectsRequest.getKey());
         }
         
         String luritsCode = subjectsRequest.getLuritsCode();
-        if(null != luritsCode) {
+        if (null != luritsCode) {
         subjects.setLuritsCode(subjectsRequest.getLuritsCode());
         }
         
         String name = subjectsRequest.getName();
-        if(null != name) {
+        if (null != name) {
         subjects.setName(subjectsRequest.getName());
         }
         
         Integer officialSubjectID = subjectsRequest.getOfficialSubjectID();
-        if(null != officialSubjectID) {
-        subjects.setOfficialSubjectID(Integer.valueOf(officialSubjectID));
+        if (null != officialSubjectID) {
+        subjects.setOfficialSubjectID(officialSubjectID);
         } else {
-        	subjectsRequest.setOfficialSubjectID(Integer.valueOf(0));
+        	subjectsRequest.setOfficialSubjectID(0);
         }
         
         Integer phase = subjectsRequest.getPhase();
-        if(null != phase) {
-        subjects.setPhase(Integer.valueOf(phase));
+        if (null != phase) {
+        subjects.setPhase(phase);
         } else {
-        	subjectsRequest.setPhase(Integer.valueOf(0));
+        	subjectsRequest.setPhase(0);
         }
         
         Integer printOrder = subjectsRequest.getPrintOrder();
-        if(null != printOrder) {
-        subjects.setPrintOrder(Integer.valueOf(printOrder));
+        if (null != printOrder) {
+        subjects.setPrintOrder(printOrder);
         } else {
-        	subjectsRequest.setPrintOrder(Integer.valueOf(printOrder));
+        	subjectsRequest.setPrintOrder(0);
         }
         
         Integer selected = subjectsRequest.getSelected();
-        if(null != selected) {
-        subjects.setSelected(Integer.valueOf(selected));
+        if (null != selected) {
+        subjects.setSelected(selected);
         } else {
-        	subjectsRequest.setSelected(Integer.valueOf(0));
+        	subjectsRequest.setSelected(0);
         }
         
         Integer subjectGrade = subjectsRequest.getSubjectGrade();
-        if(null != subjectGrade) {
-        subjects.setSubjectGrade(Integer.valueOf(subjectGrade));
+        if (null != subjectGrade) {
+        subjects.setSubjectGrade(subjectGrade);
         } else {
-        	subjectsRequest.setSubjectGrade(Integer.valueOf(0));
+        	subjectsRequest.setSubjectGrade(0);
         }
         
         Short subjectStatus = subjectsRequest.getSubjectStatus();
-        if(null != subjectStatus) {
-        subjects.setSubjectStatus(Short.valueOf(subjectGrade));
+        if (null != subjectStatus) {
+        subjects.setSubjectStatus(subjectStatus);
         } else {
         	subjectsRequest.setSubjectStatus(Short.valueOf("0"));
         }
