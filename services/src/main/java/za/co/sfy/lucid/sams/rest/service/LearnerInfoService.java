@@ -46,7 +46,6 @@ public class LearnerInfoService {
 
         LearnerInfo learnerInfo = learnerInfoMapper.learnerInfoRequestToLearnerInfo(learnerInfoRequest);
 
-        Integer grade = learnerInfo.getGrade();
         ResultSet retrievedGrades = cycleInfoResource.retrieveGrades();
         try {
             if (!retrievedGrades.next()) {
@@ -56,11 +55,7 @@ public class LearnerInfoService {
             throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
-        try {
-            retrievedGrades.beforeFirst(); //reset index after null check
-        } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("failed to reset index: " + exception.getMessage(), exception);
-        }
+        Integer grade = learnerInfo.getGrade();
 
         while (true) {
             try {

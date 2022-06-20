@@ -57,12 +57,6 @@ public class ParentChildService {
             throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
-        try {
-            retrievedLearnerInfo.beforeFirst(); //reset index after null check
-        } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
-        }
-
         while (true) {
             try {
                 if (!retrievedLearnerInfo.next()) break;
