@@ -41,19 +41,17 @@ public class LearnerInfoRequest implements Serializable {
     private String address3;
     @NotBlank
     private String addressCode;
-    @NotBlank
     private String guardian;
     private String tel1Code;
     @NotBlank
     private String tel1;
     private String tel2Code;
     private String tel2;
-    @NotBlank
     private String tel3Code;
     @NotBlank
     private String tel3;
     @NotNull
-    private int grade;
+    private Integer grade;
     @NotNull
     private Integer clazz;
     @NotNull
@@ -78,7 +76,6 @@ public class LearnerInfoRequest implements Serializable {
     private String citizenship;
     private String provincial;
     private String schoolProvince;
-    @NotBlank
     private String previousSchoolProvince;
     @NotNull
     private boolean assignClass;
@@ -153,7 +150,6 @@ public class LearnerInfoRequest implements Serializable {
     @NotNull
     private Double luritsNumber;
     private String tsSentfileName;
-    @NotBlank
     private String tsDateLastUpdate;
     private String tsLastUpdatedBy;
     private String learnerName2;
@@ -427,11 +423,11 @@ public class LearnerInfoRequest implements Serializable {
         this.tel3 = tel3;
     }
 
-    public int getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 

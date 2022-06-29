@@ -27,15 +27,11 @@ public class EducatorCalendarTermsMapper {
 		String endDate = educatorCalendarTermsRequest.getEndDate();
 		if (null != endDate) {
 			educatorCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar(endDate));
-		} else {
-			educatorCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar());
 		}
 
 		Integer id = educatorCalendarTermsRequest.getId();
 		if (null != id) {
-			educatorCalendarTerms.setId(Integer.valueOf(id));
-		} else {
-			educatorCalendarTerms.setId(Integer.valueOf(0));
+			educatorCalendarTerms.setId(id);
 		}
 
 		String quater = educatorCalendarTermsRequest.getQuater();
@@ -46,15 +42,11 @@ public class EducatorCalendarTermsMapper {
 		String startDate = educatorCalendarTermsRequest.getStartDate();
 		if (null != startDate) {
 			educatorCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar(startDate));
-		} else {
-			educatorCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar());
 		}
 
 		Integer term = educatorCalendarTermsRequest.getTerm();
 		if (null != term) {
-			educatorCalendarTerms.setTerm(Integer.valueOf(term));
-		} else {
-			educatorCalendarTerms.setTerm(Integer.valueOf(0));
+			educatorCalendarTerms.setTerm(term);
 		}
 
 		return educatorCalendarTerms;

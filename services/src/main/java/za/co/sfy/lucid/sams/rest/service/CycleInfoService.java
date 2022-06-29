@@ -53,7 +53,7 @@ public class CycleInfoService {
 
         cycleInfoResource.saveObjectWithoutGeneratedKey(cycleInfo, cycleInfoResource);
 
-        ResultSet retrievedSchoolGrades = schoolGradesResource.retrieve(null, schoolGradesResource);
+        ResultSet retrievedSchoolGrades = schoolGradesResource.retrieve((Object) null, schoolGradesResource);
         while (true) {
             try {
                 if (!retrievedSchoolGrades.next()) break;
@@ -68,7 +68,7 @@ public class CycleInfoService {
                 schoolGradesResource.update(schoolGrades, schoolGradesResource);
             } catch (SQLException exception) {
                 throw new LucidSamsExecutionException("'CycleInfo' data saved but failure occurred " +
-                        "when updating school grades: " + exception.getMessage(), exception);
+                        "when updating school grades ", exception);
             }
         }
 

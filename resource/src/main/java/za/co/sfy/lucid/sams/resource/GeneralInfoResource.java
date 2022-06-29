@@ -38,13 +38,13 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
             return resultSet;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve generalInfo by schoolName '" + schoolName + "': "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve generalInfo by schoolName '" + schoolName + "' "
+                    , exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         GeneralInfo generalInfo = (GeneralInfo) object;
 
@@ -198,17 +198,17 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement:" + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

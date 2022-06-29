@@ -26,9 +26,7 @@ public class HostelsMapper {
 
 		Integer id = hostelsRequest.getId();
 		if (null != id) {
-			hostels.setID(Integer.valueOf(id));
-		} else {
-			hostels.setID(Integer.valueOf(0));
+			hostels.setID(id);
 		}
 
 		String name = hostelsRequest.getName();

@@ -16,7 +16,6 @@ public class ParentInfoRequest implements Serializable {
     private String sName;
     @NotBlank
     private String title;
-    @NotBlank
     private String employer;
     private String occupation;
     @NotBlank

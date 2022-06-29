@@ -41,7 +41,7 @@ public class ExtraMuralsService {
                 throw new LucidSamsExecutionException("The given 'ExTypeID' - " + exTypeID + " does not exist in the system");
             }
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failure in the retrieved Extra Mural Types", exception);
         }
 
         Long generatedKey = extraMuralsResource.save(extraMurals, extraMuralsResource);

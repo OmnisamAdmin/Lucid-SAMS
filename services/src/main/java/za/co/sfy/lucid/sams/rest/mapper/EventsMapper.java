@@ -14,7 +14,7 @@ public class EventsMapper {
 
         events.setCategory(eventsRequest.getCategory());
         String compulsory = eventsRequest.getCompulsory();
-        if (!compulsory.equalsIgnoreCase("yes") || !compulsory.equalsIgnoreCase("no")) {
+        if (!compulsory.equalsIgnoreCase("yes") && !compulsory.equalsIgnoreCase("no")) {
             throw new LucidSamsExecutionException("Field 'Compulsory' is constrained to the values 'yes' or 'no'");
         }
         
@@ -37,16 +37,16 @@ public class EventsMapper {
         
         Integer exEventID = eventsRequest.getExEventID();
         if (null != exEventID) {
-        events.setExEventID(Integer.valueOf(exEventID));
+        events.setExEventID(exEventID);
         } else {
-        	eventsRequest.setExEventID(Integer.valueOf(0));
+        	eventsRequest.setExEventID(0);
         }
         
         Integer exEventID2 = eventsRequest.getExEventID();
         if (null != exEventID2) {
-        events.setID(Integer.valueOf(exEventID2));
+        events.setID(exEventID2);
         } else {
-        	eventsRequest.setExEventID(Integer.valueOf(0));
+        	eventsRequest.setExEventID(0);
         }
         
         String startTime = eventsRequest.getStartTime();

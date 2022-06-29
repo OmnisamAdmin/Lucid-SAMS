@@ -19,9 +19,7 @@ public class FeederSchoolsMapper {
 
 		Integer id = feederSchoolsRequest.getId();
 		if (null != id) {
-			feederSchools.setId(Integer.valueOf(id));
-		} else {
-			feederSchools.setId(Integer.valueOf(0));
+			feederSchools.setId(id);
 		}
 
 		String name = feederSchoolsRequest.getName();

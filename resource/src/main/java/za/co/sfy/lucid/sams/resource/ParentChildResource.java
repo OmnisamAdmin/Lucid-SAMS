@@ -22,12 +22,12 @@ public class ParentChildResource extends AbstractLucidSAMSResource implements IL
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         ParentChild parentChild = (ParentChild) object;
 
-        String sql = "INSERT INTO " + TABLE_NAME + " (parentId,childId, learnerid, accPayer, status, resides, familyCode," +
-                "pastelCustomerAccountDescription, pastelCustomerCategoryCode, pastelContact, sgbReg,relation) " +
+        String sql = "INSERT INTO " + TABLE_NAME + " (ParentId,ChildId, Learnerid, AccPayer, Status, Resides, FamilyCode," +
+                "PastelCustomerAccountDescription, PastelCustomerCategoryCode, PastelContact, SGBReg,Relation) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
@@ -47,17 +47,17 @@ public class ParentChildResource extends AbstractLucidSAMSResource implements IL
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: " + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

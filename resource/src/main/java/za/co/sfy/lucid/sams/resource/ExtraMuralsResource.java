@@ -33,13 +33,12 @@ public class ExtraMuralsResource extends AbstractLucidSAMSResource implements IL
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet;
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve extraMurals by id '" + exID + "' : "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve extraMurals by id '" + exID + "' ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         ExtraMurals extraMurals = (ExtraMurals) object;
 
@@ -59,18 +58,17 @@ public class ExtraMuralsResource extends AbstractLucidSAMSResource implements IL
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+    public PreparedStatement retrieve(Connection connection, Object object) {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

@@ -46,8 +46,7 @@ public class FeederSchoolsController {
             feederSchoolResponse.setResponseMessage(exception.getMessage());
             feederSchoolResponse.setResponseStatus(ServiceStatus.ERROR.value());
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(feederSchoolResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(feederSchoolResponse);
         }
 
         return ResponseEntity.ok(feederSchoolResponse);

@@ -26,15 +26,11 @@ public class StaffCalendarTermsMapper {
         String endDate = staffCalendarTermsRequest.getEndDate();
         if (null != endDate) {
             staffCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar(endDate));
-        } else {
-            staffCalendarTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar());
         }
 
         Integer id = staffCalendarTermsRequest.getId();
         if (null != id) {
-        staffCalendarTerms.setId(Integer.valueOf(id));
-        } else {
-        	staffCalendarTermsRequest.setId(Integer.valueOf(0));
+        staffCalendarTerms.setId(id);
         }
         
         String quater = staffCalendarTermsRequest.getQuater();
@@ -45,15 +41,11 @@ public class StaffCalendarTermsMapper {
         String startDate = staffCalendarTermsRequest.getStartDate();
         if (null != startDate) {
             staffCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar(startDate));
-        } else {
-            staffCalendarTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar());
         }
         
         Integer term = staffCalendarTermsRequest.getTerm();
         if (null != term) {
-        staffCalendarTerms.setTerm(Integer.valueOf(term));
-        } else {
-        	staffCalendarTermsRequest.setTerm(Integer.valueOf(0));
+        staffCalendarTerms.setTerm(term);
         }
 
         return staffCalendarTerms;
