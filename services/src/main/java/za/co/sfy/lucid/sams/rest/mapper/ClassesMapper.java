@@ -17,9 +17,7 @@ public class ClassesMapper {
 
 		Integer classId = classesRequest.getClassId();
 		if (null != classId) {
-			classes.setClassId(Integer.valueOf(classId));
-		} else {
-			classes.setClassId(Integer.valueOf(0));
+			classes.setClassId(classId);
 		}
 
 		String className = classesRequest.getClassName();
@@ -31,13 +29,12 @@ public class ClassesMapper {
 		if (null != edCode) {
 			classes.setEdCode(classesRequest.getEdCode());
 		}
+
 		Integer grade = classesRequest.getGrade();
 		if (null != grade) {
-			classes.setGrade(Integer.valueOf(grade));
-		} else {
-			classes.setGrade(Integer.valueOf(0));
-
+			classes.setGrade(grade);
 		}
+
 		String room = classesRequest.getRoom();
 		if (null != room) {
 			classes.setRoom(classesRequest.getRoom());

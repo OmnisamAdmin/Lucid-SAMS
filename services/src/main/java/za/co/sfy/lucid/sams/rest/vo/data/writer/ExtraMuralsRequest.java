@@ -1,32 +1,32 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class ExtraMuralsRequest implements Serializable {
 
-    private static final long serialVersionUID = 4818545469405095677L;
+    private static final long serialVersionUID = -614292038721393562L;
 
-    private int exID;
+    private Integer exID;
     @NotNull
     private Integer exTypeID;
-    @NotNull
+    @NotBlank
     private String exName;
     private String exAfrName;
     private String exPicKey;
-    private byte[] exPicture;
-    @NotNull
+    private String exPicture;
     private Integer exOfficialID;
     @NotNull
-    private boolean recSelected;
+    private Boolean recSelected;
     @NotNull
-    private boolean recLocked;
+    private Boolean recLocked;
 
-    public int getExID() {
+    public Integer getExID() {
         return exID;
     }
 
-    public void setExID(int exID) {
+    public void setExID(Integer exID) {
         this.exID = exID;
     }
 
@@ -62,11 +62,11 @@ public class ExtraMuralsRequest implements Serializable {
         this.exPicKey = exPicKey;
     }
 
-    public byte[] getExPicture() {
+    public String getExPicture() {
         return exPicture;
     }
 
-    public void setExPicture(byte[] exPicture) {
+    public void setExPicture(String exPicture) {
         this.exPicture = exPicture;
     }
 
@@ -78,19 +78,19 @@ public class ExtraMuralsRequest implements Serializable {
         this.exOfficialID = exOfficialID;
     }
 
-    public boolean isRecSelected() {
+    public Boolean getRecSelected() {
         return recSelected;
     }
 
-    public void setRecSelected(boolean recSelected) {
+    public void setRecSelected(Boolean recSelected) {
         this.recSelected = recSelected;
     }
 
-    public boolean isRecLocked() {
+    public Boolean getRecLocked() {
         return recLocked;
     }
 
-    public void setRecLocked(boolean recLocked) {
+    public void setRecLocked(Boolean recLocked) {
         this.recLocked = recLocked;
     }
 }

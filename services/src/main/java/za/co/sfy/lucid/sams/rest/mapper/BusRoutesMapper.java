@@ -21,9 +21,7 @@ public class BusRoutesMapper {
 		
 		Integer busRouteId = busRoutesRequest.getBusRouteId();
 		if (null != busRouteId) {
-		busRoutes.setBusRouteId(Integer.valueOf(busRouteId));
-		} else {
-			busRoutesRequest.setBusRouteId(Integer.valueOf(0));
+		busRoutes.setBusRouteId(busRouteId);
 		}
 		
 		String departureTime = busRoutesRequest.getDepartureTime();

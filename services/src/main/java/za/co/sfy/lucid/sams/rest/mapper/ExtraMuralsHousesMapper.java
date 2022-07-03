@@ -30,9 +30,7 @@ public class ExtraMuralsHousesMapper {
 
 		Integer hseID = extraMuralsHousesRequest.getHseID();
 		if (null != hseID) {
-			extraMuralsHouses.setHseID(Integer.valueOf(hseID));
-		} else {
-			extraMuralsHouses.setHseID(Integer.valueOf(0));
+			extraMuralsHouses.setHseID(hseID);
 		}
 
 		String hseName = extraMuralsHousesRequest.getHseName();

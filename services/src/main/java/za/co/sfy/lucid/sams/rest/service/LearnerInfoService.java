@@ -46,7 +46,6 @@ public class LearnerInfoService {
 
         LearnerInfo learnerInfo = learnerInfoMapper.learnerInfoRequestToLearnerInfo(learnerInfoRequest);
 
-        Integer grade = learnerInfo.getGrade();
         ResultSet retrievedGrades = cycleInfoResource.retrieveGrades();
         try {
             if (!retrievedGrades.next()) {
@@ -56,11 +55,7 @@ public class LearnerInfoService {
             throw new LucidSamsExecutionException(exception.getMessage(), exception);
         }
 
-        try {
-            retrievedGrades.beforeFirst(); //reset index after null check
-        } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("failed to reset index: " + exception.getMessage(), exception);
-        }
+        Integer grade = learnerInfo.getGrade();
 
         while (true) {
             try {
@@ -82,6 +77,10 @@ public class LearnerInfoService {
         try {
             if (!retrievedClasses.next()) {
                 throw new LucidSamsExecutionException("Could not find class with id '" + classId + "'");
+            }
+            if (!grade.equals(retrievedClasses.getInt("Grade"))) {
+                throw new LucidSamsExecutionException("The given classId '" + classId + "' does not exist" +
+                        " for the given grade '" + grade + "'");
             }
         } catch (SQLException exception) {
             throw new LucidSamsExecutionException(exception.getMessage(), exception);
@@ -128,7 +127,7 @@ public class LearnerInfoService {
                 throw new LucidSamsExecutionException("Could not find reportLanguage with id '" + reportLanguage + "'");
             }
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failure in the retrieved Report Languages ", exception);
         }
 
         Long generatedKey = learnerInfoResource.save(learnerInfo, learnerInfoResource);

@@ -28,7 +28,7 @@ public class ParentInfoResource extends AbstractLucidSAMSResource implements ILu
 
     public ResultSet retrieveParentInfoByID(Long parentID) throws LucidSamsExecutionException {
 
-        String sql = "SELECT + FROM " + TABLE_NAME + " ParentID = ?";
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE ParentID = ?";
         Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
 
         try {
@@ -38,22 +38,21 @@ public class ParentInfoResource extends AbstractLucidSAMSResource implements ILu
             return resultSet;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve parentInfo of id '" + parentID + "' :"
-                    + exception.getMessage());
+            throw new LucidSamsExecutionException("Failed to retrieve parentInfo of id '" + parentID + "' :", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         ParentInfo parentInfo = (ParentInfo) object;
 
-        String sql = "INSERT INTO " + TABLE_NAME + "(parentID, initials, fName, sName, title, employer, occupation," +
-                " streetAddress1, streetAddress2, streetAddress3, streetCode, postalAddress1, postalAddress2, postalAddress3" +
-                ", postalCode, tel1Code, tel1, tel2Code, tel2, tel3Code, tel3, eMail, govBody, parentsAss, poverty, id" +
-                ", relship, idNumber, accPayer, custodial, gender, race, homelanguage, corrTitle, corrSurname, spouse" +
-                ", faxCode, faxNo, spouseOccupation, spouseWorkTel, status, spouseGender, spouseFname, spouseCell, spouseEmail" +
-                ", spouseID, maritalstatus, archiveDate, archiveReason, birthDate, reasonNoID, religion) " +
+        String sql = "INSERT INTO " + TABLE_NAME + "(ParentID, Initials, FName, SName, Title, Employer, Occupation," +
+                " StreetAddress1, StreetAddress2, StreetAddress3, StreetCode, PostalAddress1, PostalAddress2, PostalAddress3" +
+                ", PostalCode, Tel1Code, Tel1, Tel2Code, Tel2, Tel3Code, Tel3, EMail, GovBody, ParentsAss, Poverty, ID" +
+                ", Relship, IDNumber, AccPayer, Custodial, Gender, Race, Homelanguage, CorrTitle, CorrSurname, Spouse" +
+                ", FaxCode, FaxNo, SpouseOccupation, SpouseWorkTel, Status, SpouseGender, SpouseFname, SpouseCell, SpouseEmail" +
+                ", SpouseID, Maritalstatus, Archive_Date, Archive_Reason, BirthDate, ReasonNoID, Religion) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
@@ -119,18 +118,17 @@ public class ParentInfoResource extends AbstractLucidSAMSResource implements ILu
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

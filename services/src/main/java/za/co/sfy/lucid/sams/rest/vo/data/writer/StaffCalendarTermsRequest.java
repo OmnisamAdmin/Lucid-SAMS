@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -8,13 +9,13 @@ public class StaffCalendarTermsRequest implements Serializable {
     private static final long serialVersionUID = 1007553683886591996L;
 
     private Integer id;
-    @NotNull
+    @NotBlank
     private String quater;
-    @NotNull
+    @NotBlank
     private String startDate;
-    @NotNull
+    @NotBlank
     private String endDate;
-    @NotNull
+    @NotBlank
     private String currentYear;
     @NotNull
     private Integer term;

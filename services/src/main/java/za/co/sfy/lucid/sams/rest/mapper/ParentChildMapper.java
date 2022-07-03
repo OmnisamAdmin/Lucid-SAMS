@@ -18,9 +18,7 @@ public class ParentChildMapper {
 
 		Integer childId = parentChildRequest.getChildId();
 		if (null != childId) {
-			parentChild.setChildId(Integer.valueOf(childId));
-		} else {
-			parentChild.setChildId(Integer.valueOf(0));
+			parentChild.setChildId(childId);
 		}
 
 		String familyCode = parentChildRequest.getFamilyCode();
@@ -36,9 +34,7 @@ public class ParentChildMapper {
 
 		Integer parentId = parentChildRequest.getParentId();
 		if (null != parentId) {
-			parentChild.setParentId(Integer.valueOf(parentId));
-		} else {
-			parentChild.setParentId(Integer.valueOf(0));
+			parentChild.setParentId(parentId);
 		}
 
 		String pastelContact = parentChildRequest.getPastelContact();
@@ -54,10 +50,8 @@ public class ParentChildMapper {
 
 		Integer pastelCustomerCategoryCode = parentChildRequest.getPastelCustomerCategoryCode();
 		if (null != pastelCustomerCategoryCode) {
-			parentChild.setPastelCustomerCategoryCode(Integer.valueOf(pastelCustomerCategoryCode));
+			parentChild.setPastelCustomerCategoryCode(pastelCustomerCategoryCode);
 
-		} else {
-			parentChild.setPastelCustomerCategoryCode(Integer.valueOf(0));
 		}
 
 		String relation = parentChildRequest.getRelation();

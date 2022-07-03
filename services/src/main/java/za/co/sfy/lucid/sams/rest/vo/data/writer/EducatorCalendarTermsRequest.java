@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -7,23 +8,23 @@ public class EducatorCalendarTermsRequest implements Serializable {
 
     private static final long serialVersionUID = 652522526108541224L;
 
-    private int id;
-    @NotNull
+    private Integer id;
+    @NotBlank
     private String quater;
-    @NotNull
+    @NotBlank
     private String startDate;
-    @NotNull
+    @NotBlank
     private String endDate;
-    @NotNull
+    @NotBlank
     private String currentYear;
     @NotNull
     private Integer term;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

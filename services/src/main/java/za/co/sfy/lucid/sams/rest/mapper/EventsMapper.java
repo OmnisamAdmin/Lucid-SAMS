@@ -5,53 +5,57 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.EventsRequest;
 import za.co.sfy.sams.lucid.schema.Events;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
 @Component
 public class EventsMapper {
+
+    private final SharedMapper sharedMapper;
+
+    public EventsMapper(SharedMapper sharedMapper) {
+        this.sharedMapper = sharedMapper;
+    }
 
     public Events eventsRequestToEvents(EventsRequest eventsRequest) throws LucidSamsExecutionException {
 
         Events events = new Events();
 
         events.setCategory(eventsRequest.getCategory());
+
         String compulsory = eventsRequest.getCompulsory();
-        if (!compulsory.equalsIgnoreCase("yes") || !compulsory.equalsIgnoreCase("no")) {
-            throw new LucidSamsExecutionException("Field 'Compulsory' is constrained to the values 'yes' or 'no'");
+        if (null != compulsory) {
+            if (!compulsory.equalsIgnoreCase("yes") && !compulsory.equalsIgnoreCase("no")) {
+                throw new LucidSamsExecutionException("Field 'Compulsory' is constrained to the values 'yes' or 'no'");
+            }
+            events.setCompulsory(eventsRequest.getCompulsory());
         }
-        
-        String compulsory2 = eventsRequest.getCompulsory();
-        if (null != compulsory2) {
-        events.setCompulsory(eventsRequest.getCompulsory());
+
+        String date = eventsRequest.getDate();
+        if (null != date) {
+            XMLGregorianCalendar convertedDate = sharedMapper.dateToXMLGregorianCalendar(date);
+            events.setDate(convertedDate);
         }
-        
-        events.setDate(eventsRequest.getDate());
-        
+
         String description = eventsRequest.getDescription();
         if (null != description) {
-        events.setDescription(eventsRequest.getDescription());
+            events.setDescription(eventsRequest.getDescription());
         }
-        
+
         String endTime = eventsRequest.getEndTime();
         if (null != endTime) {
-        events.setEndTime(eventsRequest.getEndTime());
+            events.setEndTime(eventsRequest.getEndTime());
         }
-        
+
         Integer exEventID = eventsRequest.getExEventID();
         if (null != exEventID) {
-        events.setExEventID(Integer.valueOf(exEventID));
+            events.setExEventID(exEventID);
         } else {
-        	eventsRequest.setExEventID(Integer.valueOf(0));
+            eventsRequest.setExEventID(0);
         }
-        
-        Integer exEventID2 = eventsRequest.getExEventID();
-        if (null != exEventID2) {
-        events.setID(Integer.valueOf(exEventID2));
-        } else {
-        	eventsRequest.setExEventID(Integer.valueOf(0));
-        }
-        
+
         String startTime = eventsRequest.getStartTime();
         if (null != startTime) {
-        events.setStartTime(eventsRequest.getStartTime());
+            events.setStartTime(eventsRequest.getStartTime());
         }
 
         return events;

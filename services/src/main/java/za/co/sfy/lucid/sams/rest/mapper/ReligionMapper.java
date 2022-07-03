@@ -18,9 +18,9 @@ public class ReligionMapper {
         
         Integer id = religionRequest.getId();
         if (null != id) {
-        religion.setID(Integer.valueOf(id));
+        religion.setID(id);
         } else {
-        	religionRequest.setId(Integer.valueOf(0));
+        	religionRequest.setId(0);
         }
         
         return religion;

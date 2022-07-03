@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 public class ParentInfoRequest implements Serializable {
@@ -7,19 +8,30 @@ public class ParentInfoRequest implements Serializable {
     private static final long serialVersionUID = -5755378689227934689L;
 
     private Integer parentID;
+    @NotBlank
     private String initials;
+    @NotBlank
     private String fName;
+    @NotBlank
     private String sName;
+    @NotBlank
     private String title;
     private String employer;
     private String occupation;
+    @NotBlank
     private String streetAddress1;
+    @NotBlank
     private String streetAddress2;
+    @NotBlank
     private String streetAddress3;
+    @NotBlank
     private String streetCode;
+    @NotBlank
     private String postalAddress1;
     private String postalAddress2;
+    @NotBlank
     private String postalAddress3;
+    @NotBlank
     private String postalCode;
     private String tel1Code;
     private String tel1;
@@ -33,20 +45,29 @@ public class ParentInfoRequest implements Serializable {
     private String poverty;
     private String id;
     private String relship;
+    @NotBlank
     private String idNumber;
+    @NotBlank
     private String accPayer;
     private String custodial;
+    @NotBlank
     private String gender;
+    @NotBlank
     private String race;
+    @NotBlank
     private String homelanguage;
+    @NotBlank
     private String corrTitle;
+    @NotBlank
     private String corrSurname;
     private String spouse;
     private String faxCode;
     private String faxNo;
     private String spouseOccupation;
     private String spouseWorkTel;
+    @NotBlank
     private String status;
+    @NotBlank
     private String spouseGender;
     private String spouseFname;
     private String spouseCell;
@@ -55,7 +76,9 @@ public class ParentInfoRequest implements Serializable {
     private String maritalstatus;
     private String archiveDate;
     private String archiveReason;
+    @NotBlank
     private String birthDate;
+    @NotBlank
     private String reasonNoID;
     private String religion;
 

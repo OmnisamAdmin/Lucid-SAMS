@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -8,34 +9,34 @@ public class EventsRequest implements Serializable {
 
     private static final long serialVersionUID = -2612607476431909238L;
 
-    private int id;
+    private Integer id;
     @NotNull
-    private XMLGregorianCalendar date;
-    @NotNull
+    private String date;
+    @NotBlank
     private String startTime;
-    @NotNull
+    @NotBlank
     private String endTime;
-    @NotNull
+    @NotBlank
     private String description;
-    @NotNull
+    @NotBlank
     private String compulsory;
-    @NotNull
+    @NotBlank
     private String category;
     private Integer exEventID;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public XMLGregorianCalendar getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(XMLGregorianCalendar date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

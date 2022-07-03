@@ -24,8 +24,6 @@ public class SchoolTermsMapper {
         Integer id = schoolTermsRequest.getId();
         if (null != id) {
             schoolTerms.setId(id);
-        } else {
-            schoolTerms.setId(0);
         }
 
         String currentYear = schoolTermsRequest.getCurrentYear();
@@ -36,8 +34,6 @@ public class SchoolTermsMapper {
         String endDate = schoolTermsRequest.getEndDate();
         if (null != endDate) {
             schoolTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar(endDate));
-        } else {
-            schoolTerms.setEndDate(sharedMapper.dateToXMLGregorianCalendar());
         }
 
         String quater = schoolTermsRequest.getQuater();
@@ -48,15 +44,11 @@ public class SchoolTermsMapper {
         String startDate = schoolTermsRequest.getStartDate();
         if (null != startDate) {
             schoolTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar(startDate));
-        } else {
-            schoolTerms.setStartDate(sharedMapper.dateToXMLGregorianCalendar());
         }
 
         Integer term = schoolTermsRequest.getTerm();
         if (null != term) {
             schoolTerms.setTerm(term);
-        } else {
-            schoolTerms.setTerm(0);
         }
 
         return schoolTerms;

@@ -33,25 +33,25 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
             return resultSet;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve levels" + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve levels ", exception);
         }
     }
 
     public ResultSet retrieveCodes() throws LucidSamsExecutionException {
 
-        String sql = "SELECT DISTINCT Code FROM " + TABLE_NAME;
+        String sql = "SELECT DISTINCT Code FROM " + TABLE_NAME + " ORDER BY Code ASC";
         Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet;
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve codes: " + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve codes ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         DisciplinaryLearnerMisconduct disciplinaryLearnerMisconduct = (DisciplinaryLearnerMisconduct) object;
 
@@ -69,18 +69,17 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

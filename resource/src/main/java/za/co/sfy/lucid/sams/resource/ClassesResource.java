@@ -24,7 +24,7 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
 
     public ResultSet retrieveClassesByID(Long classesID) throws LucidSamsExecutionException {
 
-        String sql = "SELECT + FROM " + TABLE_NAME + " ClassId = ?";
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE ClassId = ?";
         Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
 
         try {
@@ -34,14 +34,13 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
             return resultSet;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve Classes of id '" + classesID + "' :"
-                    + exception.getMessage());
+            throw new LucidSamsExecutionException("Failed to retrieve Classes of id '" + classesID + "' ", exception);
         }
     }
 
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         Classes classes = (Classes) object;
 
@@ -64,7 +63,7 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME;
 
@@ -79,7 +78,7 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

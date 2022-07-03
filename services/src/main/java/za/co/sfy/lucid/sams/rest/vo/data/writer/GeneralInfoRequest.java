@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -8,28 +9,29 @@ public class GeneralInfoRequest implements Serializable {
 
     private static final long serialVersionUID = -5550554900493974563L;
 
-    private String schoolID;
     @NotNull
+    private Long schoolID;
+    @NotBlank
     private String schoolName;
-    @NotNull
+    @NotBlank
     private String provincialDep;
-    @NotNull
+    @NotBlank
     private String district;
     private String region;
     private String circuit;
-    @NotNull
+    @NotBlank
     private String address1;
-    @NotNull
+    @NotBlank
     private String address2;
-    @NotNull
+    @NotBlank
     private String address3;
     private String addressCode;
-    @NotNull
+    @NotBlank
     private String postAddress1;
     private String postAddress2;
-    @NotNull
+    @NotBlank
     private String postAddress3;
-    @NotNull
+    @NotBlank
     private String postCode;
     private String telCode1;
     private String telephone1;
@@ -50,21 +52,21 @@ public class GeneralInfoRequest implements Serializable {
     private String tFax;
     private String tPrincipal;
     private String contactPerson;
-    @NotNull
+    @NotBlank
     private String emisCode;
     private String eMail;
-    private String predominantLanguage;
+    private Integer predominantLanguage;
     private String persalPayPoint;
-    @NotNull
+    @NotBlank
     private String persalComponent;
     private String internetAccess;
-    @NotNull
+    @NotBlank
     private String ownership;
-    @NotNull
+    @NotBlank
     private String landOwnership;
     private String platoon;
     private String hostSchool;
-    @NotNull
+    @NotBlank
     private String doubleShifts;
     private String examAuthority;
     private String examCentre;
@@ -72,70 +74,70 @@ public class GeneralInfoRequest implements Serializable {
     private String specialised;
     private String specialisation;
     private String feePeriod;
-    private String feeMonths;
-    private String multigrade;
-    private String remedial;
-    @NotNull
+    private Integer feeMonths;
+    private Integer multigrade;
+    private Integer remedial;
+    @NotBlank
     private String sgbStatus;
-    private boolean maintainProperty;
-    private boolean extraMural;
-    private boolean textbooks;
-    private boolean services;
-    private boolean abet;
-    private boolean otherFunctions;
+    private Boolean maintainProperty;
+    private Boolean extraMural;
+    private Boolean textbooks;
+    private Boolean services;
+    private Boolean abet;
+    private Boolean otherFunctions;
     private String censusArea;
     private String erfNumber;
     private String emisHostSchool;
-    private String hostTime;
+    private Integer hostTime;
     private String examAuthName;
-    private String correspondenceLang;
+    private Integer correspondenceLang;
     private String nearestTown;
-    private String distanceTown;
-    private String districtCode;
-    @NotNull
+    private Double distanceTown;
+    private Integer districtCode;
+    @NotBlank
     private String postalAddressType;
     @NotNull
-    private String schoolLevel;
-    private String tsSchoolStatus;
-    private String tsTransactionCategory;
-    private String tsStatusFlag;
-    private String tsReportStatusFlag;
-    private String tsReasonCode;
-    private String luritsYear;
+    private Integer schoolLevel;
+    private Integer tsSchoolStatus;
+    private Integer tsTransactionCategory;
+    private Integer tsStatusFlag;
+    private Integer tsReportStatusFlag;
+    private Integer tsReasonCode;
+    private Integer luritsYear;
     private String tsSentFileName;
     private String tsLastUpdatedBy;
     private String tsDateLastUpdate;
-    @NotNull
+    @NotBlank
     private String ownerBuildings;
-    private String luritsIndicator;
+    private Integer luritsIndicator;
     private String telcode4;
     private String telephone4;
     @NotNull
-    private String adminComputers;
-    @NotNull
+    private Integer adminComputers;
+    @NotBlank
     private String postAddress0;
-    @NotNull
+    @NotBlank
     private String postAddress0No;
     private String tEmisCode;
-    private boolean useMarksSecurity;
+    private Boolean useMarksSecurity;
     @NotNull
-    private String psnp;
-    private String tsIncludesANA;
+    private Short psnp;
+    private Short tsIncludesANA;
     private String lastDBCompact;
     private String iqmsLastExpDate;
     private String iqmsLastImpDate;
-    private String examBoard;
+    private Integer examBoard;
     private String examBoardOther;
     private String multigrades;
     private String emisOfficer;
-    private boolean emisOffEducator;
+    private Boolean emisOffEducator;
     private String emailAlt;
 
-    public String getSchoolID() {
+    public Long getSchoolID() {
         return schoolID;
     }
 
-    public void setSchoolID(String schoolID) {
+    public void setSchoolID(Long schoolID) {
         this.schoolID = schoolID;
     }
 
@@ -411,11 +413,11 @@ public class GeneralInfoRequest implements Serializable {
         this.eMail = eMail;
     }
 
-    public String getPredominantLanguage() {
+    public Integer getPredominantLanguage() {
         return predominantLanguage;
     }
 
-    public void setPredominantLanguage(String predominantLanguage) {
+    public void setPredominantLanguage(Integer predominantLanguage) {
         this.predominantLanguage = predominantLanguage;
     }
 
@@ -531,27 +533,27 @@ public class GeneralInfoRequest implements Serializable {
         this.feePeriod = feePeriod;
     }
 
-    public String getFeeMonths() {
+    public Integer getFeeMonths() {
         return feeMonths;
     }
 
-    public void setFeeMonths(String feeMonths) {
+    public void setFeeMonths(Integer feeMonths) {
         this.feeMonths = feeMonths;
     }
 
-    public String getMultigrade() {
+    public Integer getMultigrade() {
         return multigrade;
     }
 
-    public void setMultigrade(String multigrade) {
+    public void setMultigrade(Integer multigrade) {
         this.multigrade = multigrade;
     }
 
-    public String getRemedial() {
+    public Integer getRemedial() {
         return remedial;
     }
 
-    public void setRemedial(String remedial) {
+    public void setRemedial(Integer remedial) {
         this.remedial = remedial;
     }
 
@@ -563,51 +565,51 @@ public class GeneralInfoRequest implements Serializable {
         this.sgbStatus = sgbStatus;
     }
 
-    public boolean getMaintainProperty() {
+    public Boolean getMaintainProperty() {
         return maintainProperty;
     }
 
-    public void setMaintainProperty(boolean maintainProperty) {
+    public void setMaintainProperty(Boolean maintainProperty) {
         this.maintainProperty = maintainProperty;
     }
 
-    public boolean getExtraMural() {
+    public Boolean getExtraMural() {
         return extraMural;
     }
 
-    public void setExtraMural(boolean extraMural) {
+    public void setExtraMural(Boolean extraMural) {
         this.extraMural = extraMural;
     }
 
-    public boolean getTextbooks() {
+    public Boolean getTextbooks() {
         return textbooks;
     }
 
-    public void setTextbooks(boolean textbooks) {
+    public void setTextbooks(Boolean textbooks) {
         this.textbooks = textbooks;
     }
 
-    public boolean getServices() {
+    public Boolean getServices() {
         return services;
     }
 
-    public void setServices(boolean services) {
+    public void setServices(Boolean services) {
         this.services = services;
     }
 
-    public boolean getAbet() {
+    public Boolean getAbet() {
         return abet;
     }
 
-    public void setAbet(boolean abet) {
+    public void setAbet(Boolean abet) {
         this.abet = abet;
     }
 
-    public boolean getOtherFunctions() {
+    public Boolean getOtherFunctions() {
         return otherFunctions;
     }
 
-    public void setOtherFunctions(boolean otherFunctions) {
+    public void setOtherFunctions(Boolean otherFunctions) {
         this.otherFunctions = otherFunctions;
     }
 
@@ -635,11 +637,11 @@ public class GeneralInfoRequest implements Serializable {
         this.emisHostSchool = emisHostSchool;
     }
 
-    public String getHostTime() {
+    public Integer getHostTime() {
         return hostTime;
     }
 
-    public void setHostTime(String hostTime) {
+    public void setHostTime(Integer hostTime) {
         this.hostTime = hostTime;
     }
 
@@ -651,11 +653,11 @@ public class GeneralInfoRequest implements Serializable {
         this.examAuthName = examAuthName;
     }
 
-    public String getCorrespondenceLang() {
+    public Integer getCorrespondenceLang() {
         return correspondenceLang;
     }
 
-    public void setCorrespondenceLang(String correspondenceLang) {
+    public void setCorrespondenceLang(Integer correspondenceLang) {
         this.correspondenceLang = correspondenceLang;
     }
 
@@ -667,19 +669,19 @@ public class GeneralInfoRequest implements Serializable {
         this.nearestTown = nearestTown;
     }
 
-    public String getDistanceTown() {
+    public Double getDistanceTown() {
         return distanceTown;
     }
 
-    public void setDistanceTown(String distanceTown) {
+    public void setDistanceTown(Double distanceTown) {
         this.distanceTown = distanceTown;
     }
 
-    public String getDistrictCode() {
+    public Integer getDistrictCode() {
         return districtCode;
     }
 
-    public void setDistrictCode(String districtCode) {
+    public void setDistrictCode(Integer districtCode) {
         this.districtCode = districtCode;
     }
 
@@ -691,59 +693,59 @@ public class GeneralInfoRequest implements Serializable {
         this.postalAddressType = postalAddressType;
     }
 
-    public String getSchoolLevel() {
+    public Integer getSchoolLevel() {
         return schoolLevel;
     }
 
-    public void setSchoolLevel(String schoolLevel) {
+    public void setSchoolLevel(Integer schoolLevel) {
         this.schoolLevel = schoolLevel;
     }
 
-    public String getTsSchoolStatus() {
+    public Integer getTsSchoolStatus() {
         return tsSchoolStatus;
     }
 
-    public void setTsSchoolStatus(String tsSchoolStatus) {
+    public void setTsSchoolStatus(Integer tsSchoolStatus) {
         this.tsSchoolStatus = tsSchoolStatus;
     }
 
-    public String getTsTransactionCategory() {
+    public Integer getTsTransactionCategory() {
         return tsTransactionCategory;
     }
 
-    public void setTsTransactionCategory(String tsTransactionCategory) {
+    public void setTsTransactionCategory(Integer tsTransactionCategory) {
         this.tsTransactionCategory = tsTransactionCategory;
     }
 
-    public String getTsStatusFlag() {
+    public Integer getTsStatusFlag() {
         return tsStatusFlag;
     }
 
-    public void setTsStatusFlag(String tsStatusFlag) {
+    public void setTsStatusFlag(Integer tsStatusFlag) {
         this.tsStatusFlag = tsStatusFlag;
     }
 
-    public String getTsReportStatusFlag() {
+    public Integer getTsReportStatusFlag() {
         return tsReportStatusFlag;
     }
 
-    public void setTsReportStatusFlag(String tsReportStatusFlag) {
+    public void setTsReportStatusFlag(Integer tsReportStatusFlag) {
         this.tsReportStatusFlag = tsReportStatusFlag;
     }
 
-    public String getTsReasonCode() {
+    public Integer getTsReasonCode() {
         return tsReasonCode;
     }
 
-    public void setTsReasonCode(String tsReasonCode) {
+    public void setTsReasonCode(Integer tsReasonCode) {
         this.tsReasonCode = tsReasonCode;
     }
 
-    public String getLuritsYear() {
+    public Integer getLuritsYear() {
         return luritsYear;
     }
 
-    public void setLuritsYear(String luritsYear) {
+    public void setLuritsYear(Integer luritsYear) {
         this.luritsYear = luritsYear;
     }
 
@@ -779,11 +781,11 @@ public class GeneralInfoRequest implements Serializable {
         this.ownerBuildings = ownerBuildings;
     }
 
-    public String getLuritsIndicator() {
+    public Integer getLuritsIndicator() {
         return luritsIndicator;
     }
 
-    public void setLuritsIndicator(String luritsIndicator) {
+    public void setLuritsIndicator(Integer luritsIndicator) {
         this.luritsIndicator = luritsIndicator;
     }
 
@@ -803,11 +805,11 @@ public class GeneralInfoRequest implements Serializable {
         this.telephone4 = telephone4;
     }
 
-    public String getAdminComputers() {
+    public Integer getAdminComputers() {
         return adminComputers;
     }
 
-    public void setAdminComputers(String adminComputers) {
+    public void setAdminComputers(Integer adminComputers) {
         this.adminComputers = adminComputers;
     }
 
@@ -835,27 +837,27 @@ public class GeneralInfoRequest implements Serializable {
         this.tEmisCode = tEmisCode;
     }
 
-    public boolean getUseMarksSecurity() {
+    public Boolean getUseMarksSecurity() {
         return useMarksSecurity;
     }
 
-    public void setUseMarksSecurity(boolean useMarksSecurity) {
+    public void setUseMarksSecurity(Boolean useMarksSecurity) {
         this.useMarksSecurity = useMarksSecurity;
     }
 
-    public String getPsnp() {
+    public Short getPsnp() {
         return psnp;
     }
 
-    public void setPsnp(String psnp) {
+    public void setPsnp(Short psnp) {
         this.psnp = psnp;
     }
 
-    public String getTsIncludesANA() {
+    public Short getTsIncludesANA() {
         return tsIncludesANA;
     }
 
-    public void setTsIncludesANA(String tsIncludesANA) {
+    public void setTsIncludesANA(Short tsIncludesANA) {
         this.tsIncludesANA = tsIncludesANA;
     }
 
@@ -883,11 +885,11 @@ public class GeneralInfoRequest implements Serializable {
         this.iqmsLastImpDate = iqmsLastImpDate;
     }
 
-    public String getExamBoard() {
+    public Integer getExamBoard() {
         return examBoard;
     }
 
-    public void setExamBoard(String examBoard) {
+    public void setExamBoard(Integer examBoard) {
         this.examBoard = examBoard;
     }
 
@@ -915,11 +917,11 @@ public class GeneralInfoRequest implements Serializable {
         this.emisOfficer = emisOfficer;
     }
 
-    public boolean isEmisOffEducator() {
+    public Boolean isEmisOffEducator() {
         return emisOffEducator;
     }
 
-    public void setEmisOffEducator(boolean emisOffEducator) {
+    public void setEmisOffEducator(Boolean emisOffEducator) {
         this.emisOffEducator = emisOffEducator;
     }
 

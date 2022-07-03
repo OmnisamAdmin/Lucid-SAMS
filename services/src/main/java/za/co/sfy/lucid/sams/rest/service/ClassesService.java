@@ -44,13 +44,7 @@ public class ClassesService {
                 throw new LucidSamsExecutionException("Retrieved grades is empty. Please verify there is 'CycleInfo' data");
             }
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
-        }
-
-        try {
-            retrievedGrades.beforeFirst(); //reset index after null check
-        } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve grades ", exception);
         }
 
         while (true) {

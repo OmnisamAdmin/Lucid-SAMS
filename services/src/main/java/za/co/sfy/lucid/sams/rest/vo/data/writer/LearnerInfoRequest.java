@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -13,21 +14,21 @@ public class LearnerInfoRequest implements Serializable {
     private Integer id;
     @NotNull
     private String learnerID;
-    @NotNull
+    @NotBlank
     private String accessionNo;
-    @NotNull
+    @NotBlank
     private String theDate;
-    @NotNull
+    @NotBlank
     private String sName;
-    @NotNull
+    @NotBlank
     private String fName;
-    @NotNull
+    @NotBlank
     private String nickName;
-    @NotNull
+    @NotBlank
     private String birthDate;
-    @NotNull
+    @NotBlank
     private String idNo;
-    @NotNull
+    @NotBlank
     private String gender;
     @NotNull
     private Integer homeLanguage;
@@ -38,26 +39,24 @@ public class LearnerInfoRequest implements Serializable {
     private String address1;
     private String address2;
     private String address3;
-    @NotNull
+    @NotBlank
     private String addressCode;
-    @NotNull
     private String guardian;
     private String tel1Code;
-    @NotNull
+    @NotBlank
     private String tel1;
     private String tel2Code;
     private String tel2;
-    @NotNull
     private String tel3Code;
-    @NotNull
+    @NotBlank
     private String tel3;
     @NotNull
-    private int grade;
+    private Integer grade;
     @NotNull
     private Integer clazz;
     @NotNull
     private Integer gradeYears;
-    @NotNull
+    @NotBlank
     private String previousSchool;
     private String schoolAddress1;
     private String schoolAddress2;
@@ -71,21 +70,20 @@ public class LearnerInfoRequest implements Serializable {
     private String medicalAidNo;
     private String medicalAidMember;
     private String guidance;
-    @NotNull
+    @NotBlank
     private String initials;
-    @NotNull
+    @NotBlank
     private String citizenship;
     private String provincial;
     private String schoolProvince;
-    @NotNull
     private String previousSchoolProvince;
     @NotNull
-    private boolean assignClass;
-    @NotNull
+    private Boolean assignClass;
+    @NotBlank
     private String physProvince;
-    @NotNull
+    @NotBlank
     private String race;
-    @NotNull
+    @NotBlank
     private String title;
     @NotNull
     private Integer previousPlacementofSchool;
@@ -97,13 +95,13 @@ public class LearnerInfoRequest implements Serializable {
     private String reason;
     @NotNull
     private Integer lsenStatus;
-    @NotNull
+    @NotBlank
     private String status;
     @NotNull
     private Integer boarder;
-    @NotNull
+    @NotBlank
     private String countryResidence;
-    @NotNull
+    @NotBlank
     private String provinceResidence;
     @NotNull
     private Integer firstProvince;
@@ -134,7 +132,7 @@ public class LearnerInfoRequest implements Serializable {
     private String boarderNumber;
     private String boarderHostel;
     private String thirdName;
-    @NotNull
+    @NotBlank
     private String email;
     private String socialGrantNo;
     @NotNull
@@ -152,7 +150,6 @@ public class LearnerInfoRequest implements Serializable {
     @NotNull
     private Double luritsNumber;
     private String tsSentfileName;
-    @NotNull
     private String tsDateLastUpdate;
     private String tsLastUpdatedBy;
     private String learnerName2;
@@ -203,7 +200,7 @@ public class LearnerInfoRequest implements Serializable {
     @NotNull
     private Short phaseYears;
     @NotNull
-    private boolean progressedToGrade;
+    private Boolean progressedToGrade;
     @NotNull
     private Short studyPermit;
     private String studyPermitNo;
@@ -211,7 +208,7 @@ public class LearnerInfoRequest implements Serializable {
     private String idNoNotValidating;
     private String oldMentor;
     @NotNull
-    private boolean lsenAnaInc;
+    private Boolean lsenAnaInc;
     private String lsenAnaHL;
     private String lsenAnaFAL;
     @NotNull
@@ -219,19 +216,19 @@ public class LearnerInfoRequest implements Serializable {
     @NotNull
     private Short foreignIDType;
     @NotNull
-    private boolean ageRuleOverwritten;
+    private Boolean ageRuleOverwritten;
     @NotNull
     private Short reasonForNoForeignID;
     private String farmProj;
     @NotNull
-    private boolean road2Health;
+    private Boolean road2Health;
     @NotNull
-    private boolean immunizationCard;
-    @NotNull
+    private Boolean immunizationCard;
+    @NotBlank
     private String iceName;
-    @NotNull
+    @NotBlank
     private String iceSurname;
-    @NotNull
+    @NotBlank
     private String iceRelation;
 
     public Integer getId() {
@@ -426,11 +423,11 @@ public class LearnerInfoRequest implements Serializable {
         this.tel3 = tel3;
     }
 
-    public int getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 
@@ -594,11 +591,11 @@ public class LearnerInfoRequest implements Serializable {
         this.previousSchoolProvince = previousSchoolProvince;
     }
 
-    public boolean isAssignClass() {
+    public Boolean isAssignClass() {
         return assignClass;
     }
 
-    public void setAssignClass(boolean assignClass) {
+    public void setAssignClass(Boolean assignClass) {
         this.assignClass = assignClass;
     }
 
@@ -1234,11 +1231,11 @@ public class LearnerInfoRequest implements Serializable {
         this.phaseYears = phaseYears;
     }
 
-    public boolean isProgressedToGrade() {
+    public Boolean isProgressedToGrade() {
         return progressedToGrade;
     }
 
-    public void setProgressedToGrade(boolean progressedToGrade) {
+    public void setProgressedToGrade(Boolean progressedToGrade) {
         this.progressedToGrade = progressedToGrade;
     }
 
@@ -1282,11 +1279,11 @@ public class LearnerInfoRequest implements Serializable {
         this.oldMentor = oldMentor;
     }
 
-    public boolean isLsenAnaInc() {
+    public Boolean isLsenAnaInc() {
         return lsenAnaInc;
     }
 
-    public void setLsenAnaInc(boolean lsenAnaInc) {
+    public void setLsenAnaInc(Boolean lsenAnaInc) {
         this.lsenAnaInc = lsenAnaInc;
     }
 
@@ -1322,11 +1319,11 @@ public class LearnerInfoRequest implements Serializable {
         this.foreignIDType = foreignIDType;
     }
 
-    public boolean isAgeRuleOverwritten() {
+    public Boolean isAgeRuleOverwritten() {
         return ageRuleOverwritten;
     }
 
-    public void setAgeRuleOverwritten(boolean ageRuleOverwritten) {
+    public void setAgeRuleOverwritten(Boolean ageRuleOverwritten) {
         this.ageRuleOverwritten = ageRuleOverwritten;
     }
 
@@ -1346,19 +1343,19 @@ public class LearnerInfoRequest implements Serializable {
         this.farmProj = farmProj;
     }
 
-    public boolean isRoad2Health() {
+    public Boolean isRoad2Health() {
         return road2Health;
     }
 
-    public void setRoad2Health(boolean road2Health) {
+    public void setRoad2Health(Boolean road2Health) {
         this.road2Health = road2Health;
     }
 
-    public boolean isImmunizationCard() {
+    public Boolean isImmunizationCard() {
         return immunizationCard;
     }
 
-    public void setImmunizationCard(boolean immunizationCard) {
+    public void setImmunizationCard(Boolean immunizationCard) {
         this.immunizationCard = immunizationCard;
     }
 

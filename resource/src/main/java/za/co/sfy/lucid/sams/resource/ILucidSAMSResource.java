@@ -12,11 +12,11 @@ import java.sql.PreparedStatement;
  */
 public interface ILucidSAMSResource {
 
-    PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException;
+    PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException;
 
-    PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException;
+    PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException;
 
-    PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException;
+    PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException;
 
     String getTABLE_NAME();
 }

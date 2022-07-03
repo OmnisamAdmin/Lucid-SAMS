@@ -16,95 +16,77 @@ public class SubjectsMapper {
 
         String afrName = subjectsRequest.getAfrname();
         if (null != afrName) {
-        subjects.setAfrname(subjectsRequest.getAfrname());
+            subjects.setAfrname(subjectsRequest.getAfrname());
         }
-        
+
         String code = subjectsRequest.getCode();
         if (null != code) {
-        subjects.setCode(subjectsRequest.getCode());
+            subjects.setCode(subjectsRequest.getCode());
         }
-        
+
         Integer ctaWeight = subjectsRequest.getCTAWeight();
         if (null != ctaWeight) {
-        subjects.setCTAWeight(ctaWeight);
-        } else {
-        	subjectsRequest.setCTAWeight(0);
+            subjects.setCTAWeight(ctaWeight);
         }
-        
+
         Integer excludeSchedule = subjectsRequest.getExcludeSchedule();
         if (null != excludeSchedule) {
-        subjects.setExcludeSchedule(excludeSchedule);
-        } else {
-        	subjectsRequest.setExcludeSchedule(0);
+            subjects.setExcludeSchedule(excludeSchedule);
         }
-        
+
         String group = subjectsRequest.getGroup();
         if (null != group) {
-        subjects.setGroup(subjectsRequest.getGroup());
+            subjects.setGroup(subjectsRequest.getGroup());
         }
-        
+
         Integer id = subjectsRequest.getId();
         if (null != id) {
-        subjects.setId(id);
-        } else {
-        	subjectsRequest.setId(0);
+            subjects.setId(id);
         }
-        
+
         String key = subjectsRequest.getKey();
         if (null != key) {
-        subjects.setKey(subjectsRequest.getKey());
+            subjects.setKey(subjectsRequest.getKey());
         }
-        
+
         String luritsCode = subjectsRequest.getLuritsCode();
         if (null != luritsCode) {
-        subjects.setLuritsCode(subjectsRequest.getLuritsCode());
+            subjects.setLuritsCode(subjectsRequest.getLuritsCode());
         }
-        
+
         String name = subjectsRequest.getName();
         if (null != name) {
-        subjects.setName(subjectsRequest.getName());
+            subjects.setName(subjectsRequest.getName());
         }
-        
+
         Integer officialSubjectID = subjectsRequest.getOfficialSubjectID();
         if (null != officialSubjectID) {
-        subjects.setOfficialSubjectID(officialSubjectID);
-        } else {
-        	subjectsRequest.setOfficialSubjectID(0);
+            subjects.setOfficialSubjectID(officialSubjectID);
         }
-        
+
         Integer phase = subjectsRequest.getPhase();
         if (null != phase) {
-        subjects.setPhase(phase);
-        } else {
-        	subjectsRequest.setPhase(0);
+            subjects.setPhase(phase);
         }
-        
+
         Integer printOrder = subjectsRequest.getPrintOrder();
         if (null != printOrder) {
-        subjects.setPrintOrder(printOrder);
-        } else {
-        	subjectsRequest.setPrintOrder(0);
+            subjects.setPrintOrder(printOrder);
         }
-        
+
         Integer selected = subjectsRequest.getSelected();
         if (null != selected) {
-        subjects.setSelected(selected);
-        } else {
-        	subjectsRequest.setSelected(0);
+            subjects.setSelected(selected);
         }
-        
+
         Integer subjectGrade = subjectsRequest.getSubjectGrade();
         if (null != subjectGrade) {
-        subjects.setSubjectGrade(subjectGrade);
-        } else {
-        	subjectsRequest.setSubjectGrade(0);
+            subjects.setSubjectGrade(subjectGrade);
         }
-        
+
         Short subjectStatus = subjectsRequest.getSubjectStatus();
         if (null != subjectStatus) {
-        subjects.setSubjectStatus(subjectStatus);
-        } else {
-        	subjectsRequest.setSubjectStatus(Short.valueOf("0"));
+            subjects.setSubjectStatus(subjectStatus);
         }
 
         return subjects;

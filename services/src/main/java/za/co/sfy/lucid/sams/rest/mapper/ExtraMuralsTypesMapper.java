@@ -22,9 +22,7 @@ public class ExtraMuralsTypesMapper {
 
 		Integer exTypeID = extraMuralsTypesRequest.getExTypeID();
 		if (null != exTypeID) {
-			extraMuralsTypes.setExTypeID(Integer.valueOf(exTypeID));
-		} else {
-			extraMuralsTypes.setExTypeID(Integer.valueOf(0));
+			extraMuralsTypes.setExTypeID(exTypeID);
 		}
 
 		String exTypeName = extraMuralsTypesRequest.getExTypeName();
@@ -35,10 +33,7 @@ public class ExtraMuralsTypesMapper {
 
 		Integer exTypeOfficialID = extraMuralsTypesRequest.getExTypeOfficialID();
 		if (null != exTypeOfficialID) {
-			extraMuralsTypes.setExTypeOfficialID(Integer.valueOf(exTypeOfficialID));
-		} else {
-			extraMuralsTypes.setExTypeOfficialID(Integer.valueOf(0));
-
+			extraMuralsTypes.setExTypeOfficialID(exTypeOfficialID);
 		}
 
 		String exTypePicKey = extraMuralsTypesRequest.getExTypePicKey();

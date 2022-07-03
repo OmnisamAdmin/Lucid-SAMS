@@ -19,10 +19,7 @@ public class ExtraMuralsCompetitionsMapper {
 
 		Integer compID = extraMuralsCompetitionsRequest.getCompID();
 		if (null != compID) {
-			extraMuralsCompetitions.setCompID(Integer.valueOf(compID));
-		} else {
-			extraMuralsCompetitions.setCompID(Integer.valueOf(0));
-
+			extraMuralsCompetitions.setCompID(compID);
 		}
 
 		String compName = extraMuralsCompetitionsRequest.getCompName();
@@ -32,9 +29,9 @@ public class ExtraMuralsCompetitionsMapper {
 
 		Integer compOfficialID = extraMuralsCompetitionsRequest.getCompOfficialID();
 		if (null != compOfficialID) {
-			extraMuralsCompetitions.setCompOfficialID(Integer.valueOf(compOfficialID));
+			extraMuralsCompetitions.setCompOfficialID(compOfficialID);
 		} else {
-			extraMuralsCompetitions.setCompOfficialID(Integer.valueOf(0));
+			extraMuralsCompetitions.setCompOfficialID(0);
 		}
 
 		byte[] compPicture = extraMuralsCompetitionsRequest.getCompPicture();
@@ -44,9 +41,7 @@ public class ExtraMuralsCompetitionsMapper {
 
 		Integer exID = extraMuralsCompetitionsRequest.getExID();
 		if (null != exID) {
-			extraMuralsCompetitions.setExID(Integer.valueOf(exID));
-		} else {
-			extraMuralsCompetitions.setExID(Integer.valueOf(0));
+			extraMuralsCompetitions.setExID(exID);
 		}
 
 		extraMuralsCompetitions.setRecLocked(extraMuralsCompetitionsRequest.isRecLocked());
