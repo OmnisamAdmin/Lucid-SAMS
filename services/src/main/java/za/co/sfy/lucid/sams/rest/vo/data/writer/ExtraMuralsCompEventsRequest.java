@@ -2,18 +2,17 @@ package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
 
 public class ExtraMuralsCompEventsRequest implements Serializable {
 
     private static final long serialVersionUID = -6230990465397277966L;
 
-    private int eventID;
+    private Integer eventID;
     @NotNull
     private Integer compID;
     @NotNull
-    private XMLGregorianCalendar eventDate;
+    private String eventDate;
     @NotBlank
     private String eventTimeStart;
     @NotBlank
@@ -22,11 +21,11 @@ public class ExtraMuralsCompEventsRequest implements Serializable {
     private String eventDesc;
     private String eventAfrDesc;
 
-    public int getEventID() {
+    public Integer getEventID() {
         return eventID;
     }
 
-    public void setEventID(int eventID) {
+    public void setEventID(Integer eventID) {
         this.eventID = eventID;
     }
 
@@ -38,11 +37,11 @@ public class ExtraMuralsCompEventsRequest implements Serializable {
         this.compID = compID;
     }
 
-    public XMLGregorianCalendar getEventDate() {
+    public String getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(XMLGregorianCalendar eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 

@@ -6,7 +6,7 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.FeederSchoolsResource;
 import za.co.sfy.lucid.sams.rest.mapper.FeederSchoolsMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.FeederSchoolResponse;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.FeederSchoolsResponse;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.FeederSchoolsRequest;
 import za.co.sfy.sams.lucid.schema.FeederSchools;
 
@@ -22,14 +22,14 @@ public class FeederSchoolsService {
         this.feederSchoolsResource = feederSchoolsResource;
     }
 
-    public FeederSchoolResponse saveFeederSchools(FeederSchoolsRequest feederSchoolsRequest) throws LucidSamsExecutionException {
+    public FeederSchoolsResponse saveFeederSchools(FeederSchoolsRequest feederSchoolsRequest) throws LucidSamsExecutionException {
 
         FeederSchools feederSchools = feederSchoolsMapper.feederSchoolsRequestToFeederSchools(feederSchoolsRequest);
 
         Long generatedKey = feederSchoolsResource.save(feederSchools, feederSchoolsResource);
         feederSchools.setId(Math.toIntExact(generatedKey));
 
-        FeederSchoolResponse feederSchoolResponse = new FeederSchoolResponse();
+        FeederSchoolsResponse feederSchoolResponse = new FeederSchoolsResponse();
         feederSchoolResponse.setFeederSchools(feederSchools);
         feederSchoolResponse.setResponseMessage("Successfully saved 'FeederSchools' data");
         feederSchoolResponse.setResponseStatus(ServiceStatus.SUCCESS.value());

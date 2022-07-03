@@ -22,7 +22,6 @@ public class ParentInfoMapper {
 
         ParentInfo parentInfo = new ParentInfo();
 
-        try {
             String accPayer = parentInfoRequest.getAccPayer();
             if (null != accPayer) {
                 parentInfo.setAccPayer(parentInfoRequest.getAccPayer());
@@ -31,8 +30,6 @@ public class ParentInfoMapper {
             String archiveDate = parentInfoRequest.getArchiveDate();
             if (null != archiveDate) {
                 parentInfo.setArchiveDate(sharedMapper.dateToXMLGregorianCalendar(archiveDate));
-            } else {
-                parentInfo.setArchiveDate(sharedMapper.dateToXMLGregorianCalendar());
             }
 
             String archiveReason = parentInfoRequest.getArchiveReason();
@@ -308,8 +305,6 @@ public class ParentInfoMapper {
             }
 
             return parentInfo;
-        } catch (Exception exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
-        }
+
     }
 }

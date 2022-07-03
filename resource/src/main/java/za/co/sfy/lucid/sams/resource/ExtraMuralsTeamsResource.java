@@ -26,7 +26,8 @@ public class ExtraMuralsTeamsResource extends AbstractLucidSAMSResource implemen
 
         ExtraMuralsTeams extraMuralsTeams = (ExtraMuralsTeams) object;
 
-        String sql = "ExID,TeamName,TeamAfrName,TeamAgeFrom,TeamAgeTo,TeamEdID,TeamDepEdID,TeamPicture,TeamOfficialID,RecSelected,RecLocked";
+        String sql = "INSERT INTO " + TABLE_NAME + "(ExID,TeamName,TeamAfrName,TeamAgeFrom,TeamAgeTo,TeamEdID" +
+                ",TeamDepEdID,TeamPicture,TeamOfficialID,RecSelected,RecLocked) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

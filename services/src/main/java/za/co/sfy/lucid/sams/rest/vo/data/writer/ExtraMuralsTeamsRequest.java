@@ -9,7 +9,7 @@ public class ExtraMuralsTeamsRequest implements Serializable {
 
     private static final long serialVersionUID = -6351286877318847419L;
 
-    private int teamID;
+    private Integer teamID;
     @NotNull
     private Integer exID;
     @NotBlank
@@ -24,15 +24,15 @@ public class ExtraMuralsTeamsRequest implements Serializable {
     private byte[] teamPicture;
     private Integer teamOfficialID;
     @NotNull
-    private boolean recSelected;
+    private Boolean recSelected;
     @NotNull
-    private boolean recLocked;
+    private Boolean recLocked;
 
-    public int getTeamID() {
+    public Integer getTeamID() {
         return teamID;
     }
 
-    public void setTeamID(int teamID) {
+    public void setTeamID(Integer teamID) {
         this.teamID = teamID;
     }
 
@@ -108,19 +108,19 @@ public class ExtraMuralsTeamsRequest implements Serializable {
         this.teamOfficialID = teamOfficialID;
     }
 
-    public boolean isRecSelected() {
+    public Boolean isRecSelected() {
         return recSelected;
     }
 
-    public void setRecSelected(boolean recSelected) {
+    public void setRecSelected(Boolean recSelected) {
         this.recSelected = recSelected;
     }
 
-    public boolean isRecLocked() {
+    public Boolean isRecLocked() {
         return recLocked;
     }
 
-    public void setRecLocked(boolean recLocked) {
+    public void setRecLocked(Boolean recLocked) {
         this.recLocked = recLocked;
     }
 }

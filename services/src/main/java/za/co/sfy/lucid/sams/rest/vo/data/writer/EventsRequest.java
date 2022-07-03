@@ -9,9 +9,9 @@ public class EventsRequest implements Serializable {
 
     private static final long serialVersionUID = -2612607476431909238L;
 
-    private int id;
+    private Integer id;
     @NotNull
-    private XMLGregorianCalendar date;
+    private String date;
     @NotBlank
     private String startTime;
     @NotBlank
@@ -24,19 +24,19 @@ public class EventsRequest implements Serializable {
     private String category;
     private Integer exEventID;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public XMLGregorianCalendar getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(XMLGregorianCalendar date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

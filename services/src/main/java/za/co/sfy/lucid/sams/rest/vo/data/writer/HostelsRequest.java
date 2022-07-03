@@ -1,14 +1,13 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class HostelsRequest implements Serializable {
 
     private static final long serialVersionUID = -4506269358357812998L;
 
-    private int id;
+    private Integer id;
     @NotBlank
     private String name;
     @NotBlank
@@ -18,11 +17,11 @@ public class HostelsRequest implements Serializable {
     @NotBlank
     private String tel;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class ExtraMuralsCompEventsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final DateConverter dateConverter = new DateConverter();
-    private final String TABLE_NAME = "ExtraMuralsCompetitionEvents";
+    private final String TABLE_NAME = "ExtraMuralsCompEvents";
 
     public ExtraMuralsCompEventsResource(DatabaseConnectionManager databaseConnectionManager) {
         super(databaseConnectionManager);
@@ -26,7 +26,7 @@ public class ExtraMuralsCompEventsResource extends AbstractLucidSAMSResource imp
         ExtraMuralsCompEvents extraMuralsCompEvents = (ExtraMuralsCompEvents) object;
 
         String sql = "INSERT INTO " + TABLE_NAME + "(CompID,EventDate,EventTimeStart,EventTimeEnd,EventDesc,EventAfrDesc) " +
-                "VALUES(?,?,?,?,?,?,?)";
+                "VALUES(?,?,?,?,?,?)";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

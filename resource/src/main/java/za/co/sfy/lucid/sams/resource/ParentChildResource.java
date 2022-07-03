@@ -8,6 +8,7 @@ import za.co.sfy.sams.lucid.schema.ParentChild;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 
 /**
  * @author muzim
@@ -26,7 +27,7 @@ public class ParentChildResource extends AbstractLucidSAMSResource implements IL
 
         ParentChild parentChild = (ParentChild) object;
 
-        String sql = "INSERT INTO " + TABLE_NAME + " (ParentId,ChildId, Learnerid, AccPayer, Status, Resides, FamilyCode," +
+        String sql = "INSERT INTO " + TABLE_NAME + "(ParentId,ChildId, Learnerid, AccPayer, Status, Resides, FamilyCode," +
                 "PastelCustomerAccountDescription, PastelCustomerCategoryCode, PastelContact, SGBReg,Relation) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -40,7 +41,12 @@ public class ParentChildResource extends AbstractLucidSAMSResource implements IL
             preparedStatement.setString(6, parentChild.getResides());
             preparedStatement.setString(7, parentChild.getFamilyCode());
             preparedStatement.setString(8, parentChild.getPastelCustomerAccountDescription());
-            preparedStatement.setInt(9, parentChild.getPastelCustomerCategoryCode());
+            Integer pastelCustomerCategoryCode = parentChild.getPastelCustomerCategoryCode();
+            if (null != pastelCustomerCategoryCode) {
+                preparedStatement.setInt(9, pastelCustomerCategoryCode);
+            } else {
+                preparedStatement.setNull(9, Types.INTEGER);
+            }
             preparedStatement.setString(10, parentChild.getPastelContact());
             preparedStatement.setString(11, parentChild.getSGBReg());
             preparedStatement.setString(12, parentChild.getRelation());

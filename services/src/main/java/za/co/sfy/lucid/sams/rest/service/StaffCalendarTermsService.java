@@ -38,7 +38,7 @@ public class StaffCalendarTermsService {
         StaffCalendarTermsResponse staffCalendarTermsResponse = new StaffCalendarTermsResponse();
         staffCalendarTermsResponse.setStaffCalendarTerms(staffCalendarTerms);
         staffCalendarTermsResponse.setResponseMessage("Successfully saved 'StaffCalendarTerms' data");
-        staffCalendarTermsResponse.setResponseStatus(ServiceStatus.ERROR.value());
+        staffCalendarTermsResponse.setResponseStatus(ServiceStatus.SUCCESS.value());
 
         return staffCalendarTermsResponse;
 

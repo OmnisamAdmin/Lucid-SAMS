@@ -40,7 +40,7 @@ public class CycleInfoRequest implements Serializable {
     @NotNull
     private Integer getTotal;
     @NotNull
-    private boolean lsenSchool;
+    private Boolean lsenSchool;
     @NotNull
     private Integer sneSpec;
 
@@ -168,11 +168,11 @@ public class CycleInfoRequest implements Serializable {
         this.getTotal = getTotal;
     }
 
-    public boolean isLsenSchool() {
+    public Boolean isLsenSchool() {
         return lsenSchool;
     }
 
-    public void setLsenSchool(boolean lsenSchool) {
+    public void setLsenSchool(Boolean lsenSchool) {
         this.lsenSchool = lsenSchool;
     }
 

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
 /**
  * @author muzim
@@ -53,7 +54,12 @@ public class ExtraMuralsTypesResource extends AbstractLucidSAMSResource implemen
             preparedStatement.setString(4, extraMuralsTypes.getExTypeShortAfrName());
             preparedStatement.setString(5, extraMuralsTypes.getExTypePicKey());
             preparedStatement.setBytes(6, extraMuralsTypes.getExTypePicture());
-            preparedStatement.setInt(7, extraMuralsTypes.getExTypeOfficialID());
+            Integer exTypeOfficialID = extraMuralsTypes.getExTypeOfficialID();
+            if (null != exTypeOfficialID) {
+                preparedStatement.setInt(7, exTypeOfficialID);
+            } else {
+                preparedStatement.setNull(7, Types.INTEGER);
+            }
             preparedStatement.setBoolean(8, extraMuralsTypes.isRecSelected());
             preparedStatement.setBoolean(9, extraMuralsTypes.isRecLocked());
             return preparedStatement;

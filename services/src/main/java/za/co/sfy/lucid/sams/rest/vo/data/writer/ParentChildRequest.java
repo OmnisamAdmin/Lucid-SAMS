@@ -15,7 +15,7 @@ public class ParentChildRequest implements Serializable {
     @NotBlank
     private String learnerid;
     @NotNull
-    private boolean accPayer;
+    private Boolean accPayer;
     @NotBlank
     private String status;
     private String resides;
@@ -50,11 +50,11 @@ public class ParentChildRequest implements Serializable {
         this.learnerid = learnerid;
     }
 
-    public boolean isAccPayer() {
+    public Boolean isAccPayer() {
         return accPayer;
     }
 
-    public void setAccPayer(boolean accPayer) {
+    public void setAccPayer(Boolean accPayer) {
         this.accPayer = accPayer;
     }
 

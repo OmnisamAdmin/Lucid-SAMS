@@ -78,7 +78,7 @@ public class LearnerInfoRequest implements Serializable {
     private String schoolProvince;
     private String previousSchoolProvince;
     @NotNull
-    private boolean assignClass;
+    private Boolean assignClass;
     @NotBlank
     private String physProvince;
     @NotBlank
@@ -200,7 +200,7 @@ public class LearnerInfoRequest implements Serializable {
     @NotNull
     private Short phaseYears;
     @NotNull
-    private boolean progressedToGrade;
+    private Boolean progressedToGrade;
     @NotNull
     private Short studyPermit;
     private String studyPermitNo;
@@ -208,7 +208,7 @@ public class LearnerInfoRequest implements Serializable {
     private String idNoNotValidating;
     private String oldMentor;
     @NotNull
-    private boolean lsenAnaInc;
+    private Boolean lsenAnaInc;
     private String lsenAnaHL;
     private String lsenAnaFAL;
     @NotNull
@@ -216,14 +216,14 @@ public class LearnerInfoRequest implements Serializable {
     @NotNull
     private Short foreignIDType;
     @NotNull
-    private boolean ageRuleOverwritten;
+    private Boolean ageRuleOverwritten;
     @NotNull
     private Short reasonForNoForeignID;
     private String farmProj;
     @NotNull
-    private boolean road2Health;
+    private Boolean road2Health;
     @NotNull
-    private boolean immunizationCard;
+    private Boolean immunizationCard;
     @NotBlank
     private String iceName;
     @NotBlank
@@ -591,11 +591,11 @@ public class LearnerInfoRequest implements Serializable {
         this.previousSchoolProvince = previousSchoolProvince;
     }
 
-    public boolean isAssignClass() {
+    public Boolean isAssignClass() {
         return assignClass;
     }
 
-    public void setAssignClass(boolean assignClass) {
+    public void setAssignClass(Boolean assignClass) {
         this.assignClass = assignClass;
     }
 
@@ -1231,11 +1231,11 @@ public class LearnerInfoRequest implements Serializable {
         this.phaseYears = phaseYears;
     }
 
-    public boolean isProgressedToGrade() {
+    public Boolean isProgressedToGrade() {
         return progressedToGrade;
     }
 
-    public void setProgressedToGrade(boolean progressedToGrade) {
+    public void setProgressedToGrade(Boolean progressedToGrade) {
         this.progressedToGrade = progressedToGrade;
     }
 
@@ -1279,11 +1279,11 @@ public class LearnerInfoRequest implements Serializable {
         this.oldMentor = oldMentor;
     }
 
-    public boolean isLsenAnaInc() {
+    public Boolean isLsenAnaInc() {
         return lsenAnaInc;
     }
 
-    public void setLsenAnaInc(boolean lsenAnaInc) {
+    public void setLsenAnaInc(Boolean lsenAnaInc) {
         this.lsenAnaInc = lsenAnaInc;
     }
 
@@ -1319,11 +1319,11 @@ public class LearnerInfoRequest implements Serializable {
         this.foreignIDType = foreignIDType;
     }
 
-    public boolean isAgeRuleOverwritten() {
+    public Boolean isAgeRuleOverwritten() {
         return ageRuleOverwritten;
     }
 
-    public void setAgeRuleOverwritten(boolean ageRuleOverwritten) {
+    public void setAgeRuleOverwritten(Boolean ageRuleOverwritten) {
         this.ageRuleOverwritten = ageRuleOverwritten;
     }
 
@@ -1343,19 +1343,19 @@ public class LearnerInfoRequest implements Serializable {
         this.farmProj = farmProj;
     }
 
-    public boolean isRoad2Health() {
+    public Boolean isRoad2Health() {
         return road2Health;
     }
 
-    public void setRoad2Health(boolean road2Health) {
+    public void setRoad2Health(Boolean road2Health) {
         this.road2Health = road2Health;
     }
 
-    public boolean isImmunizationCard() {
+    public Boolean isImmunizationCard() {
         return immunizationCard;
     }
 
-    public void setImmunizationCard(boolean immunizationCard) {
+    public void setImmunizationCard(Boolean immunizationCard) {
         this.immunizationCard = immunizationCard;
     }
 

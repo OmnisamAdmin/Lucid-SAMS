@@ -8,7 +8,7 @@ public class EducatorCalendarTermsRequest implements Serializable {
 
     private static final long serialVersionUID = 652522526108541224L;
 
-    private int id;
+    private Integer id;
     @NotBlank
     private String quater;
     @NotBlank

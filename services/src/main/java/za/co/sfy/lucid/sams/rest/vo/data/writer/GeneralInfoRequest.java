@@ -79,12 +79,12 @@ public class GeneralInfoRequest implements Serializable {
     private Integer remedial;
     @NotBlank
     private String sgbStatus;
-    private boolean maintainProperty;
-    private boolean extraMural;
-    private boolean textbooks;
-    private boolean services;
-    private boolean abet;
-    private boolean otherFunctions;
+    private Boolean maintainProperty;
+    private Boolean extraMural;
+    private Boolean textbooks;
+    private Boolean services;
+    private Boolean abet;
+    private Boolean otherFunctions;
     private String censusArea;
     private String erfNumber;
     private String emisHostSchool;
@@ -119,7 +119,7 @@ public class GeneralInfoRequest implements Serializable {
     @NotBlank
     private String postAddress0No;
     private String tEmisCode;
-    private boolean useMarksSecurity;
+    private Boolean useMarksSecurity;
     @NotNull
     private Short psnp;
     private Short tsIncludesANA;
@@ -130,7 +130,7 @@ public class GeneralInfoRequest implements Serializable {
     private String examBoardOther;
     private String multigrades;
     private String emisOfficer;
-    private boolean emisOffEducator;
+    private Boolean emisOffEducator;
     private String emailAlt;
 
     public Long getSchoolID() {
@@ -565,51 +565,51 @@ public class GeneralInfoRequest implements Serializable {
         this.sgbStatus = sgbStatus;
     }
 
-    public boolean getMaintainProperty() {
+    public Boolean getMaintainProperty() {
         return maintainProperty;
     }
 
-    public void setMaintainProperty(boolean maintainProperty) {
+    public void setMaintainProperty(Boolean maintainProperty) {
         this.maintainProperty = maintainProperty;
     }
 
-    public boolean getExtraMural() {
+    public Boolean getExtraMural() {
         return extraMural;
     }
 
-    public void setExtraMural(boolean extraMural) {
+    public void setExtraMural(Boolean extraMural) {
         this.extraMural = extraMural;
     }
 
-    public boolean getTextbooks() {
+    public Boolean getTextbooks() {
         return textbooks;
     }
 
-    public void setTextbooks(boolean textbooks) {
+    public void setTextbooks(Boolean textbooks) {
         this.textbooks = textbooks;
     }
 
-    public boolean getServices() {
+    public Boolean getServices() {
         return services;
     }
 
-    public void setServices(boolean services) {
+    public void setServices(Boolean services) {
         this.services = services;
     }
 
-    public boolean getAbet() {
+    public Boolean getAbet() {
         return abet;
     }
 
-    public void setAbet(boolean abet) {
+    public void setAbet(Boolean abet) {
         this.abet = abet;
     }
 
-    public boolean getOtherFunctions() {
+    public Boolean getOtherFunctions() {
         return otherFunctions;
     }
 
-    public void setOtherFunctions(boolean otherFunctions) {
+    public void setOtherFunctions(Boolean otherFunctions) {
         this.otherFunctions = otherFunctions;
     }
 
@@ -837,11 +837,11 @@ public class GeneralInfoRequest implements Serializable {
         this.tEmisCode = tEmisCode;
     }
 
-    public boolean getUseMarksSecurity() {
+    public Boolean getUseMarksSecurity() {
         return useMarksSecurity;
     }
 
-    public void setUseMarksSecurity(boolean useMarksSecurity) {
+    public void setUseMarksSecurity(Boolean useMarksSecurity) {
         this.useMarksSecurity = useMarksSecurity;
     }
 
@@ -917,11 +917,11 @@ public class GeneralInfoRequest implements Serializable {
         this.emisOfficer = emisOfficer;
     }
 
-    public boolean isEmisOffEducator() {
+    public Boolean isEmisOffEducator() {
         return emisOffEducator;
     }
 
-    public void setEmisOffEducator(boolean emisOffEducator) {
+    public void setEmisOffEducator(Boolean emisOffEducator) {
         this.emisOffEducator = emisOffEducator;
     }
 
