@@ -1,12 +1,13 @@
 package za.co.sfy.lucid.sams.rest.controller;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
@@ -44,13 +45,11 @@ public class ExtraMuralsController {
             extraMuralsResponse = extraMuralsService.saveExtraMurals(extraMuralsRequest);
 
         } catch (LucidSamsExecutionException exception) {
-            logger.error("Failure occured: " + exception.getMessage(), exception);
+            logger.error("Failure occurred: " + exception.getMessage(), exception);
             extraMuralsResponse.setResponseMessage(exception.getMessage());
             extraMuralsResponse.setResponseStatus(ServiceStatus.ERROR.value());
 
-            return ResponseEntity
-                    .unprocessableEntity()
-                    .body(extraMuralsResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(extraMuralsResponse);
         }
 
         return ResponseEntity.ok(extraMuralsResponse);

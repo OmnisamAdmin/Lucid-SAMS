@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
 /**
  * @author muzim
@@ -33,16 +34,15 @@ public class ExtraMuralsResource extends AbstractLucidSAMSResource implements IL
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet;
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve extraMurals by id '" + exID + "' : "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve extraMurals by id '" + exID + "' ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         ExtraMurals extraMurals = (ExtraMurals) object;
-
+        extraMurals.isRecLocked();
         String sql = "INSERT INTO " + TABLE_NAME + "(ExTypeID, ExName, ExAfrName, ExPicKey, ExPicture, ExOfficialID," +
                 " RecSelected, RecLocked) VALUES(?,?,?,?,?,?,?,?)";
 
@@ -53,24 +53,28 @@ public class ExtraMuralsResource extends AbstractLucidSAMSResource implements IL
             preparedStatement.setString(3, extraMurals.getExAfrName());
             preparedStatement.setString(4, extraMurals.getExPicKey());
             preparedStatement.setBytes(5, extraMurals.getExPicture());
-            preparedStatement.setInt(6, extraMurals.getExOfficialID());
+            Integer exOfficialID = extraMurals.getExOfficialID();
+            if (null != exOfficialID) {
+                preparedStatement.setInt(6, exOfficialID);
+            } else {
+                preparedStatement.setNull(6, Types.INTEGER);
+            }
             preparedStatement.setBoolean(7, extraMurals.isRecSelected());
             preparedStatement.setBoolean(8, extraMurals.isRecLocked());
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) {
+    public PreparedStatement retrieve(Connection connection, Object object) {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -7,25 +8,24 @@ public class ExtraMuralsCompetitionsRequest implements Serializable {
 
     private static final long serialVersionUID = 9032223193554668116L;
 
-    private int compID;
+    private Integer compID;
     @NotNull
     private Integer exID;
-    @NotNull
+    @NotBlank
     private String compName;
     private String compAfrName;
     private byte[] compPicture;
-    @NotNull
     private Integer compOfficialID;
     @NotNull
-    private boolean recSelected;
+    private Boolean recSelected;
     @NotNull
-    private boolean recLocked;
+    private Boolean recLocked;
 
-    public int getCompID() {
+    public Integer getCompID() {
         return compID;
     }
 
-    public void setCompID(int compID) {
+    public void setCompID(Integer compID) {
         this.compID = compID;
     }
 
@@ -69,19 +69,19 @@ public class ExtraMuralsCompetitionsRequest implements Serializable {
         this.compOfficialID = compOfficialID;
     }
 
-    public boolean isRecSelected() {
+    public Boolean isRecSelected() {
         return recSelected;
     }
 
-    public void setRecSelected(boolean recSelected) {
+    public void setRecSelected(Boolean recSelected) {
         this.recSelected = recSelected;
     }
 
-    public boolean isRecLocked() {
+    public Boolean isRecLocked() {
         return recLocked;
     }
 
-    public void setRecLocked(boolean recLocked) {
+    public void setRecLocked(Boolean recLocked) {
         this.recLocked = recLocked;
     }
 }

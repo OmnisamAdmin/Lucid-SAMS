@@ -1,6 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 public class BusRoutesRequest implements Serializable {
@@ -8,15 +8,15 @@ public class BusRoutesRequest implements Serializable {
     private static final long serialVersionUID = 7722486277220081460L;
 
     private Integer busRouteId;
-    @NotNull
+    @NotBlank
     private String route;
-    @NotNull
+    @NotBlank
     private String departureTime;
-    @NotNull
+    @NotBlank
     private String routeDescription;
-    @NotNull
+    @NotBlank
     private String busName;
-    @NotNull
+    @NotBlank
     private String responsible;
 
     public Integer getBusRouteId() {

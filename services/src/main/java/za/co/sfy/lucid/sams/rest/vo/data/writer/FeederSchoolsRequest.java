@@ -1,27 +1,27 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 public class FeederSchoolsRequest implements Serializable {
 
     private static final long serialVersionUID = 8000187000155391238L;
 
-    private int id;
-    @NotNull
+    private Integer id;
+    @NotBlank
     private String name;
-    @NotNull
+    @NotBlank
     private String tel;
-    @NotNull
+    @NotBlank
     private String principal;
-    @NotNull
+    @NotBlank
     private String address;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

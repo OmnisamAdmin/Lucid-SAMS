@@ -8,6 +8,7 @@ import za.co.sfy.sams.lucid.schema.ParentChild;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 
 /**
  * @author muzim
@@ -22,12 +23,12 @@ public class ParentChildResource extends AbstractLucidSAMSResource implements IL
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         ParentChild parentChild = (ParentChild) object;
 
-        String sql = "INSERT INTO " + TABLE_NAME + " (parentId,childId, learnerid, accPayer, status, resides, familyCode," +
-                "pastelCustomerAccountDescription, pastelCustomerCategoryCode, pastelContact, sgbReg,relation) " +
+        String sql = "INSERT INTO " + TABLE_NAME + "(ParentId,ChildId, Learnerid, AccPayer, Status, Resides, FamilyCode," +
+                "PastelCustomerAccountDescription, PastelCustomerCategoryCode, PastelContact, SGBReg,Relation) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
@@ -40,24 +41,29 @@ public class ParentChildResource extends AbstractLucidSAMSResource implements IL
             preparedStatement.setString(6, parentChild.getResides());
             preparedStatement.setString(7, parentChild.getFamilyCode());
             preparedStatement.setString(8, parentChild.getPastelCustomerAccountDescription());
-            preparedStatement.setInt(9, parentChild.getPastelCustomerCategoryCode());
+            Integer pastelCustomerCategoryCode = parentChild.getPastelCustomerCategoryCode();
+            if (null != pastelCustomerCategoryCode) {
+                preparedStatement.setInt(9, pastelCustomerCategoryCode);
+            } else {
+                preparedStatement.setNull(9, Types.INTEGER);
+            }
             preparedStatement.setString(10, parentChild.getPastelContact());
             preparedStatement.setString(11, parentChild.getSGBReg());
             preparedStatement.setString(12, parentChild.getRelation());
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: " + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.FeederSchoolsService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.FeederSchoolResponse;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.FeederSchoolsResponse;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.FeederSchoolsRequest;
 
 import javax.validation.Valid;
@@ -34,9 +34,9 @@ public class FeederSchoolsController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<FeederSchoolResponse> saveFeederSchools(@Valid @RequestBody FeederSchoolsRequest feederSchoolsRequest) {
+    public ResponseEntity<FeederSchoolsResponse> saveFeederSchools(@Valid @RequestBody FeederSchoolsRequest feederSchoolsRequest) {
 
-        FeederSchoolResponse feederSchoolResponse = new FeederSchoolResponse();
+        FeederSchoolsResponse feederSchoolResponse = new FeederSchoolsResponse();
 
         try {
             feederSchoolResponse = feederSchoolsService.saveFeederSchools(feederSchoolsRequest);
@@ -46,8 +46,7 @@ public class FeederSchoolsController {
             feederSchoolResponse.setResponseMessage(exception.getMessage());
             feederSchoolResponse.setResponseStatus(ServiceStatus.ERROR.value());
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(feederSchoolResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(feederSchoolResponse);
         }
 
         return ResponseEntity.ok(feederSchoolResponse);

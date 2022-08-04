@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -10,24 +11,22 @@ public class ClassesRequest implements Serializable {
 
     private static final long serialVersionUID = -6024460442510895949L;
 
-    @NotNull
-    private int classId;
+    private Integer classId;
     @NotNull
     private Integer grade;
-    @NotNull
+    @NotBlank
     private String className;
-    @NotNull
+    @NotBlank
     private String edCode;
-    @NotNull
     private String room;
     @NotNull
     private Integer type;
 
-    public int getClassId() {
+    public Integer getClassId() {
         return classId;
     }
 
-    public void setClassId(int classId) {
+    public void setClassId(Integer classId) {
         this.classId = classId;
     }
 

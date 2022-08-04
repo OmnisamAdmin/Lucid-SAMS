@@ -13,9 +13,7 @@ public class ExtraMuralsTeamsMapper {
 
 		Integer exID = extraMuralsTeamsRequest.getExID();
 		if (null != exID) {
-			extraMuralsTeams.setExID(Integer.valueOf(exID));
-		} else {
-			extraMuralsTeams.setExID(Integer.valueOf(0));
+			extraMuralsTeams.setExID(exID);
 		}
 
 		extraMuralsTeams.setRecLocked(extraMuralsTeamsRequest.isRecLocked());
@@ -29,39 +27,37 @@ public class ExtraMuralsTeamsMapper {
 
 		Short teamAgeFrom = extraMuralsTeamsRequest.getTeamAgeFrom();
 		if (null != teamAgeFrom) {
-			extraMuralsTeams.setTeamAgeFrom(Short.valueOf(teamAgeFrom));
+			extraMuralsTeams.setTeamAgeFrom(teamAgeFrom);
 		} else {
 			extraMuralsTeams.setTeamAgeFrom(Short.valueOf("0"));
 		}
 
 		Short teamAgeTo = extraMuralsTeamsRequest.getTeamAgeTo();
 		if (null != teamAgeTo) {
-			extraMuralsTeams.setTeamAgeTo(Short.valueOf(teamAgeTo));
+			extraMuralsTeams.setTeamAgeTo(teamAgeTo);
 		} else {
 			extraMuralsTeams.setTeamAgeTo(Short.valueOf("0"));
 		}
 
 		Integer teamDepEdID = extraMuralsTeamsRequest.getTeamDepEdID();
 		if (null != teamDepEdID) {
-			extraMuralsTeams.setTeamDepEdID(Integer.valueOf(teamDepEdID));
+			extraMuralsTeams.setTeamDepEdID(teamDepEdID);
 		} else {
-			extraMuralsTeams.setTeamDepEdID(Integer.valueOf(0));
+			extraMuralsTeams.setTeamDepEdID(0);
 
 		}
 
 		Integer teamEdID = extraMuralsTeamsRequest.getTeamEdID();
 		if (null != teamEdID) {
-			extraMuralsTeams.setTeamEdID(Integer.valueOf(teamEdID));
+			extraMuralsTeams.setTeamEdID(teamEdID);
 		} else {
-			extraMuralsTeams.setTeamEdID(Integer.valueOf(0));
+			extraMuralsTeams.setTeamEdID(0);
 
 		}
 
 		Integer teamID = extraMuralsTeamsRequest.getTeamID();
 		if (null != teamID) {
-			extraMuralsTeams.setTeamID(Integer.valueOf(teamID));
-		} else {
-			extraMuralsTeams.setTeamID(Integer.valueOf(0));
+			extraMuralsTeams.setTeamID(teamID);
 		}
 
 		String teamName = extraMuralsTeamsRequest.getTeamName();
@@ -71,9 +67,9 @@ public class ExtraMuralsTeamsMapper {
 
 		Integer teamOfficialID = extraMuralsTeamsRequest.getTeamOfficialID();
 		if (null != teamOfficialID) {
-			extraMuralsTeams.setTeamOfficialID(Integer.valueOf(teamOfficialID));
+			extraMuralsTeams.setTeamOfficialID(teamOfficialID);
 		} else {
-			extraMuralsTeams.setTeamOfficialID(Integer.valueOf(0));
+			extraMuralsTeams.setTeamOfficialID(0);
 		}
 
 		byte[] teamPicture = extraMuralsTeamsRequest.getTeamPicture();

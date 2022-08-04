@@ -42,7 +42,7 @@ public class ExtraMuralsTeamsService {
                 throw new LucidSamsExecutionException("The given 'ExID' - " + exID + " does not exist in the system");
             }
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failure in the retrieved Extra Murals ID ", exception);
         }
 
         Long generatedKey = extraMuralsTeamsResource.save(extraMuralsTeams, extraMuralsTeamsResource);

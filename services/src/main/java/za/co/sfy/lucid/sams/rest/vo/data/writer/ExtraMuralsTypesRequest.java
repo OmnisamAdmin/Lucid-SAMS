@@ -1,5 +1,6 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -7,26 +8,25 @@ public class ExtraMuralsTypesRequest implements Serializable {
 
     private static final long serialVersionUID = -4006021326140192834L;
 
-    private int exTypeID;
-    @NotNull
+    private Integer exTypeID;
+    @NotBlank
     private String exTypeName;
     private String exTypeAfrName;
     private String exTypeShortName;
     private String exTypeShortAfrName;
     private String exTypePicKey;
     private byte[] exTypePicture;
-    @NotNull
     private Integer exTypeOfficialID;
     @NotNull
-    private boolean recSelected;
+    private Boolean recSelected;
     @NotNull
-    private boolean recLocked;
+    private Boolean recLocked;
 
-    public int getExTypeID() {
+    public Integer getExTypeID() {
         return exTypeID;
     }
 
-    public void setExTypeID(int exTypeID) {
+    public void setExTypeID(Integer exTypeID) {
         this.exTypeID = exTypeID;
     }
 
@@ -86,19 +86,19 @@ public class ExtraMuralsTypesRequest implements Serializable {
         this.exTypeOfficialID = exTypeOfficialID;
     }
 
-    public boolean isRecSelected() {
+    public Boolean isRecSelected() {
         return recSelected;
     }
 
-    public void setRecSelected(boolean recSelected) {
+    public void setRecSelected(Boolean recSelected) {
         this.recSelected = recSelected;
     }
 
-    public boolean isRecLocked() {
+    public Boolean isRecLocked() {
         return recLocked;
     }
 
-    public void setRecLocked(boolean recLocked) {
+    public void setRecLocked(Boolean recLocked) {
         this.recLocked = recLocked;
     }
 }

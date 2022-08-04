@@ -9,6 +9,7 @@ import za.co.sfy.sams.lucid.schema.Events;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 
 @Component
 public class EventsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
@@ -21,7 +22,7 @@ public class EventsResource extends AbstractLucidSAMSResource implements ILucidS
     }
 
     @Override
-    public PreparedStatement retrieveSavePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         Events events = (Events) object;
 
@@ -36,22 +37,26 @@ public class EventsResource extends AbstractLucidSAMSResource implements ILucidS
             preparedStatement.setString(4, events.getDescription());
             preparedStatement.setString(5, events.getCompulsory());
             preparedStatement.setString(6, events.getCategory());
-            preparedStatement.setInt(7, events.getExEventID());
+            Integer exEventID = events.getExEventID();
+            if (null != exEventID) {
+                preparedStatement.setInt(7, events.getExEventID());
+            }else{
+                preparedStatement.setNull(7, Types.INTEGER);
+            }
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement: "
-                    + exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
         }
     }
 
     @Override
-    public PreparedStatement retrieveRetrievePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 
     @Override
-    public PreparedStatement retrieveUpdatePreparedStatement(Connection connection, Object object) throws LucidSamsExecutionException {
+    public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
     }
 

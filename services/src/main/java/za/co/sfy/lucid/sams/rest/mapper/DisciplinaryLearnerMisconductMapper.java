@@ -37,23 +37,17 @@ public class DisciplinaryLearnerMisconductMapper {
 
         Integer id = disciplinaryLearnerMisconductRequest.getId();
         if (null != id) {
-        disciplinaryLearnerMisconduct.setId(Integer.valueOf(id));
-        } else {
-        	disciplinaryLearnerMisconductRequest.setId(Integer.valueOf(0));
+            disciplinaryLearnerMisconduct.setId(id);
         }
         
         Integer level = disciplinaryLearnerMisconductRequest.getLevel();
         if (null != level) {
-        disciplinaryLearnerMisconduct.setLevel(Integer.valueOf(level));
-        } else {
-        	disciplinaryLearnerMisconductRequest.setLevel(Integer.valueOf(0));
+        disciplinaryLearnerMisconduct.setLevel(level);
         }
-        
+
         Integer point = disciplinaryLearnerMisconductRequest.getPoint();
         if (null != point) {
-        disciplinaryLearnerMisconduct.setPoint(Integer.valueOf(point));
-        } else {
-        	disciplinaryLearnerMisconductRequest.setPoint(0);
+            disciplinaryLearnerMisconduct.setPoint(point);
         }
         
         String type = disciplinaryLearnerMisconductRequest.getType();

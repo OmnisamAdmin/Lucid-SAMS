@@ -44,7 +44,7 @@ public class ExtraMuralsCompEventsService {
                 throw new LucidSamsExecutionException("The given 'compID' - " + compID + " does not exist in the system");
             }
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException(exception.getMessage(), exception);
+            throw new LucidSamsExecutionException("Failure in the retrieved Extra Murals Competitions ", exception);
         }
 
         Long generatedKey = extraMuralsCompEventsResource.save(extraMuralsCompEvents, extraMuralsCompEventsResource);
