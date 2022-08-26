@@ -150,9 +150,9 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
             preparedStatement.setString(79, educators.getKinFName());
             preparedStatement.setShort(80, educators.getSACitizen());
             Short workPermit = educators.getWorkPermit();
-            if(null==workPermit){
-                preparedStatement.setNull(81,Types.SMALLINT);
-            }else {
+            if (null == workPermit) {
+                preparedStatement.setNull(81, Types.SMALLINT);
+            } else {
                 preparedStatement.setShort(81, educators.getWorkPermit());
             }
             preparedStatement.setString(82, educators.getWorkPermitNo());
@@ -201,6 +201,25 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
         } catch (SQLException exception) {
             throw new LucidSamsExecutionException("Failed to retrieve Educators of id '" + educatorID + "' :"
                     , exception);
+        }
+    }
+
+    public ResultSet retrieveEducatorsByCredentials(String title, String initials, String surname) throws LucidSamsExecutionException {
+
+        String sql = "SELECT * FROM " + TABLE_NAME + " Where Title = ? AND  Initials = ? AND SName = ?";
+        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, title);
+            preparedStatement.setString(2, initials);
+            preparedStatement.setString(3, surname);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet;
+
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve Educators with details '"
+                    + title + " " + initials + " " + surname + "'", exception);
         }
     }
 

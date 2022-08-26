@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
 /**
  * @author muzim
@@ -20,6 +21,22 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
 
     public DisciplinaryLearnerMisconductResource(DatabaseConnectionManager databaseConnectionManager) {
         super(databaseConnectionManager);
+    }
+
+    public ResultSet retrieveByCode(String code) throws LucidSamsExecutionException {
+
+        String sql = "SELECT *  FROM " + TABLE_NAME + " WHERE Code = ? ";
+        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, code);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet;
+
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve levels ", exception);
+        }
     }
 
     public ResultSet retrieveLevels() throws LucidSamsExecutionException {
@@ -80,7 +97,40 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
 
     @Override
     public PreparedStatement update(Connection connection, Object object) throws LucidSamsExecutionException {
-        return null;
+        String sql = "UPDATE " + TABLE_NAME + "Description = ?, EditStatus = ?, AfrDesc = ?" +
+                ", Type = ?, Point = ? WHERE Code = ?";
+
+        DisciplinaryLearnerMisconduct disciplinaryLearnerMisconduct = (DisciplinaryLearnerMisconduct) object;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            String description = disciplinaryLearnerMisconduct.getDescription();
+            preparedStatement.setString(1, description);
+
+            String editStatus = disciplinaryLearnerMisconduct.getEditStatus();
+            preparedStatement.setString(2, editStatus);
+
+            String afrDesc = disciplinaryLearnerMisconduct.getAfrDesc();
+            preparedStatement.setString(3, afrDesc);
+
+            String type = disciplinaryLearnerMisconduct.getType();
+            preparedStatement.setString(4, type);
+
+            Integer point = disciplinaryLearnerMisconduct.getPoint();
+            if (null == point) {
+                preparedStatement.setNull(5, Types.INTEGER);
+            } else {
+                preparedStatement.setInt(5, point);
+            }
+
+            String code = disciplinaryLearnerMisconduct.getCode();
+            preparedStatement.setString(6, code);
+
+            return preparedStatement;
+
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve update prepared statement ", exception);
+        }
     }
 
     @Override
