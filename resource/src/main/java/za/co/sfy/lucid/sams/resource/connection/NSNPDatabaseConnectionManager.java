@@ -23,7 +23,6 @@ public class NSNPDatabaseConnectionManager extends AbstractDatabaseConnectionMan
     @Value("${datasource.nsnp.password}")
     private String databasePassword;
 
-
     private Connection createNSNPDatabaseConnection() throws LucidSamsExecutionException {
         Connection databaseConnection = createDatabaseConnection(databaseUrl, databaseUsername, databasePassword);
         return databaseConnection;

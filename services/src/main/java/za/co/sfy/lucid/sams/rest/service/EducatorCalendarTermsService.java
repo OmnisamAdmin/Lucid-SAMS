@@ -10,6 +10,9 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.EducatorCalendarTermsRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.EducatorCalendarTermsResponse;
 import za.co.sfy.sams.lucid.schema.EducatorCalendarTerms;
 
+/**
+ * @author muzim
+ */
 @Service
 public class EducatorCalendarTermsService {
 

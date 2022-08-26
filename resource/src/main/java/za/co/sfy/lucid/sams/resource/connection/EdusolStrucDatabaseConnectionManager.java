@@ -24,7 +24,6 @@ public class EdusolStrucDatabaseConnectionManager extends AbstractDatabaseConnec
     @Value("${datasource.edusolstruc.password}")
     private String databasePassword;
 
-
     private Connection createEdusolStrucDatabaseConnection() throws LucidSamsExecutionException {
         Connection databaseConnection = createDatabaseConnection(databaseUrl, databaseUsername, databasePassword);
         return databaseConnection;

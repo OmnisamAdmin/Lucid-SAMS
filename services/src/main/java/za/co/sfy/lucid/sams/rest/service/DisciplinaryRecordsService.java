@@ -19,6 +19,9 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author muzim
+ */
 @Component
 public class DisciplinaryRecordsService {
 

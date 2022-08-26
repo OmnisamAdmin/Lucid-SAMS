@@ -13,6 +13,9 @@ import za.co.sfy.sams.lucid.schema.DisciplinaryLearnerMisconduct;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author muzim
+ */
 @Service
 public class DisciplinaryLearnerMisconductService {
 
