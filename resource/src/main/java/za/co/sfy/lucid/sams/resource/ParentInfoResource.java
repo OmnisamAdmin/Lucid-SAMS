@@ -2,8 +2,8 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.lucid.sams.resource.util.DateConverter;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.sams.lucid.schema.ParentInfo;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -20,16 +20,16 @@ import java.sql.Types;
 public class ParentInfoResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "Parent_Info";
-    private final DateConverter dateConverter = new DateConverter();
+    private final DateUtil dateUtil = new DateUtil();
 
-    public ParentInfoResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public ParentInfoResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     public ResultSet retrieveParentInfoByID(Long parentID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE ParentID = ?";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -108,7 +108,7 @@ public class ParentInfoResource extends AbstractLucidSAMSResource implements ILu
             if (archiveDate == null) {
                 preparedStatement.setNull(48, Types.DATE);
             } else {
-                java.sql.Date convertedTSDateLastUpdate = dateConverter.getSQLDate(archiveDate);
+                java.sql.Date convertedTSDateLastUpdate = dateUtil.getSQLDate(archiveDate);
                 preparedStatement.setDate(48, convertedTSDateLastUpdate);
             }
             preparedStatement.setString(49, parentInfo.getArchiveReason());

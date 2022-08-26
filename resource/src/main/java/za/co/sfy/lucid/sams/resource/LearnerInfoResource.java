@@ -2,8 +2,8 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.lucid.sams.resource.util.DateConverter;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.sams.lucid.schema.LearnerInfo;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -19,17 +19,17 @@ import java.sql.Types;
 @Component
 public class LearnerInfoResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
-    private final DateConverter dateConverter = new DateConverter();
+    private final DateUtil dateUtil = new DateUtil();
     private final String TABLE_NAME = "Learner_Info";
 
-    public LearnerInfoResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public LearnerInfoResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     public ResultSet retrieveLearnerInfoByID(Long learnerID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where ID = ?";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -170,7 +170,7 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
             if (tSDateLastUpdate == null) {
                 preparedStatement.setNull(88, Types.DATE);
             } else {
-                java.sql.Date convertedTSDateLastUpdate = dateConverter.getSQLDate(tSDateLastUpdate);
+                java.sql.Date convertedTSDateLastUpdate = dateUtil.getSQLDate(tSDateLastUpdate);
                 preparedStatement.setDate(88, convertedTSDateLastUpdate);
             }
             preparedStatement.setString(89, learnerInfo.getTSLastUpdatedBy());

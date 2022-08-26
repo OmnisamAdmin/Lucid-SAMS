@@ -2,8 +2,8 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.lucid.sams.resource.util.DateConverter;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.sams.lucid.schema.EducatorCalendarTerms;
 
 import java.sql.Connection;
@@ -11,14 +11,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author muzim
+ */
 @Component
 public class EducatorCalendarTermsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
-    private final DateConverter dateConverter = new DateConverter();
+    private final DateUtil dateUtil = new DateUtil();
     private final String TABLE_NAME = "Educator_CalendarTerms";
 
-    public EducatorCalendarTermsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public EducatorCalendarTermsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     @Override
@@ -31,8 +34,8 @@ public class EducatorCalendarTermsResource extends AbstractLucidSAMSResource imp
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, educatorCalendarTerms.getQuater());
-            preparedStatement.setDate(2, dateConverter.getSQLDate(educatorCalendarTerms.getStartDate()));
-            preparedStatement.setDate(3, dateConverter.getSQLDate(educatorCalendarTerms.getEndDate()));
+            preparedStatement.setDate(2, dateUtil.getSQLDate(educatorCalendarTerms.getStartDate()));
+            preparedStatement.setDate(3, dateUtil.getSQLDate(educatorCalendarTerms.getEndDate()));
             preparedStatement.setString(4, educatorCalendarTerms.getCurrentYear());
             preparedStatement.setInt(5, educatorCalendarTerms.getTerm());
             return preparedStatement;
@@ -55,7 +58,7 @@ public class EducatorCalendarTermsResource extends AbstractLucidSAMSResource imp
     public ResultSet retrieveEducatorCalendarTermsByYear(String currentYear) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where CurrentYear = ?";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

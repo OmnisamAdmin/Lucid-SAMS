@@ -1,19 +1,24 @@
 package za.co.sfy.lucid.sams.resource;
 
+import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.DetentionNotificationSettings;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * @author muzim
+ */
+@Component
 public class DetentionNotificationSettingsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "DetentionNotificationSettings";
 
-    public DetentionNotificationSettingsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public DetentionNotificationSettingsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManagerAbstractDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManagerAbstractDatabaseConnectionManager);
     }
 
     @Override

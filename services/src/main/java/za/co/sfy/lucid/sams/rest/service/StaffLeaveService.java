@@ -7,7 +7,7 @@ import za.co.sfy.lucid.sams.resource.EducatorCalendarTermsResource;
 import za.co.sfy.lucid.sams.resource.EducatorsResource;
 import za.co.sfy.lucid.sams.resource.StaffCalendarTermsResource;
 import za.co.sfy.lucid.sams.resource.StaffLeaveResource;
-import za.co.sfy.lucid.sams.resource.util.DateConverter;
+import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.lucid.sams.rest.mapper.StaffLeaveMapper;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffLeaveRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffLeaveResponse;
@@ -28,7 +28,7 @@ public class StaffLeaveService {
     private final EducatorsResource educatorsResource;
     private final StaffCalendarTermsResource staffCalendarTermsResource;
     private final EducatorCalendarTermsResource educatorCalendarTermsResource;
-    private final DateConverter dateConverter = new DateConverter();
+    private final DateUtil dateConverter = new DateUtil();
     private static final String EDUCATOR = "Educator";
     private static final String STAFF = "Staff";
     private static final Integer MAX_DIFFERENCE_IN_DAYS = 4;

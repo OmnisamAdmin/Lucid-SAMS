@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.ExtraMurals;
 
 import java.sql.Connection;
@@ -19,14 +19,14 @@ public class ExtraMuralsResource extends AbstractLucidSAMSResource implements IL
 
     private final String TABLE_NAME = "ExtraMurals";
 
-    public ExtraMuralsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public ExtraMuralsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     public ResultSet retrieveExtraMuralsByID(Integer exID) throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT ExID FROM " + TABLE_NAME + " WHERE ExID = ?";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

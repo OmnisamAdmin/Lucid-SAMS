@@ -2,23 +2,26 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.lucid.sams.resource.util.DateConverter;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.sams.lucid.schema.DisciplinaryRecords;
 
-import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 
+/**
+ * @author muzim
+ */
 @Component
 public class DisciplinaryRecordsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "DisciplinaryRecords";
-    private final DateConverter dateConverter = new DateConverter();
+    private final DateUtil dateUtil = new DateUtil();
 
-    public DisciplinaryRecordsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public DisciplinaryRecordsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManagerAbstractDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManagerAbstractDatabaseConnectionManager);
     }
 
     @Override
@@ -36,7 +39,7 @@ public class DisciplinaryRecordsResource extends AbstractLucidSAMSResource imple
             Integer learnerID = disciplinaryRecords.getLearnerid();
             preparedStatement.setInt(1, learnerID);
 
-            java.sql.Date date = dateConverter.getSQLDate(disciplinaryRecords.getDate());
+            java.sql.Date date = dateUtil.getSQLDate(disciplinaryRecords.getDate());
             preparedStatement.setDate(2, date);
 
             String comment = disciplinaryRecords.getComment();

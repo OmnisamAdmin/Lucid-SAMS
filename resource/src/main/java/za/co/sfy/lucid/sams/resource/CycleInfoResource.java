@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.CycleInfo;
 
 import java.sql.Connection;
@@ -18,14 +18,14 @@ public class CycleInfoResource extends AbstractLucidSAMSResource implements ILuc
 
     private final String TABLE_NAME = "Cycleinfo";
 
-    public CycleInfoResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public CycleInfoResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     public ResultSet retrieveGrades() throws LucidSamsExecutionException {
 
         String sql = "SELECT LowestGrade,HighestGrade FROM " + TABLE_NAME;
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

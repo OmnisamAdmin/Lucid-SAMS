@@ -2,8 +2,8 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.lucid.sams.resource.util.DateConverter;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.sams.lucid.schema.SchoolTerms;
 
 import java.sql.Connection;
@@ -17,10 +17,10 @@ import java.sql.SQLException;
 public class SchoolTermsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "SchoolTerms";
-    private final DateConverter dateConverter = new DateConverter();
+    private final DateUtil dateUtil = new DateUtil();
 
-    public SchoolTermsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public SchoolTermsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     @Override
@@ -33,8 +33,8 @@ public class SchoolTermsResource extends AbstractLucidSAMSResource implements IL
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, schoolTerms.getQuater());
-            java.sql.Date startDate = dateConverter.getSQLDate(schoolTerms.getStartDate());
-            java.sql.Date endDate = dateConverter.getSQLDate(schoolTerms.getEndDate());
+            java.sql.Date startDate = dateUtil.getSQLDate(schoolTerms.getStartDate());
+            java.sql.Date endDate = dateUtil.getSQLDate(schoolTerms.getEndDate());
             preparedStatement.setDate(2, startDate);
             preparedStatement.setDate(3, endDate);
             preparedStatement.setString(4, schoolTerms.getCurrentYear());
