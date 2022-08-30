@@ -32,7 +32,6 @@ public class DisciplinaryRecordsService {
     private final LearnerInfoResource learnerInfoResource;
     private static final String DEMERIT = "Demerit";
     private static final String MERIT = "Merit";
-    private static final List<String> Types = Arrays.asList(DEMERIT, MERIT);
 
     @Autowired
     public DisciplinaryRecordsService(final DisciplinaryRecordsResource disciplinaryRecordsResource
