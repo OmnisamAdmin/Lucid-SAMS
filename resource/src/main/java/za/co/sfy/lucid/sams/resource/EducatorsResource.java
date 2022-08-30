@@ -193,7 +193,7 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
     public ResultSet retrieveEducatorsByID(Long educatorID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where EdID = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -210,7 +210,7 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
     public ResultSet retrieveEducatorsByCredentials(String title, String initials, String surname) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where Title = ? AND  Initials = ? AND SName = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

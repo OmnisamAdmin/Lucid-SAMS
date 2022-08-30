@@ -29,7 +29,7 @@ public class ParentInfoResource extends AbstractLucidSAMSResource implements ILu
     public ResultSet retrieveParentInfoByID(Long parentID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE ParentID = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

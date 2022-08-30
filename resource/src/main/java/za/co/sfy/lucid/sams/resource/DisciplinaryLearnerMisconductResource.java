@@ -26,7 +26,7 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
     public ResultSet retrieveByCode(String code) throws LucidSamsExecutionException {
 
         String sql = "SELECT *  FROM " + TABLE_NAME + " WHERE Code = ? ";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -42,7 +42,7 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
     public ResultSet retrieveLevels() throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT Level FROM " + TABLE_NAME + " ORDER BY Level ASC ";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -57,7 +57,7 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
     public ResultSet retrieveCodes() throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT Code FROM " + TABLE_NAME + " ORDER BY Code ASC";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();

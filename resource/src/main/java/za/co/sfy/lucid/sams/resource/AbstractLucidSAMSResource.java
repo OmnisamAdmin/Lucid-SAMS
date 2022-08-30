@@ -34,7 +34,7 @@ public abstract class AbstractLucidSAMSResource {
      */
     public Long save(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
 
-        Connection databaseConnection = databaseConnectionManager.getDatabaseConnection();
+        Connection databaseConnection = databaseConnectionManager.retrieveDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
             PreparedStatement preparedStatement = iLucidSamsResource.save(databaseConnection, object);
@@ -63,7 +63,7 @@ public abstract class AbstractLucidSAMSResource {
      */
     public void saveObjectWithoutGeneratedKey(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
 
-        Connection databaseConnection = databaseConnectionManager.getDatabaseConnection();
+        Connection databaseConnection = databaseConnectionManager.retrieveDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
             PreparedStatement preparedStatement = iLucidSamsResource.save(databaseConnection, object);
@@ -88,7 +88,7 @@ public abstract class AbstractLucidSAMSResource {
      */
     public Integer update(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
 
-        Connection databaseConnection = databaseConnectionManager.getDatabaseConnection();
+        Connection databaseConnection = databaseConnectionManager.retrieveDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
             PreparedStatement preparedStatement = iLucidSamsResource.update(databaseConnection, object);
@@ -114,7 +114,7 @@ public abstract class AbstractLucidSAMSResource {
      */
     public ResultSet retrieve(Object object, ILucidSAMSResource iLucidSAMSResource) throws LucidSamsExecutionException {
 
-        Connection databaseConnection = databaseConnectionManager.getDatabaseConnection();
+        Connection databaseConnection = databaseConnectionManager.retrieveDatabaseConnection();
         String tableName = iLucidSAMSResource.getTABLE_NAME();
         try {
 

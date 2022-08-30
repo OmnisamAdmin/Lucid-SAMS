@@ -26,7 +26,7 @@ public class ExtraMuralsTypesResource extends AbstractLucidSAMSResource implemen
     public ResultSet retrieveExtraMuralsTypesByID(Integer exTypeID) throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT ExTypeID FROM " + TABLE_NAME + " WHERE ExTypeID = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

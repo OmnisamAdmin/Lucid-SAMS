@@ -25,7 +25,7 @@ public class CycleInfoResource extends AbstractLucidSAMSResource implements ILuc
     public ResultSet retrieveGrades() throws LucidSamsExecutionException {
 
         String sql = "SELECT LowestGrade,HighestGrade FROM " + TABLE_NAME;
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

@@ -34,7 +34,7 @@ public class NSNPDatabaseConnectionManager extends AbstractDatabaseConnectionMan
     }
 
     @Override
-    public Connection getDatabaseConnection() throws LucidSamsExecutionException {
+    public Connection retrieveDatabaseConnection() throws LucidSamsExecutionException {
         return createNSNPDatabaseConnection();
     }
 }

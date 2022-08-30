@@ -29,7 +29,7 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
     public ResultSet retrieveLearnerInfoByID(Long learnerID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where ID = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

@@ -25,7 +25,7 @@ public class ExtraMuralsCompetitionsResource extends AbstractLucidSAMSResource i
     public ResultSet retrieveExtraMuralsCompetitionsByID(Integer compID) throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT CompID FROM " + TABLE_NAME + " WHERE CompID = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

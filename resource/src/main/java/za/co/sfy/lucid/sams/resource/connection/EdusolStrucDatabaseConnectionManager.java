@@ -35,7 +35,7 @@ public class EdusolStrucDatabaseConnectionManager extends AbstractDatabaseConnec
     }
 
     @Override
-    public Connection getDatabaseConnection() throws LucidSamsExecutionException {
+    public Connection retrieveDatabaseConnection() throws LucidSamsExecutionException {
         return createEdusolStrucDatabaseConnection();
     }
 }

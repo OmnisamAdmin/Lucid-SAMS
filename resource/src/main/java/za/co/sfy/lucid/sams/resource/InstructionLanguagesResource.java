@@ -24,7 +24,7 @@ public class InstructionLanguagesResource extends AbstractLucidSAMSResource impl
     public ResultSet retrieveInstructionLanguagesByID(Long langID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE LangID = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

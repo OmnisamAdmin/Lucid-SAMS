@@ -25,7 +25,7 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
     public ResultSet retrieveClassesByID(Long classesID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE ClassId = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

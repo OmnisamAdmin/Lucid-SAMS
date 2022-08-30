@@ -24,7 +24,7 @@ public class ReportLanguagesResource extends AbstractLucidSAMSResource implement
     public ResultSet retrieveReportLanguagesByID(Long id) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where id = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

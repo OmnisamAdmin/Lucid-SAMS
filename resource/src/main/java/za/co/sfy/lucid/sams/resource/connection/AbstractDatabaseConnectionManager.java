@@ -14,7 +14,7 @@ public abstract class AbstractDatabaseConnectionManager {
 
     public abstract String getDatabaseName();
 
-    public abstract Connection getDatabaseConnection() throws LucidSamsExecutionException;
+    public abstract Connection retrieveDatabaseConnection() throws LucidSamsExecutionException;
 
     public Connection createDatabaseConnection(String databaseUrl, String databaseUsername, String databasePassword) throws LucidSamsExecutionException {
         try {

@@ -72,7 +72,7 @@ public class StaffCalendarTermsResource extends AbstractLucidSAMSResource implem
     public ResultSet retrieveStaffCalendarTermsByYear(String currentYear) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where CurrentYear = ?";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

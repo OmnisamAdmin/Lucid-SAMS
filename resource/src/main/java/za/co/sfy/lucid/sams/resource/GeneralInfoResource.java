@@ -29,7 +29,7 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
     public ResultSet retrieveGeneralInfoBySchoolName(String schoolName) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE SchoolName = ? ";
-        Connection connection = getDatabaseConnectionManager().getDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
