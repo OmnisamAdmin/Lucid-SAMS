@@ -13,8 +13,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author muzim
+ * Deals with date conversions for various data types as well as calculations relating to target dates
  */
-public class DateConverter {
+public class DateUtil {
 
     private static final String DATEFORMAT = "dd/MM/yyyy";
 
@@ -39,7 +40,7 @@ public class DateConverter {
         return utilDate;
     }
 
-    public java.util.Date getFirstDayAfterDate(java.time.DayOfWeek targetDay, java.util.Date submittedDate) {
+    public java.util.Date getFirstTargetDayAfterDate(java.time.DayOfWeek targetDay, java.util.Date submittedDate) {
         LocalDate date = submittedDate.toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate();

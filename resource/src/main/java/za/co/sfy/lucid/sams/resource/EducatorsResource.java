@@ -2,8 +2,8 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.lucid.sams.resource.util.DateConverter;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.sams.lucid.schema.Educators;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -13,14 +13,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
+/**
+ * @author muzim
+ */
 @Component
 public class EducatorsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "Educators";
-    private final DateConverter dateConverter = new DateConverter();
+    private final DateUtil dateUtil = new DateUtil();
 
-    public EducatorsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public EducatorsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     @Override
@@ -140,7 +143,7 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
             preparedStatement.setString(74, educators.getTSSentFileName());
             XMLGregorianCalendar tSDateLastUpdate = educators.getTSDateLastUpdate();
             if (tSDateLastUpdate != null) {
-                preparedStatement.setDate(75, dateConverter.getSQLDate(tSDateLastUpdate));
+                preparedStatement.setDate(75, dateUtil.getSQLDate(tSDateLastUpdate));
             } else {
                 preparedStatement.setNull(75, Types.DATE);
             }
@@ -190,7 +193,7 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
     public ResultSet retrieveEducatorsByID(Long educatorID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where EdID = ?";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -207,7 +210,7 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
     public ResultSet retrieveEducatorsByCredentials(String title, String initials, String surname) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where Title = ? AND  Initials = ? AND SName = ?";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

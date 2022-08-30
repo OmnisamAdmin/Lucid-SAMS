@@ -19,6 +19,9 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author muzim
+ */
 @Component
 public class DisciplinaryRecordsService {
 
@@ -29,7 +32,6 @@ public class DisciplinaryRecordsService {
     private final LearnerInfoResource learnerInfoResource;
     private static final String DEMERIT = "Demerit";
     private static final String MERIT = "Merit";
-    private static final List<String> Types = Arrays.asList(DEMERIT, MERIT);
 
     @Autowired
     public DisciplinaryRecordsService(final DisciplinaryRecordsResource disciplinaryRecordsResource

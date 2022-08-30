@@ -10,6 +10,9 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffCalendarTermsRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffCalendarTermsResponse;
 import za.co.sfy.sams.lucid.schema.StaffCalendarTerms;
 
+/**
+ * @author muzim
+ */
 @Service
 public class StaffCalendarTermsService {
 

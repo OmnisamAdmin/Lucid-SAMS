@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.Subjects;
 
 import java.sql.Connection;
@@ -17,8 +17,8 @@ public class SubjectsResource extends AbstractLucidSAMSResource implements ILuci
 
     private final String TABLE_NAME = "Subjects";
 
-    public SubjectsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public SubjectsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     @Override

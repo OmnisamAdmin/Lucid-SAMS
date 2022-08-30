@@ -2,20 +2,23 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.FeederSchools;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * @author muzim
+ */
 @Component
 public class FeederSchoolsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "FeederSchools";
 
-    public FeederSchoolsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public FeederSchoolsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     @Override

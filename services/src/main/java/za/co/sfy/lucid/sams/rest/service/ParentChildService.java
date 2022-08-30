@@ -15,6 +15,9 @@ import za.co.sfy.sams.lucid.schema.ParentChild;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author muzim
+ */
 @Service
 public class ParentChildService {
 

@@ -1,8 +1,7 @@
 package za.co.sfy.lucid.sams.resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.AbstractDatabaseConnectionManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,14 +10,17 @@ import java.sql.SQLException;
 
 /**
  * @author muzim
+ * Provides generic CRUD functionality to LucidSAMsResource instances
  */
 
 public abstract class AbstractLucidSAMSResource {
 
-    private final DatabaseConnectionManager databaseConnectionManager;
+    private AbstractDatabaseConnectionManager databaseConnectionManager;
 
-    @Autowired
-    public AbstractLucidSAMSResource(final DatabaseConnectionManager databaseConnectionManager) {
+    public AbstractLucidSAMSResource(AbstractDatabaseConnectionManager databaseConnectionManager) throws LucidSamsExecutionException {
+        if (databaseConnectionManager == null) {
+            throw new LucidSamsExecutionException("The provided connection manager is null");
+        }
         this.databaseConnectionManager = databaseConnectionManager;
     }
 
@@ -32,7 +34,7 @@ public abstract class AbstractLucidSAMSResource {
      */
     public Long save(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
 
-        Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
+        Connection databaseConnection = databaseConnectionManager.retrieveDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
             PreparedStatement preparedStatement = iLucidSamsResource.save(databaseConnection, object);
@@ -61,7 +63,7 @@ public abstract class AbstractLucidSAMSResource {
      */
     public void saveObjectWithoutGeneratedKey(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
 
-        Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
+        Connection databaseConnection = databaseConnectionManager.retrieveDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
             PreparedStatement preparedStatement = iLucidSamsResource.save(databaseConnection, object);
@@ -86,7 +88,7 @@ public abstract class AbstractLucidSAMSResource {
      */
     public Integer update(Object object, ILucidSAMSResource iLucidSamsResource) throws LucidSamsExecutionException {
 
-        Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
+        Connection databaseConnection = databaseConnectionManager.retrieveDatabaseConnection();
         String tableName = iLucidSamsResource.getTABLE_NAME();
         try {
             PreparedStatement preparedStatement = iLucidSamsResource.update(databaseConnection, object);
@@ -112,7 +114,7 @@ public abstract class AbstractLucidSAMSResource {
      */
     public ResultSet retrieve(Object object, ILucidSAMSResource iLucidSAMSResource) throws LucidSamsExecutionException {
 
-        Connection databaseConnection = databaseConnectionManager.createDatabaseConnection();
+        Connection databaseConnection = databaseConnectionManager.retrieveDatabaseConnection();
         String tableName = iLucidSAMSResource.getTABLE_NAME();
         try {
 
@@ -132,7 +134,7 @@ public abstract class AbstractLucidSAMSResource {
         }
     }
 
-    public DatabaseConnectionManager getDatabaseConnectionManager() {
+    public AbstractDatabaseConnectionManager getDatabaseConnectionManager() {
         return databaseConnectionManager;
     }
 

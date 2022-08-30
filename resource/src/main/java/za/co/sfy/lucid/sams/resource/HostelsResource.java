@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.Hostels;
 
 import java.sql.Connection;
@@ -17,8 +17,8 @@ public class HostelsResource extends AbstractLucidSAMSResource implements ILucid
 
     private final String TABLE_NAME = "Hostels";
 
-    public HostelsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public HostelsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     @Override

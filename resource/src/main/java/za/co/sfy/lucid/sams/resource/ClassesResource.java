@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.Classes;
 
 import java.sql.Connection;
@@ -18,14 +18,14 @@ public class ClassesResource extends AbstractLucidSAMSResource implements ILucid
 
     private final String TABLE_NAME = "Classes";
 
-    public ClassesResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public ClassesResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     public ResultSet retrieveClassesByID(Long classesID) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " WHERE ClassId = ?";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

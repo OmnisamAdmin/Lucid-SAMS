@@ -2,8 +2,8 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
-import za.co.sfy.lucid.sams.resource.util.DateConverter;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.sams.lucid.schema.Events;
 
 import java.sql.Connection;
@@ -11,14 +11,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 
+/**
+ * @author muzim
+ */
 @Component
 public class EventsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "Events";
-    private final DateConverter dateConverter = new DateConverter();
+    private final DateUtil dateUtil = new DateUtil();
 
-    public EventsResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public EventsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     @Override
@@ -31,7 +34,7 @@ public class EventsResource extends AbstractLucidSAMSResource implements ILucidS
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, dateConverter.getSQLDate(events.getDate()));
+            preparedStatement.setDate(1, dateUtil.getSQLDate(events.getDate()));
             preparedStatement.setString(2, events.getStartTime());
             preparedStatement.setString(3, events.getEndTime());
             preparedStatement.setString(4, events.getDescription());
@@ -40,7 +43,7 @@ public class EventsResource extends AbstractLucidSAMSResource implements ILucidS
             Integer exEventID = events.getExEventID();
             if (null != exEventID) {
                 preparedStatement.setInt(7, events.getExEventID());
-            }else{
+            } else {
                 preparedStatement.setNull(7, Types.INTEGER);
             }
             return preparedStatement;

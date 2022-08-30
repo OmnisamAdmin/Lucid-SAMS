@@ -10,6 +10,9 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.SchoolTermsRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.SchoolTermsResponse;
 import za.co.sfy.sams.lucid.schema.SchoolTerms;
 
+/**
+ * @author muzim
+ */
 @Service
 public class SchoolTermsService {
 

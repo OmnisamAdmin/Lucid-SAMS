@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.resource;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.resource.connection.DatabaseConnectionManager;
+import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
 import za.co.sfy.sams.lucid.schema.DisciplinaryLearnerMisconduct;
 
 import java.sql.Connection;
@@ -19,14 +19,14 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
 
     private final String TABLE_NAME = "DisciplinaryLearnerMisconduct";
 
-    public DisciplinaryLearnerMisconductResource(DatabaseConnectionManager databaseConnectionManager) {
-        super(databaseConnectionManager);
+    public DisciplinaryLearnerMisconductResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
     }
 
     public ResultSet retrieveByCode(String code) throws LucidSamsExecutionException {
 
         String sql = "SELECT *  FROM " + TABLE_NAME + " WHERE Code = ? ";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -42,7 +42,7 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
     public ResultSet retrieveLevels() throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT Level FROM " + TABLE_NAME + " ORDER BY Level ASC ";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -57,7 +57,7 @@ public class DisciplinaryLearnerMisconductResource extends AbstractLucidSAMSReso
     public ResultSet retrieveCodes() throws LucidSamsExecutionException {
 
         String sql = "SELECT DISTINCT Code FROM " + TABLE_NAME + " ORDER BY Code ASC";
-        Connection connection = getDatabaseConnectionManager().createDatabaseConnection();
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
