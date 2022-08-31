@@ -35,14 +35,37 @@ public class SubjectsController {
     }
 
     @PostMapping(
+            path = "update",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<SubjectsResponse> saveParentInfo(@Valid @RequestBody SubjectsRequest subjectsRequest) {
+    public ResponseEntity<SubjectsResponse> updateSubject(@Valid @RequestBody SubjectsRequest subjectsRequest) {
 
         SubjectsResponse subjectsResponse = new SubjectsResponse();
         try {
             subjectsResponse = subjectsService.updateSubjects(subjectsRequest);
+
+        } catch (LucidSamsExecutionException executionException) {
+            logger.error("Failure occurred: " + executionException.getMessage(), executionException);
+            subjectsResponse.setResponseStatus(ServiceStatus.ERROR.value());
+            subjectsResponse.setResponseMessage(executionException.getMessage());
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(subjectsResponse);
+        }
+
+        return ResponseEntity.ok(subjectsResponse);
+    }
+
+    @PostMapping(
+            path = "save",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<SubjectsResponse> saveSubject(@Valid @RequestBody SubjectsRequest subjectsRequest) {
+
+        SubjectsResponse subjectsResponse = new SubjectsResponse();
+        try {
+            subjectsResponse = subjectsService.saveSubjects(subjectsRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
