@@ -27,7 +27,7 @@ import javax.validation.Valid;
 public class SubjectsController {
 
     private static final Logger logger = LoggerFactory.getLogger(SubjectsController.class);
-    private SubjectsService subjectsService;
+    private final SubjectsService subjectsService;
 
     @Autowired
     public SubjectsController(final SubjectsService subjectsService) {
