@@ -25,6 +25,7 @@ public class DeliveryReceivedService {
     public DeliveryReceivedResponse saveDeliveryReceived(DeliveryReceivedRequest deliveryReceivedRequest) throws LucidSamsExecutionException {
         DeliveryRecieved deliveryRecieved = deliveryReceivedMapper.deliveryReceivedRequestToDeliveryReceived(deliveryReceivedRequest);
 
+        //TODO: Validate data against supplier table
         Long generatedKey = deliveryReceivedResource.save(deliveryRecieved, deliveryReceivedResource);
         deliveryRecieved.setID(Math.toIntExact(generatedKey));
 

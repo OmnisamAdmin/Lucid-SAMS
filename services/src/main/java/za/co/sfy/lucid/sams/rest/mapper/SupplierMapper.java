@@ -11,7 +11,10 @@ public class SupplierMapper {
 
         Supplier supplier = new Supplier();
 
-        supplier.setId(supplierRequest.getId());
+        Integer id = supplierRequest.getId();
+        if (id != null) {
+            supplier.setId(id);
+        }
         supplier.setName(supplierRequest.getName());
         supplier.setDataYear(supplierRequest.getDataYear());
 

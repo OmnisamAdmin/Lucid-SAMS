@@ -1,5 +1,7 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class DeliveryReceivedRequest implements Serializable {
@@ -7,15 +9,25 @@ public class DeliveryReceivedRequest implements Serializable {
     private static final long serialVersionUID = 6199323699418307058L;
 
     private Integer id;
+    @NotBlank
     private String supplier;
+    @NotBlank
     private String dateRecieved;
+    @NotBlank
     private String productName;
+    @NotNull
     private Integer aprovedQuantity;
+    @NotNull
     private Integer quantityOrdered;
+    @NotNull
     private Integer quantity;
+    @NotNull
     private Integer foodGroup;
+    @NotNull
     private Integer dataYear;
+    @NotNull
     private Integer leftQuantity;
+    @NotNull
     private Integer instore;
 
     public Integer getId() {

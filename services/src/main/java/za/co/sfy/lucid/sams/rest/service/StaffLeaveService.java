@@ -62,7 +62,7 @@ public class StaffLeaveService {
         if (EDUCATOR.equals(personnelCategory)) {
             retrievedEducatorsOrStaff = educatorsResource.retrieveEducatorsByID(Long.valueOf(linkID));
         } else if (STAFF.equals(personnelCategory)) {
-            throw new LucidSamsExecutionException("'Staff' resource is unimplemented");
+            throw new LucidSamsExecutionException("'StaffMembers' resource is unimplemented");
             //TODO: May need to be implemented in future
         }
 
