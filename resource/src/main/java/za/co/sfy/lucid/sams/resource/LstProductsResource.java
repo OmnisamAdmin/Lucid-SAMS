@@ -3,7 +3,6 @@ package za.co.sfy.lucid.sams.resource;
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.connection.NSNPDatabaseConnectionManager;
-import za.co.sfy.sams.lucid.schema.Supplier;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,35 +10,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Component
-public class SupplierResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
+public class LstProductsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
-    private final String TABLE_NAME = "Supplier";
+    private final String TABLE_NAME = "lst_Products";
 
-    public SupplierResource(NSNPDatabaseConnectionManager nsnpDatabaseConnectionManager) throws LucidSamsExecutionException {
+    public LstProductsResource(NSNPDatabaseConnectionManager nsnpDatabaseConnectionManager) throws LucidSamsExecutionException {
         super(nsnpDatabaseConnectionManager);
     }
 
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
-
-        Supplier supplier = (Supplier) object;
-        String sql = "INSERT INTO " + TABLE_NAME + "(Name, Data_Year) VALUES(?,?)";
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, supplier.getName());
-            preparedStatement.setInt(2, supplier.getDataYear());
-
-            return preparedStatement;
-
-        } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
-        }
+        return null;
     }
 
     @Override
     public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
-        return null;
+        String sql = "SELECT * FROM " + TABLE_NAME;
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            return preparedStatement;
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve save prepared statement ", exception);
+        }
     }
 
     @Override
@@ -47,21 +41,22 @@ public class SupplierResource extends AbstractLucidSAMSResource implements ILuci
         return null;
     }
 
-    public ResultSet retrieveSupplierByName(String name) throws LucidSamsExecutionException {
-        String sql = "SELECT * FROM " + TABLE_NAME + " Where Name = ?";
+    public ResultSet retrieveLstProductsByDescription(String productName) throws LucidSamsExecutionException {
+        String sql = "SELECT * FROM " + TABLE_NAME + " Where Description = ?";
         Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, name);
+            preparedStatement.setString(1, productName);
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve Supplier of Name '" + name + "' :"
+            throw new LucidSamsExecutionException("Failed to retrieve lst_Products of ProductName '" + productName + "' :"
                     , exception);
         }
     }
+
 
     @Override
     public String getTABLE_NAME() {
