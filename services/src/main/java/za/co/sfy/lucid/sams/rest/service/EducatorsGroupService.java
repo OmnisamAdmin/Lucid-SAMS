@@ -25,29 +25,29 @@ public class EducatorsGroupService {
 
     public EducatorsGroupResponse updateEducatorGroups(EducatorsGroupRequest educatorsgroupRequest) throws LucidSamsExecutionException {
 
-        Educatorgroups educatorgroups = EducatorsGroupMapper.EducatorsGroupRequestToEducatorGroups(educatorsgroupRequest);
+        Educatorgroups educatorGroups = EducatorsGroupMapper.EducatorsGroupRequestToEducatorGroups(educatorsgroupRequest);
 
-        EducatorsGroupResource.update(educatorgroups, EducatorsGroupResource);
+        EducatorsGroupResource.update(educatorGroups, EducatorsGroupResource);
 
         EducatorsGroupResponse EducatorsGroupResponse = new EducatorsGroupResponse();
         EducatorsGroupResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
         EducatorsGroupResponse.setResponseStatus("Successfully updated 'Educatorgroups' table");
-        EducatorsGroupResponse.setEducatorgroups(educatorgroups);
+        EducatorsGroupResponse.setEducatorGroups(educatorGroups);
 
         return EducatorsGroupResponse;
     }
 
     public EducatorsGroupResponse saveEducatorGroups(EducatorsGroupRequest educatorsgroupRequest) throws LucidSamsExecutionException {
 
-        Educatorgroups educatorgroups = EducatorsGroupMapper.EducatorsGroupRequestToEducatorGroups(educatorsgroupRequest);
+        Educatorgroups educatorGroups = EducatorsGroupMapper.EducatorsGroupRequestToEducatorGroups(educatorsgroupRequest);
 
-        Long id = EducatorsGroupResource.save(educatorgroups, EducatorsGroupResource);
+        Long id = EducatorsGroupResource.save(educatorGroups, EducatorsGroupResource);
 
-        educatorgroups.setEducatorGroupID(Math.toIntExact(id));
+        educatorGroups.setEducatorGroupID(Math.toIntExact(id));
         EducatorsGroupResponse educatorsgroupResponse = new EducatorsGroupResponse();
         educatorsgroupResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
         educatorsgroupResponse.setResponseStatus("Successfully saved 'Educatorgroups' table");
-        educatorsgroupResponse.setEducatorgroups(educatorgroups);
+        educatorsgroupResponse.setEducatorGroups(educatorGroups);
 
         return educatorsgroupResponse;
     }

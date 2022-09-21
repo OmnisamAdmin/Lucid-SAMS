@@ -10,13 +10,13 @@ public class EducatorsGroupResponse extends ApiResponse implements Serializable 
 
     private static final long serialVersionUID = 3444883558635545805L;
 
-    private Educatorgroups educatorgroups;
+    private Educatorgroups educatorGroups;
 
-    public Educatorgroups getEducatorgroups() {
-        return educatorgroups;
+    public Educatorgroups getEducatorGroups() {
+        return educatorGroups;
     }
 
-    public void setEducatorgroups(Educatorgroups educatorgroups) {
-        this.educatorgroups = educatorgroups;
+    public void setEducatorGroups(Educatorgroups educatorGroups) {
+        this.educatorGroups = educatorGroups;
     }
 }
