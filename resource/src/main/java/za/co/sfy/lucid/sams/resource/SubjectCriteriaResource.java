@@ -11,35 +11,27 @@ import za.co.sfy.sams.lucid.schema.Educatorgroups;
 import za.co.sfy.sams.lucid.schema.SubjectCriteria;
 
 /**
- * @author muzim
+ * @author Azeem
  */
 @Component
 public class SubjectCriteriaResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final String TABLE_NAME = "SubjectCriteria";
-
-    public SubjectCriteriaResource(AbstractDatabaseConnectionManager databaseConnectionManager) throws LucidSamsExecutionException {
-        super(databaseConnectionManager);
-    }
-
-    public SubjectCriteriaResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
-        super(edusolStrucDatabaseConnectionManager);
-    }
+public SubjectCriteriaResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+super(edusolStrucDatabaseConnectionManager);
+}
 
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
        
-        String sql = "INSERT INTO " + TABLE_NAME + "( SubjectID, CriterionID, Description, Grade, Weighting, SubjectLevel, CriterionScore, DataYear, SubHeading, DateAdded, Type, Outcomes, "
+        String sql = "INSERT INTO " + TABLE_NAME + "(SubjectID, CriterionID, Description, Grade, Weighting, SubjectLevel, CriterionScore, DataYear, SubHeading, DateAdded, Type, Outcomes, "
  + "Activities,Assessments, SectionID, UseActivities, IncludeFFL, IncludeExam, Updated, QuaterlyTest, FETCommonTest, DescriptionAFR, DescriptionVern, TaskType, SBATask, SBAWeight, FixedCriterionScore, "
- + "FixedWeight, FixedSBAWeight, SubjSplitNo, OFFSubjectID, OFFCriterionID, Reclocked, Status, FIxed0Weight )"
+ + "FixedWeight, FixedSBAWeight, SubjSplitNo, OFFSubjectID, OFFCriterionID, Reclocked, Status, FIxed0Weight)"
                         + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
         try { 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 SubjectCriteria subjectcriteria = (SubjectCriteria) object;
-            
-
-            
+                
             preparedStatement.setInt(1,subjectcriteria.getSubjectID());
             preparedStatement.setInt(2,subjectcriteria.getCriterionID());
             preparedStatement.setShort(3, subjectcriteria.getDescription());
@@ -75,10 +67,6 @@ public class SubjectCriteriaResource extends AbstractLucidSAMSResource implement
             preparedStatement.setBoolean(33, subjectcriteria.getRecLocked());
             preparedStatement.setInt(34, subjectcriteria.getStatus());
             preparedStatement.setBoolean(35, subjectcriteria.getFixed0Weight());
-
-
-
-
             return preparedStatement;
 
         } catch (SQLException exception) {
@@ -134,16 +122,12 @@ public class SubjectCriteriaResource extends AbstractLucidSAMSResource implement
             preparedStatement.setBoolean(33, subjectcriteria.getRecLocked());
             preparedStatement.setInt(34, subjectcriteria.getStatus());
             preparedStatement.setBoolean(35, subjectcriteria.getFixed0Weight());
-
-
-
             return preparedStatement;
 
         } catch (SQLException exception) {
             throw new LucidSamsExecutionException("Failed to retrieve update prepared statement ", exception);
         }
     }
-
     @Override
     public String getTABLE_NAME() {
         return TABLE_NAME;
