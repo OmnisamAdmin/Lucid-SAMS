@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import za.co.sfy.lucid.sams.resource.connection.AbstractDatabaseConnectionManager;
-import za.co.sfy.sams.lucid.schema.Educatorgroups;
 import za.co.sfy.sams.lucid.schema.SubjectCriteria;
 
 /**
@@ -34,46 +33,45 @@ super(edusolStrucDatabaseConnectionManager);
                 
             preparedStatement.setInt(1,subjectcriteria.getSubjectID());
             preparedStatement.setInt(2,subjectcriteria.getCriterionID());
-            preparedStatement.setShort(3, subjectcriteria.getDescription());
+            preparedStatement.setShort(3,subjectcriteria.getDescription());
             preparedStatement.setInt(4,subjectcriteria.getGrade());
             preparedStatement.setDouble(5,subjectcriteria.getWeighting());
-            preparedStatement.setShort(6, subjectcriteria.getSubjectLevel());
+            preparedStatement.setShort(6,subjectcriteria.getSubjectLevel());
             preparedStatement.setInt(7,subjectcriteria.getCriterionScore());
             preparedStatement.setShort(8,subjectcriteria.getDataYear());
-            preparedStatement.setShort(9, subjectcriteria.getSubHeading());
+            preparedStatement.setShort(9,subjectcriteria.getSubHeading());
             preparedStatement.setDate(10,subjectcriteria.getDateAdded());
-            preparedStatement.setShort(11, subjectcriteria.getType());
-            preparedStatement.setLong(12, subjectcriteria.getOutcomes());
-            preparedStatement.setLong(13, subjectcriteria.getActivities());
-            preparedStatement.setLong(14, subjectcriteria.getAssessments());
-            preparedStatement.setInt(15, subjectcriteria.getSectionId());
-            preparedStatement.setBoolean(16, subjectcriteria.getUseActivities());
-            preparedStatement.setBoolean(17, subjectcriteria.getIncludeFFL());
-            preparedStatement.setBoolean(18, subjectcriteria.getIncludeExam());
-            preparedStatement.setShort(19, subjectcriteria.getUpdated());
-            preparedStatement.setBoolean(20, subjectcriteria.getQuarterlyTest());
-            preparedStatement.setBoolean(21, subjectcriteria.getFETCommonTest());
-            preparedStatement.setShort(22, subjectcriteria.getDescriptionAFR());
-            preparedStatement.setShort(23, subjectcriteria.getDescriptionVern());
-            preparedStatement.setInt(24, subjectcriteria.getTaskType());
-            preparedStatement.setBoolean(25, subjectcriteria.getSBATask());
-            preparedStatement.setInt(26, subjectcriteria.getSBAWeight());
-            preparedStatement.setInt(27, subjectcriteria.getFixedCriterionScore());
-            preparedStatement.setInt(28, subjectcriteria.getFixedWeight());
-            preparedStatement.setInt(29, subjectcriteria.getFixedSBAWeight());
-            preparedStatement.setInt(30, subjectcriteria.getSubjSplitNo());
-            preparedStatement.setInt(31, subjectcriteria.getOFFSubjectID());
-            preparedStatement.setInt(32, subjectcriteria.getOFFCriterionID());
-            preparedStatement.setBoolean(33, subjectcriteria.getRecLocked());
-            preparedStatement.setInt(34, subjectcriteria.getStatus());
-            preparedStatement.setBoolean(35, subjectcriteria.getFixed0Weight());
+            preparedStatement.setShort(11,subjectcriteria.getType());
+            preparedStatement.setLong(12,subjectcriteria.getOutcomes());
+            preparedStatement.setLong(13,subjectcriteria.getActivities());
+            preparedStatement.setLong(14,subjectcriteria.getAssessments());
+            preparedStatement.setInt(15,subjectcriteria.getSectionId());
+            preparedStatement.setBoolean(16,subjectcriteria.getUseActivities());
+            preparedStatement.setBoolean(17,subjectcriteria.getIncludeFFL());
+            preparedStatement.setBoolean(18,subjectcriteria.getIncludeExam());
+            preparedStatement.setShort(19,subjectcriteria.getUpdated());
+            preparedStatement.setBoolean(20,subjectcriteria.getQuarterlyTest());
+            preparedStatement.setBoolean(21,subjectcriteria.getFETCommonTest());
+            preparedStatement.setShort(22,subjectcriteria.getDescriptionAFR());
+            preparedStatement.setShort(23,subjectcriteria.getDescriptionVern());
+            preparedStatement.setInt(24,subjectcriteria.getTaskType());
+            preparedStatement.setBoolean(25,subjectcriteria.getSBATask());
+            preparedStatement.setInt(26,subjectcriteria.getSBAWeight());
+            preparedStatement.setInt(27,subjectcriteria.getFixedCriterionScore());
+            preparedStatement.setInt(28,subjectcriteria.getFixedWeight());
+            preparedStatement.setInt(29,subjectcriteria.getFixedSBAWeight());
+            preparedStatement.setInt(30,subjectcriteria.getSubjSplitNo());
+            preparedStatement.setInt(31,subjectcriteria.getOFFSubjectID());
+            preparedStatement.setInt(32,subjectcriteria.getOFFCriterionID());
+            preparedStatement.setBoolean(33,subjectcriteria.getRecLocked());
+            preparedStatement.setInt(34,subjectcriteria.getStatus());
+            preparedStatement.setBoolean(35,subjectcriteria.getFixed0Weight());
             return preparedStatement;
 
         } catch (SQLException exception) {
             throw new LucidSamsExecutionException("Failed to retrieve update prepared statement ", exception);
         }
     }
-
     @Override
     public PreparedStatement retrieve(Connection connection, Object object) throws LucidSamsExecutionException {
         return null;
@@ -87,45 +85,45 @@ super(edusolStrucDatabaseConnectionManager);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             SubjectCriteria subjectcriteria = (SubjectCriteria) object;
-            preparedStatement.setInt(1, subjectcriteria.getSubjectID());
-            preparedStatement.setInt(2, subjectcriteria.getCriterionID());
-            preparedStatement.setShort(3, subjectcriteria.getDescription());
-            preparedStatement.setInt(4, subjectcriteria.getGrade());
-            preparedStatement.setDouble(5, subjectcriteria.getWeighting());
-            preparedStatement.setShort(6, subjectcriteria.getSubjectLevel());
-            preparedStatement.setInt(7, subjectcriteria.getCriterionScore());
-            preparedStatement.setShort(8, subjectcriteria.getDataYear());
-            preparedStatement.setShort(9, subjectcriteria.getSubHeading());
-            preparedStatement.setDate(10, subjectcriteria.getDateAdded());
-            preparedStatement.setShort(11, subjectcriteria.getType());
-            preparedStatement.setLong(12, subjectcriteria.getOutcomes());
-            preparedStatement.setLong(13, subjectcriteria.getActivities());
-            preparedStatement.setLong(14, subjectcriteria.getAssessments());
-            preparedStatement.setInt(15, subjectcriteria.getSectionId());
-            preparedStatement.setBoolean(16, subjectcriteria.getUseActivities());
-            preparedStatement.setBoolean(17, subjectcriteria.getIncludeFFL());
-            preparedStatement.setBoolean(18, subjectcriteria.getIncludeExam());
-            preparedStatement.setShort(19, subjectcriteria.getUpdated());
-            preparedStatement.setBoolean(20, subjectcriteria.getQuaterlyTest());
-            preparedStatement.setBoolean(21, subjectcriteria.getFETCommonTest());
-            preparedStatement.setShort(22, subjectcriteria.getDescriptionAFR());
-            preparedStatement.setShort(23, subjectcriteria.getDescriptionVern());
-            preparedStatement.setInt(24, subjectcriteria.getTaskType());
-            preparedStatement.setBoolean(25, subjectcriteria.getSBATask());
-            preparedStatement.setInt(26, subjectcriteria.getSBAWeight());
-            preparedStatement.setInt(27, subjectcriteria.getFixedCriterionScore());
-            preparedStatement.setInt(28, subjectcriteria.getFixedWeight());
-            preparedStatement.setInt(29, subjectcriteria.getFixedSBAWeight());
-            preparedStatement.setInt(30, subjectcriteria.getSubjSplitNo());
-            preparedStatement.setInt(31, subjectcriteria.getOFFSubjectID());
-            preparedStatement.setInt(32, subjectcriteria.getOFFCriterionID());
-            preparedStatement.setBoolean(33, subjectcriteria.getRecLocked());
-            preparedStatement.setInt(34, subjectcriteria.getStatus());
-            preparedStatement.setBoolean(35, subjectcriteria.getFixed0Weight());
+            preparedStatement.setInt(1,subjectcriteria.getSubjectID());
+            preparedStatement.setInt(2,subjectcriteria.getCriterionID());
+            preparedStatement.setShort(3,subjectcriteria.getDescription());
+            preparedStatement.setInt(4,subjectcriteria.getGrade());
+            preparedStatement.setDouble(5,subjectcriteria.getWeighting());
+            preparedStatement.setShort(6,subjectcriteria.getSubjectLevel());
+            preparedStatement.setInt(7,subjectcriteria.getCriterionScore());
+            preparedStatement.setShort(8,subjectcriteria.getDataYear());
+            preparedStatement.setShort(9,subjectcriteria.getSubHeading());
+            preparedStatement.setDate(10,subjectcriteria.getDateAdded());
+            preparedStatement.setShort(11,subjectcriteria.getType());
+            preparedStatement.setLong(12,subjectcriteria.getOutcomes());
+            preparedStatement.setLong(13,subjectcriteria.getActivities());
+            preparedStatement.setLong(14,subjectcriteria.getAssessments());
+            preparedStatement.setInt(15,subjectcriteria.getSectionId());
+            preparedStatement.setBoolean(16,subjectcriteria.getUseActivities());
+            preparedStatement.setBoolean(17,subjectcriteria.getIncludeFFL());
+            preparedStatement.setBoolean(18,subjectcriteria.getIncludeExam());
+            preparedStatement.setShort(19,subjectcriteria.getUpdated());
+            preparedStatement.setBoolean(20,subjectcriteria.getQuaterlyTest());
+            preparedStatement.setBoolean(21,subjectcriteria.getFETCommonTest());
+            preparedStatement.setShort(22,subjectcriteria.getDescriptionAFR());
+            preparedStatement.setShort(23,subjectcriteria.getDescriptionVern());
+            preparedStatement.setInt(24,subjectcriteria.getTaskType());
+            preparedStatement.setBoolean(25,subjectcriteria.getSBATask());
+            preparedStatement.setInt(26,subjectcriteria.getSBAWeight());
+            preparedStatement.setInt(27,subjectcriteria.getFixedCriterionScore());
+            preparedStatement.setInt(28,subjectcriteria.getFixedWeight());
+            preparedStatement.setInt(29,subjectcriteria.getFixedSBAWeight());
+            preparedStatement.setInt(30,subjectcriteria.getSubjSplitNo());
+            preparedStatement.setInt(31,subjectcriteria.getOFFSubjectID());
+            preparedStatement.setInt(32,subjectcriteria.getOFFCriterionID());
+            preparedStatement.setBoolean(33,subjectcriteria.getRecLocked());
+            preparedStatement.setInt(34,subjectcriteria.getStatus());
+            preparedStatement.setBoolean(35,subjectcriteria.getFixed0Weight());
             return preparedStatement;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve update prepared statement ", exception);
+            throw new LucidSamsExecutionException("Failed to retrieve update prepared statement", exception);
         }
     }
     @Override
