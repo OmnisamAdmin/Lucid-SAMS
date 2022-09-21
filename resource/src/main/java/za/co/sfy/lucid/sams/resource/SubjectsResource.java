@@ -88,13 +88,13 @@ public class SubjectsResource extends AbstractLucidSAMSResource implements ILuci
             if (null == SubjectGrade) {
                 preparedStatement.setNull(13, Types.INTEGER);
             } else {
-                preparedStatement.setInt(13, Select);
+                preparedStatement.setInt(13, SubjectGrade);
             }
               Integer OfficialSubjectID = subjects.getOfficialSubjectID();
             if (null == OfficialSubjectID) {
                 preparedStatement.setNull(14, Types.INTEGER);
             } else {
-                preparedStatement.setInt(14, Select);
+                preparedStatement.setInt(14, OfficialSubjectID;
             }
 
            
