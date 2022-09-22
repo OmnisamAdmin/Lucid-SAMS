@@ -10,7 +10,7 @@ import za.co.sfy.lucid.sams.resource.connection.AbstractDatabaseConnectionManage
 import za.co.sfy.sams.lucid.schema.SubjectSets;
 
 /**
- * @author muzim
+ * @author Azeem
  */
 @Component
 public class SubjectSetResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
