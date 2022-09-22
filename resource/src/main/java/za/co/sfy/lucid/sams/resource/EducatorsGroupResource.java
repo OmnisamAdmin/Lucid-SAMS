@@ -10,7 +10,7 @@ import za.co.sfy.lucid.sams.resource.connection.AbstractDatabaseConnectionManage
 import za.co.sfy.sams.lucid.schema.Educatorgroups;
 
 /**
- * @author muzim
+ * @author Azeem
  */
 @Component
 public class EducatorsGroupResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
@@ -28,15 +28,11 @@ public class EducatorsGroupResource extends AbstractLucidSAMSResource implements
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
        
-        String sql = "INSERT INTO " + TABLE_NAME + "( EducatorGroupID, Grade, EducatorId, GroupName, SubjectId )"
+        String sql = "INSERT INTO " + TABLE_NAME + "(EducatorGroupID, Grade, EducatorId, GroupName, SubjectId)"
                         + "VALUES(?,?,?,?,?)";
-
         try { 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 Educatorgroups educatorgroups = (Educatorgroups) object;
-            
-
-            
             preparedStatement.setInt(1,educatorgroups.getEducatorGroup());
             preparedStatement.setInt(2,educatorgroups.getGrade());
             preparedStatement.setInt(3, educatorgroups.getEducatorID());
@@ -63,11 +59,11 @@ public class EducatorsGroupResource extends AbstractLucidSAMSResource implements
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             Educatorgroups educatorgroups = (Educatorgroups) object;
-            preparedStatement.setInt(1, educatorgroups.getEducatorGroup());
-            preparedStatement.setInt(2, educatorgroups.getGrade());
-            preparedStatement.setInt(3, educatorgroups.getEducatorID());
-            preparedStatement.setString(4, educatorgroups.getGroupName());
-            preparedStatement.setInt(5, educatorgroups.getSubjectID());
+            preparedStatement.setInt(1,educatorgroups.getEducatorGroup());
+            preparedStatement.setInt(2,educatorgroups.getGrade());
+            preparedStatement.setInt(3,educatorgroups.getEducatorID());
+            preparedStatement.setString(4,educatorgroups.getGroupName());
+            preparedStatement.setInt(5,educatorgroups.getSubjectID());
             return preparedStatement;
 
         } catch (SQLException exception) {
