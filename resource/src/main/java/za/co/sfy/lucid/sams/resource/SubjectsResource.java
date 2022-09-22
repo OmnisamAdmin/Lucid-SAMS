@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Types;
 
 /**
- * @author muzim
+ * @author Azeem
  */
 @Component
 public class SubjectsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
