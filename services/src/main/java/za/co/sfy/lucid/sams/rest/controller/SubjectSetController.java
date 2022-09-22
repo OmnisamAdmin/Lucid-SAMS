@@ -20,10 +20,10 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetResponse;
 
 
 /**
- * @author muzim
+ * @author Azeem
  */
 @RestController
-@RequestMapping("SubjectSets")
+@RequestMapping("Subject-Sets")
 public class SubjectSetController {
 
     private static final Logger logger = LoggerFactory.getLogger(SubjectSetController.class);
