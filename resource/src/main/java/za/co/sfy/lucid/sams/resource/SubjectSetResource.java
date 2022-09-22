@@ -17,13 +17,9 @@ public class SubjectSetResource extends AbstractLucidSAMSResource implements ILu
 
     private final String TABLE_NAME = "SubjectSets";
 
-    public SubjectSetResource(AbstractDatabaseConnectionManager databaseConnectionManager) throws LucidSamsExecutionException {
-        super(databaseConnectionManager);
-    }
-
-    public SubjectSetResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
-        super(edusolStrucDatabaseConnectionManager);
-    }
+    public TopicsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+super(edusolStrucDatabaseConnectionManager);
+}
 
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
