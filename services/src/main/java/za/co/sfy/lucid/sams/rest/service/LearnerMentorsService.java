@@ -143,6 +143,7 @@ public class LearnerMentorsService {
         learnerMentors.setMentorID(Math.toIntExact(generatedKey));
 
         LearnerMentorsResponse learnerMentorsResponse = new LearnerMentorsResponse();
+        learnerMentorsResponse.setLearnerMentors(learnerMentors);
         learnerMentorsResponse.setResponseMessage("Successfully saved 'LearnerMentors' data");
         learnerMentorsResponse.setResponseStatus(ServiceStatus.SUCCESS.value());
 
