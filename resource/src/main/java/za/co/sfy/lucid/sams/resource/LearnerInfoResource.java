@@ -26,19 +26,36 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
         super(edusolStrucDatabaseConnectionManager);
     }
 
-    public ResultSet retrieveLearnerInfoByID(Long learnerID) throws LucidSamsExecutionException {
+    public ResultSet retrieveLearnerInfoByID(Long id) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where ID = ?";
         Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, Math.toIntExact(learnerID));
+            preparedStatement.setInt(1, Math.toIntExact(id));
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet;
 
         } catch (SQLException exception) {
-            throw new LucidSamsExecutionException("Failed to retrieve LearnerInfo of id '" + learnerID + "' :"
+            throw new LucidSamsExecutionException("Failed to retrieve LearnerInfo of id '" + id + "' :"
+                    , exception);
+        }
+    }
+
+    public ResultSet retrieveLearnerInfoByLearnerID(String learnerID) throws LucidSamsExecutionException {
+
+        String sql = "SELECT * FROM " + TABLE_NAME + " Where LearnerID = ?";
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, learnerID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet;
+
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve LearnerInfo of LearnerID '" + learnerID + "' :"
                     , exception);
         }
     }

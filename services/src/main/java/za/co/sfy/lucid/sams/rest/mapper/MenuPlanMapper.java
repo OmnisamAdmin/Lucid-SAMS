@@ -14,7 +14,10 @@ public class MenuPlanMapper {
 
         MenuPlan menuPlan = new MenuPlan();
 
-        menuPlan.setMealCD(menuPlanRequest.getMealCD());
+        Integer mealCD = menuPlanRequest.getMealCD();
+        if (mealCD != null) {
+            menuPlan.setMealCD(mealCD);
+        }
         menuPlan.setMealType(menuPlanRequest.getMealType());
         menuPlan.setIngredients(menuPlanRequest.getIngredients());
         menuPlan.setDataYear(menuPlanRequest.getDataYear());

@@ -37,6 +37,7 @@ public class MenuPlanController {
     public ResponseEntity<MenuPlanResponse> saveMenuPlan(@Valid @RequestBody MenuPlanRequest menuPlanRequest) {
 
         MenuPlanResponse menuPlanResponse = new MenuPlanResponse();
+
         try {
             menuPlanResponse = menuPlanService.saveMenuPlan(menuPlanRequest);
 

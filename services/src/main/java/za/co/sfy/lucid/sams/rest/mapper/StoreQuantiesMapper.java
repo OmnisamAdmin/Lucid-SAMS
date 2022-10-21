@@ -12,7 +12,10 @@ public class StoreQuantiesMapper {
 
         StoreQuanties storeQuanties = new StoreQuanties();
 
-        storeQuanties.setID(storeQuantiesRequest.getId());
+        Integer id = storeQuantiesRequest.getId();
+        if (id != null) {
+            storeQuanties.setID(id);
+        }
         storeQuanties.setProductName(storeQuantiesRequest.getProductName());
         storeQuanties.setQuantity(storeQuantiesRequest.getQuantity());
         storeQuanties.setDataYear(storeQuantiesRequest.getDataYear());

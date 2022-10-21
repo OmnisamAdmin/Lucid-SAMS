@@ -36,7 +36,7 @@ public class DisciplinaryRecordsController {
         DisciplinaryRecordsResponse disciplinaryRecordsResponse = new DisciplinaryRecordsResponse();
 
         try {
-            disciplinaryRecordsService.saveDisciplinaryRecords(disciplinaryRecordsRequest);
+            disciplinaryRecordsResponse = disciplinaryRecordsService.saveDisciplinaryRecords(disciplinaryRecordsRequest);
 
         } catch (LucidSamsExecutionException exception) {
             logger.error("Failure occurred: " + exception.getMessage(), exception);

@@ -207,6 +207,23 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
         }
     }
 
+    public ResultSet retrieveEducatorsByPersalNumber(String persalNumber) throws LucidSamsExecutionException {
+
+        String sql = "SELECT * FROM " + TABLE_NAME + " Where PersalNumber = ?";
+        Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, persalNumber);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet;
+
+        } catch (SQLException exception) {
+            throw new LucidSamsExecutionException("Failed to retrieve Educators of persal number '" + persalNumber + "' :"
+                    , exception);
+        }
+    }
+
     public ResultSet retrieveEducatorsByCredentials(String title, String initials, String surname) throws LucidSamsExecutionException {
 
         String sql = "SELECT * FROM " + TABLE_NAME + " Where Title = ? AND  Initials = ? AND SName = ?";

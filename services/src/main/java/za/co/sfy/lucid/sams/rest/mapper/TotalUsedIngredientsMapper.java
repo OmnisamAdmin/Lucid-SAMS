@@ -11,7 +11,10 @@ public class TotalUsedIngredientsMapper {
 
         TotalUsedIngredients totalUsedIngredients = new TotalUsedIngredients();
 
-        totalUsedIngredients.setID(totalUsedIngredientsRequest.getId());
+        Integer id = totalUsedIngredientsRequest.getId();
+        if (id != null) {
+            totalUsedIngredients.setID(id);
+        }
         totalUsedIngredients.setMealType(totalUsedIngredientsRequest.getMealType());
         totalUsedIngredients.setTotalLearnersPreparingFor(totalUsedIngredientsRequest.getTotalLearnersPreparingFor());
         totalUsedIngredients.setDataYear(totalUsedIngredientsRequest.getDataYear());

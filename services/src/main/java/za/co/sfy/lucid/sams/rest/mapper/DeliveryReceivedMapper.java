@@ -11,6 +11,11 @@ public class DeliveryReceivedMapper {
     public DeliveryRecieved deliveryReceivedRequestToDeliveryReceived(DeliveryReceivedRequest deliveryReceivedRequest) {
         DeliveryRecieved deliveryRecieved = new DeliveryRecieved();
 
+        Integer id = deliveryReceivedRequest.getId();
+        if (id != null) {
+
+            deliveryRecieved.setID(id);
+        }
         deliveryRecieved.setSupplier(deliveryReceivedRequest.getSupplier());
         deliveryRecieved.setDateRecieved(deliveryReceivedRequest.getDateRecieved());
         deliveryRecieved.setProductName(deliveryReceivedRequest.getProductName());
