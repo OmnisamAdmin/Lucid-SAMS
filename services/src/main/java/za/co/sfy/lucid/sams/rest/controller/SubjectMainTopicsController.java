@@ -13,25 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.rest.service.SubjectsService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectsResponse;
-
 import javax.validation.Valid;
+import za.co.sfy.lucid.sams.rest.service.SubjectMainTopicsService;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectMainTopicsRequest;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectMainTopicsResponse;
 
 /**
  * @author muzim
  */
 @RestController
-@RequestMapping("subjects")
-public class SubjectsController {
+@RequestMapping("subject-main-topics")
+public class SubjectMainTopicsController {
 
     private static final Logger logger = LoggerFactory.getLogger(SubjectsController.class);
-    private SubjectsService subjectsService;
+    private SubjectMainTopicsService subjectMainTopicsService;
 
     @Autowired
-    public SubjectsController(final SubjectsService subjectsService) {
-        this.subjectsService = subjectsService;
+    public SubjectMainTopicsController(final SubjectMainTopicsService SubjectMainTopicsService) {
+        this.subjectMainTopicsService = SubjectMainTopicsService;
     }
 
     @PostMapping(
@@ -39,11 +38,11 @@ public class SubjectsController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<SubjectsResponse> updateSubject(@Valid @RequestBody SubjectsRequest subjectsRequest) {
+    public ResponseEntity<SubjectMainTopicsResponse> updateTopics(@Valid @RequestBody SubjectMainTopicsRequest subjectMainTopicsRequest) {
 
-        SubjectsResponse subjectsResponse = new SubjectsResponse();
+        SubjectMainTopicsResponse subjectsResponse = new SubjectMainTopicsResponse();
         try {
-            subjectsResponse = subjectsService.updateSubjects(subjectsRequest);
+            subjectsResponse = subjectMainTopicsService.updateTopics(subjectMainTopicsRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
@@ -61,20 +60,20 @@ public class SubjectsController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<SubjectsResponse> saveSubject(@Valid @RequestBody SubjectsRequest subjectsRequest) {
+    public ResponseEntity<SubjectMainTopicsResponse> saveTopics(@Valid @RequestBody SubjectMainTopicsRequest subjectMainTopicsRequest) {
 
-        SubjectsResponse subjectsResponse = new SubjectsResponse();
+        SubjectMainTopicsResponse subjectMainTopicsResponse = new SubjectMainTopicsResponse();
         try {
-            subjectsResponse = subjectsService.saveSubjects(subjectsRequest);
+            subjectMainTopicsResponse = subjectMainTopicsService.saveTopics(subjectMainTopicsRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
-            subjectsResponse.setResponseStatus(ServiceStatus.ERROR.value());
-            subjectsResponse.setResponseMessage(executionException.getMessage());
+            subjectMainTopicsResponse.setResponseStatus(ServiceStatus.ERROR.value());
+            subjectMainTopicsResponse.setResponseMessage(executionException.getMessage());
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(subjectsResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(subjectMainTopicsResponse);
         }
 
-        return ResponseEntity.ok(subjectsResponse);
+        return ResponseEntity.ok(subjectMainTopicsResponse);
     }
 }
