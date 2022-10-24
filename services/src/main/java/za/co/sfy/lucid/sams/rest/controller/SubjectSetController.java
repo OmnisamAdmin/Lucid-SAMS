@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
+
 import javax.validation.Valid;
+
 import za.co.sfy.lucid.sams.rest.service.SubjectSetService;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetResponse;
@@ -23,11 +25,11 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetResponse;
  * @author Azeem
  */
 @RestController
-@RequestMapping("Subject-Sets")
+@RequestMapping("subject-sets")
 public class SubjectSetController {
 
     private static final Logger logger = LoggerFactory.getLogger(SubjectSetController.class);
-    private final SubjectSetService subjectsetService;
+    private SubjectSetService subjectsetService;
 
     @Autowired
     public SubjectSetController(final SubjectSetService subjectsetService) {
@@ -41,9 +43,9 @@ public class SubjectSetController {
     )
     public ResponseEntity<SubjectSetResponse> updateSubjectSets(@Valid @RequestBody SubjectSetRequest subjectsetRequest) {
 
-          SubjectSetResponse subjectsetResponse = new SubjectSetResponse();
+        SubjectSetResponse subjectsetResponse = new SubjectSetResponse();
         try {
-            SubjectSetResponse SubjectSetResponse = subjectsetService.updateSubjectSet(subjectsetRequest);
+            subjectsetResponse = subjectsetService.updateSubjectSet(subjectsetRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
@@ -56,12 +58,6 @@ public class SubjectSetController {
         return ResponseEntity.ok(subjectsetResponse);
     }
 
-    /**
-     *
-     * @param subjectsetRequest
-     * @par
-     * @return
-     */
     @PostMapping(
             path = "save",
             consumes = MediaType.APPLICATION_JSON_VALUE,

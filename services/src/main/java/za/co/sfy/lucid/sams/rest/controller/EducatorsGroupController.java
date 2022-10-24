@@ -13,25 +13,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import javax.validation.Valid;
 import za.co.sfy.lucid.sams.rest.service.EducatorsGroupService;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.EducatorsGroupRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.EducatorsGroupResponse;
+
+import javax.validation.Valid;
 
 
 /**
  * @author muzim
  */
 @RestController
-@RequestMapping("Educatorgroups")
+@RequestMapping("educator-groups")
 public class EducatorsGroupController {
 
     private static final Logger logger = LoggerFactory.getLogger(EducatorsGroupController.class);
-    private final EducatorsGroupService EducatorsGroupService;
+    private EducatorsGroupService educatorsGroupService;
 
     @Autowired
     public EducatorsGroupController(final EducatorsGroupService educatorsgroupService) {
-        this.EducatorsGroupService = educatorsgroupService;
+        this.educatorsGroupService = educatorsgroupService;
     }
 
     @PostMapping(
@@ -39,11 +40,11 @@ public class EducatorsGroupController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<EducatorsGroupResponse> updateEducatorgroups(@Valid @RequestBody EducatorsGroupRequest educatorsgroupRequest) {
+    public ResponseEntity<EducatorsGroupResponse> updateEducatorGroups(@Valid @RequestBody EducatorsGroupRequest educatorsgroupRequest) {
 
         EducatorsGroupResponse educatorsgroupResponse = new EducatorsGroupResponse();
         try {
-            EducatorsGroupResponse EducatorsGroupResponse = EducatorsGroupService.updateEducatorgroups(educatorsgroupRequest);
+            educatorsgroupResponse = educatorsGroupService.updateEducatorGroups(educatorsgroupRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
@@ -56,21 +57,16 @@ public class EducatorsGroupController {
         return ResponseEntity.ok(educatorsgroupResponse);
     }
 
-    /**
-     *
-     * @param educatorsgroupRequest
-     * @return
-     */
     @PostMapping(
             path = "save",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<EducatorsGroupResponse> saveEducatorgroups(@Valid @RequestBody EducatorsGroupRequest educatorsgroupRequest) {
+    public ResponseEntity<EducatorsGroupResponse> saveEducatorGroups(@Valid @RequestBody EducatorsGroupRequest educatorsgroupRequest) {
 
         EducatorsGroupResponse educatorsgroupResponse = new EducatorsGroupResponse();
         try {
-           educatorsgroupResponse = EducatorsGroupService.saveEducatorgroups(educatorsgroupRequest);
+            educatorsgroupResponse = educatorsGroupService.saveEducatorGroups(educatorsgroupRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);

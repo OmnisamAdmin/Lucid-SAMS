@@ -6,41 +6,33 @@ import za.co.sfy.sams.lucid.schema.SubjectSets;
 
 
 /**
- * @author muzim
+ * @author ahussain
  */
 @Component
 public class SubjectSetMapper {
 
-    public SubjectSets SubjectSetRequestToSubjectSets(SubjectSetRequest subjectsetRequest) {
+    public SubjectSets subjectSetRequestToSubjectSets(SubjectSetRequest subjectsetRequest) {
 
-         SubjectSets subjectsets = new SubjectSets();
+        SubjectSets subjectsets = new SubjectSets();
 
-      Short description = subjectsetRequest.getDescription();
+        Short description = subjectsetRequest.getDescription();
         if (null != description) {
-            subjectsets.setDescription(subjectsetRequest.getDescription());
+            subjectsets.setDescription(String.valueOf(description));
         }
 
-     Integer subjectID = subjectsetRequest.getSubjectID();
+        Integer subjectID = subjectsetRequest.getSubjectID();
         if (null != subjectID) {
-            subjectsets.setSubjectID(subjectsetRequest.getSubjectID());
+            subjectsets.setSubjectID(subjectID);
         }
-     Integer subjectsetID = subjectsetRequest.getSubjectSetID();
-        if (null != subjectsetID) {
-            subjectsets.setSubjectID(subjectsetRequest.getSubjectSetID());
+        Integer subjectSetID = subjectsetRequest.getSubjectSetID();
+        if (null != subjectSetID) {
+            subjectsets.setSubjectID(subjectSetID);
         }
-     Integer subjectsetgrade = subjectsetRequest.getSubjectSetGrade();
-        if (null != subjectsetgrade) {
-            subjectsets.setSubjectSetGrade(subjectsetRequest.getSubjectSetGrade());
+        Integer subjectSetGrade = subjectsetRequest.getSubjectSetGrade();
+        if (null != subjectSetGrade) {
+            subjectsets.setSubjectSetGrade(subjectSetGrade);
         }
-            
 
-        
         return subjectsets;
     }
-
-    public SubjectSets subjectsetRequestTosubjectsets(SubjectSetRequest subjectsetRequest) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }
-

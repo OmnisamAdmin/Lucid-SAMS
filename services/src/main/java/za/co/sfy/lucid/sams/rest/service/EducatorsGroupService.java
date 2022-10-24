@@ -18,14 +18,14 @@ public class EducatorsGroupService {
     private final EducatorsGroupMapper EducatorsGroupMapper;
 
     @Autowired
-    public EducatorsGroupService(final EducatorsGroupResource educatorsgroupResource, final EducatorsGroupMapper educatorsgroupMapper) {
-        this.EducatorsGroupMapper = educatorsgroupMapper;
-        this.EducatorsGroupResource = educatorsgroupResource;
+    public EducatorsGroupService(final EducatorsGroupResource educatorsGroupResource, final EducatorsGroupMapper educatorsGroupMapper) {
+        this.EducatorsGroupMapper = educatorsGroupMapper;
+        this.EducatorsGroupResource = educatorsGroupResource;
     }
 
-    public EducatorsGroupResponse updateEducatorgroups(EducatorsGroupRequest educatorsgroupRequest) throws LucidSamsExecutionException {
+    public EducatorsGroupResponse updateEducatorGroups(EducatorsGroupRequest educatorsgroupRequest) throws LucidSamsExecutionException {
 
-        Educatorgroups educatorgroups = EducatorsGroupMapper.EducatorsGroupRequestToEducatorgroups(educatorsgroupRequest);
+        Educatorgroups educatorgroups = EducatorsGroupMapper.EducatorsGroupRequestToEducatorGroups(educatorsgroupRequest);
 
         EducatorsGroupResource.update(educatorgroups, EducatorsGroupResource);
 
@@ -37,12 +37,13 @@ public class EducatorsGroupService {
         return EducatorsGroupResponse;
     }
 
-    public EducatorsGroupResponse saveEducatorgroups(EducatorsGroupRequest educatorsgroupRequest) throws LucidSamsExecutionException {
+    public EducatorsGroupResponse saveEducatorGroups(EducatorsGroupRequest educatorsgroupRequest) throws LucidSamsExecutionException {
 
-        Educatorgroups educatorgroups = EducatorsGroupMapper.EducatorsGroupRequestToEducatorgroups(educatorsgroupRequest);
+        Educatorgroups educatorgroups = EducatorsGroupMapper.EducatorsGroupRequestToEducatorGroups(educatorsgroupRequest);
 
-        EducatorsGroupResource.save(educatorgroups, EducatorsGroupResource);
+        Long id = EducatorsGroupResource.save(educatorgroups, EducatorsGroupResource);
 
+        educatorgroups.setEducatorGroupID(Math.toIntExact(id));
         EducatorsGroupResponse educatorsgroupResponse = new EducatorsGroupResponse();
         educatorsgroupResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
         educatorsgroupResponse.setResponseStatus("Successfully saved 'Educatorgroups' table");
@@ -52,4 +53,3 @@ public class EducatorsGroupService {
     }
 
 }
-

@@ -26,7 +26,7 @@ public class SubjectSetService {
     public SubjectSetResponse updateSubjectSet(SubjectSetRequest subjectsetRequest) throws LucidSamsExecutionException {
 
 
-        SubjectSets Subjectsets = SubjectSetMapper.SubjectSetRequestToSubjectSets(subjectsetRequest);
+        SubjectSets Subjectsets = SubjectSetMapper.subjectSetRequestToSubjectSets(subjectsetRequest);
 
         SubjectSetResource.update(Subjectsets, SubjectSetResource);
 
@@ -40,10 +40,11 @@ public class SubjectSetService {
 
     public SubjectSetResponse saveSubjectSets(SubjectSetRequest subjectsetRequest) throws LucidSamsExecutionException {
 
-        SubjectSets subjectsets = SubjectSetMapper.subjectsetRequestTosubjectsets(subjectsetRequest);
+        SubjectSets subjectsets = SubjectSetMapper.subjectSetRequestToSubjectSets(subjectsetRequest);
 
-        SubjectSetResource.save(subjectsets, SubjectSetResource);
+        Long id = SubjectSetResource.save(subjectsets, SubjectSetResource);
 
+        subjectsets.setSubjectID(Math.toIntExact(id));
         SubjectSetResponse SubjectSetResponse = new SubjectSetResponse();
         SubjectSetResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
         SubjectSetResponse.setResponseStatus("Successfully saved 'SubjectsSets' table");
@@ -53,11 +54,11 @@ public class SubjectSetService {
     }
 
     private void update(SubjectSets subjectsets, SubjectSetService SubjectSetResource) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     private void save(SubjectSets subjectsets, SubjectSetService SubjectSetResource) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

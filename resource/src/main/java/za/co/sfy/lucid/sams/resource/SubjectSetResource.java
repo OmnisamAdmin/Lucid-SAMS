@@ -3,11 +3,11 @@ package za.co.sfy.lucid.sams.resource;
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.sams.lucid.schema.SubjectSets;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import za.co.sfy.lucid.sams.resource.connection.AbstractDatabaseConnectionManager;
-import za.co.sfy.sams.lucid.schema.SubjectSets;
 
 /**
  * @author Azeem
@@ -17,27 +17,24 @@ public class SubjectSetResource extends AbstractLucidSAMSResource implements ILu
 
     private final String TABLE_NAME = "SubjectSets";
 
-    public TopicsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
-super(edusolStrucDatabaseConnectionManager);
-}
+    public SubjectSetResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
+        super(edusolStrucDatabaseConnectionManager);
+    }
 
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
-       
+
         String sql = "INSERT INTO " + TABLE_NAME + "(Description, SubjectID, SubjectSetGrade)"
-                        + "VALUES(?,?,?)";
+                + "VALUES(?,?,?)";
 
-        try { 
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                SubjectSets subjectsets = (SubjectSets) object;
-            
+            SubjectSets subjectsets = (SubjectSets) object;
 
-            
-            preparedStatement.setShort(1, subjectsets.getDescription());
+            preparedStatement.setShort(1, Short.parseShort(subjectsets.getDescription()));
             preparedStatement.setInt(2, subjectsets.getSubjectID());
             preparedStatement.setInt(3, subjectsets.getSubjectSetGrade());
-         
-  
+
             return preparedStatement;
 
         } catch (SQLException exception) {
@@ -57,11 +54,11 @@ super(edusolStrucDatabaseConnectionManager);
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            SubjectSets SubjectSets = (SubjectSets) object;
-            preparedStatement.setShort(1, SubjectSets.getDescription());
-            preparedStatement.setInt(2, SubjectSets.getSubjectID());
-            preparedStatement.setInt(3, SubjectSets.getSubjectSetID());
-            preparedStatement.setInt(4, SubjectSets.getSubjectSetGrade());
+            SubjectSets subjectSets = (SubjectSets) object;
+            preparedStatement.setShort(1, Short.parseShort(subjectSets.getDescription()));
+            preparedStatement.setInt(2, subjectSets.getSubjectID());
+            preparedStatement.setInt(3, subjectSets.getSubjectSetId());
+            preparedStatement.setInt(4, subjectSets.getSubjectSetGrade());
             return preparedStatement;
 
         } catch (SQLException exception) {

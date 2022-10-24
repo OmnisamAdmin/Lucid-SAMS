@@ -3,11 +3,11 @@ package za.co.sfy.lucid.sams.resource;
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.connection.EdusolStrucDatabaseConnectionManager;
+import za.co.sfy.sams.lucid.schema.Educatorgroups;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import za.co.sfy.lucid.sams.resource.connection.AbstractDatabaseConnectionManager;
-import za.co.sfy.sams.lucid.schema.Educatorgroups;
 
 /**
  * @author Azeem
@@ -17,28 +17,24 @@ public class EducatorsGroupResource extends AbstractLucidSAMSResource implements
 
     private final String TABLE_NAME = "Educatorgroups";
 
-    public EducatorsGroupResource(AbstractDatabaseConnectionManager databaseConnectionManager) throws LucidSamsExecutionException {
-        super(databaseConnectionManager);
-    }
-
     public EducatorsGroupResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
         super(edusolStrucDatabaseConnectionManager);
     }
 
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
-       
+
         String sql = "INSERT INTO " + TABLE_NAME + "(EducatorGroupID, Grade, EducatorId, GroupName, SubjectId)"
-                        + "VALUES(?,?,?,?,?)";
-        try { 
+                + "VALUES(?,?,?,?,?)";
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                Educatorgroups educatorgroups = (Educatorgroups) object;
-            preparedStatement.setInt(1,educatorgroups.getEducatorGroup());
-            preparedStatement.setInt(2,educatorgroups.getGrade());
-            preparedStatement.setInt(3, educatorgroups.getEducatorID());
+            Educatorgroups educatorgroups = (Educatorgroups) object;
+            preparedStatement.setInt(1, educatorgroups.getEducatorGroupID());
+            preparedStatement.setInt(2, educatorgroups.getGrade());
+            preparedStatement.setInt(3, educatorgroups.getEducatorId());
             preparedStatement.setString(4, educatorgroups.getGroupName());
-            preparedStatement.setInt(5, educatorgroups.getSubjectID());
-  
+            preparedStatement.setInt(5, educatorgroups.getSubjectId());
+
             return preparedStatement;
 
         } catch (SQLException exception) {
@@ -59,11 +55,11 @@ public class EducatorsGroupResource extends AbstractLucidSAMSResource implements
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             Educatorgroups educatorgroups = (Educatorgroups) object;
-            preparedStatement.setInt(1,educatorgroups.getEducatorGroup());
-            preparedStatement.setInt(2,educatorgroups.getGrade());
-            preparedStatement.setInt(3,educatorgroups.getEducatorID());
-            preparedStatement.setString(4,educatorgroups.getGroupName());
-            preparedStatement.setInt(5,educatorgroups.getSubjectID());
+            preparedStatement.setInt(1, educatorgroups.getEducatorGroupID());
+            preparedStatement.setInt(2, educatorgroups.getGrade());
+            preparedStatement.setInt(3, educatorgroups.getEducatorId());
+            preparedStatement.setString(4, educatorgroups.getGroupName());
+            preparedStatement.setInt(5, educatorgroups.getSubjectId());
             return preparedStatement;
 
         } catch (SQLException exception) {
