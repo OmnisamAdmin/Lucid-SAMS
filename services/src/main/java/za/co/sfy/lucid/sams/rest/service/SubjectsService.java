@@ -36,19 +36,4 @@ public class SubjectsService {
         return subjectsResponse;
     }
 
-    public SubjectsResponse saveSubjects(SubjectsRequest subjectsRequest) throws LucidSamsExecutionException {
-
-        Subjects subjects = subjectsMapper.subjectsRequestToSubjects(subjectsRequest);
-
-        subjectsResource.save(subjects, subjectsResource);
-
-        SubjectsResponse subjectsResponse = new SubjectsResponse();
-        subjectsResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
-        subjectsResponse.setResponseStatus("Successfully saved 'Subjects' table");
-        subjectsResponse.setSubject(subjects);
-
-        return subjectsResponse;
-    }
-
-
 }
