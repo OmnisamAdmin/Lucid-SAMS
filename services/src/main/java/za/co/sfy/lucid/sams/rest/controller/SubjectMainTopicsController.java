@@ -14,23 +14,23 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import javax.validation.Valid;
-import za.co.sfy.lucid.sams.rest.service.TopicsService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.TopicsRequests;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.TopicsResponse;
+import za.co.sfy.lucid.sams.rest.service.SubjectMainTopicsService;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectMainTopicsRequest;
+import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectMainTopicsResponse;
 
 /**
  * @author muzim
  */
 @RestController
-@RequestMapping("Topics")
-public class TopicsController {
+@RequestMapping("subject-main-topics")
+public class SubjectMainTopicsController {
 
     private static final Logger logger = LoggerFactory.getLogger(SubjectsController.class);
-    private final TopicsService TopicsService;
+    private SubjectMainTopicsService subjectMainTopicsService;
 
     @Autowired
-    public TopicsController(final TopicsService TopicsService) {
-        this.TopicsService = TopicsService;
+    public SubjectMainTopicsController(final SubjectMainTopicsService SubjectMainTopicsService) {
+        this.subjectMainTopicsService = SubjectMainTopicsService;
     }
 
     @PostMapping(
@@ -38,11 +38,11 @@ public class TopicsController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<TopicsResponse> updateTopics(@Valid @RequestBody TopicsRequests topicsRequests) {
+    public ResponseEntity<SubjectMainTopicsResponse> updateTopics(@Valid @RequestBody SubjectMainTopicsRequest subjectMainTopicsRequest) {
 
-        TopicsResponse subjectsResponse = new TopicsResponse();
+        SubjectMainTopicsResponse subjectsResponse = new SubjectMainTopicsResponse();
         try {
-            TopicsResponse topicsResponse = TopicsService.updateTopics(topicsRequests);
+            subjectsResponse = subjectMainTopicsService.updateTopics(subjectMainTopicsRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
@@ -55,30 +55,25 @@ public class TopicsController {
         return ResponseEntity.ok(subjectsResponse);
     }
 
-    /**
-     *
-     * @param TopicsRequest
-     * @return
-     */
     @PostMapping(
             path = "save",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<TopicsResponse> saveTopics(@Valid @RequestBody TopicsRequests TopicsRequest) {
+    public ResponseEntity<SubjectMainTopicsResponse> saveTopics(@Valid @RequestBody SubjectMainTopicsRequest subjectMainTopicsRequest) {
 
-        TopicsResponse TopicsResponse = new TopicsResponse();
+        SubjectMainTopicsResponse subjectMainTopicsResponse = new SubjectMainTopicsResponse();
         try {
-            TopicsResponse = TopicsService.saveTopics(TopicsRequest);
+            subjectMainTopicsResponse = subjectMainTopicsService.saveTopics(subjectMainTopicsRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
-            TopicsResponse.setResponseStatus(ServiceStatus.ERROR.value());
-            TopicsResponse.setResponseMessage(executionException.getMessage());
+            subjectMainTopicsResponse.setResponseStatus(ServiceStatus.ERROR.value());
+            subjectMainTopicsResponse.setResponseMessage(executionException.getMessage());
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(TopicsResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(subjectMainTopicsResponse);
         }
 
-        return ResponseEntity.ok(TopicsResponse);
+        return ResponseEntity.ok(subjectMainTopicsResponse);
     }
 }

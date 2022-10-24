@@ -4,104 +4,101 @@ package za.co.sfy.lucid.sams.rest.vo.data.writer;
 import java.io.Serializable;
 
 
-
-public class TopicsRequests implements Serializable {
+public class SubjectMainTopicsRequest implements Serializable {
 
     private static final long serialVersionUID = 6627252016141632712L;
 
-    private Integer maintopicid;
-    private Integer mainposition;
+    private Integer mainTopicId;
+    private Integer mainPosition;
     private Short description;
-    private Short afrdescription;
-    private Short verndescription;
-    private Integer subjectid;
-    private Integer officialsubjectid;
-    private String reclocked;
-    private Short patchver;
-    private Integer groupno;
-    
+    private Short afrDescription;
+    private Short vernDescription;
+    private Integer subjectId;
+    private Integer officialSubjectId;
+    private String recLocked;
+    private Short patchVer;
+    private Integer groupNo;
+
 
     public Integer getMainTopicID() {
-        return this.maintopicid;
+        return this.mainTopicId;
     }
 
     public void setMainTopicID(Integer value) {
-        this.maintopicid = value;
+        this.mainTopicId = value;
     }
+
     public Integer getMainPosition() {
-        return this.mainposition;
+        return this.mainPosition;
     }
 
     public void setMainPosition(Integer value) {
-        this.mainposition = value;
+        this.mainPosition = value;
     }
 
     public Short getDescription() {
         return this.description;
     }
 
-    public void setDescription(Short value ) {
+    public void setDescription(Short value) {
         this.description = value;
     }
 
     public Short getAfrDescription() {
-        return this.afrdescription;
+        return this.afrDescription;
     }
 
     public void setAfrDescription(Short value) {
-        this.afrdescription = value;
+        this.afrDescription = value;
     }
+
     public Short getVernDescription() {
-    return this.verndescription;
+        return this.vernDescription;
     }
 
     public void setVernDescription(Short value) {
-        this.verndescription = value;
+        this.vernDescription = value;
     }
 
     public Integer getSubjectID() {
-        return this.subjectid;
+        return this.subjectId;
     }
 
     public void setSubjectID(Integer value) {
-        this.subjectid = value;
+        this.subjectId = value;
     }
+
     public Integer getOfficialSubjectID() {
-        return this.officialsubjectid;
+        return this.officialSubjectId;
     }
 
     public void setOfficialSubjectID(Integer value) {
-        this.officialsubjectid = value;
+        this.officialSubjectId = value;
     }
 
     public String getRecLocked() {
-        return this.reclocked;
+        return this.recLocked;
     }
 
     public void setRecLocked(String value) {
-        this.reclocked= value;
+        this.recLocked = value;
     }
 
-    /**
-     *
-     * @return
-     */
     public Short getPatchVer() {
-        return this.patchver;
+        return this.patchVer;
     }
 
     public void setPatchVer(Short value) {
-        this.patchver = value;
+        this.patchVer = value;
     }
 
     public Integer getGroupNo() {
-        return this.groupno;
+        return this.groupNo;
     }
 
     public void setGroupNo(Integer value) {
-        this.groupno = value;
+        this.groupNo = value;
     }
 
-  
-}
 
+}
