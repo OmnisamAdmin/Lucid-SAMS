@@ -143,7 +143,7 @@ public class EducatorsResource extends AbstractLucidSAMSResource implements ILuc
             preparedStatement.setString(74, educators.getTSSentFileName());
             XMLGregorianCalendar tSDateLastUpdate = educators.getTSDateLastUpdate();
             if (tSDateLastUpdate != null) {
-                preparedStatement.setDate(75, dateUtil.getSQLDate(tSDateLastUpdate));
+                preparedStatement.setDate(75, dateUtil.toSQLDate(tSDateLastUpdate));
             } else {
                 preparedStatement.setNull(75, Types.DATE);
             }

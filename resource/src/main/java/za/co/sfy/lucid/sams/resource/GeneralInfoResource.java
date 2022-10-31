@@ -145,7 +145,7 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
 
             XMLGregorianCalendar tsDateLastUpdate = generalInfo.getTSDateLastUpdate();
             if (null != tsDateLastUpdate) {
-                java.sql.Date tsDateLastUpdateSqlDate = dateUtil.getSQLDate(tsDateLastUpdate);
+                java.sql.Date tsDateLastUpdateSqlDate = dateUtil.toSQLDate(tsDateLastUpdate);
                 preparedStatement.setDate(78, tsDateLastUpdateSqlDate);
             } else {
                 preparedStatement.setNull(78, Types.DATE);
@@ -166,7 +166,7 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
 
             XMLGregorianCalendar lastDBCompactString = generalInfo.getLastDBCompact();
             if (null != lastDBCompactString) {
-                java.sql.Date lastDBCompactSQLDate = dateUtil.getSQLDate(lastDBCompactString);
+                java.sql.Date lastDBCompactSQLDate = dateUtil.toSQLDate(lastDBCompactString);
                 preparedStatement.setDate(91, lastDBCompactSQLDate);
             } else {
                 preparedStatement.setNull(91, Types.DATE);
@@ -174,7 +174,7 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
 
             XMLGregorianCalendar iqmsLastExpDateString = generalInfo.getIQMSLastExpDate();
             if (null != iqmsLastExpDateString) {
-                java.sql.Date sqlIQMSLastExpDate = dateUtil.getSQLDate(iqmsLastExpDateString);
+                java.sql.Date sqlIQMSLastExpDate = dateUtil.toSQLDate(iqmsLastExpDateString);
                 preparedStatement.setDate(92, sqlIQMSLastExpDate);
             } else {
                 preparedStatement.setNull(92, Types.DATE);
@@ -182,7 +182,7 @@ public class GeneralInfoResource extends AbstractLucidSAMSResource implements IL
 
             XMLGregorianCalendar iqmsLastImpDate = generalInfo.getIQMSLastImpDate();
             if (null != iqmsLastImpDate) {
-                java.sql.Date sqlIQMSLastImpDate = dateUtil.getSQLDate(iqmsLastImpDate);
+                java.sql.Date sqlIQMSLastImpDate = dateUtil.toSQLDate(iqmsLastImpDate);
                 preparedStatement.setDate(93, sqlIQMSLastImpDate);
             } else {
                 preparedStatement.setNull(93, Types.DATE);

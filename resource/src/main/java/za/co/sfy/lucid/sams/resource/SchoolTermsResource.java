@@ -33,8 +33,8 @@ public class SchoolTermsResource extends AbstractLucidSAMSResource implements IL
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, schoolTerms.getQuater());
-            java.sql.Date startDate = dateUtil.getSQLDate(schoolTerms.getStartDate());
-            java.sql.Date endDate = dateUtil.getSQLDate(schoolTerms.getEndDate());
+            java.sql.Date startDate = dateUtil.toSQLDate(schoolTerms.getStartDate());
+            java.sql.Date endDate = dateUtil.toSQLDate(schoolTerms.getEndDate());
             preparedStatement.setDate(2, startDate);
             preparedStatement.setDate(3, endDate);
             preparedStatement.setString(4, schoolTerms.getCurrentYear());

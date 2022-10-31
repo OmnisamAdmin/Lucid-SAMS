@@ -28,13 +28,8 @@ import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetResponse;
 @RequestMapping("subject-sets")
 public class SubjectSetController {
 
-<<<<<<<< HEAD:services/src/main/java/za/co/sfy/lucid/sams/rest/controller/SubjectSetController.java
     private static final Logger logger = LoggerFactory.getLogger(SubjectSetController.class);
     private SubjectSetService subjectsetService;
-========
-    private static final Logger logger = LoggerFactory.getLogger(TopicsController.class);
-    private final TopicsService TopicsService;
->>>>>>>> 369468b... SAA-1113: SASAMS Module 12.1.14 and 12.1.16:services/src/main/java/za/co/sfy/lucid/sams/rest/controller/TopicsController.java
 
     @Autowired
     public SubjectSetController(final SubjectSetService subjectsetService) {

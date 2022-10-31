@@ -44,7 +44,7 @@ public class SubjectSetService {
 
         Long id = subjectSetResource.save(subjectsets, subjectSetResource);
 
-        subjectsets.setSubjectID(Math.toIntExact(id));
+        subjectsets.setSubjectID(id.intValue());
         SubjectSetResponse SubjectSetResponse = new SubjectSetResponse();
         SubjectSetResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
         SubjectSetResponse.setResponseStatus("Successfully saved 'SubjectsSets' table");

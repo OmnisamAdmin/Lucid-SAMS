@@ -41,7 +41,8 @@ public class SubjectCriteriaService {
 
         SubjectCriteria subjectcriteria = SubjectCriteriaMapper.SubjectCriteriaRequestToSubjectCriteria(subjectcriteriaRequest);
 
-        SubjectCriteriaResource.save(subjectcriteria, SubjectCriteriaResource);
+        Long id = SubjectCriteriaResource.save(subjectcriteria, SubjectCriteriaResource);
+        subjectcriteria.setSubjectid(id.intValue());
 
         SubjectCriteriaResponse subjectcriteriaResponse = new SubjectCriteriaResponse();
         subjectcriteriaResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
@@ -52,5 +53,3 @@ public class SubjectCriteriaService {
     }
 
 }
-
-

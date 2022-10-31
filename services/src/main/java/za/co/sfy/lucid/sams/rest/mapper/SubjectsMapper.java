@@ -16,12 +16,12 @@ public class SubjectsMapper {
 
         String afrName = subjectsRequest.getAfrname();
         if (null != afrName) {
-            subjects.setAfrname(subjectsRequest.getAfrname());
+            subjects.setAfrname(afrName);
         }
 
         String code = subjectsRequest.getCode();
         if (null != code) {
-            subjects.setCode(subjectsRequest.getCode());
+            subjects.setCode(code);
         }
 
         Integer ctaWeight = subjectsRequest.getCTAWeight();
@@ -36,7 +36,7 @@ public class SubjectsMapper {
 
         String group = subjectsRequest.getGroup();
         if (null != group) {
-            subjects.setGroup(subjectsRequest.getGroup());
+            subjects.setGroup(group);
         }
 
         Integer id = subjectsRequest.getId();
@@ -46,17 +46,17 @@ public class SubjectsMapper {
 
         String key = subjectsRequest.getKey();
         if (null != key) {
-            subjects.setKey(subjectsRequest.getKey());
+            subjects.setKey(key);
         }
 
         String luritsCode = subjectsRequest.getLuritsCode();
         if (null != luritsCode) {
-            subjects.setLuritsCode(subjectsRequest.getLuritsCode());
+            subjects.setLuritsCode(luritsCode);
         }
 
         String name = subjectsRequest.getName();
         if (null != name) {
-            subjects.setName(subjectsRequest.getName());
+            subjects.setName(name);
         }
 
         Integer officialSubjectID = subjectsRequest.getOfficialSubjectID();

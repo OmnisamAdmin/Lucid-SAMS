@@ -13,26 +13,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import javax.validation.Valid;
 import za.co.sfy.lucid.sams.rest.service.SubjectCriteriaService;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectCriteriaRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectCriteriaResponse;
 
+import javax.validation.Valid;
+
 
 /**
- * @author muzim
+ * @author ahussain
  */
 @RestController
-@RequestMapping("SubjectCriteria")
+@RequestMapping("subject-criteria")
 public class SubjectCriteriaController {
 
     private static final Logger logger = LoggerFactory.getLogger(SubjectCriteriaController.class);
-    private final SubjectCriteriaService SubjectCriteriaService;
-    private SubjectCriteriaRequest subjectcriteriaRequest;
+    private SubjectCriteriaService subjectCriteriaService;
 
     @Autowired
     public SubjectCriteriaController(final SubjectCriteriaService subjectcriteriaService) {
-        this.SubjectCriteriaService = subjectcriteriaService;
+        this.subjectCriteriaService = subjectcriteriaService;
     }
 
     @PostMapping(
@@ -40,11 +40,11 @@ public class SubjectCriteriaController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-        public ResponseEntity<SubjectCriteriaResponse> updateSubjectCriteria(@Valid @RequestBody SubjectCriteriaRequest subjectcriteriaRequest) {
+    public ResponseEntity<SubjectCriteriaResponse> updateSubjectCriteria(@Valid @RequestBody SubjectCriteriaRequest subjectcriteriaRequest) {
 
-       SubjectCriteriaResponse subjectcriteriaResponse = new SubjectCriteriaResponse();
+        SubjectCriteriaResponse subjectcriteriaResponse = new SubjectCriteriaResponse();
         try {
-            SubjectCriteriaResponse SubjectCriteriaResponse = SubjectCriteriaService.updateSubjectCriteria(subjectcriteriaRequest);
+            subjectcriteriaResponse = subjectCriteriaService.updateSubjectCriteria(subjectcriteriaRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);
@@ -57,11 +57,6 @@ public class SubjectCriteriaController {
         return ResponseEntity.ok(subjectcriteriaResponse);
     }
 
-    /**
-     *
-     * @param subjectcriteriaRequest
-     * @return
-     */
     @PostMapping(
             path = "save",
             consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -71,7 +66,7 @@ public class SubjectCriteriaController {
 
         SubjectCriteriaResponse subjectcriteriaResponse = new SubjectCriteriaResponse();
         try {
-           subjectcriteriaResponse = SubjectCriteriaService.saveSubjectCriteria(subjectcriteriaRequest);
+            subjectcriteriaResponse = subjectCriteriaService.saveSubjectCriteria(subjectcriteriaRequest);
 
         } catch (LucidSamsExecutionException executionException) {
             logger.error("Failure occurred: " + executionException.getMessage(), executionException);

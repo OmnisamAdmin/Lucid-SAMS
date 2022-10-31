@@ -33,8 +33,8 @@ public class StaffCalendarTermsResource extends AbstractLucidSAMSResource implem
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, staffCalendarTerms.getQuater());
-            preparedStatement.setDate(2, dateUtil.getSQLDate(staffCalendarTerms.getStartDate()));
-            preparedStatement.setDate(3, dateUtil.getSQLDate(staffCalendarTerms.getEndDate()));
+            preparedStatement.setDate(2, dateUtil.toSQLDate(staffCalendarTerms.getStartDate()));
+            preparedStatement.setDate(3, dateUtil.toSQLDate(staffCalendarTerms.getEndDate()));
             preparedStatement.setString(4, staffCalendarTerms.getCurrentYear());
             preparedStatement.setInt(5, staffCalendarTerms.getTerm());
             return preparedStatement;
@@ -53,8 +53,8 @@ public class StaffCalendarTermsResource extends AbstractLucidSAMSResource implem
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, staffCalendarTerms.getQuater());
-            preparedStatement.setDate(2, dateUtil.getSQLDate(staffCalendarTerms.getStartDate()));
-            preparedStatement.setDate(3, dateUtil.getSQLDate(staffCalendarTerms.getEndDate()));
+            preparedStatement.setDate(2, dateUtil.toSQLDate(staffCalendarTerms.getStartDate()));
+            preparedStatement.setDate(3, dateUtil.toSQLDate(staffCalendarTerms.getEndDate()));
             preparedStatement.setString(4, staffCalendarTerms.getCurrentYear());
             preparedStatement.setInt(5, staffCalendarTerms.getTerm());
             return preparedStatement;

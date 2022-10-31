@@ -39,7 +39,7 @@ public class DisciplinaryRecordsResource extends AbstractLucidSAMSResource imple
             Integer learnerID = disciplinaryRecords.getLearnerid();
             preparedStatement.setInt(1, learnerID);
 
-            java.sql.Date date = dateUtil.getSQLDate(disciplinaryRecords.getDate());
+            java.sql.Date date = dateUtil.toSQLDate(disciplinaryRecords.getDate());
             preparedStatement.setDate(2, date);
 
             String comment = disciplinaryRecords.getComment();

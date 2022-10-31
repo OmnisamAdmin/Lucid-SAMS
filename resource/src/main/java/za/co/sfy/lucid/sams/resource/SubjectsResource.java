@@ -24,12 +24,12 @@ public class SubjectsResource extends AbstractLucidSAMSResource implements ILuci
 
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
-       
-        String sql = "INSERT INTO " + TABLE_NAME + "(Name, Key, Code, Group, Selected, Phase, Afrname, PrintOrder, "
-                        + "CTAWeight, ExcludeSchedule, LuritsCode, SubjectStatus, SubjectGrade, OfficialSubjectID)"
-                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-        try { 
+        String sql = "INSERT INTO " + TABLE_NAME + "(Name, Key, Code, Group, Selected, Phase, Afrname, PrintOrder, "
+                + "CTAWeight, ExcludeSchedule, LuritsCode, SubjectStatus, SubjectGrade, OfficialSubjectID)"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             Subjects subjects = (Subjects) object;
             preparedStatement.setString(1, subjects.getName());
@@ -37,67 +37,66 @@ public class SubjectsResource extends AbstractLucidSAMSResource implements ILuci
             preparedStatement.setString(3, subjects.getCode());
             preparedStatement.setString(4, subjects.getGroup());
 
-             Integer Select = subjects.getSelected();
+            Integer Select = subjects.getSelected();
             if (null == Select) {
                 preparedStatement.setNull(5, Types.INTEGER);
             } else {
                 preparedStatement.setInt(5, Select);
             }
 
-              Integer Phase = subjects.getPhase();
-            if (null == Phase) {
+            Integer phase = subjects.getPhase();
+            if (null == phase) {
                 preparedStatement.setNull(6, Types.INTEGER);
             } else {
-                preparedStatement.setInt(6, Phase);
+                preparedStatement.setInt(6, phase);
             }
 
             preparedStatement.setString(7, subjects.getAfrname());
 
-              Integer PrintOrder = subjects.getPrintOrder();
-            if (null == PrintOrder) {
+            Integer printOrder = subjects.getPrintOrder();
+            if (null == printOrder) {
                 preparedStatement.setNull(8, Types.INTEGER);
             } else {
-                preparedStatement.setInt(8, Select);
+                preparedStatement.setInt(8, printOrder);
             }
 
-              Integer CTAWeight = subjects.getCTAWeight();
-            if (null == CTAWeight) {
+            Integer ctaWeight = subjects.getCTAWeight();
+            if (null == ctaWeight) {
                 preparedStatement.setNull(9, Types.INTEGER);
             } else {
-                preparedStatement.setInt(9, CTAWeight);
+                preparedStatement.setInt(9, ctaWeight);
             }
 
-              Integer ExcludeSchedule = subjects.getExcludeSchedule();
-            if (null == ExcludeSchedule) {
+            Integer excludeSchedule = subjects.getExcludeSchedule();
+            if (null == excludeSchedule) {
                 preparedStatement.setNull(10, Types.INTEGER);
             } else {
-                preparedStatement.setInt(10, ExcludeSchedule);
+                preparedStatement.setInt(10, excludeSchedule);
             }
 
             preparedStatement.setString(11, subjects.getLuritsCode());
 
-           
-                 Short SubjectStatus = subjects.getSubjectStatus();
-            if (null == SubjectStatus) {
+
+            Short subjectStatus = subjects.getSubjectStatus();
+            if (null == subjectStatus) {
                 preparedStatement.setNull(12, Types.INTEGER);
             } else {
-                preparedStatement.setInt(12, ExcludeSchedule);
-            }
-            
-              Integer SubjectGrade = subjects.getSubjectGrade();
-            if (null == SubjectGrade) {
-                preparedStatement.setNull(13, Types.INTEGER);
-            } else {
-                preparedStatement.setInt(13, SubjectGrade);
-            }
-              Integer OfficialSubjectID = subjects.getOfficialSubjectID();
-            if (null == OfficialSubjectID) {
-                preparedStatement.setNull(14, Types.INTEGER);
-            } else {
-                preparedStatement.setInt(14, OfficialSubjectID;
+                preparedStatement.setInt(12, subjectStatus);
             }
 
-           
+            Integer subjectGrade = subjects.getSubjectGrade();
+            if (null == subjectGrade) {
+                preparedStatement.setNull(13, Types.INTEGER);
+            } else {
+                preparedStatement.setInt(13, subjectGrade);
+            }
+            Integer officialSubjectID = subjects.getOfficialSubjectID();
+            if (null == officialSubjectID) {
+                preparedStatement.setNull(14, Types.INTEGER);
+            } else {
+                preparedStatement.setInt(14, officialSubjectID);
+            }
+
             return preparedStatement;
 
         } catch (SQLException exception) {

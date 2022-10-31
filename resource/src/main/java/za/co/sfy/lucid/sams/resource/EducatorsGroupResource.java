@@ -24,7 +24,7 @@ public class EducatorsGroupResource extends AbstractLucidSAMSResource implements
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
-        String sql = "INSERT INTO " + TABLE_NAME + "(EducatorGroupID, Grade, EducatorId, GroupName, SubjectId)"
+        String sql = "INSERT INTO " + TABLE_NAME + "(EducatorGroupID,Grade,EducatorId,GroupName,SubjectId)"
                 + "VALUES(?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

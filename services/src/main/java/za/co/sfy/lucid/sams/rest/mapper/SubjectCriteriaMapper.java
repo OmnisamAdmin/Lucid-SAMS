@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectCriteriaRequest;
 import za.co.sfy.sams.lucid.schema.SubjectCriteria;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
 /**
  * @author Azeem
  */
@@ -19,184 +21,183 @@ public class SubjectCriteriaMapper {
 
         Integer subjectID = subjectcriteriaRequest.getSubjectID();
         if (null != subjectID) {
-            subjectcriteria.setSubjectID(subjectcriteriaRequest.getSubjectID());
+            subjectcriteria.setSubjectid(subjectID);
         }
 
         Integer criterionID  = subjectcriteriaRequest.getCriterionID();
         if (null != criterionID) {
-            subjectcriteria.setCriterionID(subjectcriteriaRequest.getCriterionID());
+            subjectcriteria.setCriterionId(criterionID);
         }
 
-        Short description = subjectcriteriaRequest.getDescription();
+        String description = subjectcriteriaRequest.getDescription();
         if (null != description) {
-               subjectcriteria.setDescription(subjectcriteriaRequest.getDescription());
+               subjectcriteria.setDescription(description);
         }
 
          Integer grade = subjectcriteriaRequest.getGrade();  
         if (null != grade) {
-               subjectcriteria.setGrade(subjectcriteriaRequest.getGrade());
+               subjectcriteria.setGrade(grade);
         }
 
         Integer weighting = subjectcriteriaRequest.getWeighting();  
         if (null != weighting) {
-               subjectcriteria.setGrade(subjectcriteriaRequest.getWeighting());
+               subjectcriteria.setGrade(weighting);
         }
 
-          Short subjectlevel = subjectcriteriaRequest.getSubjectLevel();
+        String subjectlevel = subjectcriteriaRequest.getSubjectLevel();
         if (null != subjectlevel) {
-               subjectcriteria.setSubjectLevel(subjectcriteriaRequest.getSubjectLevel());
+               subjectcriteria.setSubjectLevel(subjectlevel);
         }
 
 
-           Integer criterionscore = subjectcriteriaRequest.getCriterionScore();
-        if (null != criterionscore) {
-            subjectcriteria.setCriterionScore(subjectcriteriaRequest.getCriterionScore());
+           Integer criterionScore = subjectcriteriaRequest.getCriterionScore();
+        if (null != criterionScore) {
+            subjectcriteria.setCriterionScore(criterionScore);
         }
 
-         Short datayear = subjectcriteriaRequest.getDataYear();
-        if (null != datayear) {
-               subjectcriteria.setSubjectLevel(subjectcriteriaRequest.getDataYear());
+         String dataYear = subjectcriteriaRequest.getDataYear();
+        if (null != dataYear) {
+               subjectcriteria.setSubjectLevel(dataYear);
         }
    
-        Short subheading = subjectcriteriaRequest.getSubHeading();
-        if (null != subheading) {
-               subjectcriteria.setSubjectLevel(subjectcriteriaRequest.getSubHeading());
+        String subHeading = subjectcriteriaRequest.getSubHeading();
+        if (null != subHeading) {
+               subjectcriteria.setSubjectLevel(subHeading);
         }
 
-         Date dateadded = subjectcriteriaRequest.getDateAdded();
-        if (null != dateadded) {
-            subjectcriteria.setDateAdded((subjectcriteriaRequest.getDateAdded()));
+         XMLGregorianCalendar dateAdded = subjectcriteriaRequest.getDateAdded();
+        if (null != dateAdded) {
+            subjectcriteria.setDateAdded(dateAdded);
         }
 
-        Short type = subjectcriteriaRequest.getType();
+        String type = subjectcriteriaRequest.getType();
         if (null != type) {
-               subjectcriteria.setType(subjectcriteriaRequest.getType());
+               subjectcriteria.setType(type);
         }
 
-        Long outcomes = subjectcriteriaRequest.getOutcomes();
+        String outcomes = subjectcriteriaRequest.getOutcomes();
         if (null != outcomes) {
-               subjectcriteria.setOutcomes(subjectcriteriaRequest.getOutcomes());
+               subjectcriteria.setOutcomes(outcomes);
         }
 
 
-        Long activities = subjectcriteriaRequest.getActivities();
+        String activities = subjectcriteriaRequest.getActivities();
         if (null != activities) {
-               subjectcriteria.setActivities(subjectcriteriaRequest.getActivities());
+               subjectcriteria.setActivities(activities);
         }
 
-        Long assessments = subjectcriteriaRequest.getAssessments();
+        String assessments = subjectcriteriaRequest.getAssessments();
         if (null != assessments) {
-               subjectcriteria.setAssessments(subjectcriteriaRequest.getAssessments());
+               subjectcriteria.setAssessments(assessments);
         }
 
         Integer sectionID = subjectcriteriaRequest.getSectionID();
         if (null != sectionID) {
-            subjectcriteria.setCriterionScore(subjectcriteriaRequest.getSectionID());
+            subjectcriteria.setCriterionScore(sectionID);
          }
  
-       Boolean useactivities = subjectcriteriaRequest.getUseActivities();
-        if (null != useactivities) {
-               subjectcriteria.setUseActivities((subjectcriteriaRequest.getUseActivities()));
+       Boolean useActivities = subjectcriteriaRequest.getUseActivities();
+        if (null != useActivities) {
+               subjectcriteria.setUseActivities(useActivities);
         }
 
        Boolean includeFFL = subjectcriteriaRequest.getIncludeFFL();
         if (null != includeFFL) {
-               subjectcriteria.setIncludeFFL((subjectcriteriaRequest.getUseActivities()));
+               subjectcriteria.setIncludeFFL(includeFFL);
         }
         
         Boolean includeExam = subjectcriteriaRequest.getIncludeExam();
         if (null != includeExam) {
-               subjectcriteria.setIncludeExam((subjectcriteriaRequest.getIncludeExam()));
+               subjectcriteria.setIncludeExam(includeExam);
         }
    
-        Short updated = subjectcriteriaRequest.getUpdated();
+        String updated = subjectcriteriaRequest.getUpdated();
         if (null != updated) {
-               subjectcriteria.setUpdated(subjectcriteriaRequest.getUpdated());
+               subjectcriteria.setUpdated(updated);
         }
 
-        Boolean quaterlytest = subjectcriteriaRequest.getQuaterlyTest();
-        if (null != quaterlytest) {
-               subjectcriteria.setQuaterlyTest(subjectcriteriaRequest.getQuaterlyTest());
+        Boolean quarterlyTest = subjectcriteriaRequest.getQuarterlyTest();
+        if (null != quarterlyTest) {
+               subjectcriteria.setQuarterlyTest(quarterlyTest);
         }
 
-        Boolean fetcommontest = subjectcriteriaRequest.getFETCommonTest();
-        if (null != fetcommontest) {
-               subjectcriteria.setFETCommonTest((subjectcriteriaRequest.getFETCommonTest()));
+        Boolean fetCommonTest = subjectcriteriaRequest.getFETCommonTest();
+        if (null != fetCommonTest) {
+               subjectcriteria.setFETCommonTest(fetCommonTest);
         }
 
-       Short descriptionafr = subjectcriteriaRequest.getDescriptionAFR();
-        if (null != descriptionafr) {
-               subjectcriteria.setDescriptionAFR(subjectcriteriaRequest.getDescriptionAFR());
+       String descriptionAfr = subjectcriteriaRequest.getDescriptionAFR();
+        if (null != descriptionAfr) {
+               subjectcriteria.setDescriptionAfr(descriptionAfr);
         }
 
-        Short descriptionvern = subjectcriteriaRequest.getDescriptionVern();
-        if (null != descriptionvern) {
-               subjectcriteria.setDescriptionVern(subjectcriteriaRequest.getDescriptionVern());
+        String descriptionVern = subjectcriteriaRequest.getDescriptionVern();
+        if (null != descriptionVern) {
+               subjectcriteria.setDescriptionVern(descriptionVern);
         }
 
        
-        Integer tasktype = subjectcriteriaRequest.getTaskType();
-        if (null != tasktype) {
-            subjectcriteria.setTaskType(subjectcriteriaRequest.getTaskType());
+        Integer taskType = subjectcriteriaRequest.getTaskType();
+        if (null != taskType) {
+            subjectcriteria.setTaskType(taskType);
          }
 
-        Boolean sbatask = subjectcriteriaRequest.getSBATask();
-        if (null != sbatask) {
-               subjectcriteria.setSBATask((subjectcriteriaRequest.getSBATask()));
+        Boolean sbaTask = subjectcriteriaRequest.getSBATask();
+        if (null != sbaTask) {
+               subjectcriteria.setSBATask(sbaTask);
         }
 
-        Integer sbaweight = subjectcriteriaRequest.getSBAWeight();
-        if (null != sbaweight) {
-            subjectcriteria.setSBAWeight(subjectcriteriaRequest.getSBAWeight());
+        Double sbaWeight = subjectcriteriaRequest.getSBAWeight();
+        if (null != sbaWeight) {
+            subjectcriteria.setSBAWeight(sbaWeight);
          }
 
-         Integer fixedcriterionscore = subjectcriteriaRequest.getFixedCriterionScore();
-        if (null != fixedcriterionscore) {
-            subjectcriteria.setFixedCriterionScore(subjectcriteriaRequest.getFixedCriterionScore());
+         Integer fixedCriterionScore = subjectcriteriaRequest.getFixedCriterionScore();
+        if (null != fixedCriterionScore) {
+            subjectcriteria.setFixedCriterionScore(fixedCriterionScore);
          }
 
-        Integer fixedweight = subjectcriteriaRequest.getFixedWeight();
-        if (null != fixedweight) {
-            subjectcriteria.setFixedWeight(subjectcriteriaRequest.getFixedWeight());
+        Double fixedWeight = subjectcriteriaRequest.getFixedWeight();
+        if (null != fixedWeight) {
+            subjectcriteria.setFixedWeight(fixedWeight);
          }
 
-        Integer fixedsbaweight = subjectcriteriaRequest.getFixedSBAWeight();
-        if (null != fixedsbaweight) {
-            subjectcriteria.setFixedSBAWeight(subjectcriteriaRequest.getFixedSBAWeight());
+        Double fixedSbaWeight = subjectcriteriaRequest.getFixedSBAWeight();
+        if (null != fixedSbaWeight) {
+            subjectcriteria.setFixedSBAWeight(fixedSbaWeight);
          }
 
-        Integer subjsplitno = subjectcriteriaRequest.getSubjSplitNo();
-        if (null != subjsplitno) {
-            subjectcriteria.setSubjSplitNo(subjectcriteriaRequest.getSubjSplitNo());
+        Integer subjSplitNo = subjectcriteriaRequest.getSubjSplitNo();
+        if (null != subjSplitNo) {
+            subjectcriteria.setSubjSplitNo(subjSplitNo);
          }
  
-        Integer offsubjectid = subjectcriteriaRequest.getOFFSubjectID();
-        if (null != offsubjectid) {
-            subjectcriteria.setOFFSubjectID(subjectcriteriaRequest.getOFFSubjectID());
+        Integer offSubjectId = subjectcriteriaRequest.getOFFSubjectID();
+        if (null != offSubjectId) {
+            subjectcriteria.setOffSubjectID(offSubjectId);
          }
 
-        Integer offcriterionid = subjectcriteriaRequest.getOFFCriterionID();
-        if (null != offcriterionid) {
-            subjectcriteria.setOFFCriterionID(subjectcriteriaRequest.getOFFCriterionID());
+        Integer offCriterionId = subjectcriteriaRequest.getOFFCriterionID();
+        if (null != offCriterionId) {
+            subjectcriteria.setOffCriterionId(offCriterionId);
          }
 
-        Boolean reclocked = subjectcriteriaRequest.getRecLocked();
-        if (null != reclocked) {
-               subjectcriteria.setRecLocked((subjectcriteriaRequest.getRecLocked()));
+        Boolean reClocked = subjectcriteriaRequest.getRecLocked();
+        if (null != reClocked) {
+               subjectcriteria.setRecLocked(reClocked);
         }
 
-         Integer status = subjectcriteriaRequest.getStatus();
+         Short status = subjectcriteriaRequest.getStatus();
         if (null != status) {
-            subjectcriteria.setStatus(subjectcriteriaRequest.getStatus());
+            subjectcriteria.setStatus(status);
          }
 
-        Boolean fixed0weight = subjectcriteriaRequest.getFixed0Weight();
-        if (null != fixed0weight) {
-               subjectcriteria.setFixed0Weight((subjectcriteriaRequest.getFixed0Weight()));
+        Boolean fixed0Weight = subjectcriteriaRequest.getFixed0Weight();
+        if (null != fixed0Weight) {
+               subjectcriteria.setFixed0Weight(fixed0Weight);
         }
 
         return subjectcriteria;
     }
 
 }
-

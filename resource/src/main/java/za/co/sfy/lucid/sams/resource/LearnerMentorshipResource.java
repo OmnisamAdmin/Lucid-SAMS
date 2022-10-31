@@ -36,14 +36,14 @@ public class LearnerMentorshipResource extends AbstractLucidSAMSResource impleme
 
             XMLGregorianCalendar dateStart = learnerMentorships.getDateStart();
             if (dateStart != null) {
-                preparedStatement.setDate(4, dateUtil.getSQLDate(dateStart));
+                preparedStatement.setDate(4, dateUtil.toSQLDate(dateStart));
             } else {
                 preparedStatement.setNull(4, Types.DATE);
             }
 
             XMLGregorianCalendar dateEnd = learnerMentorships.getDateEnd();
             if (dateEnd != null) {
-                preparedStatement.setDate(5, dateUtil.getSQLDate(dateEnd));
+                preparedStatement.setDate(5, dateUtil.toSQLDate(dateEnd));
             } else {
                 preparedStatement.setNull(5, Types.DATE);
             }

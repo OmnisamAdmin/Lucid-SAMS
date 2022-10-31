@@ -24,7 +24,7 @@ public class SubjectSetResource extends AbstractLucidSAMSResource implements ILu
     @Override
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
-        String sql = "INSERT INTO " + TABLE_NAME + "(Description, SubjectID, SubjectSetGrade)"
+        String sql = "INSERT INTO " + TABLE_NAME + "(Description,SubjectID,SubjectSetGrade)"
                 + "VALUES(?,?,?)";
 
         try {

@@ -1,74 +1,75 @@
 
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
 import java.sql.Date;
-
 
 
 public class SubjectCriteriaRequest implements Serializable {
 
     private static final long serialVersionUID = 6627252016141632712L;
-    
+
     private Integer subjectID;
     private Integer criterionID;
-    private Short description;
+    private String description;
     private Integer grade;
     private Integer weighting;
-    private Short subjectlevel;
-    private Integer criterionscore;
-    private Short datayear;
-    private Short subheading;
-    private Date dateadded;
-    private Short type;
-    private Long outcomes;
-    private Long activities;
-    private Long assessments;
+    private String subjectLevel;
+    private Integer criterionScore;
+    private String dataYear;
+    private String subHeading;
+    private XMLGregorianCalendar dateAdded;
+    private String type;
+    private String outcomes;
+    private String activities;
+    private String assessments;
     private Integer sectionID;
-    private Boolean useactivities;
-    private Boolean includeffl;
+    private Boolean useActivities;
+    private Boolean includeFfl;
     private Boolean includeExam;
-    private Short updated;
-    private Boolean quaterlytest;
-    private Boolean fetcommontest;
-    private Short descriptionafr;
-    private Short descriptionvern;
-    private Integer tasktype;
-    private Boolean sbatask;
-    private Integer sbaweight;
-    private Integer fixedcriterionscore;
-    private Integer fixedweight;
-    private Integer fixedsbaweight;
-    private Integer subjsplitno;
-    private Integer offsubjectID;
-    private Integer offcriterionID;
-    private Boolean reclocked;
-    private Integer status;
-    private Boolean fixed0weight;
+    private String updated;
+    private Boolean quarterlyTest;
+    private Boolean fetCommonTest;
+    private String descriptionAfr;
+    private String descriptionVern;
+    private Integer taskType;
+    private Boolean sbaTask;
+    private Double sbaWeight;
+    private Integer fixedCriterionScore;
+    private Double fixedWeight;
+    private Double fixedSbaWeight;
+    private Integer subjSplitNo;
+    private Integer offSubjectID;
+    private Integer offCriterionID;
+    private Boolean recLocked;
+    private Short status;
+    private Boolean fixed0Weight;
 
-
-
- public Integer getSubjectID() {
+    public Integer getSubjectID() {
         return this.subjectID;
     }
 
     public void setSubjectID(Integer value) {
         this.subjectID = value;
-    }  
+    }
+
     public Integer getCriterionID() {
         return this.criterionID;
     }
 
     public void setCriterionID(Integer value) {
         this.criterionID = value;
-    }  
-    public Short getDescription() {
+    }
+
+    public String getDescription() {
         return this.description;
     }
 
-    public void setDescription(Short value) {
+    public void setDescription(String value) {
         this.description = value;
     }
+
     public Integer getGrade() {
         return this.grade;
     }
@@ -81,78 +82,79 @@ public class SubjectCriteriaRequest implements Serializable {
         return this.weighting;
     }
 
-    public void setWeighting(Integer value ) {
+    public void setWeighting(Integer value) {
         this.weighting = value;
     }
 
-    public Short getSubjectLevel() {
-        return this.subjectlevel;
+    public String getSubjectLevel() {
+        return this.subjectLevel;
     }
 
-    public void setSubjectLevel(Short value) {
-        this.subjectlevel = value;
+    public void setSubjectLevel(String value) {
+        this.subjectLevel = value;
     }
 
- public Integer getCriterionScore() {
-        return this.criterionscore;
+    public Integer getCriterionScore() {
+        return this.criterionScore;
     }
 
     public void setCriterionScore(Integer value) {
-        this.criterionscore = value;
-    }  
-
-    public Short getDataYear() {
-        return this.datayear;
+        this.criterionScore = value;
     }
 
-    public void setDataYear(Short value) {
-        this.datayear = value;
+    public String getDataYear() {
+        return this.dataYear;
     }
 
-    public Short getSubHeading() {
-    return this.subheading;
+    public void setDataYear(String value) {
+        this.dataYear = value;
     }
 
-    public void setSubHeading(Short value) {
-        this.subheading = value;
-    }
-    public Date getDateAdded() {
-        return this.dateadded;
+    public String getSubHeading() {
+        return this.subHeading;
     }
 
-    public void setDateAdded(Date value) {
-        this.dateadded = value;
+    public void setSubHeading(String value) {
+        this.subHeading = value;
     }
 
-    public Short getType() {
+    public XMLGregorianCalendar getDateAdded() {
+        return this.dateAdded;
+    }
+
+    public void setDateAdded(XMLGregorianCalendar value) {
+        this.dateAdded = value;
+    }
+
+    public String getType() {
         return this.type;
     }
 
-    public void setType(Short value ) {
+    public void setType(String value) {
         this.type = value;
     }
 
-    public Long getOutcomes() {
+    public String getOutcomes() {
         return this.outcomes;
     }
 
-    public void setOutcomes(Long value) {
+    public void setOutcomes(String value) {
         this.outcomes = value;
     }
-    
-    public Long getActivities() {
-    return this.activities;
+
+    public String getActivities() {
+        return this.activities;
     }
 
-    public void setActivities(Long value) {
+    public void setActivities(String value) {
         this.activities = value;
     }
 
-    public Long getAssessments() {
-    return this.assessments;
+    public String getAssessments() {
+        return this.assessments;
     }
 
-    public void setAssessments(Long value) {
+    public void setAssessments(String value) {
         this.assessments = value;
     }
 
@@ -165,165 +167,162 @@ public class SubjectCriteriaRequest implements Serializable {
     }
 
     public Boolean getUseActivities() {
-        return this.useactivities;
+        return this.useActivities;
     }
 
-    public void setUseActivities(Boolean value ) {
-        this.useactivities = value;
+    public void setUseActivities(Boolean value) {
+        this.useActivities = value;
     }
-   
+
     public Boolean getIncludeFFL() {
-    return this.includeffl;
+        return this.includeFfl;
     }
 
-    public void setIncludeFFL(Boolean value ) {
-        this.includeffl = value;
+    public void setIncludeFFL(Boolean value) {
+        this.includeFfl = value;
     }
 
     public Boolean getIncludeExam() {
-    return this.includeExam;
+        return this.includeExam;
     }
 
-    public void setIncludeExam(Boolean value ) {
+    public void setIncludeExam(Boolean value) {
         this.includeExam = value;
     }
 
-    public Short getUpdated() {
+    public String getUpdated() {
         return this.updated;
     }
 
-    public void setUpdated(Short value) {
+    public void setUpdated(String value) {
         this.updated = value;
     }
-    
-    public Boolean getQuaterlyTest() {
-       return this.quaterlytest;
+
+    public Boolean getQuarterlyTest() {
+        return this.quarterlyTest;
     }
 
-    public void setQuaterlyTest(Boolean value ) {
-        this.quaterlytest = value;
+    public void setQuarterlyTest(Boolean value) {
+        this.quarterlyTest = value;
     }
 
     public Boolean getFETCommonTest() {
-      return this.fetcommontest;
+        return this.fetCommonTest;
     }
 
-    public void setFETCommonTest(Boolean value ) {
-        this.fetcommontest = value;
-    }
-    
-     public Short getDescriptionAFR() {
-    return this.descriptionafr;
+    public void setFETCommonTest(Boolean value) {
+        this.fetCommonTest = value;
     }
 
-    public void setDescriptionAfr(Short value) {
-        this.descriptionafr = value;
-    }
-    
-     public Short getDescriptionVern() {
-    return this.descriptionvern;
+    public String getDescriptionAFR() {
+        return this.descriptionAfr;
     }
 
-    public void setDescriptionVern(Short value) {
-        this.descriptionvern = value;
-    } 
+    public void setDescriptionAfr(String value) {
+        this.descriptionAfr = value;
+    }
+
+    public String getDescriptionVern() {
+        return this.descriptionVern;
+    }
+
+    public void setDescriptionVern(String value) {
+        this.descriptionVern = value;
+    }
 
     public Integer getTaskType() {
-        return this.tasktype;
+        return this.taskType;
     }
 
     public void setTaskType(Integer value) {
-        this.tasktype = value;
-    }  
+        this.taskType = value;
+    }
 
     public Boolean getSBATask() {
-      return this.sbatask;
+        return this.sbaTask;
     }
 
-    public void setSBATask(Boolean value ) {
-        this.sbatask = value;
+    public void setSBATask(Boolean value) {
+        this.sbaTask = value;
     }
 
-     public Integer getSBAWeight() {
-        return this.sbaweight;
+    public Double getSBAWeight() {
+        return this.sbaWeight;
     }
 
-    public void setSBAWeight(Integer value) {
-        this.sbaweight = value;
-    }  
-    
+    public void setSBAWeight(Double value) {
+        this.sbaWeight = value;
+    }
+
     public Integer getFixedCriterionScore() {
-        return this.fixedcriterionscore;
+        return this.fixedCriterionScore;
     }
 
     public void setFixeddCriterionScore(Integer value) {
-        this.fixedcriterionscore = value;
-    }  
-    
-     public Integer getFixedWeight() {
-        return this.fixedweight;
+        this.fixedCriterionScore = value;
     }
 
-    public void setFixedWeight(Integer value) {
-        this.fixedweight = value;
-    }  
-
-    public Integer getFixedSBAWeight() {
-        return this.fixedsbaweight;
+    public Double getFixedWeight() {
+        return this.fixedWeight;
     }
 
-    public void setFixedSBAWeight(Integer value) {
-        this.fixedsbaweight= value;
-    }  
+    public void setFixedWeight(Double value) {
+        this.fixedWeight = value;
+    }
+
+    public Double getFixedSBAWeight() {
+        return this.fixedSbaWeight;
+    }
+
+    public void setFixedSBAWeight(Double value) {
+        this.fixedSbaWeight = value;
+    }
 
     public Integer getSubjSplitNo() {
-        return this.subjsplitno;
+        return this.subjSplitNo;
     }
 
     public void setSubjSplitNo(Integer value) {
-        this.subjsplitno = value;
-    }  
+        this.subjSplitNo = value;
+    }
 
-     public Integer getOFFSubjectID() {
-        return this.offsubjectID;
+    public Integer getOFFSubjectID() {
+        return this.offSubjectID;
     }
 
     public void setOFFSubjectID(Integer value) {
-        this.offsubjectID = value;
-    }  
-    
+        this.offSubjectID = value;
+    }
+
     public Integer getOFFCriterionID() {
-        return this.offcriterionID;
+        return this.offCriterionID;
     }
 
     public void setOFFCriterionID(Integer value) {
-        this.offcriterionID = value;
-    }  
+        this.offCriterionID = value;
+    }
 
     public Boolean getRecLocked() {
-      return this.reclocked;
+        return this.recLocked;
     }
 
-    public void setRecLocked(Boolean value ) {
-        this.reclocked = value;
+    public void setRecLocked(Boolean value) {
+        this.recLocked = value;
     }
 
-    public Integer getStatus() {
+    public Short getStatus() {
         return this.status;
     }
 
-    public void setStatus(Integer value) {
+    public void setStatus(Short value) {
         this.status = value;
-    }  
-
-     public Boolean getFixed0Weight() {
-      return this.fixed0weight;
     }
 
-    public void setFixed0Weight(Boolean value ) {
-        this.fixed0weight = value;
+    public Boolean getFixed0Weight() {
+        return this.fixed0Weight;
     }
 
-   
+    public void setFixed0Weight(Boolean value) {
+        this.fixed0Weight = value;
+    }
 }
-

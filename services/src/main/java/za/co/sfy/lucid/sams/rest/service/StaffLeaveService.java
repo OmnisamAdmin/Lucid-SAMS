@@ -83,15 +83,15 @@ public class StaffLeaveService {
             throw new LucidSamsExecutionException("Invalid input, the 'replaced' field value can only be 'Yes' or 'No'.");
         }
 
-        Date dateStart = dateConverter.getUtilDate(staffLeave.getDateStart());
-        String stringDateStart = dateConverter.getStringDate(dateStart);
+        Date dateStart = dateConverter.toUtilDate(staffLeave.getDateStart());
+        String stringDateStart = dateConverter.toStringDate(dateStart);
         if (dateStart.compareTo(new Date()) < 0) {
             throw new LucidSamsExecutionException("Start date cannot be backdated from the current date: "
                     + stringDateStart + "");
         }
 
-        Date dateEnd = dateConverter.getUtilDate(staffLeave.getDateEnd());
-        String stringDateEnd = dateConverter.getStringDate(dateEnd);
+        Date dateEnd = dateConverter.toUtilDate(staffLeave.getDateEnd());
+        String stringDateEnd = dateConverter.toStringDate(dateEnd);
         if (dateEnd.compareTo(new Date()) < 0) {
             throw new LucidSamsExecutionException("End date cannot be backdated from the current date: "
                     + stringDateEnd + "");
@@ -103,14 +103,14 @@ public class StaffLeaveService {
         }
 
         Integer days = staffLeave.getDays();
-        Integer calculatedDays = Math.toIntExact(dateConverter.getDifferenceInDays(dateEnd, dateStart)) + 1;
+        Integer calculatedDays = Math.toIntExact(dateConverter.calculateDifferenceInDays(dateEnd, dateStart)) + 1;
         if (!calculatedDays.equals(days)) {
             throw new LucidSamsExecutionException("The submitted days value '" + days + "' is incongruent with the days " +
                     "derived from the submitted start date and end date which is '" + calculatedDays + "'");
         }
 
-        Date weekID = dateConverter.getUtilDate(staffLeave.getWeekID());
-        String stringWeekID = dateConverter.getStringDate(weekID);
+        Date weekID = dateConverter.toUtilDate(staffLeave.getWeekID());
+        String stringWeekID = dateConverter.toStringDate(weekID);
         if (!dateConverter.isTargetDay(Calendar.FRIDAY, weekID)) {
             throw new LucidSamsExecutionException("The given weekID '" + stringWeekID + "' is not a friday");
         }
@@ -119,7 +119,7 @@ public class StaffLeaveService {
             throw new LucidSamsExecutionException("The start date cannot be after the weekID: " + stringDateStart
                     + " > " + stringWeekID);
         } else if (dateStart.compareTo(weekID) < 0) {
-            Integer differenceInDays = Math.toIntExact(dateConverter.getDifferenceInDays(weekID, dateStart));
+            Integer differenceInDays = Math.toIntExact(dateConverter.calculateDifferenceInDays(weekID, dateStart));
             if (differenceInDays > MAX_DIFFERENCE_IN_DAYS) {
                 throw new LucidSamsExecutionException("The start date cannot be more than 4 days before the weekID" +
                         ", it has to be in the same week");
@@ -146,8 +146,8 @@ public class StaffLeaveService {
             try {
                 assert retrievedCalendarTerms != null;
                 if (!retrievedCalendarTerms.next()) break;
-                Date retrievedStartDate = dateConverter.getUtilDate(retrievedCalendarTerms.getDate("StartDate"));
-                Date retrievedEndDate = dateConverter.getUtilDate(retrievedCalendarTerms.getDate("EndDate"));
+                Date retrievedStartDate = dateConverter.toUtilDate(retrievedCalendarTerms.getDate("StartDate"));
+                Date retrievedEndDate = dateConverter.toUtilDate(retrievedCalendarTerms.getDate("EndDate"));
 
                 if (dateStart.compareTo(retrievedStartDate) >= 0 && dateEnd.compareTo(retrievedEndDate) <= 0) {
                     foundTermToValidInsert = Boolean.TRUE;
