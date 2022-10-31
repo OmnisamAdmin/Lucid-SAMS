@@ -19,28 +19,28 @@ public class DateUtil {
 
     private static final String DATEFORMAT = "dd/MM/yyyy";
 
-    public java.sql.Date getSQLDate(java.util.Date utilDate) {
+    public java.sql.Date toSQLDate(java.util.Date utilDate) {
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         return sqlDate;
     }
 
-    public java.util.Date getUtilDate(java.sql.Date sqlDate) {
+    public java.util.Date toUtilDate(java.sql.Date sqlDate) {
         java.util.Date utilDate = new java.util.Date(sqlDate.getTime());
         return utilDate;
     }
 
-    public java.sql.Date getSQLDate(XMLGregorianCalendar xmlGregorianCalendar) {
+    public java.sql.Date toSQLDate(XMLGregorianCalendar xmlGregorianCalendar) {
         java.util.Date utilDate = xmlGregorianCalendar.toGregorianCalendar().getTime();
-        java.sql.Date sqlDate = getSQLDate(utilDate);
+        java.sql.Date sqlDate = toSQLDate(utilDate);
         return sqlDate;
     }
 
-    public java.util.Date getUtilDate(XMLGregorianCalendar xmlGregorianCalendar) {
+    public java.util.Date toUtilDate(XMLGregorianCalendar xmlGregorianCalendar) {
         java.util.Date utilDate = xmlGregorianCalendar.toGregorianCalendar().getTime();
         return utilDate;
     }
 
-    public java.util.Date getFirstTargetDayAfterDate(java.time.DayOfWeek targetDay, java.util.Date submittedDate) {
+    public java.util.Date calculateFirstTargetDayAfterDate(java.time.DayOfWeek targetDay, java.util.Date submittedDate) {
         LocalDate date = submittedDate.toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate();
@@ -65,13 +65,13 @@ public class DateUtil {
         return Boolean.FALSE;
     }
 
-    public String getStringDate(java.util.Date date) {
+    public String toStringDate(java.util.Date date) {
         DateFormat dateFormat = new SimpleDateFormat(DATEFORMAT);
         String stringDate = dateFormat.format(date);
         return stringDate;
     }
 
-    public Long getDifferenceInDays(Date dateOne, Date dateTwo) {
+    public Long calculateDifferenceInDays(Date dateOne, Date dateTwo) {
         Long dateOneMillis = dateOne.getTime();
         Long dateTwoMillis = dateTwo.getTime();
 

@@ -34,7 +34,7 @@ public class ExtraMuralsCompEventsResource extends AbstractLucidSAMSResource imp
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, extraMuralsCompEvents.getCompID());
-            preparedStatement.setDate(2, dateUtil.getSQLDate(extraMuralsCompEvents.getEventDate()));
+            preparedStatement.setDate(2, dateUtil.toSQLDate(extraMuralsCompEvents.getEventDate()));
             preparedStatement.setString(3, extraMuralsCompEvents.getEventTimeStart());
             preparedStatement.setString(4, extraMuralsCompEvents.getEventTimeEnd());
             preparedStatement.setString(5, extraMuralsCompEvents.getEventDesc());

@@ -108,7 +108,7 @@ public class ParentInfoResource extends AbstractLucidSAMSResource implements ILu
             if (archiveDate == null) {
                 preparedStatement.setNull(48, Types.DATE);
             } else {
-                java.sql.Date convertedTSDateLastUpdate = dateUtil.getSQLDate(archiveDate);
+                java.sql.Date convertedTSDateLastUpdate = dateUtil.toSQLDate(archiveDate);
                 preparedStatement.setDate(48, convertedTSDateLastUpdate);
             }
             preparedStatement.setString(49, parentInfo.getArchiveReason());

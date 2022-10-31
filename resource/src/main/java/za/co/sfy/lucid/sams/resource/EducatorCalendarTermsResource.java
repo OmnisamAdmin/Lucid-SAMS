@@ -34,8 +34,8 @@ public class EducatorCalendarTermsResource extends AbstractLucidSAMSResource imp
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, educatorCalendarTerms.getQuater());
-            preparedStatement.setDate(2, dateUtil.getSQLDate(educatorCalendarTerms.getStartDate()));
-            preparedStatement.setDate(3, dateUtil.getSQLDate(educatorCalendarTerms.getEndDate()));
+            preparedStatement.setDate(2, dateUtil.toSQLDate(educatorCalendarTerms.getStartDate()));
+            preparedStatement.setDate(3, dateUtil.toSQLDate(educatorCalendarTerms.getEndDate()));
             preparedStatement.setString(4, educatorCalendarTerms.getCurrentYear());
             preparedStatement.setInt(5, educatorCalendarTerms.getTerm());
             return preparedStatement;

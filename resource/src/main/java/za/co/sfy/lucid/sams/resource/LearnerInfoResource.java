@@ -187,7 +187,7 @@ public class LearnerInfoResource extends AbstractLucidSAMSResource implements IL
             if (tSDateLastUpdate == null) {
                 preparedStatement.setNull(88, Types.DATE);
             } else {
-                java.sql.Date convertedTSDateLastUpdate = dateUtil.getSQLDate(tSDateLastUpdate);
+                java.sql.Date convertedTSDateLastUpdate = dateUtil.toSQLDate(tSDateLastUpdate);
                 preparedStatement.setDate(88, convertedTSDateLastUpdate);
             }
             preparedStatement.setString(89, learnerInfo.getTSLastUpdatedBy());

@@ -34,7 +34,7 @@ public class EventsResource extends AbstractLucidSAMSResource implements ILucidS
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, dateUtil.getSQLDate(events.getDate()));
+            preparedStatement.setDate(1, dateUtil.toSQLDate(events.getDate()));
             preparedStatement.setString(2, events.getStartTime());
             preparedStatement.setString(3, events.getEndTime());
             preparedStatement.setString(4, events.getDescription());

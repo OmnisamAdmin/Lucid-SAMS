@@ -34,8 +34,8 @@ public class StaffLeaveResource extends AbstractLucidSAMSResource implements ILu
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, staffLeave.getLinkId());
-            preparedStatement.setDate(2, dateUtil.getSQLDate(staffLeave.getDateStart()));
-            preparedStatement.setDate(3, dateUtil.getSQLDate(staffLeave.getDateEnd()));
+            preparedStatement.setDate(2, dateUtil.toSQLDate(staffLeave.getDateStart()));
+            preparedStatement.setDate(3, dateUtil.toSQLDate(staffLeave.getDateEnd()));
             preparedStatement.setString(4, staffLeave.getType());
             preparedStatement.setInt(5, staffLeave.getDays());
             preparedStatement.setString(6, staffLeave.getComment());
@@ -45,7 +45,7 @@ public class StaffLeaveResource extends AbstractLucidSAMSResource implements ILu
             preparedStatement.setString(10, staffLeave.getPaid());
             preparedStatement.setString(11, staffLeave.getDocumentation());
             preparedStatement.setBoolean(12, staffLeave.isLeaveDocRequired());
-            preparedStatement.setDate(13, dateUtil.getSQLDate(staffLeave.getWeekID()));
+            preparedStatement.setDate(13, dateUtil.toSQLDate(staffLeave.getWeekID()));
             preparedStatement.setString(14, staffLeave.getTmpField());
 
             return preparedStatement;

@@ -14,21 +14,21 @@ import za.co.sfy.sams.lucid.schema.SubjectSets;
 @Service
 public class SubjectSetService {
 
-    private final SubjectSetResource SubjectSetResource;
-    private final SubjectSetMapper SubjectSetMapper;
+    private final SubjectSetResource subjectSetResource;
+    private final SubjectSetMapper subjectSetMapper;
 
     @Autowired
     public SubjectSetService(final SubjectSetResource subjectsetResource, final SubjectSetMapper subjectsetMapper) {
-        this.SubjectSetMapper = subjectsetMapper;
-        this.SubjectSetResource = subjectsetResource;
+        this.subjectSetMapper = subjectsetMapper;
+        this.subjectSetResource = subjectsetResource;
     }
 
     public SubjectSetResponse updateSubjectSet(SubjectSetRequest subjectsetRequest) throws LucidSamsExecutionException {
 
 
-        SubjectSets Subjectsets = SubjectSetMapper.subjectSetRequestToSubjectSets(subjectsetRequest);
+        SubjectSets Subjectsets = subjectSetMapper.subjectSetRequestToSubjectSets(subjectsetRequest);
 
-        SubjectSetResource.update(Subjectsets, SubjectSetResource);
+        subjectSetResource.update(Subjectsets, subjectSetResource);
 
         SubjectSetResponse SubjectSetResponse = new SubjectSetResponse();
         SubjectSetResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
@@ -40,11 +40,11 @@ public class SubjectSetService {
 
     public SubjectSetResponse saveSubjectSets(SubjectSetRequest subjectsetRequest) throws LucidSamsExecutionException {
 
-        SubjectSets subjectsets = SubjectSetMapper.subjectSetRequestToSubjectSets(subjectsetRequest);
+        SubjectSets subjectsets = subjectSetMapper.subjectSetRequestToSubjectSets(subjectsetRequest);
 
-        Long id = SubjectSetResource.save(subjectsets, SubjectSetResource);
+        Long id = subjectSetResource.save(subjectsets, subjectSetResource);
 
-        subjectsets.setSubjectID(Math.toIntExact(id));
+        subjectsets.setSubjectID(id.intValue());
         SubjectSetResponse SubjectSetResponse = new SubjectSetResponse();
         SubjectSetResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
         SubjectSetResponse.setResponseStatus("Successfully saved 'SubjectsSets' table");
