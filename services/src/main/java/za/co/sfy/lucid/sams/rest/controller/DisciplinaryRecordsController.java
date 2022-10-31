@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.DisciplinaryRecordsService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DisciplinaryRecordsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DisciplinaryRecordsResponse;
+import za.co.sfy.sams.vo.DisciplinaryRecordsRequest;
+import za.co.sfy.sams.vo.DisciplinaryRecordsResponse;
 
 import javax.validation.Valid;
 

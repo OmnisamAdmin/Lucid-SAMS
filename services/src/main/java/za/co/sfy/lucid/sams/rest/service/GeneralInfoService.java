@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.GeneralInfoResource;
 import za.co.sfy.lucid.sams.rest.mapper.GeneralInfoMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.GeneralInfoResponse;
+import za.co.sfy.sams.vo.GeneralInfoRequest;
+import za.co.sfy.sams.vo.GeneralInfoResponse;
 import za.co.sfy.sams.lucid.schema.GeneralInfo;
 
 /**

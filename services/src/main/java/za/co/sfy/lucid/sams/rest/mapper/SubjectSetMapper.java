@@ -1,7 +1,7 @@
 package za.co.sfy.lucid.sams.rest.mapper;
 
 import org.springframework.stereotype.Component;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetRequest;
+import za.co.sfy.sams.vo.SubjectSetRequest;
 import za.co.sfy.sams.lucid.schema.SubjectSets;
 
 

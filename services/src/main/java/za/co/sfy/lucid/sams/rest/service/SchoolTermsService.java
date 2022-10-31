@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.SchoolTermsResource;
 import za.co.sfy.lucid.sams.rest.mapper.SchoolTermsMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SchoolTermsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SchoolTermsResponse;
+import za.co.sfy.sams.vo.SchoolTermsRequest;
+import za.co.sfy.sams.vo.SchoolTermsResponse;
 import za.co.sfy.sams.lucid.schema.SchoolTerms;
 
 /**

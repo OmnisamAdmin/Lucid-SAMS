@@ -10,8 +10,8 @@ import za.co.sfy.lucid.sams.resource.InstructionLanguagesResource;
 import za.co.sfy.lucid.sams.resource.LearnerInfoResource;
 import za.co.sfy.lucid.sams.resource.ReportLanguagesResource;
 import za.co.sfy.lucid.sams.rest.mapper.LearnerInfoMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.LearnerInfoRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.LearnerInfoResponse;
+import za.co.sfy.sams.vo.LearnerInfoRequest;
+import za.co.sfy.sams.vo.LearnerInfoResponse;
 import za.co.sfy.sams.lucid.schema.LearnerInfo;
 
 import java.sql.ResultSet;

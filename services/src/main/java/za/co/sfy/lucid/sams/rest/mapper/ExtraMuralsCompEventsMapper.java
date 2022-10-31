@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.rest.mapper;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsCompEventsRequest;
+import za.co.sfy.sams.vo.ExtraMuralsCompEventsRequest;
 import za.co.sfy.sams.lucid.schema.ExtraMuralsCompEvents;
 
 @Component

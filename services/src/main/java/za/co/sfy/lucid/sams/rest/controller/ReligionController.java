@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.ReligionService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ReligionRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ReligionResponse;
+import za.co.sfy.sams.vo.ReligionRequest;
+import za.co.sfy.sams.vo.ReligionResponse;
 
 import javax.validation.Valid;
 

@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.ExtraMuralsHousesResource;
 import za.co.sfy.lucid.sams.rest.mapper.ExtraMuralsHousesMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsHousesRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsHousesResponse;
+import za.co.sfy.sams.vo.ExtraMuralsHousesRequest;
+import za.co.sfy.sams.vo.ExtraMuralsHousesResponse;
 import za.co.sfy.sams.lucid.schema.ExtraMuralsHouses;
 
 @Service

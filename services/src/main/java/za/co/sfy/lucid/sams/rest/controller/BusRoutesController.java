@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.BusRoutesService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.BusRoutesRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.BusRoutesResponse;
+import za.co.sfy.sams.vo.BusRoutesRequest;
+import za.co.sfy.sams.vo.BusRoutesResponse;
 
 import javax.validation.Valid;
 

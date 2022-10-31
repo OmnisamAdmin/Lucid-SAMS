@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.SubjectSetResource;
 import za.co.sfy.lucid.sams.rest.mapper.SubjectSetMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetResponse;
+import za.co.sfy.sams.vo.SubjectSetRequest;
+import za.co.sfy.sams.vo.SubjectSetResponse;
 import za.co.sfy.sams.lucid.schema.SubjectSets;
 
 

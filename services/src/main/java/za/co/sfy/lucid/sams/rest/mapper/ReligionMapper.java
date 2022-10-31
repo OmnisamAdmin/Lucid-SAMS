@@ -1,7 +1,7 @@
 package za.co.sfy.lucid.sams.rest.mapper;
 
 import org.springframework.stereotype.Component;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ReligionRequest;
+import za.co.sfy.sams.vo.ReligionRequest;
 import za.co.sfy.sams.lucid.schema.Religion;
 
 @Component

@@ -9,8 +9,8 @@ import za.co.sfy.lucid.sams.resource.StaffCalendarTermsResource;
 import za.co.sfy.lucid.sams.resource.StaffLeaveResource;
 import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.lucid.sams.rest.mapper.StaffLeaveMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffLeaveRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffLeaveResponse;
+import za.co.sfy.sams.vo.StaffLeaveRequest;
+import za.co.sfy.sams.vo.StaffLeaveResponse;
 import za.co.sfy.sams.lucid.schema.StaffLeave;
 
 import java.sql.ResultSet;

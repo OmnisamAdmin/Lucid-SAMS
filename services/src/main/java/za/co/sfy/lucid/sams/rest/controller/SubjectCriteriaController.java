@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.SubjectCriteriaService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectCriteriaRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectCriteriaResponse;
+import za.co.sfy.sams.vo.SubjectCriteriaRequest;
+import za.co.sfy.sams.vo.SubjectCriteriaResponse;
 
 import javax.validation.Valid;
 

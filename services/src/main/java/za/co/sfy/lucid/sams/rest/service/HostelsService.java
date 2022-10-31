@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.HostelsResource;
 import za.co.sfy.lucid.sams.rest.mapper.HostelsMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.HostelsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.HostelsResponse;
+import za.co.sfy.sams.vo.HostelsRequest;
+import za.co.sfy.sams.vo.HostelsResponse;
 import za.co.sfy.sams.lucid.schema.Hostels;
 
 @Service

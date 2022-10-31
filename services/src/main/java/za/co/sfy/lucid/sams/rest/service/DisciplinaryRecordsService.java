@@ -9,15 +9,13 @@ import za.co.sfy.lucid.sams.resource.DisciplinaryRecordsResource;
 import za.co.sfy.lucid.sams.resource.EducatorsResource;
 import za.co.sfy.lucid.sams.resource.LearnerInfoResource;
 import za.co.sfy.lucid.sams.rest.mapper.DisciplinaryRecordsMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DisciplinaryRecordsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DisciplinaryRecordsResponse;
+import za.co.sfy.sams.vo.DisciplinaryRecordsRequest;
+import za.co.sfy.sams.vo.DisciplinaryRecordsResponse;
 import za.co.sfy.sams.lucid.schema.DisciplinaryRecords;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author muzim

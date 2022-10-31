@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.HostelsService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.HostelsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.HostelsResponse;
+import za.co.sfy.sams.vo.HostelsRequest;
+import za.co.sfy.sams.vo.HostelsResponse;
 
 import javax.validation.Valid;
 

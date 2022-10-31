@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.StaffCalendarTermsResource;
 import za.co.sfy.lucid.sams.rest.mapper.StaffCalendarTermsMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffCalendarTermsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffCalendarTermsResponse;
+import za.co.sfy.sams.vo.StaffCalendarTermsRequest;
+import za.co.sfy.sams.vo.StaffCalendarTermsResponse;
 import za.co.sfy.sams.lucid.schema.StaffCalendarTerms;
 
 /**
