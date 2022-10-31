@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.StaffLeaveService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffLeaveRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.StaffLeaveResponse;
+import za.co.sfy.sams.vo.StaffLeaveRequest;
+import za.co.sfy.sams.vo.StaffLeaveResponse;
 
 import javax.validation.Valid;
 

@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.BusRoutesResource;
 import za.co.sfy.lucid.sams.rest.mapper.BusRoutesMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.BusRoutesRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.BusRoutesResponse;
+import za.co.sfy.sams.vo.BusRoutesRequest;
+import za.co.sfy.sams.vo.BusRoutesResponse;
 import za.co.sfy.sams.lucid.schema.BusRoutes;
 
 @Service

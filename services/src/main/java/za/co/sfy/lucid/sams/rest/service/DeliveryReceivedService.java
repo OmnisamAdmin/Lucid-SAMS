@@ -9,8 +9,8 @@ import za.co.sfy.lucid.sams.resource.LstFoodGroupResource;
 import za.co.sfy.lucid.sams.resource.LstProductsResource;
 import za.co.sfy.lucid.sams.resource.SupplierResource;
 import za.co.sfy.lucid.sams.rest.mapper.DeliveryReceivedMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DeliveryReceivedRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DeliveryReceivedResponse;
+import za.co.sfy.sams.vo.DeliveryReceivedRequest;
+import za.co.sfy.sams.vo.DeliveryReceivedResponse;
 import za.co.sfy.sams.lucid.schema.DeliveryRecieved;
 
 import java.sql.ResultSet;

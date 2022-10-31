@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.QuaterlyRecievedTransferService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.QuaterlyRecievedTransferRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.QuaterlyRecievedTransferResponse;
+import za.co.sfy.sams.vo.QuaterlyRecievedTransferRequest;
+import za.co.sfy.sams.vo.QuaterlyRecievedTransferResponse;
 
 import javax.validation.Valid;
 

@@ -9,8 +9,8 @@ import za.co.sfy.lucid.sams.resource.LearnerMentorsResource;
 import za.co.sfy.lucid.sams.resource.LearnerMentorshipCatsResource;
 import za.co.sfy.lucid.sams.resource.LearnerMentorshipResource;
 import za.co.sfy.lucid.sams.rest.mapper.LearnerMentorshipsMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.LearnerMentorshipsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.LearnerMentorshipsResponse;
+import za.co.sfy.sams.vo.LearnerMentorshipsRequest;
+import za.co.sfy.sams.vo.LearnerMentorshipsResponse;
 import za.co.sfy.sams.lucid.schema.LearnerMentorships;
 
 import java.sql.ResultSet;

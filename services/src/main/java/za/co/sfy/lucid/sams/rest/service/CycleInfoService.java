@@ -8,8 +8,8 @@ import za.co.sfy.lucid.sams.resource.CycleInfoResource;
 import za.co.sfy.lucid.sams.resource.GeneralInfoResource;
 import za.co.sfy.lucid.sams.resource.SchoolGradesResource;
 import za.co.sfy.lucid.sams.rest.mapper.CycleInfoMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.CycleInfoRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.CycleInfoResponse;
+import za.co.sfy.sams.vo.CycleInfoRequest;
+import za.co.sfy.sams.vo.CycleInfoResponse;
 import za.co.sfy.sams.lucid.schema.CycleInfo;
 import za.co.sfy.sams.lucid.schema.SchoolGrades;
 

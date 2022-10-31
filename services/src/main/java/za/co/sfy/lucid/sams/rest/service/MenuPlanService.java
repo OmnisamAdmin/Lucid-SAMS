@@ -7,8 +7,8 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.LstSchoolLevelResource;
 import za.co.sfy.lucid.sams.resource.MenuPlanResource;
 import za.co.sfy.lucid.sams.rest.mapper.MenuPlanMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.MenuPlanRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.MenuPlanResponse;
+import za.co.sfy.sams.vo.MenuPlanRequest;
+import za.co.sfy.sams.vo.MenuPlanResponse;
 import za.co.sfy.sams.lucid.schema.MenuPlan;
 
 import java.sql.ResultSet;

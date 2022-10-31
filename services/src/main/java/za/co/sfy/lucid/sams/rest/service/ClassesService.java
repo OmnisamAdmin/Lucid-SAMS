@@ -7,8 +7,8 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.ClassesResource;
 import za.co.sfy.lucid.sams.resource.CycleInfoResource;
 import za.co.sfy.lucid.sams.rest.mapper.ClassesMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ClassesRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ClassesResponse;
+import za.co.sfy.sams.vo.ClassesRequest;
+import za.co.sfy.sams.vo.ClassesResponse;
 import za.co.sfy.sams.lucid.schema.Classes;
 
 import java.sql.ResultSet;

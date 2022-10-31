@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.TotalUsedIngredientsService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.TotalUsedIngredientsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.TotalUsedIngredientsResponse;
+import za.co.sfy.sams.vo.TotalUsedIngredientsRequest;
+import za.co.sfy.sams.vo.TotalUsedIngredientsResponse;
 
 import javax.validation.Valid;
 

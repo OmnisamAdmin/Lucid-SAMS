@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.SupplierResource;
 import za.co.sfy.lucid.sams.rest.mapper.SupplierMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SupplierRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SupplierResponse;
+import za.co.sfy.sams.vo.SupplierRequest;
+import za.co.sfy.sams.vo.SupplierResponse;
 import za.co.sfy.sams.lucid.schema.Supplier;
 
 @Service

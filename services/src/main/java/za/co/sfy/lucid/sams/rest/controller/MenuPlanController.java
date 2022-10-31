@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.MenuPlanService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.MenuPlanRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.MenuPlanResponse;
+import za.co.sfy.sams.vo.MenuPlanRequest;
+import za.co.sfy.sams.vo.MenuPlanResponse;
 
 import javax.validation.Valid;
 

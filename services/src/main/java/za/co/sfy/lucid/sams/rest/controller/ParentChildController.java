@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.ParentChildService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ParentChildRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ParentChildResponse;
+import za.co.sfy.sams.vo.ParentChildRequest;
+import za.co.sfy.sams.vo.ParentChildResponse;
 
 import javax.validation.Valid;
 

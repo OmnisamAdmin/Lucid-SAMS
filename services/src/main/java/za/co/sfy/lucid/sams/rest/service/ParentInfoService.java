@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.ParentInfoResource;
 import za.co.sfy.lucid.sams.rest.mapper.ParentInfoMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ParentInfoRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ParentInfoResponse;
+import za.co.sfy.sams.vo.ParentInfoRequest;
+import za.co.sfy.sams.vo.ParentInfoResponse;
 import za.co.sfy.sams.lucid.schema.ParentInfo;
 
 @Service

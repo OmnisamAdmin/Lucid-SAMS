@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.DetentionNotificationSettingsService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DetentionNotificationSettingsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DetentionNotificationSettingsResponse;
+import za.co.sfy.sams.vo.DetentionNotificationSettingsRequest;
+import za.co.sfy.sams.vo.DetentionNotificationSettingsResponse;
 
 import javax.validation.Valid;
 

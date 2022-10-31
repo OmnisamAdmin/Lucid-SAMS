@@ -17,8 +17,8 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import javax.validation.Valid;
 
 import za.co.sfy.lucid.sams.rest.service.SubjectSetService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectSetResponse;
+import za.co.sfy.sams.vo.SubjectSetRequest;
+import za.co.sfy.sams.vo.SubjectSetResponse;
 
 
 /**

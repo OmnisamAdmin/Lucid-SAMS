@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.FeederSchoolsResource;
 import za.co.sfy.lucid.sams.rest.mapper.FeederSchoolsMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.FeederSchoolsResponse;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.FeederSchoolsRequest;
+import za.co.sfy.sams.vo.FeederSchoolsResponse;
+import za.co.sfy.sams.vo.FeederSchoolsRequest;
 import za.co.sfy.sams.lucid.schema.FeederSchools;
 
 @Service

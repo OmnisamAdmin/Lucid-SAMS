@@ -2,7 +2,7 @@ package za.co.sfy.lucid.sams.rest.mapper;
 
 import org.springframework.stereotype.Component;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.EducatorsRequest;
+import za.co.sfy.sams.vo.EducatorsRequest;
 import za.co.sfy.sams.lucid.schema.Educators;
 
 import javax.xml.datatype.XMLGregorianCalendar;

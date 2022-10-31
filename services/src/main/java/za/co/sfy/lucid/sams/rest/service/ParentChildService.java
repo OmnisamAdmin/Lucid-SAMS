@@ -8,8 +8,8 @@ import za.co.sfy.lucid.sams.resource.LearnerInfoResource;
 import za.co.sfy.lucid.sams.resource.ParentChildResource;
 import za.co.sfy.lucid.sams.resource.ParentInfoResource;
 import za.co.sfy.lucid.sams.rest.mapper.ParentChildMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ParentChildRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ParentChildResponse;
+import za.co.sfy.sams.vo.ParentChildRequest;
+import za.co.sfy.sams.vo.ParentChildResponse;
 import za.co.sfy.sams.lucid.schema.ParentChild;
 
 import java.sql.ResultSet;

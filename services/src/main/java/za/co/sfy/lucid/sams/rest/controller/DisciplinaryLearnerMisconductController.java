@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.DisciplinaryLearnerMisconductService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DisciplinaryLearnerMisconductRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.DisciplinaryLearnerMisconductResponse;
+import za.co.sfy.sams.vo.DisciplinaryLearnerMisconductRequest;
+import za.co.sfy.sams.vo.DisciplinaryLearnerMisconductResponse;
 
 /**
  * @author muzim

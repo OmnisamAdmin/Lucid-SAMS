@@ -6,8 +6,8 @@ import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.QuaterlyRecievedTransferResource;
 import za.co.sfy.lucid.sams.rest.mapper.QuaterlyRecievedTransferMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.QuaterlyRecievedTransferRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.QuaterlyRecievedTransferResponse;
+import za.co.sfy.sams.vo.QuaterlyRecievedTransferRequest;
+import za.co.sfy.sams.vo.QuaterlyRecievedTransferResponse;
 import za.co.sfy.sams.lucid.schema.QuaterlyRecievedTransfer;
 
 import java.sql.ResultSet;

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.SchoolTermsService;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SchoolTermsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SchoolTermsResponse;
+import za.co.sfy.sams.vo.SchoolTermsRequest;
+import za.co.sfy.sams.vo.SchoolTermsResponse;
 
 import javax.validation.Valid;
 

@@ -1,8 +1,7 @@
 package za.co.sfy.lucid.sams.rest.mapper;
 
-import java.sql.Date;
 import org.springframework.stereotype.Component;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.SubjectCriteriaRequest;
+import za.co.sfy.sams.vo.SubjectCriteriaRequest;
 import za.co.sfy.sams.lucid.schema.SubjectCriteria;
 
 import javax.xml.datatype.XMLGregorianCalendar;

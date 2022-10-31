@@ -7,8 +7,8 @@ import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.ExtraMuralsResource;
 import za.co.sfy.lucid.sams.resource.ExtraMuralsTypesResource;
 import za.co.sfy.lucid.sams.rest.mapper.ExtraMuralsMapper;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsRequest;
-import za.co.sfy.lucid.sams.rest.vo.data.writer.ExtraMuralsResponse;
+import za.co.sfy.sams.vo.ExtraMuralsRequest;
+import za.co.sfy.sams.vo.ExtraMuralsResponse;
 import za.co.sfy.sams.lucid.schema.ExtraMurals;
 
 import java.sql.ResultSet;
