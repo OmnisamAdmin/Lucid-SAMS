@@ -26,16 +26,16 @@ import java.util.List;
 @Service
 public class StaffLeaveService {
 
+    private static final String EDUCATOR = "Educator";
+    private static final String STAFF = "Staff";
+    private static final Integer MAX_DIFFERENCE_IN_DAYS = 4;
+    private static final List<String> personnelCategories = Arrays.asList(EDUCATOR, STAFF);
     private final StaffLeaveMapper staffLeaveMapper;
     private final StaffLeaveResource staffLeaveResource;
     private final EducatorsResource educatorsResource;
     private final StaffCalendarTermsResource staffCalendarTermsResource;
     private final EducatorCalendarTermsResource educatorCalendarTermsResource;
     private final DateUtil dateConverter = new DateUtil();
-    private static final String EDUCATOR = "Educator";
-    private static final String STAFF = "Staff";
-    private static final Integer MAX_DIFFERENCE_IN_DAYS = 4;
-    private static final List<String> personnelCategories = Arrays.asList(EDUCATOR, STAFF);
 
     public StaffLeaveService(final StaffLeaveMapper staffLeaveMapper, final StaffLeaveResource staffLeaveResource
             , final EducatorsResource educatorsResource, final StaffCalendarTermsResource staffCalendarTermsResource
@@ -85,14 +85,14 @@ public class StaffLeaveService {
 
         Date dateStart = dateConverter.toUtilDate(staffLeave.getDateStart());
         String stringDateStart = dateConverter.toStringDate(dateStart);
-        if (dateStart.compareTo(new Date()) < 0) {
+        if (new Date().compareTo(dateStart) < 0) {
             throw new LucidSamsExecutionException("Start date cannot be backdated from the current date: "
                     + stringDateStart + "");
         }
 
         Date dateEnd = dateConverter.toUtilDate(staffLeave.getDateEnd());
         String stringDateEnd = dateConverter.toStringDate(dateEnd);
-        if (dateEnd.compareTo(new Date()) < 0) {
+        if (new Date().compareTo(dateEnd) < 0) {
             throw new LucidSamsExecutionException("End date cannot be backdated from the current date: "
                     + stringDateEnd + "");
         }

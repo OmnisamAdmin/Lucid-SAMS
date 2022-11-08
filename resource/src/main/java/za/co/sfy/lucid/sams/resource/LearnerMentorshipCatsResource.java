@@ -12,7 +12,7 @@ import java.sql.SQLException;
 @Component
 public class LearnerMentorshipCatsResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
-    private final String TABLE_NAME = "LearnerMentorshipsCats";
+    private final String TABLE_NAME = "LearnerMentorshipCats";
 
     public LearnerMentorshipCatsResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
         super(edusolStrucDatabaseConnectionManager);
@@ -43,12 +43,13 @@ public class LearnerMentorshipCatsResource extends AbstractLucidSAMSResource imp
     }
 
     public ResultSet retrieveLearnerMentorshipCatsByID(Long catID) throws LucidSamsExecutionException {
-        String sql = "SELECT * FROM " + TABLE_NAME + " Where CatID = ?";
+        String sql = "SELECT * FROM " + TABLE_NAME + " Where CatID =?";
         Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
+        String catIDS = catID.toString();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, Math.toIntExact(catID));
+            preparedStatement.setInt(1, Integer.valueOf(catIDS));
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet;
 

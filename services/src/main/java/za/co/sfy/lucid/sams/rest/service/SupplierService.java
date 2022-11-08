@@ -26,7 +26,7 @@ public class SupplierService {
 
         Supplier supplier = supplierMapper.supplierRequestToSupplier(supplierRequest);
 
-        Long generatedKey = supplierResource.save(supplierRequest, supplierResource);
+        Long generatedKey = supplierResource.save(supplier, supplierResource);
         supplier.setId(Math.toIntExact(generatedKey));
 
         SupplierResponse supplierResponse = new SupplierResponse();

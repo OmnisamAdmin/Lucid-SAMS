@@ -22,7 +22,7 @@ public class StoreQuantiesResource extends AbstractLucidSAMSResource implements 
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         StoreQuanties storeQuanties = (StoreQuanties) object;
-        String sql = "INSERT INTO " + TABLE_NAME + "(ProductName,Quantity,DataYear,DateStocktaking) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO " + TABLE_NAME + "(ProductName,Quantity,Data_Year,Date_Stocktaking) VALUES(?,?,?,?)";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

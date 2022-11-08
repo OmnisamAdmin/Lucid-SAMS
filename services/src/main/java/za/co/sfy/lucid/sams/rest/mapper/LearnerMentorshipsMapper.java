@@ -28,7 +28,7 @@ public class LearnerMentorshipsMapper {
         learnerMentorships.setDateStart(sharedMapper.dateToXMLGregorianCalendar(learnerMentorshipsRequest.getDateStart()));
 
         String dateEnd = learnerMentorshipsRequest.getDateEnd();
-        if (dateEnd != null | !dateEnd.isEmpty()) {
+        if (dateEnd != null && !dateEnd.isEmpty()) {
             learnerMentorships.setDateEnd(sharedMapper.dateToXMLGregorianCalendar(dateEnd));
         }
 
