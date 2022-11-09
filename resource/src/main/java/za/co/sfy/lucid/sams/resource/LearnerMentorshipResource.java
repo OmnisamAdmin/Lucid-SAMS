@@ -16,7 +16,7 @@ import java.sql.Types;
 public class LearnerMentorshipResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
     private final DateUtil dateUtil = new DateUtil();
-    private final String TABLE_NAME = "LearnerMentorship";
+    private final String TABLE_NAME = "LearnerMentorships";
 
     public LearnerMentorshipResource(EdusolStrucDatabaseConnectionManager edusolStrucDatabaseConnectionManager) throws LucidSamsExecutionException {
         super(edusolStrucDatabaseConnectionManager);

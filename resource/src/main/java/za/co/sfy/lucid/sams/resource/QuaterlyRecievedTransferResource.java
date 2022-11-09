@@ -13,7 +13,7 @@ import java.sql.SQLException;
 @Component
 public class QuaterlyRecievedTransferResource extends AbstractLucidSAMSResource implements ILucidSAMSResource {
 
-    private final String TABLE_NAME = "QuarterlyRecievedTransfer";
+    private final String TABLE_NAME = "QuaterlyRecievedTransfer";
 
     public QuaterlyRecievedTransferResource(NSNPDatabaseConnectionManager nsnpDatabaseConnectionManager) throws LucidSamsExecutionException {
         super(nsnpDatabaseConnectionManager);
@@ -23,7 +23,7 @@ public class QuaterlyRecievedTransferResource extends AbstractLucidSAMSResource 
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         QuaterlyRecievedTransfer quaterlyRecievedTransfer = (QuaterlyRecievedTransfer) object;
-        String sql = "INSERT INTO " + TABLE_NAME + "(Amount,Data_Year,Quarter,Date_Recieved) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO " + TABLE_NAME + "(Amount,Data_Year,Quarter,Date_Recieved) " + "VALUES (?,?,?,?)";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class QuaterlyRecievedTransferResource extends AbstractLucidSAMSResource 
 
     public ResultSet retrieveQuaterlyRecievedTransferByQuarter(String quarter) throws LucidSamsExecutionException {
 
-        String sql = "SELECT * FROM " + TABLE_NAME + " Where Qaurter = ?";
+        String sql = "SELECT * FROM " + TABLE_NAME + " Where Quarter = ?";
         Connection connection = getDatabaseConnectionManager().retrieveDatabaseConnection();
 
         try {

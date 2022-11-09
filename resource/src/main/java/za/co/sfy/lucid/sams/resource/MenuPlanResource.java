@@ -25,7 +25,7 @@ public class MenuPlanResource extends AbstractLucidSAMSResource implements ILuci
     public PreparedStatement save(Connection connection, Object object) throws LucidSamsExecutionException {
 
         MenuPlan menuPlan = (MenuPlan) object;
-        String sql = "INSERT INTO " + TABLE_NAME + "(MealType,Ingredients,DataYear,SchoolLevel,MenuName,FeedingDay) " +
+        String sql = "INSERT INTO " + TABLE_NAME + "(Meal_type,Ingredients,Data_Year,SchoolLevel,Menu_Name,Feeding_Day) " +
                 "VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

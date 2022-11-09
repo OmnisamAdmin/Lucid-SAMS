@@ -18,7 +18,9 @@ public class DisciplinaryRecordsMapper {
         DisciplinaryRecords disciplinaryRecords = new DisciplinaryRecords();
 
         Integer id = disciplinaryRecordsRequest.getId();
-        disciplinaryRecords.setId(id);
+        if (null != id) {
+            disciplinaryRecords.setId(id);
+        }
 
         Integer learnerid = disciplinaryRecordsRequest.getLearnerid();
         disciplinaryRecords.setLearnerid(learnerid);
