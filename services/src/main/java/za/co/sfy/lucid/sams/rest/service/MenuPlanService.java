@@ -2,11 +2,11 @@ package za.co.sfy.lucid.sams.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.LstSchoolLevelResource;
 import za.co.sfy.lucid.sams.resource.MenuPlanResource;
 import za.co.sfy.lucid.sams.rest.mapper.MenuPlanMapper;
+import za.co.sfy.sams.response.ServiceStatus;
 import za.co.sfy.sams.vo.MenuPlanRequest;
 import za.co.sfy.sams.vo.MenuPlanResponse;
 import za.co.sfy.sams.lucid.schema.MenuPlan;

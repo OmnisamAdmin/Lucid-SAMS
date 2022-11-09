@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.StaffLeaveService;
+import za.co.sfy.sams.response.ServiceStatus;
 import za.co.sfy.sams.vo.StaffLeaveRequest;
 import za.co.sfy.sams.vo.StaffLeaveResponse;
 

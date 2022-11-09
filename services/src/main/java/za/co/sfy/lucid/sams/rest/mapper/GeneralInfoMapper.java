@@ -304,15 +304,30 @@ public class GeneralInfoMapper {
 
         generalInfo.setMaintainProperty(generalInfoRequest.getMaintainProperty());
 
-        generalInfo.setExtraMural(generalInfoRequest.getExtraMural());
+        Boolean extraMural = generalInfoRequest.getExtraMural();
+        if (null != extraMural) {
+            generalInfo.setExtraMural(extraMural);
+        } else {
+            generalInfo.setExtraMural(false);
+        }
 
         generalInfo.setTextbooks(generalInfoRequest.getTextbooks());
 
         generalInfo.setServices(generalInfoRequest.getServices());
 
-        generalInfo.setAbet(generalInfoRequest.getAbet());
+        Boolean abet = generalInfoRequest.getAbet();
+        if (null == abet) {
+            generalInfo.setAbet(false);
+        } else {
+            generalInfo.setAbet(abet);
+        }
 
-        generalInfo.setOtherFunctions(generalInfoRequest.getOtherFunctions());
+        Boolean otherFunctions = generalInfoRequest.getOtherFunctions();
+        if (null == otherFunctions) {
+        generalInfo.setOtherFunctions(false);
+        } else {
+            generalInfo.setOtherFunctions(otherFunctions);
+        }
 
         String censusArea = generalInfoRequest.getCensusArea();
         if (null != censusArea) {
@@ -467,7 +482,12 @@ public class GeneralInfoMapper {
             generalInfo.setTEmisCode(tEmisCode);
         }
 
-        generalInfo.setUseMarksSecurity(generalInfoRequest.getUseMarksSecurity());
+        Boolean useMarksSecurity = generalInfoRequest.getUseMarksSecurity();
+        if (null == useMarksSecurity) {
+            generalInfo.setUseMarksSecurity(false);
+        } else {
+            generalInfo.setUseMarksSecurity(useMarksSecurity);
+        }
 
         Short psnp = generalInfoRequest.getPsnp();
         if (null != psnp) {
@@ -496,15 +516,17 @@ public class GeneralInfoMapper {
         }
 
         String tsDateLastUpdateString = generalInfoRequest.getTsDateLastUpdate();
-        if (!tsDateLastUpdateString.isEmpty()) {
+
+        if (null == tsDateLastUpdateString) {
+            generalInfo.setTSDateLastUpdate(null);
+        }
+        else if (!tsDateLastUpdateString.isEmpty()) {
             XMLGregorianCalendar tsDateLastUpdate = sharedMapper.dateToXMLGregorianCalendar(tsDateLastUpdateString);
             generalInfo.setTSDateLastUpdate(tsDateLastUpdate);
-        } else {
-            generalInfo.setTSDateLastUpdate(null);
         }
 
         String lastDBCompactString = generalInfoRequest.getLastDBCompact();
-        if (!lastDBCompactString.isEmpty()) {
+        if (null != lastDBCompactString && !lastDBCompactString.isEmpty()) {
             XMLGregorianCalendar lastDBCompact = sharedMapper.dateToXMLGregorianCalendar(lastDBCompactString);
             generalInfo.setLastDBCompact(lastDBCompact);
         } else {
@@ -512,7 +534,7 @@ public class GeneralInfoMapper {
         }
 
         String iqmsLastExpDateString = generalInfoRequest.getIqmsLastExpDate();
-        if (!iqmsLastExpDateString.isEmpty()) {
+        if (null != iqmsLastExpDateString && !iqmsLastExpDateString.isEmpty()) {
             XMLGregorianCalendar iqmsLastExpDate = sharedMapper.dateToXMLGregorianCalendar(iqmsLastExpDateString);
             generalInfo.setIQMSLastExpDate(iqmsLastExpDate);
         } else {
@@ -520,7 +542,7 @@ public class GeneralInfoMapper {
         }
 
         String iqmsLastImpDateString = generalInfoRequest.getIqmsLastImpDate();
-        if (!iqmsLastImpDateString.isEmpty()) {
+        if (null != iqmsLastImpDateString && !iqmsLastImpDateString.isEmpty()) {
             XMLGregorianCalendar iqmsLastImpDate = sharedMapper.dateToXMLGregorianCalendar(iqmsLastImpDateString);
             generalInfo.setIQMSLastImpDate(iqmsLastImpDate);
         } else {
