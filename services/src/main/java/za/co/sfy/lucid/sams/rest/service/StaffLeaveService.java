@@ -1,7 +1,6 @@
 package za.co.sfy.lucid.sams.rest.service;
 
 import org.springframework.stereotype.Service;
-import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.EducatorCalendarTermsResource;
 import za.co.sfy.lucid.sams.resource.EducatorsResource;
@@ -9,6 +8,7 @@ import za.co.sfy.lucid.sams.resource.StaffCalendarTermsResource;
 import za.co.sfy.lucid.sams.resource.StaffLeaveResource;
 import za.co.sfy.lucid.sams.resource.util.DateUtil;
 import za.co.sfy.lucid.sams.rest.mapper.StaffLeaveMapper;
+import za.co.sfy.sams.response.ServiceStatus;
 import za.co.sfy.sams.vo.StaffLeaveRequest;
 import za.co.sfy.sams.vo.StaffLeaveResponse;
 import za.co.sfy.sams.lucid.schema.StaffLeave;

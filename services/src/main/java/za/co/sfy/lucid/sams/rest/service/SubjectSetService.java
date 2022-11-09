@@ -2,10 +2,10 @@ package za.co.sfy.lucid.sams.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.SubjectSetResource;
 import za.co.sfy.lucid.sams.rest.mapper.SubjectSetMapper;
+import za.co.sfy.sams.response.ServiceStatus;
 import za.co.sfy.sams.vo.SubjectSetRequest;
 import za.co.sfy.sams.vo.SubjectSetResponse;
 import za.co.sfy.sams.lucid.schema.SubjectSets;
@@ -30,7 +30,8 @@ public class SubjectSetService {
 
         subjectSetResource.update(Subjectsets, subjectSetResource);
 
-        SubjectSetResponse SubjectSetResponse = new SubjectSetResponse();
+        SubjectSetResponse SubjectSetResponse;
+        SubjectSetResponse = new SubjectSetResponse();
         SubjectSetResponse.setResponseMessage(ServiceStatus.SUCCESS.value());
         SubjectSetResponse.setResponseStatus("Successfully updated 'Subjects' table");
         SubjectSetResponse.setSubjectSets(Subjectsets);

@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 
 import javax.validation.Valid;
 
 import za.co.sfy.lucid.sams.rest.service.SubjectSetService;
+import za.co.sfy.sams.response.ServiceStatus;
 import za.co.sfy.sams.vo.SubjectSetRequest;
 import za.co.sfy.sams.vo.SubjectSetResponse;
 

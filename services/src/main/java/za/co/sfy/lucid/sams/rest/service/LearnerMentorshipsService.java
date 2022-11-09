@@ -2,13 +2,13 @@ package za.co.sfy.lucid.sams.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.co.sfy.lucid.sams.domain.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.LearnerInfoResource;
 import za.co.sfy.lucid.sams.resource.LearnerMentorsResource;
 import za.co.sfy.lucid.sams.resource.LearnerMentorshipCatsResource;
 import za.co.sfy.lucid.sams.resource.LearnerMentorshipResource;
 import za.co.sfy.lucid.sams.rest.mapper.LearnerMentorshipsMapper;
+import za.co.sfy.sams.response.ServiceStatus;
 import za.co.sfy.sams.vo.LearnerMentorshipsRequest;
 import za.co.sfy.sams.vo.LearnerMentorshipsResponse;
 import za.co.sfy.sams.lucid.schema.LearnerMentorships;
