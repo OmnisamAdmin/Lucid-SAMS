@@ -26,7 +26,7 @@ public class LearningBarriersResource extends AbstractLucidSAMSResource implemen
         String sql = "INSERT INTO " + TABLE_NAME + "(Date,Learnerid,Comment,Barriercode,ActionCode) " + "VALUES (?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, dateUtil.getSQLDate(learningBarriers.getDate()));
+            preparedStatement.setDate(1, dateUtil.toSQLDate(learningBarriers.getDate()));
             preparedStatement.setInt(2, learningBarriers.getLearnerid());
             preparedStatement.setString(3, learningBarriers.getComment());
             preparedStatement.setInt(4, learningBarriers.getBarriercode());

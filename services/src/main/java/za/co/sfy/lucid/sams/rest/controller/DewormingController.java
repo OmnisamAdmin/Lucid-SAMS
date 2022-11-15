@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import za.co.sfy.lucid.sams.domain.ServiceStatus;
+
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.rest.service.DewormingService;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.DewormingRequest;
 import za.co.sfy.lucid.sams.rest.vo.data.writer.DewormingResponse;
+import za.co.sfy.sams.response.ServiceStatus;
 
 import javax.validation.Valid;
 
