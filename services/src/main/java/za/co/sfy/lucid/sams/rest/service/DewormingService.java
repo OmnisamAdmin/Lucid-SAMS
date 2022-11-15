@@ -1,7 +1,7 @@
 package za.co.sfy.lucid.sams.rest.service;
 
 import org.springframework.stereotype.Component;
-import za.co.sfy.lucid.sams.domain.ServiceStatus;
+import za.co.sfy.sams.response.ServiceStatus;
 import za.co.sfy.lucid.sams.domain.exception.LucidSamsExecutionException;
 import za.co.sfy.lucid.sams.resource.DewormingResource;
 import za.co.sfy.lucid.sams.rest.mapper.DewormingMapper;

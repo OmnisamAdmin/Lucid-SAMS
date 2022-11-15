@@ -1,7 +1,8 @@
 package za.co.sfy.lucid.sams.rest.vo.data.writer;
 
-import za.co.sfy.lucid.sams.rest.vo.ApiResponse;
+
 import za.co.sfy.sams.lucid.schema.Deworming;
+import za.co.sfy.sams.response.ApiResponse;
 
 public class DewormingResponse extends ApiResponse {
 
